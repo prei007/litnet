@@ -1,0 +1,18 @@
+PREFIX : <http://coolfutures.net/rdf/2021/litrev#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# one step up 
+
+select  ?concept1 ?concept2
+{
+    ?concept1 skos:broaderTransitive ?concept2
+}
+
+#to the top from a concept
+
+select  ?concept2
+{
+    :LabBasedLearning skos:broaderTransitive+/skos:broaderTransitive ?concept2
+}

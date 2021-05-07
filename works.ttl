@@ -11,13 +11,21 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 :hallar2011 a dc:BibliographicResource ; 
-	dc:contributor :hallar_a ;
-	dc:title “CHANGE: A Place-based Curriculum for Understanding Climate Change at Storm Peak Laboratory, Colorado.” ; 
+	dc:contributor :hallar ;
+	dc:title "CHANGE: A Place-based Curriculum for Understanding Climate Change at Storm Peak Laboratory, Colorado." ; 
 	dc:date "2011" ; 
 	dc:type "CurriculumDescription" ;
 	dc:identifier <https://doi.org/10.1175/2011BAMS3026.1> ; 
 	:hasPedagogy :LabBasedLearning ;
 	:hasPedagogy :InteractWithScientists . 
+	
+:klosterman2010 a dc:BibliographicResource ;
+	dc:contributor :klosterman_michelle ;
+	dc:title "Multi‐level Assessment of Scientific Content Knowledge Gains Associated with Socioscientific Issues‐based Instruction." ; 
+	dc:date "2010" ; 
+	dc:type "InterventionStudy" ;
+	dc:identifier <https://www.tandfonline.com/doi/full/10.1080/09500690902894512> ; 
+	:hasKeyword :SocioScientficIssue, :Assessment, :Curriculum . 
 
 :monroe2019 a dc:BibliographicResource ; 
 	dc:contributor :monroe_martha ;
@@ -31,7 +39,6 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	foaf:familyName "Monroe" ; 
 	foaf:mbox <mailto:mcmonroe@ufl.edu> . 
 	
-
 	
 
 

@@ -5,7 +5,7 @@
 PREFIX : <http://coolfutures.net/rdf/2021/litrev#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-	
+
 :ClimateScienceEducationStrategy a skos:concept ;
 	skos:broaderTransitive :STEMStrategy . 
 	
@@ -14,7 +14,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	skos:broaderTransitive :ProjectBasedLearning ;
 	skos:related :SchoolProject. 
 	
-:DeliberativeDiscussionStrategy skos:concept ; 
+:DeliberativeDiscussionStrategy a skos:concept ; 
  	skos:prefLabel "Deliberative discussion"@en ; 
 	skos:altLabel "Argumentation"@en ; 
 	skos:broaderTransitive :PedagogicalStategy . 
@@ -33,7 +33,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	skos:broaderTransitive :STEMStrategy . 
 	
 :LabBasedLearning a skos:concept ; 
-	skos:prefLabel "Lab-based learnerning"@en ; 
+	skos:prefLabel "Lab-based learning"@en ; 
 	skos:broaderTransitive :PlaceBasedLearning . 
 	
 :MisconceptionStrategy a skos:concept ; 
@@ -56,8 +56,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	
 :SchoolProject a skos:concept ; 
  skos:prefLabel "Designing/implementing a school project"@en ; 
-	skos:broaderTransitive :ProjectBasedLearning .
+	skos:broaderTransitive :ProjectBasedLearning ;
 	skos:related :CommunityProject. 
+	
+:SocioScientificIssue a skos:concept ; 
+	skos:prefLabel "Socio-scientific issue"@en . 
+
 	
 :STEMStrategy a skos:concept ; 
 	skos:prefLabel "STEM pedagogical strategy"@en ; 

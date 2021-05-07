@@ -9,6 +9,16 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :ClimateScienceEducationStrategy a skos:concept ;
 	skos:broaderTransitive :STEMStrategy . 
 	
+:CommunityProject a skos:concept ; 
+    skos:prefLabel "Designing/implementing a community project"@en ; 
+	skos:broaderTransitive :ProjectBasedLearning ;
+	skos:related :SchoolProject. 
+	
+:DeliberativeDiscussionStrategy skos:concept ; 
+ 	skos:prefLabel "Deliberative discussion"@en ; 
+	skos:altLabel "Argumentation"@en ; 
+	skos:broaderTransitive :PedagogicalStategy . 
+	
 :Engagement a skos:concept ; 
 	skos:prefLabel "Engaged learners"@en ; 
 	skos:altLabel "Motivated learners"@en ; 
@@ -25,6 +35,10 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :LabBasedLearning a skos:concept ; 
 	skos:prefLabel "Lab-based learnerning"@en ; 
 	skos:broaderTransitive :PlaceBasedLearning . 
+	
+:MisconceptionStrategy a skos:concept ; 
+	skos:prefLabel "Uncovering and addressing misconceptions"@en ; 
+	skos:broaderTransitive :STEMStrategy . 
 
 :PedagogicalStrategy a skos:concept ; 
 	skos:prefLabel "Pedagogical strategy"@en ; 
@@ -39,6 +53,11 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	skos:prefLabel "Place-based learning"@en ; 
 	skos:broaderTransitive :ExperientialLearning ;
 	skos:narrowerTransitive :LabBasedLearning . 
+	
+:SchoolProject a skos:concept ; 
+ skos:prefLabel "Designing/implementing a school project"@en ; 
+	skos:broaderTransitive :ProjectBasedLearning .
+	skos:related :CommunityProject. 
 	
 :STEMStrategy a skos:concept ; 
 	skos:prefLabel "STEM pedagogical strategy"@en ; 

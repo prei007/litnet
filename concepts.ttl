@@ -1,0 +1,29 @@
+PREFIX : <http://coolfutures.net/rdf/litrev#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+:PedagogicalStrategy a skos:concept ; 
+	skos:prefLabel "Pedagogical strategy"@en ; 
+	skos:altLabel "Pedagogy"@en . 
+	
+:STEMStrategy a skos:concept ; 
+	skos:prefLabel "STEM pedagogical strategy"@en ; 
+	skos:altLabel "STEM teaching strategy"@en; 
+	skos:broaderTransitive :PedagogicalStategy .
+	
+:ClimateScienceEducationStrategy a skos:concept ;
+	skos:broaderTransitive :STEMStrategy . 
+	
+	
+:PersonalRelevance a skos:concept ; 
+	skos:prefLabel "Personally relevant"@en ; 
+	skos:altLabel "Personally meaningful"@en ; 
+	skos:broaderTransitive :PedagogicalStategy . 
+	
+:Engagement a skos:concept ; 
+	skos:prefLabel "Engaged learners"@en ; 
+	skos:altLabel "Motivated learners"@en ; 
+	skos:broaderTransitive :PedagogicalStategy . 
+	
+:InteractWithScientists a skos:concept ; 
+	skos:prefLabel "Interact with scientists"@en ; 
+	skos:broaderTransitive :STEMStrategy . 

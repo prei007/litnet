@@ -4,7 +4,61 @@
 
 PREFIX : <http://coolfutures.net/rdf/2021/litrev#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 
+#################################
+# Concept schemes
+#################################
+
+# Educational levels
+# goes with property lrmi:educationalLevel. 
+
+:EducationLevel a skos:ConceptScheme ;
+	dct:title "Educational levels" . 
+	
+:GradesKto5 a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "Grades K-5"@en ;
+	skos:altLabel "Preschool and Primary School"@en ;
+	skos:related :LevelPrimarySchool ; 
+	skos:inScheme :EducationLevel . 
+	
+:Grades6to8 a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "Grades 6-8"@en ;
+	skos:altLabel "Middle School"@en ;
+	skos:related :LevelHighSchool ; 
+	skos:inScheme :EducationLevel . 
+	
+:Grades9to12 a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "Grades 9-12"@en ;
+	skos:altLabel "High School"@en ;
+	skos:related :LevelHighSchool ; 
+	skos:inScheme :EducationLevel . 
+
+:LevelCollege a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "College"@en ;
+	skos:altLabel "Tertiary Education"@en ;
+	skos:inScheme :EducationLevel . 
+	
+:LevelHighSchool a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "High School"@en ;
+	skos:altLabel "Secondary Education"@en ;
+	skos:inScheme :EducationLevel . 
+	
+:LevelPrimarySchool a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "Primary School"@en ;
+	skos:altLabel "Primary Education"@en ;
+	skos:inScheme :EducationLevel. 
+	
+:LevelAdult a skos:Concept, lrmi:EducationalAudience ; 
+	skos:prefLabel "Adults"@en ;
+	skos:altLabel "Lifelong Education"@en ;
+	skos:inScheme :EducationLevel . 	
+	
+
+	
+#################################
+# Concepts 
+#################################
 
 :ClimateScienceEducationStrategy a skos:concept ;
 	skos:broaderTransitive :STEMStrategy . 
@@ -39,6 +93,22 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :MisconceptionStrategy a skos:concept ; 
 	skos:prefLabel "Uncovering and addressing misconceptions"@en ; 
 	skos:broaderTransitive :STEMStrategy . 
+	
+:Outcomes a skos:concept ; 
+	skos:prefLabel "Learning outcomes"@en . 
+	
+:OutcomeKnowledge a skos:concept ; 
+	skos:prefLabel "Knoweldge outcomes"@en . 
+	skos:broaderTransitive :Outcomes . 
+	
+:OutcomeAttitudes a skos:concept ; 
+	skos:prefLabel "Attitude change outcomes"@en . 
+	skos:broaderTransitive :Outcomes . 
+	
+:OutcomeBehavior a skos:concept ; 
+	skos:prefLabel "Behavioral outcomes"@en . 
+	skos:prefLabel "Behavioural outcomes"@en . 
+	skos:broaderTransitive :Outocmes . 
 
 :PedagogicalStrategy a skos:concept ; 
 	skos:prefLabel "Pedagogical strategy"@en ; 

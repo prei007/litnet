@@ -7,6 +7,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -16,16 +17,21 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	dct:date "2011" ; 
 	dct:type "CurriculumDescription" ;
 	dct:identifier <https://doi.org/10.1175/2011BAMS3026.1> ; 
-	:hasPedagogy :LabBasedLearning ;
-	:hasPedagogy :InteractWithScientists . 
+	dct:instructionalMethod :LabBasedLearning ;
+	:pedagogy :InteractWithScientists . 
 	
 :klosterman2010 a dct:BibliographicResource ;
 	dct:contributor :klosterman_michelle ;
+	dct:contributor :sadler_troy ;
 	dct:title "Multi‐level Assessment of Scientific Content Knowledge Gains Associated with Socioscientific Issues‐based Instruction." ; 
 	dct:date "2010" ; 
 	dct:type "InterventionStudy" ;
-	dct:identifier <https://www.tandfonline.com/doi/full/10.1080/09500690902894512> ; 
-	:hasKeyword :SocioScientficIssue, :Assessment, :Curriculum . 
+	dct:identifier <https://www.tandfonline.com/doi/full/10.1080/09500690902894512> ;
+	lrmi:educationalLevel :GradesHighSchool ; 
+	lrmi:teaches :GlobalWarming ; 
+	dct:instructionalMethod :SocioScientificIssue ; 
+	:assessedOutcome :OutcomeKnowledge ; 
+	dct:subject :SocioScientficIssue, :Assessment, :Curriculum . 
 
 :monroe2019 a dct:BibliographicResource ; 
 	dct:contributor :monroe_martha ;
@@ -38,6 +44,10 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	foaf:firstName "Martha" ; 
 	foaf:familyName "Monroe" ; 
 	foaf:mbox <mailto:mcmonroe@ufl.edu> . 
+	
+:sadler_troy a dct:Agent, foaf:Person ;
+	foaf:firstName "Troy" ; 
+	foaf:familyName "Sadler" .
 	
 	
 

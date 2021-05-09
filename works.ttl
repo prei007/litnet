@@ -11,14 +11,35 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
+:baker2013 a dct:BibliographicResource ;
+	dct:contributor :baker_jillian ;
+	dct:title "Using Art Elicitation to Deliver and Evaluate a Grade 4 Climate Change Instructional Module" ; 
+	dct:date "2013" ; 
+	dct:type "InterventionStudy" ;
+	dct:identifier <https://www.tandfonline.com/doi/abs/10.1080/1533015X.2013.824248> ;
+	lrmi:educationalLevel :LevelHighSchool ; 
+	lrmi:teaches :ClimateChangeMitigation ; 
+	dct:instructionalMethod :ArtElicitation ; 
+	:assessedOutcome :KnowledgeOutcomes .
+	
+:bofferding2015 a dct:BibliographicResource ;
+	dct:contributor :baker_jillian ;
+	dct:title "Middle and high school students’ conceptions of climate change mitigation and adaptation strategies" ; 
+	dct:date "2015" ; 
+	dct:type "InterventionStudy" ;
+	dct:identifier <https://www.tandfonline.com/doi/abs/10.1080/13504622.2014.888401> ;
+	lrmi:educationalLevel :GradesKto5 ; 
+	lrmi:teaches :ClimateChangeMitigation ;  
+	:assessedOutcome :ClimateSystemKnowledge, :Misconceptions, :BehaviorOutcome.
+
+
 :hallar2011 a dct:BibliographicResource ; 
 	dct:contributor :hallar ;
 	dct:title "CHANGE: A Place-based Curriculum for Understanding Climate Change at Storm Peak Laboratory, Colorado." ; 
 	dct:date "2011" ; 
 	dct:type "CurriculumDescription" ;
 	dct:identifier <https://doi.org/10.1175/2011BAMS3026.1> ; 
-	dct:instructionalMethod :LabBasedLearning ;
-	:pedagogy :InteractWithScientists . 
+	dct:instructionalMethod :LabBasedLearning, :InteractwithScientist .
 	
 :klosterman2010 a dct:BibliographicResource ;
 	dct:contributor :klosterman_michelle ;
@@ -31,7 +52,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	lrmi:teaches :GlobalWarming ; 
 	dct:instructionalMethod :SocioScientificIssue ; 
 	:assessedOutcome :OutcomeKnowledge ; 
-	dct:subject :SocioScientficIssue, :Assessment, :Curriculum . 
+	dct:subject :Assessment, :Curriculum . 
 
 :monroe2019 a dct:BibliographicResource ; 
 	dct:contributor :monroe_martha ;

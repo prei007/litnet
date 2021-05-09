@@ -35,22 +35,22 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:related :LevelHighSchool ; 
 	skos:inScheme :EducationLevel . 
 
-:LevelCollege a skos:Concept, lrmi:EducationalAudience ; 
+:College a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "College"@en ;
 	skos:altLabel "Tertiary Education"@en ;
 	skos:inScheme :EducationLevel . 
 	
-:LevelHighSchool a skos:Concept, lrmi:EducationalAudience ; 
+:HighSchool a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "High School"@en ;
 	skos:altLabel "Secondary Education"@en ;
 	skos:inScheme :EducationLevel . 
 	
-:LevelPrimarySchool a skos:Concept, lrmi:EducationalAudience ; 
+:PrimarySchool a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Primary School"@en ;
 	skos:altLabel "Primary Education"@en ;
 	skos:inScheme :EducationLevel. 
 	
-:LevelAdult a skos:Concept, lrmi:EducationalAudience ; 
+:Adult a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Adults"@en ;
 	skos:altLabel "Lifelong Education"@en ;
 	skos:inScheme :EducationLevel . 	
@@ -75,7 +75,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 # Concepts 2: Pedagogies
 #################################
 
-:ArtsEducationStrategy a skos:concept ; 
+:ArtsEducation a skos:concept ; 
 	skos:prefLabel "Arts education" ; 
 	skos:altLabel "STEAM" ; 
 	skos:broaderTransitive :PedagogicalStategy .
@@ -84,7 +84,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Art elicitation" ; 
 	skos:broaderTransitive :ArtEducationStrategy, :MeasurementMethod .
 
-:ClimateScienceEducationStrategy a skos:concept ;
+:ClimateScienceEducation a skos:concept ;
 	skos:broaderTransitive :STEMStrategy . 
 	
 :CommunityProject a skos:concept ; 
@@ -92,7 +92,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:broaderTransitive :ProjectBasedLearning ;
 	skos:related :SchoolProject. 
 	
-:DeliberativeDiscussionStrategy a skos:concept ; 
+:DeliberativeDiscussion a skos:concept ; 
  	skos:prefLabel "Deliberative discussion"@en ; 
 	skos:altLabel "Argumentation"@en ; 
 	skos:broaderTransitive :PedagogicalStategy . 

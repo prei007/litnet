@@ -3,16 +3,43 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-# one step up 
+######## one step up 
 
 select  ?concept1 ?concept2
 {
     ?concept1 skos:broaderTransitive ?concept2
 }
 
-#to the top from a concept
+######### to the top from a concept
 
 select  ?concept2
 {
     :LabBasedLearning skos:broaderTransitive+/skos:broaderTransitive ?concept2
 }
+
+
+######### construct the narrower relation 
+
+construct {?c1 skos:narrowerTransitive ?c2}  
+where
+{
+    ?c2  skos:broaderTransitive ?c1
+}
+
+############ Add the narrower relation 
+
+insert {?c1 skos:narrowerTransitive ?c2}  
+where
+{
+    ?c2  skos:broaderTransitive ?c1
+}
+
+############# Walk down and find all works with are narrower than the Outcomes concept
+# The `+` does path traversal. 
+
+select  ?work ?concept2
+{
+    :Outcomes skos:narrowerTransitive+ ?concept2.
+    ?work :assessedOutcome ?concept2.
+}
+

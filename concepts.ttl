@@ -5,6 +5,7 @@
 PREFIX : <http://coolfutures.net/rdf/2021/litrev#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+PREFIX dct: <http://purl.org/dc/terms/>
 
 #################################
 # Concept schemes
@@ -54,11 +55,34 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 	skos:altLabel "Lifelong Education"@en ;
 	skos:inScheme :EducationLevel . 	
 	
+#################################
+# Concepts 1: Climate Science
+#################################
+
+	
+:ClimateChange a skos:concept . 
+
+:GlobalWarming a skos:concept ; 
+	skos:prefLabel "Global warming"@en ;
+	skos:broader :ClimateChange .
+
+:ClimateChangeMitigation a skos:concept ; 
+	skos:prefLabel "Climate change mitigation"@en ;
+	skos:broader :ClimateChange .
 
 	
 #################################
-# Concepts 
+# Concepts 2: Pedagogies
 #################################
+
+:ArtsEducationStrategy a skos:concept ; 
+	skos:prefLabel "Arts education" ; 
+	skos:altLabel "STEAM" ; 
+	skos:broaderTransitive :PedagogicalStategy .
+	
+:ArtElicitation a skos:concept ;
+	skos:prefLabel "Art elicitation" ; 
+	skos:broaderTransitive :ArtEducationStrategy, :MeasurementMethod .
 
 :ClimateScienceEducationStrategy a skos:concept ;
 	skos:broaderTransitive :STEMStrategy . 
@@ -92,23 +116,7 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 	
 :MisconceptionStrategy a skos:concept ; 
 	skos:prefLabel "Uncovering and addressing misconceptions"@en ; 
-	skos:broaderTransitive :STEMStrategy . 
-	
-:Outcomes a skos:concept ; 
-	skos:prefLabel "Learning outcomes"@en . 
-	
-:OutcomeKnowledge a skos:concept ; 
-	skos:prefLabel "Knoweldge outcomes"@en . 
-	skos:broaderTransitive :Outcomes . 
-	
-:OutcomeAttitudes a skos:concept ; 
-	skos:prefLabel "Attitude change outcomes"@en . 
-	skos:broaderTransitive :Outcomes . 
-	
-:OutcomeBehavior a skos:concept ; 
-	skos:prefLabel "Behavioral outcomes"@en . 
-	skos:prefLabel "Behavioural outcomes"@en . 
-	skos:broaderTransitive :Outocmes . 
+	skos:broaderTransitive :STEMStrategy .  
 
 :PedagogicalStrategy a skos:concept ; 
 	skos:prefLabel "Pedagogical strategy"@en ; 
@@ -130,8 +138,8 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 	skos:related :CommunityProject. 
 	
 :SocioScientificIssue a skos:concept ; 
-	skos:prefLabel "Socio-scientific issue"@en . 
-
+	skos:prefLabel "Socio-scientific issue"@en ; 
+	skos:broaderTransitive :STEMStrategy . 
 	
 :STEMStrategy a skos:concept ; 
 	skos:prefLabel "STEM pedagogical strategy"@en ; 
@@ -139,7 +147,77 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 	skos:broaderTransitive :PedagogicalStategy .
 	
 	
+#################################
+# Concepts 3: Outcomes
+#################################
 
+:Outcomes a skos:concept ; 
+	skos:prefLabel "Learning outcomes"@en . 
 	
+:KnowledgeOutcomes a skos:concept ; 
+	skos:prefLabel "Knoweldge outcomes"@en ; 
+	skos:definition "Including awareness, perceptions, content knowledge, skills knowledge, sociopolitical knowledge, and issue-speciﬁc understandings" ;
+	skos:broaderTransitive :Outcomes . 
+	
+:Misconceptions a skos:concept ;
+	skos:prefLabel "Misconceptions and their change"@en ; 
+	skos:broaderTransitive :KnowledgeOutcomes .
+	
+:ClimateSystemKnowledge a skos:concept ;
+	skos:prefLabel "Climate system knowledge"@en ; 
+	skos:broaderTransitive :KnowledgeOutcomes .
+	
+:DispositionOutcomes a skos:concept ; 
+	skos:prefLabel "Dispositional outcomes"@en ;
+	skos:broaderTransitive :Outcomes ;
+	skos:definition "such as, interest, affect, attitude, and behavioral intentions" ;
+	skos:narrowerTransitive :AttitudeOutcomes .
+	
+:AttitudeOutcomes a skos:concept ; 
+	skos:prefLabel "Attitude change outcomes"@en ;
+	skos:broaderTransitive :DispositionOutcomes . 
+	
+:CompetenceOutcomes a skos:concept ; 
+	skos:prefLabel "Growth in competencies"@en ; 
+	skos:definition "skills, including cognitive and social" ;
+	skos:broaderTransitive :Outcomes .
+	
+:BehaviorOutcomes a skos:concept ; 
+	skos:prefLabel "Behavioral outcomes"@en ; 
+	skos:prefLabel "Action outcomes"@en ;
+	skos:definition "Unlike skills and actions this means outcomes in concrete actions" ;
+	skos:broaderTransitive :Outcomes .
+	
+:PersonalOutcomes a skos:concept ; 
+	skos:prefLabel "Changes in personal characteristics"@en ; 
+	skos:definition "self-esteem and character development, among others" ;
+	skos:broaderTransitive :Outcomes .
+	
+:MultiDomainOutcomes a skos:concept ; 
+	skos:prefLabel "Multi-domain outcomes"@en ; 
+	skos:definition "spanning more than one domain, such as academic achievement, which involves at least knowledge and competencies" ;
+	skos:broaderTransitive :Outcomes .
+	
+:AchievementOutcomes a skos:concept ; 
+	skos:prefLabel "Achievement outcomes"@en ; 
+	skos:broaderTransitive :MultiDomainOutcomes .
+	
+:EpistemicOutcomes a skos:concept ; 
+	skos:prefLabel "Changes to epistemic cognition"@en ; 
+	skos:broaderTransitive :MultiDomainOutcomes .
+	
+:ActionCompetenceOutcomes a skos:concept ; 
+	skos:prefLabel "Growth in action competence"@en ; 
+	skos:broaderTransitive :KnowledgeOutcomes , :CompetenceOutcomes , :BehaviorOutcomes .
+	
+#################################
+# Concepts 4: Assessment and measurement methods
+#################################
 
+:AssessmentMethod a skos:concept .
+
+:MeasurementMethod a skos:concept . 
 	
+#################################
+# Concepts 5: Research methods
+#################################

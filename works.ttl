@@ -17,7 +17,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	dct:date "2013" ; 
 	dct:type "InterventionStudy" ;
 	dct:identifier <https://www.tandfonline.com/doi/abs/10.1080/1533015X.2013.824248> ;
-	lrmi:educationalLevel :LevelHighSchool ; 
+	lrmi:educationalLevel :HighSchool ; 
 	lrmi:teaches :ClimateChangeMitigation ; 
 	dct:instructionalMethod :ArtElicitation ; 
 	:assessedOutcome :KnowledgeOutcomes .
@@ -31,6 +31,23 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	lrmi:educationalLevel :GradesKto5 ; 
 	lrmi:teaches :ClimateChangeMitigation ;  
 	:assessedOutcome :ClimateSystemKnowledge, :Misconceptions, :BehaviorOutcome.
+	
+:bybee1990 a dct:BibliographicResource ;
+	dct:contributor :bybee_Roger;
+	dct:title "Science for Life & Living: An Elementary School Science Program from Biological Sciences Curriculum Study" ; 
+	dct:date "1990" ; 
+	dct:type "CurriculumStudy" ;
+	dct:identifier <https://online.ucpress.edu/abt/article/52/2/92/14506/Science-for-Life-amp-Living-An-Elementary-School> ;
+	lrmi:educationalLevel :GradesKto5 ; 
+	lrmi:teaches :Biology . 
+	
+:chen2011 a dct:BibliographicResource ;
+	dct:contributor :chen_xiang;
+	dct:title "Why do people misunderstand climate change? Heuristics, mental models and ontological assumptions" ; 
+	dct:date "2011" ; 
+	dct:type "Theory", "Measurement" ;
+	dct:identifier <https://link.springer.com/article/10.1007%2Fs10584-010-0013-5> .
+	
 
 
 :hallar2011 a dct:BibliographicResource ; 
@@ -48,7 +65,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	dct:date "2010" ; 
 	dct:type "InterventionStudy" ;
 	dct:identifier <https://www.tandfonline.com/doi/full/10.1080/09500690902894512> ;
-	lrmi:educationalLevel :GradesHighSchool ; 
+	lrmi:educationalLevel :HighSchool ; 
 	lrmi:teaches :GlobalWarming ; 
 	dct:instructionalMethod :SocioScientificIssue ; 
 	:assessedOutcome :OutcomeKnowledge ; 

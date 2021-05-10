@@ -1,5 +1,5 @@
 ########################################
-# SKOS concepts in alphabetical order  #
+# SKOS concepts 					   #
 ########################################
 
 PREFIX : <http://coolfutures.net/rdf/2021/litrev#>
@@ -12,7 +12,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 #################################
 
 # Educational levels
-# goes with property lrmi:educationalLevel. 
+# goes with predicate lrmi:educationalLevel. 
 
 :EducationLevel a skos:ConceptScheme ;
 	dct:title "Educational levels" . 
@@ -20,19 +20,19 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :GradesKto5 a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Grades K-5"@en ;
 	skos:altLabel "Preschool and Primary School"@en ;
-	skos:related :LevelPrimarySchool ; 
+	skos:related :PrimarySchool ; 
 	skos:inScheme :EducationLevel . 
 	
 :Grades6to8 a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Grades 6-8"@en ;
 	skos:altLabel "Middle School"@en ;
-	skos:related :LevelHighSchool ; 
+	skos:related :HighSchool ; 
 	skos:inScheme :EducationLevel . 
 	
 :Grades9to12 a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Grades 9-12"@en ;
 	skos:altLabel "High School"@en ;
-	skos:related :LevelHighSchool ; 
+	skos:related :HighSchool ; 
 	skos:inScheme :EducationLevel . 
 
 :College a skos:Concept, lrmi:EducationalAudience ; 
@@ -47,7 +47,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	
 :PrimarySchool a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Primary School"@en ;
-	skos:altLabel "Primary Education"@en ;
+	skos:altLabel "Elementary School"@en ;
 	skos:inScheme :EducationLevel. 
 	
 :Adult a skos:Concept, lrmi:EducationalAudience ; 
@@ -59,6 +59,8 @@ PREFIX dct: <http://purl.org/dc/terms/>
 # Concepts 1: Climate Science
 #################################
 
+# best to use an existing classification scheme, not make up our own. 
+# need to find one.
 	
 :ClimateChange a skos:concept . 
 
@@ -74,6 +76,8 @@ PREFIX dct: <http://purl.org/dc/terms/>
 #################################
 # Concepts 2: Pedagogies
 #################################
+
+# currently our own terms, inductively from terms used in the literature. 
 
 :ArtsEducation a skos:concept ; 
 	skos:prefLabel "Arts education" ; 
@@ -210,13 +214,17 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Growth in action competence"@en ; 
 	skos:broaderTransitive :KnowledgeOutcomes , :CompetenceOutcomes , :BehaviorOutcomes .
 	
-#################################
+#################################################
 # Concepts 4: Assessment and measurement methods
-#################################
+#################################################
+
+# as we don't  have a method focus, something simple will do. 
 
 :AssessmentMethod a skos:concept .
 
 :MeasurementMethod a skos:concept . 
+
+
 	
 #################################
 # Concepts 5: Research methods

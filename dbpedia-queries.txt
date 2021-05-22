@@ -1,0 +1,87 @@
+#############################
+## DBpedia queries
+#############################
+
+
+#### Roger Federer examples #####
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX : <http://dbpedia.org/resource/>
+PREFIX dbpedia2: <http://dbpedia.org/property/>
+PREFIX dbpedia: <http://dbpedia.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# SPARQL query to understand the class type of the resource identifying Federer
+
+SELECT *  WHERE {
+      :Roger_Federer a ?class_type .
+}
+
+
+# SPARQL query to ﬁnd out all the properties used to describe Federer
+
+SELECT * WHERE {
+   :Roger_Federer ?propertyName ?propertyValue. 
+}
+
+# Find all the tennis players who are from the same country as Federer
+
+SELECT distinct ?someone ?birthPlace WHERE {
+     :Roger_Federer dbo:birthPlace ?birthPlace.
+     ?someone a dbo:TennisPlayer.
+     ?someone dbo:birthPlace ?birthPlace. 
+}
+
+
+# Find all those players who also won all the Grand Slams that Federer has won
+
+SELECT distinct * WHERE {
+
+:Roger_Federer dbpedia2:australianopenresult ?aussie_result. 
+:Roger_Federer dbpedia2:usopenresult ?us_result. 
+:Roger_Federer dbpedia2:wimbledonresult ?wimbeldon_result. 
+:Roger_Federer dbpedia2:frenchopenresult ?frenchopen_result. 
+?player a dbo:TennisPlayer.
+?player dbpedia2:australianopenresult ?aussie_result. 
+?player dbpedia2:usopenresult ?us_result.
+?player dbpedia2:wimbledonresult ?wimbeldon_result.
+?player dbpedia2:frenchopenresult ?frenchopen_result.
+
+}
+
+#### Univesity of Sydney examples #####
+
+# SPARQL query to ﬁnd out all the properties used to describe USYD
+
+SELECT * WHERE {
+   :University_of_Sydney ?propertyName ?propertyValue. 
+}
+
+
+# SPARQL query to ﬁnd all members of a particular association
+
+SELECT  ?uni ?country WHERE {
+   ?uni dbpedia2:affiliations :Association_of_Pacific_Rim_Universities . 
+   OPTIONAL {?uni dbpedia2:country ?country}
+}
+
+
+# SPARQL query to ﬁnd out all universitiesin in France in the same affiliations as USYD
+SELECT ?uni ?affiliation WHERE {
+   :University_of_Sydney dbpedia2:affiliations ?affiliation . 
+   ?uni dbpedia2:affiliations ?affiliation . 
+   ?uni dbpedia2:country :France.
+}
+
+
+# Australian universities
+SELECT distinct ?uni WHERE { 
+   ?uni a dbo:University . 
+ ?uni dbpedia2:country :Australia .
+} LIMIT 100
+

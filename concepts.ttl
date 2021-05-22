@@ -159,7 +159,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Learning outcomes"@en . 
 	
 :KnowledgeOutcomes a skos:concept ; 
-	skos:prefLabel "Knoweldge outcomes"@en ; 
+	skos:prefLabel "Knowledge outcomes"@en ; 
 	skos:definition "Including awareness, perceptions, content knowledge, skills knowledge, sociopolitical knowledge, and issue-speciﬁc understandings" ;
 	skos:broaderTransitive :Outcomes . 
 	

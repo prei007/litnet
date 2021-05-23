@@ -71,7 +71,7 @@ SELECT  ?uni ?country WHERE {
 }
 
 
-# SPARQL query to ﬁnd out all universitiesin in France in the same affiliations as USYD
+# SPARQL query to ﬁnd out all universities in in France in the same affiliations as USYD
 SELECT ?uni ?affiliation WHERE {
    :University_of_Sydney dbpedia2:affiliations ?affiliation . 
    ?uni dbpedia2:affiliations ?affiliation . 
@@ -85,3 +85,21 @@ SELECT distinct ?uni WHERE {
  ?uni dbpedia2:country :Australia .
 } LIMIT 100
 
+
+
+######## Other examples
+
+
+# Find chemicals
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT * WHERE {
+  ?y rdf:type dbo:ChemicalSubstance.
+  ?y rdfs:label ?Name .
+  OPTIONAL {?y dbpedia2:formula ?formula }.
+  OPTIONAL {?y dbpedia2:molecularWeight ?molecularWeight}.
+  OPTIONAL {?y dbo:iupacName ?iupacname} .
+  FILTER (langMatches(lang(?Name),"en"))
+}
+LIMIT 50

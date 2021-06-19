@@ -97,17 +97,19 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :Game a skos:concept ; 
 	skos:prefLabel "Educational game"@en ; 
 	skos:altLabel "Serious game"@en ; 
-	skos:related :Simulation, :RolePlay ;
+	skos:related :MobileGame ;
 	skos:broader :GamesAndSimulations . 
 	
+:VideoGame a skos:concept ; 
+	skos:prefLabel "Video game"@en ; 
+	skos:broader :Game .
+	
 :Simulation a skos:concept ; 
-	skos:prefLabel "Simulation"@en ; 
-	skos:related :Game, :RolePlay ; 
+	skos:prefLabel "Computer simulation"@en ; 
 	skos:broader :GamesAndSimulations . 
 	
 :RolePlay a skos:concept ; 
 	skos:prefLabel "Role play"@en ; 
-	skos:related :Game, :Simulation ; 
 	skos:broader :GamesAndSimulations . 
 
 ### Immersive 
@@ -121,6 +123,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Augmented Reality"@en ; 
 	skos:altLabel "AR"@en ; 
 	skos:broader :ImmersiveTech . 
+	
+:MixedReality a skos:concept ; 
+	skos:prefLabel "Mixed Reality"@en ; 
+	skos:broader :ImmersiveTech .
 
 ### MultiMedia
 
@@ -128,12 +134,21 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Multimedia technology"@en ; 
 	skos:broader :EduTech . 
 
+:DigitalStory a skos:concept ; 
+	skos:prefLabel "Digital story telling"@en ; 
+	skos:broader :MultiMedia . 
 
-### Mobile 
+
+### Mobile phones and padlets
 
 :MobileTech a skos:concept ; 
 	skos:prefLabel "Mobile technology"@en ; 
 	skos:broader :EduTech . 
+	
+:MobileGame a skos:concept ; 
+	skos:prefLabel "Mobile game"@en ; 
+	skos:broader :MobileTech ;
+	skos:related :Game , :MixedReality.
 
 ### SocialMedia
 
@@ -197,7 +212,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 
 
-### Embedded tech: Sensors, Drones, IoT
+### Sensors, Drones, IoT
 
 :SensingAndRecording a skos:concept ; 
 	skos:prefLabel "Sensing and recording"@en ; 

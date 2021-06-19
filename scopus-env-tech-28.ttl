@@ -98,12 +98,11 @@
     "Ekoloji";
   dct:creator "Lay Y.-F.", "Zhuang Z.-Y., Qiao W.";
   dct:issued "2019"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85063737712&doi=10.29333%2fejmste%2f105686&partnerID=40&md5=7054b87cdb26a743ad8893bc219da72c"^^xsd:anyURI,
-    "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85063628691&partnerID=40&md5=08538782c2118d9171e6e0fd8de27282"^^xsd:anyURI;
+  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85063737712&doi=10.29333%2fejmste%2f105686&partnerID=40&md5=7054b87cdb26a743ad8893bc219da72c"^^xsd:anyURI ;
   dct:type "Text";
-  edtech:volume "15", "28";
-  edtech:startPage 265, 883;
-  edtech:endPage 271, 889;
+  edtech:volume "15";
+  edtech:startPage 265;
+  edtech:endPage 271 ;
   edtech:keyword "computer", "correlation", "environmental protection", "industrial development",
     "knowledge", "student", "China", "Fujian" .
 
@@ -146,16 +145,11 @@
   edtech:endPage 236 .
 
 <10.17509/ijal.v8i2.13280> a dct:BibliographicResource;
-  dct:title "Critical environmental education in tertiary English language teaching (ELT): A collaborative digital storytelling project"@en,
-    "A study on the correlations between thinking styles and academic achievement in web-based environmental education"@en,
-    "Integrating English as a foreign language and digital storytelling in environmental education: An interdisciplinary approach in primary education"@en;
-  dct:bibliographicCitation "Indonesian Journal of Applied Linguistics", "Ekoloji",
-    "Digital Stories and Their Integration in Early Childhood and Primary Education: Teaching Scenarios and Practical Ideas";
+  dct:title "Critical environmental education in tertiary English language teaching (ELT): A collaborative digital storytelling project"@en;
+  dct:bibliographicCitation "Indonesian Journal of Applied Linguistics";
   dct:creator "Putri G.A.P.E.I.", "Chen J.", "Nerantzaki T.";
-  dct:issued "2018"^^xsd:gYear, "2016"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85064002472&doi=10.17509%2fijal.v8i2.13280&partnerID=40&md5=dbc680ede9c67edcf905ca828ff7dd40"^^xsd:anyURI,
-    "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85063269680&partnerID=40&md5=70579182a03c3d0b8d72ef96bb17c1ed"^^xsd:anyURI,
-    "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85026550732&partnerID=40&md5=713c63f00a00d2ac459c3641e72de383"^^xsd:anyURI;
+  dct:issued "2018"^^xsd:gYear;
+  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85064002472&doi=10.17509%2fijal.v8i2.13280&partnerID=40&md5=dbc680ede9c67edcf905ca828ff7dd40"^^xsd:anyURI; 
   edtech:keyword "Critical language pedagogy", "Ecoliteracy", "Greening ELT", "Higher education",
     "Place-based education", "Student teachers", "academic research", "environmental education",
     "experimental design", "information and communication technology", "learning", "software",
@@ -163,9 +157,9 @@
     "Digital stories in environmental education", "E-learning in environmental education",
     "English as a foreign language in primary education", "Interdisciplinary approach to environmental education";
   dct:type "Text";
-  edtech:volume "8", "27";
-  edtech:startPage 336, 2045, 115;
-  edtech:endPage 344, 2051, 128 .
+  edtech:volume "8";
+  edtech:startPage 336;
+  edtech:endPage 344.
 
 <10.5220/0005810101340143> a dct:BibliographicResource;
   dct:title "Social Creativity in the design of digital resources interweaving math with environmental education the case study of the climate change C-book"@en;
@@ -197,14 +191,11 @@
   edtech:endPage 143 .
 
 <10.1108/IJSHE-08-2012-0078> a dct:BibliographicResource;
-  dct:title "Conceptualizing digital literacies and digital ethics for sustainability education"@en,
-    "The environmental education of migration birds using a near time web-based design"@en;
-  dct:bibliographicCitation "International Journal of Sustainability in Higher Education",
-    "Workshop Proceedings of the 22nd International Conference on Computers in Education, ICCE 2014";
+  dct:title "Conceptualizing digital literacies and digital ethics for sustainability education"@en; 
+  dct:bibliographicCitation "International Journal of Sustainability in Higher Education";
   dct:creator "Brown S.A.", "Wong C.-J., Pan C.-J., Tsai Y.-J.";
   dct:issued "2014"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84926646768&doi=10.1108%2fIJSHE-08-2012-0078&partnerID=40&md5=776c761288fe4c0fd50f7d9fd5e88dce"^^xsd:anyURI,
-    "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84924008157&partnerID=40&md5=8c3fab80b9557836f031a894c35780f2"^^xsd:anyURI;
+  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84926646768&doi=10.1108%2fIJSHE-08-2012-0078&partnerID=40&md5=776c761288fe4c0fd50f7d9fd5e88dce"^^xsd:anyURI; 
   edtech:keyword "Consensus-building", "Digital discourse", "Digital ethics", "Digital literacies",
     "Holistic and adaptive thinking", "Birds", "Computer aided instruction", "E-learning",
     "Education", "Environmental design", "Geographic information systems", "Information systems",
@@ -213,8 +204,8 @@
     "Web based learning", "Web-based designs", "Social networking (online)";
   dct:type "Text";
   edtech:volume "15";
-  edtech:startPage 280, 783;
-  edtech:endPage 290, 786 .
+  edtech:startPage 280;
+  edtech:endPage 290 .
 
 <10.1007/978-3-319-07440-5_30> a dct:BibliographicResource;
   dct:title "On enhancing disabled students' accessibility in environmental education using ICT: The MusicPaint case"@en;
@@ -329,19 +320,15 @@
   edtech:endPage 134 .
 
 <10.3233/WOR-2012-1052-6011> a dct:BibliographicResource;
-  dct:title "Ergonomic aspects simulation digital online: An educational game proposal to promote environmental education"@en,
-    "Modelling digital natives' international collaboration: Finnish-korean experiences of environmental education"@en;
-  dct:bibliographicCitation "Work", "Educational Technology and Society";
-  dct:creator "Arbex D.F., Jappur R., Selig P., Varvakis G.", "Leppisaari I., Lee O.";
+  dct:title "Ergonomic aspects simulation digital online: An educational game proposal to promote environmental education"@en ;
+  dct:bibliographicCitation  "Educational Technology and Society";
+  dct:creator "Arbex D.F., Jappur R., Selig P., Varvakis G.";
   dct:issued "2012"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84859814078&doi=10.3233%2fWOR-2012-1052-6011&partnerID=40&md5=88894549b223e50c7329c1200c8e2da6"^^xsd:anyURI,
-    "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84871558051&partnerID=40&md5=3f7664239834f06cbacd3ddab5f88792"^^xsd:anyURI;
+  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84859814078&doi=10.3233%2fWOR-2012-1052-6011&partnerID=40&md5=88894549b223e50c7329c1200c8e2da6"^^xsd:anyURI;
   edtech:keyword "adolescent", "bioengineering", "Brazil", "cognition", "environmental planning",
     "furniture", "human", "online system", "physiology", "questionnaire", "recreation",
-    "Adolescent", "Cognition", "Environment Design", "Human Engineering", "Humans", "Interior Design and Furnishings",
-    "Online Systems", "Questionnaires", "Video Games", "Environmental education", "Finland",
-    "ICT in education", "International collaboration model", "Korea";
+    "Adolescent", "Cognition", "Environment Design", "Human Engineering", "Humans", "Interior Design and Furnishings";
   dct:type "Text";
-  edtech:volume "41", "15";
-  edtech:startPage 6011, 244;
-  edtech:endPage 6015, 256 .
+  edtech:volume "41";
+  edtech:startPage 244;
+  edtech:endPage 256 .

@@ -56,7 +56,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:inScheme :EducationLevel . 	
 	
 #################################
-# Concepts 1: Climate Science
+# Concepts: Climate Science
 #################################
 
 # best to use an existing classification scheme, not make up our own. 
@@ -71,10 +71,144 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :ClimateChangeMitigation a skos:concept ; 
 	skos:prefLabel "Climate change mitigation"@en ;
 	skos:broader :ClimateChange .
+	
+	
+#################################
+# Concepts: Educational technologies
+#################################
+
+### Top level
+
+:Technology a skos:concept ; 
+	skos:prefLabel "Digital technology" ; 
+	skos:note "Top level". 
+	
+:EduTech a skos:concept ; 
+	skos:prefLabel "Educational technology"@en ; 
+	skos:broader :Technology.  
+
+### Games and Simulations
+
+:GamesAndSimulations a skos:concept; 
+	skos:prefLabel "Games and simulations"@en ; 
+	skos:related :ComputerModel;
+	skos:broader :EduTech . 
+
+:Game a skos:concept ; 
+	skos:prefLabel "Educational game"@en ; 
+	skos:altLabel "Serious game"@en ; 
+	skos:related :Simulation, :RolePlay ;
+	skos:broader :GamesAndSimulations . 
+	
+:Simulation a skos:concept ; 
+	skos:prefLabel "Simulation"@en ; 
+	skos:related :Game, :RolePlay ; 
+	skos:broader :GamesAndSimulations . 
+	
+:RolePlay a skos:concept ; 
+	skos:prefLabel "Role play"@en ; 
+	skos:related :Game, :Simulation ; 
+	skos:broader :GamesAndSimulations . 
+
+### Immersive 
+
+:ImmersiveTech a skos:concept ; 
+	skos:prefLabel "Immersive technologies"@en ; 
+	skos:altLabel "XR"@en ; 
+	skos:broader :EduTech . 
+
+:AugmentedReality a skos:concept ; 
+	skos:prefLabel "Augmented Reality"@en ; 
+	skos:altLabel "AR"@en ; 
+	skos:broader :ImmersiveTech . 
+
+### MultiMedia
+
+:MultiMedia a skos:concept ; 
+	skos:prefLabel "Multimedia technology"@en ; 
+	skos:broader :EduTech . 
+
+
+### Mobile 
+
+:MobileTech a skos:concept ; 
+	skos:prefLabel "Mobile technology"@en ; 
+	skos:broader :EduTech . 
+
+### SocialMedia
+
+:SocialMedia a skos:concept ; 
+	skos:prefLabel "Socialmedia technology"@en ; 
+	skos:broader :EduTech . 
+
+### Learning Management Systems, computer-based assessment
+
+:LMS a skos:concept ; 
+	skos:prefLabel "Learning Management System"@en ; 
+	skos:broader :EduTech . 
+	
+:CBA a skos:concept ; 
+	skos:prefLabel "Computer-based assessment"@en ; 
+	skos:altLabel "Computer-based testing"@en ; 
+	skos:broader :EduTech . 
+
+### Programming
+
+:Programming a skos:concept ; 
+	skos:prefLabel "Programming language"@en ; 
+	skos:broader :EduTech . 
+
+### Research Software, Modelling, data science
+
+:eResearch a skos:concept ; 
+	skos:prefLabel "e-Research"@en ; 
+	skos:altLabel "Cyber-research"@en ; 
+	skos:broader :EduTech . 
+	
+:ComputerModel a skos:concept ; 
+	skos:prefLabel "Computer model"@en ; 
+	skos:broader :eResearch . 
+	
+:GIS a skos:concept ; 
+	skos:prefLabel "Geographic Information System"@en ; 
+	skos:altLabel "GIS"@en ; 
+	skos:broader :eResearch . 
+	
+:DataScienceTool a skos:concept ; 
+	skos:prefLabel "Data science software"@en ; 
+	skos:broader :eResearch . 
+	
+:StatisticsTool a skos:concept ; 
+	skos:prefLabel "Statistics software"@en ; 
+	skos:broader :eResearch . 
+	
+### AI and knowledge technologies, semantic web, machine learning, robotics
+
+:AI a skos:concept ; 
+	skos:prefLabel "Artificial Intelligence"@en ; 
+	skos:altLabel "AI"@en ; 
+	skos:broader :EduTech . 
+	
+:AIED a skos:concept ; 
+	skos:prefLabel "AI in Education"@en ; 
+	skos:altLabel "AIED"@en ; 
+	skos:broader :AI .
+	
+
+
+
+### Embedded tech: Sensors, Drones, IoT
+
+:SensingAndRecording a skos:concept ; 
+	skos:prefLabel "Sensing and recording"@en ; 
+	skos:altLabel "IoT"@en ; 
+	skos:broader :EduTech .
+
+
 
 	
 #################################
-# Concepts 2: Pedagogies
+# Concepts: Pedagogies
 #################################
 
 # currently our own terms, inductively from terms used in the literature. 
@@ -152,7 +286,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	
 	
 #################################
-# Concepts 3: Outcomes
+# Concepts: Outcomes
 #################################
 
 :Outcomes a skos:concept ; 
@@ -215,7 +349,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:broader :KnowledgeOutcomes , :CompetenceOutcomes , :BehaviorOutcomes .
 	
 #################################################
-# Concepts 4: Assessment and measurement methods
+# Concepts : Assessment and measurement methods
 #################################################
 
 # as we don't  have a method focus, something simple will do. 

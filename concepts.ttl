@@ -82,45 +82,45 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :ArtsEducation a skos:concept ; 
 	skos:prefLabel "Arts education" ; 
 	skos:altLabel "STEAM" ; 
-	skos:broaderTransitive :PedagogicalStategy .
+	skos:broader :PedagogicalStategy .
 	
 :ArtElicitation a skos:concept ;
 	skos:prefLabel "Art elicitation" ; 
-	skos:broaderTransitive :ArtEducationStrategy, :MeasurementMethod .
+	skos:broader :ArtEducationStrategy, :MeasurementMethod .
 
 :ClimateScienceEducation a skos:concept ;
-	skos:broaderTransitive :STEMStrategy . 
+	skos:broader :STEMStrategy . 
 	
 :CommunityProject a skos:concept ; 
     skos:prefLabel "Designing/implementing a community project"@en ; 
-	skos:broaderTransitive :ProjectBasedLearning ;
+	skos:broader :ProjectBasedLearning ;
 	skos:related :SchoolProject. 
 	
 :DeliberativeDiscussion a skos:concept ; 
  	skos:prefLabel "Deliberative discussion"@en ; 
 	skos:altLabel "Argumentation"@en ; 
-	skos:broaderTransitive :PedagogicalStategy . 
+	skos:broader :PedagogicalStategy . 
 	
 :Engagement a skos:concept ; 
 	skos:prefLabel "Engaged learners"@en ; 
 	skos:altLabel "Motivated learners"@en ; 
-	skos:broaderTransitive :PedagogicalStategy . 
+	skos:broader :PedagogicalStategy . 
 	
 :ExperientialLearning a skos:concept ; 
 	skos:prefLabel "Experiential learning"@en ; 
-	skos:broaderTransitive :PedagogicalStategy . 
+	skos:broader :PedagogicalStategy . 
 	
 :InteractWithScientists a skos:concept ; 
 	skos:prefLabel "Interact with scientists"@en ; 
-	skos:broaderTransitive :STEMStrategy . 
+	skos:broader :STEMStrategy . 
 	
 :LabBasedLearning a skos:concept ; 
 	skos:prefLabel "Lab-based learning"@en ; 
-	skos:broaderTransitive :PlaceBasedLearning . 
+	skos:broader :PlaceBasedLearning . 
 	
 :MisconceptionStrategy a skos:concept ; 
 	skos:prefLabel "Uncovering and addressing misconceptions"@en ; 
-	skos:broaderTransitive :STEMStrategy .  
+	skos:broader :STEMStrategy .  
 
 :PedagogicalStrategy a skos:concept ; 
 	skos:prefLabel "Pedagogical strategy"@en ; 
@@ -129,26 +129,26 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :PersonalRelevance a skos:concept ; 
 	skos:prefLabel "Personally relevant"@en ; 
 	skos:altLabel "Personally meaningful"@en ; 
-	skos:broaderTransitive :PedagogicalStategy . 
+	skos:broader :PedagogicalStategy . 
 	
 :PlaceBasedLearning a skos:concept ; 
 	skos:prefLabel "Place-based learning"@en ; 
-	skos:broaderTransitive :ExperientialLearning ;
-	skos:narrowerTransitive :LabBasedLearning . 
+	skos:broader :ExperientialLearning ;
+	skos:narrower :LabBasedLearning . 
 	
 :SchoolProject a skos:concept ; 
  skos:prefLabel "Designing/implementing a school project"@en ; 
-	skos:broaderTransitive :ProjectBasedLearning ;
+	skos:broader :ProjectBasedLearning ;
 	skos:related :CommunityProject. 
 	
 :SocioScientificIssue a skos:concept ; 
 	skos:prefLabel "Socio-scientific issue"@en ; 
-	skos:broaderTransitive :STEMStrategy . 
+	skos:broader :STEMStrategy . 
 	
 :STEMStrategy a skos:concept ; 
 	skos:prefLabel "STEM pedagogical strategy"@en ; 
 	skos:altLabel "STEM teaching strategy"@en ; 
-	skos:broaderTransitive :PedagogicalStategy .
+	skos:broader :PedagogicalStategy .
 	
 	
 #################################
@@ -161,58 +161,58 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :KnowledgeOutcomes a skos:concept ; 
 	skos:prefLabel "Knowledge outcomes"@en ; 
 	skos:definition "Including awareness, perceptions, content knowledge, skills knowledge, sociopolitical knowledge, and issue-speciﬁc understandings" ;
-	skos:broaderTransitive :Outcomes . 
+	skos:broader :Outcomes . 
 	
 :Misconceptions a skos:concept ;
 	skos:prefLabel "Misconceptions and their change"@en ; 
-	skos:broaderTransitive :KnowledgeOutcomes .
+	skos:broader :KnowledgeOutcomes .
 	
 :ClimateSystemKnowledge a skos:concept ;
 	skos:prefLabel "Climate system knowledge"@en ; 
-	skos:broaderTransitive :KnowledgeOutcomes .
+	skos:broader :KnowledgeOutcomes .
 	
 :DispositionOutcomes a skos:concept ; 
 	skos:prefLabel "Dispositional outcomes"@en ;
-	skos:broaderTransitive :Outcomes ;
+	skos:broader :Outcomes ;
 	skos:definition "such as, interest, affect, attitude, and behavioral intentions" ;
-	skos:narrowerTransitive :AttitudeOutcomes .
+	skos:narrower :AttitudeOutcomes .
 	
 :AttitudeOutcomes a skos:concept ; 
 	skos:prefLabel "Attitude change outcomes"@en ;
-	skos:broaderTransitive :DispositionOutcomes . 
+	skos:broader :DispositionOutcomes . 
 	
 :CompetenceOutcomes a skos:concept ; 
 	skos:prefLabel "Growth in competencies"@en ; 
 	skos:definition "skills, including cognitive and social" ;
-	skos:broaderTransitive :Outcomes .
+	skos:broader :Outcomes .
 	
 :BehaviorOutcomes a skos:concept ; 
 	skos:prefLabel "Behavioral outcomes"@en ; 
 	skos:prefLabel "Action outcomes"@en ;
 	skos:definition "Unlike skills and actions this means outcomes in concrete actions" ;
-	skos:broaderTransitive :Outcomes .
+	skos:broader :Outcomes .
 	
 :PersonalOutcomes a skos:concept ; 
 	skos:prefLabel "Changes in personal characteristics"@en ; 
 	skos:definition "self-esteem and character development, among others" ;
-	skos:broaderTransitive :Outcomes .
+	skos:broader :Outcomes .
 	
 :MultiDomainOutcomes a skos:concept ; 
 	skos:prefLabel "Multi-domain outcomes"@en ; 
 	skos:definition "spanning more than one domain, such as academic achievement, which involves at least knowledge and competencies" ;
-	skos:broaderTransitive :Outcomes .
+	skos:broader :Outcomes .
 	
 :AchievementOutcomes a skos:concept ; 
 	skos:prefLabel "Achievement outcomes"@en ; 
-	skos:broaderTransitive :MultiDomainOutcomes .
+	skos:broader :MultiDomainOutcomes .
 	
 :EpistemicOutcomes a skos:concept ; 
 	skos:prefLabel "Changes to epistemic cognition"@en ; 
-	skos:broaderTransitive :MultiDomainOutcomes .
+	skos:broader :MultiDomainOutcomes .
 	
 :ActionCompetenceOutcomes a skos:concept ; 
 	skos:prefLabel "Growth in action competence"@en ; 
-	skos:broaderTransitive :KnowledgeOutcomes , :CompetenceOutcomes , :BehaviorOutcomes .
+	skos:broader :KnowledgeOutcomes , :CompetenceOutcomes , :BehaviorOutcomes .
 	
 #################################################
 # Concepts 4: Assessment and measurement methods

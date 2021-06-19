@@ -14,7 +14,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :baker2013 a dct:BibliographicResource ;
 	dct:contributor :baker_jillian ;
 	dct:title "Using Art Elicitation to Deliver and Evaluate a Grade 4 Climate Change Instructional Module" ; 
-	dct:date "2013" ; 
+	dct:gYear "2013" ; 
 	dct:type "InterventionStudy" ;
 	dct:identifier <https://www.tandfonline.com/doi/abs/10.1080/1533015X.2013.824248> ;
 	lrmi:educationalLevel :HighSchool ; 
@@ -25,7 +25,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :bofferding2015 a dct:BibliographicResource ;
 	dct:contributor :baker_jillian ;
 	dct:title "Middle and high school students’ conceptions of climate change mitigation and adaptation strategies" ; 
-	dct:date "2015" ; 
+	dct:gYear "2015" ; 
 	dct:type "InterventionStudy" ;
 	dct:identifier <https://www.tandfonline.com/doi/abs/10.1080/13504622.2014.888401> ;
 	lrmi:educationalLevel :GradesKto5 ; 
@@ -35,7 +35,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :bybee1990 a dct:BibliographicResource ;
 	dct:contributor :bybee_Roger;
 	dct:title "Science for Life & Living: An Elementary School Science Program from Biological Sciences Curriculum Study" ; 
-	dct:date "1990" ; 
+	dct:gYear "1990" ; 
 	dct:type "CurriculumStudy" ;
 	dct:identifier <https://online.ucpress.edu/abt/article/52/2/92/14506/Science-for-Life-amp-Living-An-Elementary-School> ;
 	lrmi:educationalLevel :GradesKto5 ; 
@@ -44,7 +44,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :chen2011 a dct:BibliographicResource ;
 	dct:contributor :chen_xiang;
 	dct:title "Why do people misunderstand climate change? Heuristics, mental models and ontological assumptions" ; 
-	dct:date "2011" ; 
+	dct:gYear "2011" ; 
 	dct:type "Theory", "Measurement" ;
 	dct:identifier <https://link.springer.com/article/10.1007%2Fs10584-010-0013-5> .
 	
@@ -53,7 +53,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :hallar2011 a dct:BibliographicResource ; 
 	dct:contributor :hallar ;
 	dct:title "CHANGE: A Place-based Curriculum for Understanding Climate Change at Storm Peak Laboratory, Colorado." ; 
-	dct:date "2011" ; 
+	dct:gYear "2011" ; 
 	dct:type "CurriculumDescription" ;
 	dct:identifier <https://doi.org/10.1175/2011BAMS3026.1> ; 
 	dct:instructionalMethod :LabBasedLearning, :InteractwithScientist .
@@ -62,7 +62,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	dct:contributor :klosterman_michelle ;
 	dct:contributor :sadler_troy ;
 	dct:title "Multi‐level Assessment of Scientific Content Knowledge Gains Associated with Socioscientific Issues‐based Instruction." ; 
-	dct:date "2010" ; 
+	dct:gYear "2010" ; 
 	dct:type "InterventionStudy" ;
 	dct:identifier <https://www.tandfonline.com/doi/full/10.1080/09500690902894512> ;
 	lrmi:educationalLevel :HighSchool ; 
@@ -74,7 +74,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 :monroe2019 a dct:BibliographicResource ; 
 	dct:contributor :monroe_martha ;
 	dct:title "Identifying effective climate change education strategies: a systematic review of the research" ; 
-	dct:date "2019" ; 
+	dct:gYear"2019" ; 
 	dct:type "SystematicReview" ;
 	dct:identifier <https://doi.org/10.1080/13504622.2017.1360842> . 
 	

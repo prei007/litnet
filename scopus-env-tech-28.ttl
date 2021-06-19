@@ -22,20 +22,6 @@
   dct:type "Text";
   edtech:volume "1811" .
 
-<10.1145/3444465.3444474> a dct:BibliographicResource;
-  dct:title "Actualization of environmental education as an innovative and digital resource for sustainable regional development"@en;
-  dct:bibliographicCitation "ACM International Conference Proceeding Series";
-  dct:creator "Griazev M., Sabinina A., Sycheva I., Izmalkova S., Sycheva N.";
-  dct:issued "2020"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85102932677&doi=10.1145%2f3444465.3444474&partnerID=40&md5=a910daa9fc81f310f64976e791887c81"^^xsd:anyURI;
-  edtech:keyword "E-learning", "Education computing", "Integrodifferential equations",
-    "Plastics industry", "Regional planning", "Surveys", "Environmental development",
-    "Environmental education", "Environmental problems", "Environmental science", "Higher education system",
-    "Innovative character", "Regional development", "Sustainable regional development",
-    "Sustainable development";
-  dct:type "Text";
-  edtech:volume "1811" .
-
 <10.1145/3434780.3436649> a dct:BibliographicResource;
   dct:title "Digital Games for Environmental Sustainability Education: Implications for Educators"@en;
   dct:bibliographicCitation "ACM International Conference Proceeding Series";
@@ -51,18 +37,6 @@
   edtech:startPage 542;
   edtech:endPage 545 .
 
-<10.35699/1983-3652.2020.25739> a dct:BibliographicResource;
-  dct:title "Relation of the ict with neuroeducation, inclusion, pluriculturality and environmental education through a confirmatory factorial analysis study [Relação das tic com a neuro-educação, inclusão, pluriculturalidade e educação ambiental através de um estudo de análise fatorial confirmatória]"@en;
-  dct:bibliographicCitation "Texto Livre";
-  dct:creator "Fernández A.H.";
-  dct:issued "2020"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85098766796&doi=10.35699%2f1983-3652.2020.25739&partnerID=40&md5=eb04bac244d2bc8b2cb6a665af8812cd"^^xsd:anyURI;
-  edtech:keyword "Educational inclusion", "Environmental education", "ICT", "Neuroeducation",
-    "Pluriculturality";
-  dct:type "Text";
-  edtech:volume "13";
-  edtech:startPage 262;
-  edtech:endPage 277 .
 
 <10.29333/EJMSTE/8229> a dct:BibliographicResource;
   dct:title "A study on correlations between computer-aided instructions integrated environmental education and students' learning outcome and environmental literacy"@en;
@@ -91,20 +65,6 @@
   edtech:volume "16";
   edtech:startPage 265;
   edtech:endPage 271 .
-
-<10.29333/ejmste/105686> a dct:BibliographicResource;
-  dct:title "Integrating environmental education and ICT"@en, "The correlation between the application of computer multimedia integrated environmental education and environmental sensitivity and behavior"@en;
-  dct:bibliographicCitation "Eurasia Journal of Mathematics, Science and Technology Education",
-    "Ekoloji";
-  dct:creator "Lay Y.-F.", "Zhuang Z.-Y., Qiao W.";
-  dct:issued "2019"^^xsd:gYear;
-  edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85063737712&doi=10.29333%2fejmste%2f105686&partnerID=40&md5=7054b87cdb26a743ad8893bc219da72c"^^xsd:anyURI ;
-  dct:type "Text";
-  edtech:volume "15";
-  edtech:startPage 265;
-  edtech:endPage 271 ;
-  edtech:keyword "computer", "correlation", "environmental protection", "industrial development",
-    "knowledge", "student", "China", "Fujian" .
 
 <10.29333/ejmste/100639> a dct:BibliographicResource;
   dct:title "Promoting environmental education for primary school-aged students using digital technologies"@en;
@@ -138,7 +98,7 @@
   dct:creator "Ramírez-Verdugo M.D., García de la Vega A.";
   dct:issued "2018"^^xsd:gYear;
   edtech:DOI "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85059629785&doi=10.4018%2f978-1-5225-5463-9.ch013&partnerID=40&md5=79360ebb023fb408a3cdcd6c5960380e"^^xsd:anyURI;
-  edtech:keyword "digital story telling", "language technology";
+  edtech:keyword "Digital story telling", "Language technology";
   dct:type "Text";
   edtech:volume "171";
   edtech:startPage 222;

@@ -1,7 +1,8 @@
-PREFIX : PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 
 ######## one step up 
 
@@ -26,7 +27,7 @@ where
     ?c2  skos:broader ?c1
 }
 
-############ Add the narrower relation 
+############ Add the narrower relation to the graph
 
 insert {?c1 skos:narrower ?c2}  
 where
@@ -46,4 +47,73 @@ select  ?work ?concept2
 ####### Mapping the keywords to concepts
 
 
+### Concept eLearning and other high-level concepts
 
+INSERT {?work :technology :eLearning}
+WHERE
+{
+    ?work :keyword "E-learning"
+}
+
+INSERT {?work :technology :CAI}
+WHERE 
+{
+	{?work :keyword "Computer-aided instruction". }
+	UNION {?work :keyword "Computer-based instruction" .}
+}
+
+INSERT {?work :technology :EduTech}
+WHERE 
+{
+	{?work :keyword "Digital technologies". }
+	UNION {?work :keyword "ICT" .}
+}
+
+
+### Games
+
+INSERT {?work :technology :Game}
+WHERE
+{
+    {?work a dct:BibliographicResource . 
+        ?work :keyword "Computer games" .} 
+    UNION {?work :keyword "Game-based learning" .}
+    UNION {?work :keyword "Digital games" .}
+}
+
+### Programming
+
+
+INSERT {?work :technology :Programming}
+WHERE
+{
+   {?work a dct:BibliographicResource . 
+     ?work :keyword "Programming" .}
+    UNION
+    {?work :keyword "Software engineering". }
+    UNION
+    {?work :keyword "Software testing". }
+	UNION
+    {?work :keyword "Software prototyping". }
+    UNION
+    {?work :keyword "Software design". }
+    UNION
+    {?work :keyword "Software development". }
+    UNION
+    {?work :keyword "Program language". }
+    UNION
+    {?work :keyword "Software architecture". }
+}
+
+
+### MultiMedia
+
+INSERT {?work :technology :MultiMedia}
+WHERE
+{
+    {?work a dct:BibliographicResource . 
+        ?work :keyword "Digital story telling" .} 
+    UNION {?work :keyword "Video" .}
+    UNION {?work :keyword "Audio" .}
+    UNION {?work :keyword "Language technology" .}
+}

@@ -49,12 +49,13 @@ select  ?work ?concept2
 ### Make author keywords index keywords
 # in case there are no indexKeywords
 
-CONSTRUCT {?work :indexKeywords ?index2}
+INSERT {?work :indexKeywords ?index2}
+# SELECT ?work ?index2
   WHERE
   {
-    ?work a dct:BibliographicReference . 
-    ?work :authorKeywords ?index2 . 
-    FILTER NOT EXISTS {?work :indexKeywords ?index1}
+    ?work a dct:BibliographicResource . 
+   ?work edtech:authorKeywords ?index2 . 
+  FILTER NOT EXISTS {?work :indexKeywords ?index1}
   }
 
 
@@ -99,7 +100,24 @@ WHERE
     {
     ?work edtech:indexKeywords ?index . 
      FILTER (CONTAINS(?index,"game-based learning") ).}
+  UNION
+    {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"educational game") ).}
 }
+
+INSERT {?work :technology :VideoGame}
+WHERE
+{
+    {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"video game")).}
+   UNION
+    {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"videogame")).}
+}
+
 
 ### Programming
 
@@ -170,6 +188,9 @@ WHERE
      UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"google earth")).}
+       UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"google maps")).}
 }
 
 
@@ -183,3 +204,56 @@ WHERE
      FILTER (CONTAINS(?index,"literature review")).}
 }
 
+
+######## Outcomes 
+
+### Disposition outcomes
+
+INSERT {?work :outcome :DispositionOutcomes}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"attitude")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"value")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"interest")).}
+       UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"emotion")).}
+}
+
+##### Knowledge and skill
+
+INSERT {?work :outcome :KnowledgeOutcomes}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"cognitive")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"cognition")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"knowledge")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"skill")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"perception")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"problem-solving")).}
+    UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"achievement")).}
+     UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"thinking")).}
+     UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"creativity")).}
+}

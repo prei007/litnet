@@ -70,7 +70,8 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 :ClimateScience a skos:concept; 
 	skos:broader :EarthScience . 
-:ClimateChange a skos:concept . 
+	
+:ClimateChange a skos:concept ; 
 	skos:prefLabel "Climate change"@en ;
 	skos:broader :ClimateScience .
 
@@ -283,8 +284,9 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	
 :FieldSensors a skos:concept ;
 	skos:prefLabel "Field sensors"@en ; 
-	skos:broader :OutDoorsTech, :Sensing&Recording .
-
+	skos:broader :OutDoorsTech ; 
+	skos:broader :SensingAndRecording .
+	
 :SensingAndRecording a skos:concept ; 
 	skos:prefLabel "Sensing and recording"@en ; 
 	skos:altLabel "IoT"@en ; 
@@ -458,7 +460,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :ResearchMethod a skos:concept . 
 
 :ReviewMethod a skos:cconcept ;
-	skos:broader :ResearchMethod
+	skos:broader :ResearchMethod .
 
 :LitReview a skos:concept ;
 	skos:prefLabel "Literature review"@en ; 

@@ -1,0 +1,392 @@
+@base <http://coolfutures.net/rdf/2021/edtech#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edtech: <http://coolfutures.net/rdf/2021/edtech#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+edtech:Pican2021 a dct:BibliographicResource;
+  dct:title "Teachers' perspectives and practices on biodiversity web portals as an opportunity to reconnect education with nature";
+  dct:issued "2021"^^xsd:gYear;
+  dct:creator "Pican o A., Arroz A.M., Amorim I.R., Matos S., Gabriel R.";
+  dct:bibliographicCitation "Environmental Conservation";
+  edtech:volume "48";
+  edtech:startPage 25;
+  edtech:endPage 32;
+  edtech:DOI "10.1017/S0376892920000405";
+  edtech:authorKeywords "biodiversity education; digital education; free-word association; ict; keywords: azores; nature experience; place-based education; social representations";
+  edtech:indexKeywords "biodiversity; biodiversity loss; information and communication technologies; information repositories; multidimensionality; social representations; teaching activities; technological fluency; word association; portals; biodiversity; education; environmental education; information and communication technology; internet; teaching; azores; portugal"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85095809870&doi=10.1017%2fS0376892920000405&partnerID=40&md5=14c066cdd150bb4eafee10fe6bffecbd"^^xsd:normalizedString .
+
+edtech:Sirazhiden2020 a dct:BibliographicResource;
+  dct:title "VR and AR technologies in the modern cultural space and their role in environmental education";
+  dct:issued "2020"^^xsd:gYear;
+  dct:creator "Sirazhiden D.";
+  dct:bibliographicCitation "E3S Web of Conferences";
+  edtech:volume "217";
+  edtech:DOI "10.1051/e3sconf/202021708002";
+  edtech:indexKeywords "digital storage; environmental technology; museums; reverse engineering; safety engineering; sustainable development; three dimensional computer graphics; cultural heritages; cultural identity; digital preservation; environmental education; information society; internet connection; three dimensional visualization; traditional services; virtual reality"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85097932715&doi=10.1051%2fe3sconf%2f202021708002&partnerID=40&md5=ce7cc2312f84227da1e3c1531531b7e3"^^xsd:normalizedString .
+
+edtech:Miyaji2020 a dct:BibliographicResource;
+  dct:title "Change in knowledge and awareness in teacher education on satoyama environmental learning: Through a blend of learning spaces, methods and media";
+  dct:issued "2020"^^xsd:gYear;
+  dct:creator "Miyaji I., Fukui H.";
+  dct:bibliographicCitation "European Journal of Educational Research";
+  edtech:volume "9";
+  edtech:startPage 1663;
+  edtech:endPage 1674;
+  edtech:DOI "10.12973/EU-JER.9.4.1663";
+  edtech:authorKeywords "blended learning; environmental education; experiential learning; inquiry-based learning; trainee teacher";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85095769588&doi=10.12973%2fEU-JER.9.4.1663&partnerID=40&md5=5337c2a313c7b736a8f3822b2a1aec0a"^^xsd:normalizedString .
+
+edtech:Díaz2020 a dct:BibliographicResource;
+  dct:title "Digital literacy of Environmental Science teachers: An analysis of their technological competence [Alfabetización digital del profesorado de ciencias ambientales: Un análisis de su competencia tecnógica]";
+  dct:issued "2020"^^xsd:gYear;
+  dct:creator "Díaz I.A., Reche M.P.C., Romero-Rodríguez J.-M.";
+  dct:bibliographicCitation "Revista Luna Azul";
+  edtech:startPage 172;
+  edtech:endPage 184;
+  edtech:DOI "10.17151/luaz.2019.49.10";
+  edtech:authorKeywords "digital competence; environmental education; ict; secondary education";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85095616569&doi=10.17151%2fluaz.2019.49.10&partnerID=40&md5=ddf008d09a9e90bbaf4e2f4c78736326"^^xsd:normalizedString .
+
+edtech:Iqbal2020 a dct:BibliographicResource;
+  dct:title "A study on environmental education-a barefoot college model understanding";
+  dct:issued "2020"^^xsd:gYear;
+  dct:creator "Iqbal M., Pandit D., Chauhan R., Susilawati S., Patriani Y.";
+  dct:bibliographicCitation "International Journal of Advanced Science and Technology";
+  edtech:volume "29";
+  edtech:startPage 1464;
+  edtech:endPage 1470;
+  edtech:authorKeywords "environment education; ict-information and communication technology; social emotional learning";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85083995090&partnerID=40&md5=c8e99cc18337234c0926e8bb00224604"^^xsd:normalizedString .
+
+edtech:Khurvalieva2020 a dct:BibliographicResource;
+  dct:title "Technology for the formation of environmental concepts in senior preschoolers by computer";
+  dct:issued "2020"^^xsd:gYear;
+  dct:creator "Khurvalieva T.L";
+  dct:bibliographicCitation "International Journal of Scientific and Technology Research";
+  edtech:volume "9";
+  edtech:startPage 3772;
+  edtech:endPage 3775;
+  edtech:authorKeywords "ecology teaching; integration technologies; integrative tasks; interactive ways of teaching; preschool education; �ict in environment";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85084104768&partnerID=40&md5=51fbe41a22625ad8e0a6becf494b2d3c"^^xsd:normalizedString .
+
+edtech:Mélega2020 a dct:BibliographicResource;
+  dct:title "A digital game about water use as a teaching-learning tool in elementary school [Um jogo digital sobre o uso da água como ferramenta de ensino-aprendizagem na escola de educação básica]";
+  dct:issued "2020"^^xsd:gYear;
+  dct:creator "Mélega J.C., Targa M.S.";
+  dct:bibliographicCitation "Revista Ambiente e Agua";
+  edtech:volume "15";
+  edtech:startPage 1;
+  edtech:endPage 16;
+  edtech:DOI "10.4136/ambi-agua.2562";
+  edtech:authorKeywords "environmental awareness; environmental perception; environmental sciences; game; water";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85098483022&doi=10.4136%2fambi-agua.2562&partnerID=40&md5=cdc768f4759eab67794f0b9bcfb4476a"^^xsd:normalizedString .
+
+edtech:Lay2019 a dct:BibliographicResource;
+  dct:title "Integrating environmental education and ICT";
+  dct:issued "2019"^^xsd:gYear;
+  dct:creator "Lay Y.-F.";
+  dct:bibliographicCitation "Eurasia Journal of Mathematics, Science and Technology Education";
+  edtech:volume "15";
+  edtech:DOI "10.29333/ejmste/105686";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85063737712&doi=10.29333%2fejmste%2f105686&partnerID=40&md5=7054b87cdb26a743ad8893bc219da72c"^^xsd:normalizedString .
+
+edtech:Silva2018 a dct:BibliographicResource;
+  dct:title "Beyond technology, through research in education: The collaborative situated design of an environmental health education platform";
+  dct:issued "2018"^^xsd:gYear;
+  dct:creator "Silva M.J., Ferreira E., Souza A., Alves A.R., Rito P., Gomes C.";
+  dct:bibliographicCitation "SIIE 2018 - 2018 International Symposium on Computers in Education, Proceedings";
+  edtech:DOI "10.1109/SIIE.2018.8586699";
+  edtech:authorKeywords "design; education; environmental health; platform; situated";
+  edtech:indexKeywords "design; education; educational technology; health; educational context; environmental education; environmental health; information and communication technologies; platform; science education; situated; situated design; environmental technology"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85061053475&doi=10.1109%2fSIIE.2018.8586699&partnerID=40&md5=b819587f87ef90055ed931f2f584d870"^^xsd:normalizedString .
+
+edtech:Paredes-Labra2018 a dct:BibliographicResource;
+  dct:title "Preparing public pedagogies with ICT: The case of pesticides and popular education in Brazil";
+  dct:issued "2018"^^xsd:gYear;
+  dct:creator "Paredes-Labra J., Siri I.-M., Oliveira A.";
+  dct:bibliographicCitation "Sustainability (Switzerland)";
+  edtech:volume "10";
+  edtech:DOI "10.3390/su10103377";
+  edtech:authorKeywords "environmental education; information and communications technologies (ict); political participation; public pedagogies; service-learning";
+  edtech:indexKeywords "communication network; environmental education; pesticide; prioritization; public attitude; qualitative analysis; questionnaire survey; teaching; brazil"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85053666278&doi=10.3390%2fsu10103377&partnerID=40&md5=bd8d94c1d82e3e51e58ea912af82658b"^^xsd:normalizedString .
+
+edtech:Peza-Hernández2018 a dct:BibliographicResource;
+  dct:title "Towards a Participative Environmental Management Education Model Using Information and Communication Technologies";
+  dct:issued "2018"^^xsd:gYear;
+  dct:creator "Peza-Hernández G., Barrera-González A.L., Benavides-Lahnstein A.I.";
+  dct:bibliographicCitation "World Sustainability Series";
+  edtech:startPage 267;
+  edtech:endPage 281;
+  edtech:DOI "10.1007/978-3-319-70560-6_17";
+  edtech:authorKeywords "community participation; environmental management; pre-service teachers; sustainable development; teacher training";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85071561758&doi=10.1007%2f978-3-319-70560-6_17&partnerID=40&md5=64083978d88397c40469163e92466a57"^^xsd:normalizedString .
+
+edtech:Varela-Losada2018 a dct:BibliographicResource;
+  dct:title "Training teachers committed to climate change mitigation";
+  dct:issued "2018"^^xsd:gYear;
+  dct:creator "Varela-Losada M., Arias-Correa A., Vega-Marcote P.";
+  dct:bibliographicCitation "Climate Change Management";
+  edtech:startPage 307;
+  edtech:endPage 321;
+  edtech:DOI "10.1007/978-3-319-70199-8_18";
+  edtech:authorKeywords "climate change; environmental education and sustainability; icts; teacher training; teaching skills";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85070752300&doi=10.1007%2f978-3-319-70199-8_18&partnerID=40&md5=c904978cfedf52c9141a3bee16632ed1"^^xsd:normalizedString .
+
+edtech:Pohjolainen2018 a dct:BibliographicResource;
+  dct:title "Analysing and improving students' mathematics skills using ICT-tools";
+  dct:issued "2018"^^xsd:gYear;
+  dct:creator "Pohjolainen S., Nykänen O., Venho J., Kangas J.";
+  dct:bibliographicCitation "Eurasia Journal of Mathematics, Science and Technology Education";
+  edtech:volume "14";
+  edtech:startPage 1221;
+  edtech:endPage 1227;
+  edtech:DOI "10.29333/ejmste/81869";
+  edtech:authorKeywords "biology education; environmental education; science education; teacher education";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85041216969&doi=10.29333%2fejmste%2f81869&partnerID=40&md5=567653091d233bb7327f8c5898d7a8ed"^^xsd:normalizedString .
+
+edtech:Fauville2017 a dct:BibliographicResource;
+  dct:title "Questions as indicators of ocean literacy: students’ online asynchronous discussion with a marine scientist";
+  dct:issued "2017"^^xsd:gYear;
+  dct:creator "Fauville G.";
+  dct:bibliographicCitation "International Journal of Science Education";
+  edtech:volume "39";
+  edtech:startPage 2151;
+  edtech:endPage 2170;
+  edtech:DOI "10.1080/09500693.2017.1365184";
+  edtech:authorKeywords "environmental education; ict & education; ocean literacy; scientific literacy";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85027515830&doi=10.1080%2f09500693.2017.1365184&partnerID=40&md5=e29be2a8440a7e21bcfe57e96f65fefe"^^xsd:normalizedString .
+
+edtech:Sangiorgio2017 a dct:BibliographicResource;
+  dct:title "An international online competition to stimulate student's interest on ecological issues";
+  dct:issued "2017"^^xsd:gYear;
+  dct:creator "Sangiorgio F., Gjoni V., Fiore N., Tarantino D., Basset A.";
+  dct:bibliographicCitation "SCIRES-IT";
+  edtech:volume "7";
+  edtech:startPage 35;
+  edtech:endPage 42;
+  edtech:DOI "10.2423/i22394303v7n2p35";
+  edtech:authorKeywords "earth sciences; ecology; educational game; environmental education; experimental method; ict";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85045449360&doi=10.2423%2fi22394303v7n2p35&partnerID=40&md5=84910387eb634c5de9746e5a940392e1"^^xsd:normalizedString .
+
+edtech:Ugolini2016 a dct:BibliographicResource;
+  dct:title "Environmental education by gaming";
+  dct:issued "2016"^^xsd:gYear;
+  dct:creator "Ugolini F., Massetti L., Pellegrino L., Rossini G., Raschi A., Finato B.";
+  dct:bibliographicCitation "Mondo Digitale";
+  edtech:volume "15";
+  edtech:authorKeywords "coding; education; environment; game; lbg platforms; mobile phones; school; tablet";
+  edtech:indexKeywords "conservation; environmental protection; environmental technology; mobile devices; mobile phones; teaching; coding; environment; game; lbg platforms; school; tablet; education"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84992109198&partnerID=40&md5=998accd37752df4fd41e43fa5d6e0af4"^^xsd:normalizedString .
+
+edtech:Fisher2016 a dct:BibliographicResource;
+  dct:title "Issues in geography teaching";
+  dct:issued "2016"^^xsd:gYear;
+  dct:creator "Fisher C., Binns T.";
+  dct:bibliographicCitation "Issues in Geography Teaching";
+  edtech:startPage 1;
+  edtech:endPage 320;
+  edtech:DOI "10.4324/9781315011301";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85068662044&doi=10.4324%2f9781315011301&partnerID=40&md5=082b378fc1b7ef6f29123f715b670a80"^^xsd:normalizedString .
+
+edtech:Nerantzaki2016 a dct:BibliographicResource;
+  dct:title "Integrating English as a foreign language and digital storytelling in environmental education: An interdisciplinary approach in primary education";
+  dct:issued "2016"^^xsd:gYear;
+  dct:creator "Nerantzaki T.";
+  dct:bibliographicCitation "Digital Stories and Their Integration in Early Childhood and Primary Education: Teaching Scenarios and Practical Ideas";
+  edtech:startPage 115;
+  edtech:endPage 128;
+  edtech:authorKeywords "digital stories and recycling teaching; digital stories and sustainability teaching; digital stories in environmental education; e-learning in environmental education; english as a foreign language in primary education; interdisciplinary approach to environmental education";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-85026550732&partnerID=40&md5=713c63f00a00d2ac459c3641e72de383"^^xsd:normalizedString .
+
+edtech:Pontes-Pedrajas2014 a dct:BibliographicResource;
+  dct:title "Educative experience of the use of concept mapping in science and environmental teacher training programmes";
+  dct:issued "2014"^^xsd:gYear;
+  dct:creator "Pontes-Pedrajas A., Varo-Martínez M.";
+  dct:bibliographicCitation "Journal of Teacher Education for Sustainability";
+  edtech:volume "16";
+  edtech:startPage 102;
+  edtech:endPage 116;
+  edtech:DOI "10.2478/jtes-2014-0006";
+  edtech:authorKeywords "cmaptools; collaborative work; concept mapping; environmental education; teacher training";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84908030798&doi=10.2478%2fjtes-2014-0006&partnerID=40&md5=3f719917d9d5e26f3639daf8be1abb3e"^^xsd:normalizedString .
+
+edtech:Hadjileontiadou2014 a dct:BibliographicResource;
+  dct:title "On enhancing disabled students' accessibility in environmental education using ICT: The MusicPaint case";
+  dct:issued "2014"^^xsd:gYear;
+  dct:creator "Hadjileontiadou S.J., Plastra E., Toumpas K., Kyprioti K., Mandiliotis D., Barroso J., Hadjileontiadis L.J.";
+  dct:bibliographicCitation "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)";
+  edtech:volume "8514 LNCS";
+  edtech:startPage 325;
+  edtech:endPage 336;
+  edtech:DOI "10.1007/978-3-319-07440-5_30";
+  edtech:authorKeywords "activity theory; didactical instruction; environmental education; human-computer interaction; ict; musicpaint; special education; students with disability";
+  edtech:indexKeywords "activity coefficients; human computer interaction; activity theory; didactical instruction; environmental education; ict; musicpaint; special education; students"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84903485326&doi=10.1007%2f978-3-319-07440-5_30&partnerID=40&md5=624e6d157f07f91640e62552a7b0f6c2"^^xsd:normalizedString .
+
+edtech:Terton2014 a dct:BibliographicResource;
+  dct:title "A computer-based educational adventure challenging children to interact with the natural environment through physical exploration and experimentation";
+  dct:issued "2014"^^xsd:gYear;
+  dct:creator "Terton U., White I.";
+  dct:bibliographicCitation "CSEDU 2014 - Proceedings of the 6th International Conference on Computer Supported Education";
+  edtech:volume "3";
+  edtech:startPage 93;
+  edtech:endPage 98;
+  edtech:authorKeywords "adhd; australia; autism; biodiversity; biotope; computer based learning; computer in education; e-learning; environmental education; environmental learning; game based learning; game design; ict; interface design; internet; motor activity";
+  edtech:indexKeywords "biodiversity; curricula; e-learning; experiments; internet; learning systems; adhd; australia; autism; biotope; computer-based learning; environmental education; environmental learning; game design; game-based learning; ict; interface designs; motor activity; computer games"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84902344750&partnerID=40&md5=7fc6b3bdfa53520ec23bd9b586612d44"^^xsd:normalizedString .
+
+edtech:Gutiérrez-Pérez2014 a dct:BibliographicResource;
+  dct:title "Sustainability culture and communication technologies: Possibilities for environmental educators";
+  dct:issued "2014"^^xsd:gYear;
+  dct:creator "Gutiérrez-Pérez J., Ojeda-Barceló F., Perales-Palacios J.";
+  dct:bibliographicCitation "International Journal of Sustainability Education";
+  edtech:volume "9";
+  edtech:startPage 21;
+  edtech:endPage 39;
+  edtech:DOI "10.18848/2325-1212/CGP/v09i01/55296";
+  edtech:authorKeywords "diagnostic study; educators survey; environmental education; information and communication technologies; professional practices";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84899809977&doi=10.18848%2f2325-1212%2fCGP%2fv09i01%2f55296&partnerID=40&md5=13eb27e4f0b775ff861e985850ab6420"^^xsd:normalizedString .
+
+edtech:Fauville2014 a dct:BibliographicResource;
+  dct:title "ICT tools in environmental education: Reviewing two newcomers to schools";
+  dct:issued "2014"^^xsd:gYear;
+  dct:creator "Fauville G., Lantz-Andersson A., Säljö R.";
+  dct:bibliographicCitation "Environmental Education Research";
+  edtech:volume "20";
+  edtech:startPage 248;
+  edtech:endPage 283;
+  edtech:DOI "10.1080/13504622.2013.775220";
+  edtech:authorKeywords "digital tools; environmental education and digital media; ict in classrooms; literature review";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84897600964&doi=10.1080%2f13504622.2013.775220&partnerID=40&md5=a6edba5b770769c50077d43a304ac54f"^^xsd:normalizedString .
+
+edtech:Tsalapata2013 a dct:BibliographicResource;
+  dct:title "Environmental education through envkids didactical framework and ICT tools";
+  dct:issued "2013"^^xsd:gYear;
+  dct:creator "Tsalapata H., Alimsi R., Heidmann O.";
+  dct:bibliographicCitation "Sustainable Practices: Concepts, Methodologies, Tools, and Applications";
+  edtech:volume "3";
+  edtech:startPage 1492;
+  edtech:endPage 1504;
+  edtech:DOI "10.4018/978-1-4666-4852-4.ch083";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84944893141&doi=10.4018%2f978-1-4666-4852-4.ch083&partnerID=40&md5=f91787b144c4236777601dc91b14de34"^^xsd:normalizedString .
+
+edtech:Davies2012 a dct:BibliographicResource;
+  dct:title "A matter of interpretation: Developing primary pupils' enquiry skills using position-linked datalogging";
+  dct:issued "2012"^^xsd:gYear;
+  dct:creator "Davies D.J., Collier C., Howe A.";
+  dct:bibliographicCitation "Research in Science and Technological Education";
+  edtech:volume "30";
+  edtech:startPage 311;
+  edtech:endPage 325;
+  edtech:DOI "10.1080/02635143.2012.738420";
+  edtech:authorKeywords "datalogging; environmental education; gps; ict; primary science";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84869384285&doi=10.1080%2f02635143.2012.738420&partnerID=40&md5=7cba8094ec581f8e761f82048f05daf8"^^xsd:normalizedString .
+
+edtech:Roy2012 a dct:BibliographicResource;
+  dct:title "Promoting education for sustainable development by using ICT enhanced problem based learning in a developing country";
+  dct:issued "2012"^^xsd:gYear;
+  dct:creator "Roy A., Kihoza P., Suhonen J., Vesisenaho M.";
+  dct:bibliographicCitation "Proceedings - 2012 IEEE 4th International Conference on Technology for Education, T4E 2012";
+  edtech:startPage 98;
+  edtech:endPage 104;
+  edtech:DOI "10.1109/T4E.2012.27";
+  edtech:authorKeywords "ict supported pedagogical model; ict4d; ict4e; problems in developing world; project based learning; social awareness; social issues";
+  edtech:indexKeywords "developing world; ict4d; ict4e; pedagogical model; project based learning; social awareness; social issues; conservation; deforestation; developing countries; education computing; information technology; students; engineering education; conservation; deforestation; developing countries; education; engineers; forest fires; information retrieval; tanzania"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84867974462&doi=10.1109%2fT4E.2012.27&partnerID=40&md5=9df1f46c052e54c541eabc9de740efdf"^^xsd:normalizedString .
+
+edtech:Ojeda2012 a dct:BibliographicResource;
+  dct:title "Quality evaluation of websites and blogs for environmental education [Evaluación de la calidad de webs y blogs sobre educación ecológica]";
+  dct:issued "2012"^^xsd:gYear;
+  dct:creator "Ojeda F., Perales F.-J., GutiéRrez-Pérez J.";
+  dct:bibliographicCitation "Cultura y Educacion";
+  edtech:volume "24";
+  edtech:startPage 77;
+  edtech:endPage 93;
+  edtech:DOI "10.1174/113564012799740812";
+  edtech:authorKeywords "blogs; environmental education; ict; internet; quality standards; teaching resources; web sites";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84858184951&doi=10.1174%2f113564012799740812&partnerID=40&md5=231f8aa4d83740fd5f0aded9a7a6c67d"^^xsd:normalizedString .
+
+edtech:Kim2012 a dct:BibliographicResource;
+  dct:title "A study on the development of learning contents and platform for environmental education";
+  dct:issued "2012"^^xsd:gYear;
+  dct:creator "Kim U., Choi J., Yun J.";
+  dct:bibliographicCitation "Proceedings of the IADIS International Conference Mobile Learning 2012, ML 2012";
+  edtech:startPage 373;
+  edtech:endPage 376;
+  edtech:authorKeywords "digital contents; environmental education; ict; mobile learning platform; urban space monitoring";
+  edtech:indexKeywords "e-learning; urban planning; digital contents; environmental education; ict; mobile learning; urban spaces; education"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84944050780&partnerID=40&md5=15d3f1eb107c6a807b269095449156c1"^^xsd:normalizedString .
+
+edtech:Leppisaari2012 a dct:BibliographicResource;
+  dct:title "Modelling digital natives' international collaboration: Finnish-korean experiences of environmental education";
+  dct:issued "2012"^^xsd:gYear;
+  dct:creator "Leppisaari I., Lee O.";
+  dct:bibliographicCitation "Educational Technology and Society";
+  edtech:volume "15";
+  edtech:startPage 244;
+  edtech:endPage 256;
+  edtech:authorKeywords "environmental education; finland; ict in education; international collaboration model; korea";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84871558051&partnerID=40&md5=3f7664239834f06cbacd3ddab5f88792"^^xsd:normalizedString .
+
+edtech:Goumopoulos2011 a dct:BibliographicResource;
+  dct:title "Using pervasive computing and open space design to transform the schoolyard into an educational setting";
+  dct:issued "2011"^^xsd:gYear;
+  dct:creator "Goumopoulos C., Papalexopoulos D., Kameas A., Stavridou A., Tzimopoulou S.";
+  dct:bibliographicCitation "Proceedings - 2011 7th International Conference on Intelligent Environments, IE 2011";
+  edtech:startPage 256;
+  edtech:endPage 261;
+  edtech:DOI "10.1109/IE.2011.45";
+  edtech:authorKeywords "ecology; educational process; environmental education; interaction; parametric design; school court; space; sustainable development";
+  edtech:indexKeywords "educational process; environmental education; interaction; parametric design; school court; space; curricula; design; ecology; intelligent agents; planning; sustainable development; teaching; ubiquitous computing; information technology"^^xsd:integer;
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-81255190576&doi=10.1109%2fIE.2011.45&partnerID=40&md5=5638c1864d975ad44add935df850e695"^^xsd:normalizedString .
+
+edtech:Papastergiou2011 a dct:BibliographicResource;
+  dct:title "Effects of student participation in an online learning community on environmental education: A Greek case study";
+  dct:issued "2011"^^xsd:gYear;
+  dct:creator "Papastergiou M., Antoniou P., Apostolou M.";
+  dct:bibliographicCitation "Technology, Pedagogy and Education";
+  edtech:volume "20";
+  edtech:startPage 127;
+  edtech:endPage 142;
+  edtech:DOI "10.1080/1475939X.2011.588416";
+  edtech:authorKeywords "environmental education; internet; online learning communities; project-based learning";
+  dct:type "Text";
+  edtech:webLink "https://www.scopus.com/inward/record.uri?eid=2-s2.0-79960911905&doi=10.1080%2f1475939X.2011.588416&partnerID=40&md5=b2e5f9c5c85284c30536a8c23c7f1072"^^xsd:normalizedString .

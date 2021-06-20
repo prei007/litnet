@@ -47,6 +47,7 @@ select  ?work ?concept2
 ####### Mapping the keywords to concepts   ###########
 
 ### Make author keywords index keywords
+# in case there are no indexKeywords
 
 CONSTRUCT {?work :indexKeywords ?index2}
   WHERE
@@ -137,9 +138,48 @@ WHERE
 INSERT {?work :technology :MultiMedia}
 WHERE
 {
-    {?work a dct:BibliographicResource . 
-        ?work :keyword "Digital story telling" .} 
-    UNION {?work :keyword "Video" .}
-    UNION {?work :keyword "Audio" .}
-    UNION {?work :keyword "Language technology" .}
+    {?work :indexKeywords ?index . 
+        FILTER (CONTAINS(?index, "digital story telling")) .} 
+    UNION 
+    {?work :indexKeywords ?index . 
+                FILTER (CONTAINS(?index, "video")). } 
+                UNION 
+    {?work :indexKeywords ?index . 
+                FILTER (CONTAINS(?index, "photography")). } 
+                UNION 
+    {?work :indexKeywords ?index . 
+                FILTER (CONTAINS(?index, "music")). } 
+    UNION 
+    {?work :indexKeywords ?index . 
+                FILTER (CONTAINS(?index, "audio")) .} 
+    UNION 
+    {?work :indexKeywords ?index . 
+                FILTER (CONTAINS(?index, "language technology")) .} 
 }
+
+### Research software applications
+
+INSERT {?work :technology :GIS}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"geographic information system")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"geomapping")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"google earth")).}
+}
+
+
+#### Research methods used in a study
+
+
+INSERT {?work :researchMethod :LitReview}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"literature review")).}
+}
+

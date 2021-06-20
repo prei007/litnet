@@ -62,7 +62,17 @@ PREFIX dct: <http://purl.org/dc/terms/>
 # best to use an existing classification scheme, not make up our own. 
 # need to find one.
 	
+:EarthScience a skos:concept. 
+
+:BioScience a skos:concept. 
+
+:SocialScience a skos:concept. 
+
+:ClimateScience a skos:concept; 
+	skos:broader :EarthScience . 
 :ClimateChange a skos:concept . 
+	skos:prefLabel "Climate change"@en ;
+	skos:broader :ClimateScience .
 
 :GlobalWarming a skos:concept ; 
 	skos:prefLabel "Global warming"@en ;
@@ -72,6 +82,16 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Climate change mitigation"@en ;
 	skos:broader :ClimateChange .
 	
+:BioDiversity a skos:concept ; 
+	skos:prefLabel "Biodiversity education"@en. 
+	skos:broader :BioScience. 
+	
+:SustainabilityEducation a skos:concept ;
+	skos:prefLabel "Education for sustainability" .
+	
+:EnergyEducation a skos:concept ;
+	skos:prefLabel "Energy education"@en ;
+	skos:broader :SustainabilityEducation .
 	
 #################################
 # Concepts: Educational technologies
@@ -127,6 +147,15 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :MixedReality a skos:concept ; 
 	skos:prefLabel "Mixed Reality"@en ; 
 	skos:broader :ImmersiveTech .
+	
+:VirtualFieldTrip a skos:concept ; 
+	skos:prefLabel "Virtual field trip"@en ;
+	skos:broader :ImmersiveTech . 
+	
+:VirtualExhibition a skos:concept ; 
+	skos:prefLabel "Virtual exhibition"@en ;
+	skos:altLabel "Virtual museum"@en; 
+	skos:broader :ImmersiveTech . 
 
 ### MultiMedia
 
@@ -141,6 +170,15 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :DigitalPhotography a skos:concept ; 
 	skos:prefLabel "Digital Photography"@en ; 
 	skos:broader :MultiMedia . 
+	
+:PodCast a skos:concept ; 
+	skos:prefLabel "Podcast"@en ; 
+	skos:broader :Multimedia, :SocialMedia . 
+	
+:VideoCast a skos:concept ; 
+	skos:prefLabel "Video cast"@en ; 
+	skos:altLabel "vlog"@en ; 
+	skos:broader :Multimedia, :SocialMedia . 
 
 
 ### Mobile phones and padlets
@@ -163,6 +201,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :LearningCommunity a skos:concept ; 
 	skos:prefLabel "Online learning community"@en ; 
 	skos:broader :SocialMedia . 
+	
+:Wiki a skos:concept ; 
+	skos:prefLabel "Wiki"@en ; 
+	skos:broader :SocialMedia .
 
 ### e-learning, computer-based assessment
 
@@ -231,6 +273,17 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 
 ### Sensors, Drones, IoT
+
+:OutDoorsTech a skos:concept ;
+	skos:prefLabel "Outdoors technology use"@en ; 
+	skos:broader :EduTech .
+	
+:Drones a skos:concept ;
+	skos:broader :OutDoorsTech . 
+	
+:FieldSensors a skos:concept ;
+	skos:prefLabel "Field sensors"@en ; 
+	skos:broader :OutDoorsTech, :Sensing&Recording .
 
 :SensingAndRecording a skos:concept ; 
 	skos:prefLabel "Sensing and recording"@en ; 
@@ -340,6 +393,9 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Climate system knowledge"@en ; 
 	skos:broader :KnowledgeOutcomes .
 	
+:Awareness a skos:concept ;
+	skos:broader :KnowledgeOutcomes. 
+	
 :DispositionOutcomes a skos:concept ; 
 	skos:prefLabel "Dispositional outcomes"@en ;
 	skos:broader :Outcomes ;
@@ -398,3 +454,16 @@ PREFIX dct: <http://purl.org/dc/terms/>
 #################################
 # Concepts 5: Research methods
 #################################
+
+:ResearchMethod a skos:concept . 
+
+:ReviewMethod a skos:cconcept ;
+	skos:broader :ResearchMethod
+
+:LitReview a skos:concept ;
+	skos:prefLabel "Literature review"@en ; 
+	skos:broader :ReviewMethod .
+	
+:MetaAnalysis a skos:concept ;
+	skos:prefLabel "Meta-analysis"@en ; 
+	skos:broader :ReviewMethod .

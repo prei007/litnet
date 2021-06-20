@@ -2,7 +2,7 @@
 # SKOS concepts 					   #
 ########################################
 
-PREFIX : <http://coolfutures.net/rdf/2021/litrev#>
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -137,6 +137,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :DigitalStory a skos:concept ; 
 	skos:prefLabel "Digital story telling"@en ; 
 	skos:broader :MultiMedia . 
+	
+:DigitalPhotography a skos:concept ; 
+	skos:prefLabel "Digital Photography"@en ; 
+	skos:broader :MultiMedia . 
 
 
 ### Mobile phones and padlets
@@ -155,22 +159,36 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :SocialMedia a skos:concept ; 
 	skos:prefLabel "Socialmedia technology"@en ; 
 	skos:broader :EduTech . 
+	
+:LearningCommunity a skos:concept ; 
+	skos:prefLabel "Online learning community"@en ; 
+	skos:broader :SocialMedia . 
 
-### Learning Management Systems, computer-based assessment
+### e-learning, computer-based assessment
+
+:eLearning a skos:concept ; 
+	skos:prefLabel "E-Learning"@en ; 
+	skos:broader :EduTech .
+
 
 :LMS a skos:concept ; 
 	skos:prefLabel "Learning Management System"@en ; 
-	skos:broader :EduTech . 
+	skos:broader :eLearning . 
 	
 :CBA a skos:concept ; 
 	skos:prefLabel "Computer-based assessment"@en ; 
 	skos:altLabel "Computer-based testing"@en ; 
 	skos:broader :EduTech . 
+	
+:CAI a skos:concept ; 
+	skos:prefLabel "Computer-aided instruction"@en ; 
+	skos:altLabel "Computer-based instruction"@en ; 
+	skos:broader :EduTech. 
 
 ### Programming
 
 :Programming a skos:concept ; 
-	skos:prefLabel "Programming language"@en ; 
+	skos:prefLabel "Computer programming"@en ; 
 	skos:broader :EduTech . 
 
 ### Research Software, Modelling, data science
@@ -219,7 +237,9 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:altLabel "IoT"@en ; 
 	skos:broader :EduTech .
 
-
+:DataLogging a skos:concept ; 
+	skos:prefLabel "Data logging"@en ; 
+	skos:broader :SensingAndRecording .
 
 	
 #################################

@@ -35,7 +35,7 @@ where
     ?c2  skos:broader ?c1
 }
 
-############# Walk down and find all works with are narrower than the Outcomes concept
+### Walk down and find all works with are narrower than the Outcomes concept
 # The `+` does path traversal. 
 
 select  ?work ?concept2
@@ -44,30 +44,42 @@ select  ?work ?concept2
     ?work :assessedOutcome ?concept2.
 }
 
-####### Mapping the keywords to concepts
+####### Mapping the keywords to concepts   ###########
+
+### Make author keywords index keywords
+
+CONSTRUCT {?work :indexKeywords ?index2}
+  WHERE
+  {
+    ?work a dct:BibliographicReference . 
+    ?work :authorKeywords ?index2 . 
+    FILTER NOT EXISTS {?work :indexKeywords ?index1}
+  }
 
 
 ### Concept eLearning and other high-level concepts
 
 INSERT {?work :technology :eLearning}
-WHERE
+where
 {
-    ?work :keyword "E-learning"
+    ?work a dct:BibliographicResource . 
+    ?work edtech:indexKeywords ?index . 
+    FILTER (CONTAINS(?index,"e-learning") ). 
+    
 }
 
 INSERT {?work :technology :CAI}
 WHERE 
 {
-	{?work :keyword "Computer-aided instruction". }
-	UNION {?work :keyword "Computer-based instruction" .}
+  {
+    ?work edtech:indexKeywords ?index . 
+    FILTER (CONTAINS(?index,"computer-aided instruction") ).
+  }
+  UNION 
+    {?work edtech:indexKeywords ?index . 
+    FILTER (CONTAINS(?index, "computer-based instruction") ).}
 }
 
-INSERT {?work :technology :EduTech}
-WHERE 
-{
-	{?work :keyword "Digital technologies". }
-	UNION {?work :keyword "ICT" .}
-}
 
 
 ### Games
@@ -75,10 +87,17 @@ WHERE
 INSERT {?work :technology :Game}
 WHERE
 {
-    {?work a dct:BibliographicResource . 
-        ?work :keyword "Computer games" .} 
-    UNION {?work :keyword "Game-based learning" .}
-    UNION {?work :keyword "Digital games" .}
+    {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"computer game") ).}
+  UNION
+    {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"digital game") ).}
+  UNION
+    {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"game-based learning") ).}
 }
 
 ### Programming
@@ -87,22 +106,29 @@ WHERE
 INSERT {?work :technology :Programming}
 WHERE
 {
-   {?work a dct:BibliographicResource . 
-     ?work :keyword "Programming" .}
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"programming") ).}
     UNION
-    {?work :keyword "Software engineering". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"software engineering") ).}
     UNION
-    {?work :keyword "Software testing". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"software testing") ).}
 	UNION
-    {?work :keyword "Software prototyping". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"software prototyping") ).}
     UNION
-    {?work :keyword "Software design". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"software design") ).}
     UNION
-    {?work :keyword "Software development". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"software development") ).}
     UNION
-    {?work :keyword "Program language". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"program language") ).}
     UNION
-    {?work :keyword "Software architecture". }
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"software architecture") ).}
 }
 
 

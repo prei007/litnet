@@ -4,22 +4,80 @@ PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 
-######## one step up 
+######### basic searches ########
 
-select  ?concept1 ?concept2
+#### search by Authors
+# are a multi-author string, so we need the index pattern
+
+# Just a basic single author, see keyword searches below for additional patterns
+
+
+SELECT ?work ?year ?authors ?title
+  WHERE
+  {
+    ?work a dct:BibliographicResource . 
+    ?work dct:creator ?authors . 
+    ?work dct:title ?title . 
+    ?work dct:issued ?year . 
+  FILTER (CONTAINS(?authors, "Fauville") ).
+  }
+
+
+#### search by Keywords
+# are a multifield, so we need the index pattern
+# Note that keywords are in small caps. 
+
+# Single keyword
+
+SELECT ?work ?year ?authors ?title
+  WHERE
+  {
+    ?work a dct:BibliographicResource . 
+    ?work dct:creator ?authors . 
+    ?work dct:title ?title . 
+    ?work dct:issued ?year . 
+    ?work :indexKeywords ?keywords . 
+  FILTER (CONTAINS(?keywords, "climate") ).
+  }
+
+# multiple keyword: OR
+
+SELECT ?work ?year ?authors ?title
+  WHERE
 {
-    ?concept1 skos:broader ?concept2
+  {
+    ?work a dct:BibliographicResource . 
+    ?work dct:creator ?authors . 
+    ?work dct:title ?title . 
+    ?work dct:issued ?year . 
+    ?work :indexKeywords ?keywords . 
+  FILTER (CONTAINS(?keywords, "climate") ).
+  }
+  UNION 
+  {?work :indexKeywords ?keywords .
+  FILTER (CONTAINS(?keywords, "attitude") )}
 }
 
-######### to the top from a concept
+# multiple keyword: AND
 
-select  ?concept2
-{
-    :LabBasedLearning skos:broader+/skos:broader ?concept2
-}
+SELECT ?work ?year ?authors ?title
+  WHERE
+  {
+    ?work a dct:BibliographicResource . 
+    ?work dct:creator ?authors . 
+    ?work dct:title ?title . 
+    ?work dct:issued ?year . 
+    ?work :indexKeywords ?keywords . 
+  FILTER (CONTAINS(?keywords, "climate") ).
+  FILTER (CONTAINS(?keywords, "attitude") )
+  }
 
 
-######### construct the narrower relation 
+######### basic SKOS searches ########
+
+##### basic INSERTs first
+
+##### construct the narrower relation 
 
 construct {?c1 skos:narrower ?c2}  
 where
@@ -34,6 +92,23 @@ where
 {
     ?c2  skos:broader ?c1
 }
+
+
+######## skos one step up 
+
+select  ?concept1 ?concept2
+{
+    ?concept1 skos:broader ?concept2
+}
+
+######### to the top from a concept
+
+select  ?concept2
+{
+    :LabBasedLearning skos:broader+/skos:broader ?concept2
+}
+
+
 
 ### Walk down and find all works with are narrower than the Outcomes concept
 # The `+` does path traversal. 
@@ -53,7 +128,7 @@ INSERT {?work :indexKeywords ?index2}
 # SELECT ?work ?index2
   WHERE
   {
-    ?work a dct:BibliographicResource . 
+   ?work a dct:BibliographicResource . 
    ?work edtech:authorKeywords ?index2 . 
   FILTER NOT EXISTS {?work :indexKeywords ?index1}
   }
@@ -90,6 +165,10 @@ INSERT {?work :technology :Game}
 WHERE
 {
     {
+    ?work edtech:indexKeywords ?index . 
+     FILTER (CONTAINS(?index,"game") ).}
+  UNION
+      {
     ?work edtech:indexKeywords ?index . 
      FILTER (CONTAINS(?index,"computer game") ).}
   UNION
@@ -161,10 +240,13 @@ WHERE
     UNION 
     {?work :indexKeywords ?index . 
                 FILTER (CONTAINS(?index, "video")). } 
-                UNION 
+    UNION 
     {?work :indexKeywords ?index . 
                 FILTER (CONTAINS(?index, "photography")). } 
-                UNION 
+    UNION 
+    {?work :indexKeywords ?index . 
+                FILTER (CONTAINS(?index, "computer graphics")). } 
+    UNION 
     {?work :indexKeywords ?index . 
                 FILTER (CONTAINS(?index, "music")). } 
     UNION 
@@ -204,6 +286,41 @@ WHERE
      FILTER (CONTAINS(?index,"literature review")).}
 }
 
+INSERT {?work :researchMethod :SurveyMethod}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"survey")).}
+   UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"questionnaire")).}
+}
+
+INSERT {?work :researchMethod :InterviewMethod}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"interview")).}
+   UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"focus group")).}
+}
+
+INSERT {?work :researchMethod :ExperimentalMethod}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"experiment")).}
+   UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"control group")).}
+     UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"experimental design")).}
+     UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"experimental method")).}
+}
 
 ######## Outcomes 
 
@@ -256,4 +373,62 @@ WHERE
      UNION
      {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"creativity")).}
+     UNION
+     {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"academic")).}
+}
+
+
+########## The science angles
+
+INSERT {?work :science :EarthScience}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"earth")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"geo")).}
+}
+
+INSERT {?work :science :ClimateScience}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"climate")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"warming")).}
+}
+
+INSERT {?work :science :BioScience}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"biodiversity")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"biology")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"ecology")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"species")).}
+}
+
+INSERT {?work :science :SustainabilityEducation}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"sustainability")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"sustainable")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"energy")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"urban planning")).}
 }

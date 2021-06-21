@@ -62,7 +62,9 @@ PREFIX dct: <http://purl.org/dc/terms/>
 # best to use an existing classification scheme, not make up our own. 
 # need to find one.
 	
-:EarthScience a skos:concept. 
+:EarthScience a skos:concept; 
+	skos:prefLabel "Earth Sciences"@en ;
+	skos:altLabel "Geosciences"@en. 
 
 :BioScience a skos:concept. 
 
@@ -459,7 +461,7 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 :ResearchMethod a skos:concept . 
 
-:ReviewMethod a skos:cconcept ;
+:ReviewMethod a skos:concept ;
 	skos:broader :ResearchMethod .
 
 :LitReview a skos:concept ;
@@ -469,3 +471,13 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :MetaAnalysis a skos:concept ;
 	skos:prefLabel "Meta-analysis"@en ; 
 	skos:broader :ReviewMethod .
+	
+:SurveyMethod a skos:concept ; 
+    skos:note "Questionnaire etc."
+	skos:broader :ResearchMethod .
+	
+:InterviewMethod  a skos:concept ; 
+	skos:broader :ResearchMethod .
+	
+:ExperimentalMethod  a skos:concept ; 
+	skos:broader :ResearchMethod .

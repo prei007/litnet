@@ -22,4 +22,21 @@ Data preparation (open/onto refine):
 starting from column operations > add column based on the Auhtors column. 
 
 
+## 21 June
+
+Queries for mapping and search all now work with the "multifields" for authors and keywords. 
+
+## 22 June
+
+### ASSA Lit review references
+
+1. Created a shorter version ASSA_CCE_Refs
+2. Must be saved as .csv because otherwise odd format for year in onto/open refine
+3. add ID column based on Authors column with `value.split(" ").get(0) + cells['Year'].value`
+4. to lower case Author and Index Keywords
+5. RDF mapping as per [here](https://www.evernote.com/shard/s55/nl/6154799/fa786e5d-6c02-483d-bf9b-b09762f54247?title=OntoRefine%20%7C%20GraphDB%20Workbench)
+6. Export as RDF and import ttl into graphdb
+6. Add SKOS concepts and run basic queries:
+7. Narrower relation
+8. Query to fill index keywords with author keywords in case those are missing. 
 

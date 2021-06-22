@@ -278,6 +278,8 @@ WHERE
 
 #### Research methods used in a study
 
+# combine these with union after a while?
+
 
 INSERT {?work :researchMethod :LitReview}
 WHERE
@@ -399,6 +401,9 @@ WHERE
    UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"warming")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"greenhouse effect")).}
 }
 
 INSERT {?work :science :BioScience}
@@ -432,3 +437,59 @@ WHERE
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"urban planning")).}
 }
+
+######## Educational Levels 
+
+INSERT {?work lrmi:educationalLevel :GradesKto5}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"preschool")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"pre-school")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"kindergarden")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"primary")).}
+}
+
+
+INSERT {?work lrmi:educationalLevel :Grades6to8}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"middle school")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 6")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 7")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 8")).}
+}
+
+INSERT {?work lrmi:educationalLevel :Grades9to12}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"high school")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 9")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 10")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 11")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"grade 12")).}
+}
+
+

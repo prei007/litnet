@@ -448,6 +448,9 @@ WHERE
     UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"pre-school")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"elementary school")).}
    UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"kindergarden")).}
@@ -491,5 +494,23 @@ WHERE
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"grade 12")).}
 }
+
+INSERT {?work lrmi:educationalLevel :TertiaryLevel}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"college")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"university")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"tertiary")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"tafe")).}
+
+}
+
 
 

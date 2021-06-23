@@ -36,6 +36,8 @@ Queries for mapping and search all now work with the "multifields" for authors a
 4. to lower case Author and Index Keywords
 5. RDF mapping as per [here](https://www.evernote.com/shard/s55/nl/6154799/fa786e5d-6c02-483d-bf9b-b09762f54247?title=OntoRefine%20%7C%20GraphDB%20Workbench)
 6. Export as RDF and import ttl into graphdb
+6. Base IRI  http://coolfutures.net/rdf/2021/edtech#
+6. PREFIX edtech:  <http://coolfutures.net/rdf/2021/edtech#>
 6. Add SKOS concepts and run basic queries:
 7. Narrower relation
 8. Query to fill index keywords with author keywords in case those are missing. 

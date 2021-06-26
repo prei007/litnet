@@ -42,3 +42,12 @@ Queries for mapping and search all now work with the "multifields" for authors a
 7. Narrower relation
 8. Query to fill index keywords with author keywords in case those are missing. 
 
+## 23 June
+
+We need to get smarter with the mapping: 
+
+1. define keywords at along with the skos definition
+2. then write a matching query between these keywords and the indexKeywords. 
+
+This keeps things together and makes like a lot more sense. Also helps to sort articles into the most specific category and leave the rest to skos. 
+

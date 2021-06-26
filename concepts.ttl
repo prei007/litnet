@@ -68,22 +68,21 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	
 :EarthScience a skos:concept; 
 	skos:prefLabel "Earth Sciences"@en ;
-	skos:altLabel "Geosciences"@en. 
+	skos:altLabel "Geosciences"@en ;
+	:keyWords "earth science, geo science, testDummy, geoscience" . 
 
 :BioScience a skos:concept. 
 
 :SocialScience a skos:concept. 
 
 :ClimateScience a skos:concept; 
-	skos:broader :EarthScience . 
+	skos:broader :EarthScience .
 	
 :ClimateChange a skos:concept ; 
 	skos:prefLabel "Climate change"@en ;
-	skos:broader :ClimateScience .
+	skos:broader :ClimateScience ;
+	:keyWords "climate change, global warming, greenhouse effect".
 
-:GlobalWarming a skos:concept ; 
-	skos:prefLabel "Global warming"@en ;
-	skos:broader :ClimateChange .
 
 :ClimateChangeMitigation a skos:concept ; 
 	skos:prefLabel "Climate change mitigation"@en ;
@@ -190,13 +189,13 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 ### Mobile phones and padlets
 
-:MobileTech a skos:concept ; 
+:MobileLearning a skos:concept ; 
 	skos:prefLabel "Mobile technology"@en ; 
 	skos:broader :EduTech . 
 	
 :MobileGame a skos:concept ; 
 	skos:prefLabel "Mobile game"@en ; 
-	skos:broader :MobileTech ;
+	skos:broader :MobileLearning ;
 	skos:related :Game , :MixedReality.
 
 ### SocialMedia
@@ -263,6 +262,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :StatisticsTool a skos:concept ; 
 	skos:prefLabel "Statistics software"@en ; 
 	skos:broader :eResearch . 
+	
+:DigitalArchive a skos:concept ; 
+	skos:prefLabel "Digital archive"@en ; 
+	skos:broader :eResearch .
 	
 ### AI and knowledge technologies, semantic web, machine learning, robotics
 
@@ -351,6 +354,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :MisconceptionStrategy a skos:concept ; 
 	skos:prefLabel "Uncovering and addressing misconceptions"@en ; 
 	skos:broader :STEMStrategy .  
+	
+:OutDoorEducation a skos:concept ; 
+	skos:prefLabel "Outdoors education"@en ; 
+	skos:broader :ExperientialLearning .  
 
 :PedagogicalStrategy a skos:concept ; 
 	skos:prefLabel "Pedagogical strategy"@en ; 
@@ -378,6 +385,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 :STEMStrategy a skos:concept ; 
 	skos:prefLabel "STEM pedagogical strategy"@en ; 
 	skos:altLabel "STEM teaching strategy"@en ; 
+	skos:broader :PedagogicalStategy .
+	
+:LearningCommunity a skos:concept ; 
+    skos:prefLabel "Learning community"@en ; 
 	skos:broader :PedagogicalStategy .
 	
 	

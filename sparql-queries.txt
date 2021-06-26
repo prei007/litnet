@@ -3,6 +3,21 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+
+
+####### The matching rule for keywords ######
+
+CONSTRUCT {?work :science ?concept}
+WHERE
+{
+   ?target a skos:concept . 
+   ?target :keyWords ?targetWords . 
+   ?work a dct:BibliographicResource. 
+   ?work :indexKeywords ?sourceWords . 
+   BIND (CONTAINS(?sourceWords, ?indexKeyWords)  AS ?concept)  
+}
+
 
 ######### basic searches ########
 
@@ -275,6 +290,46 @@ WHERE
      FILTER (CONTAINS(?index,"google maps")).}
 }
 
+INSERT {?work :technology :SensingAndRecording}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"sensing")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"recording")).
+}
+
+### Mobile learning 
+
+INSERT {?work :technology :MobileLearning}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"mobile learning")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"mobile")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"smartphone")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"phone")).}
+       UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"tablet")).}
+}
+
+INSERT {?work :technology :DigitalArchive}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"digital archive")).}
+    UNION
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"digital archives")).}
+}
 
 #### Research methods used in a study
 
@@ -420,6 +475,9 @@ WHERE
      UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"species")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"bioengeneering")).}
 }
 
 INSERT {?work :science :SustainabilityEducation}
@@ -437,6 +495,29 @@ WHERE
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"urban planning")).}
 }
+
+######## Pedagogy
+
+INSERT {?work :pedagogy :OutDoorEducation}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"outdoor")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"field setting")).}
+}
+
+INSERT {?work :pedagogy :LearningCommunity}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"learning community")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"social learning")).}
+}
+
 
 ######## Educational Levels 
 
@@ -457,6 +538,9 @@ WHERE
     UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"primary")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"child")).}
 }
 
 
@@ -493,6 +577,9 @@ WHERE
     UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"grade 12")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"adolescent")).}
 }
 
 INSERT {?work lrmi:educationalLevel :TertiaryLevel}

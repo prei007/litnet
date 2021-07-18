@@ -34,7 +34,7 @@ SELECT ?work ?year ?authors ?title
     ?work dct:creator ?authors . 
     ?work dct:title ?title . 
     ?work dct:issued ?year . 
-  FILTER (CONTAINS(?authors, "Fauville") ).
+  FILTER (CONTAINS(?authors, "Niebert") ).
   }
 
 

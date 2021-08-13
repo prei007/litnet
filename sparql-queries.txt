@@ -1,6 +1,6 @@
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
@@ -13,7 +13,7 @@ WHERE
 {
    ?target a skos:concept . 
    ?target :keyWords ?targetWords . 
-   ?work a dct:BibliographicResource. 
+   ?work a dcterms:BibliographicResource. 
    ?work :indexKeywords ?sourceWords . 
    BIND (CONTAINS(?sourceWords, ?indexKeyWords)  AS ?concept)  
 }
@@ -30,10 +30,10 @@ WHERE
 SELECT ?work ?year ?authors ?title
   WHERE
   {
-    ?work a dct:BibliographicResource . 
-    ?work dct:creator ?authors . 
-    ?work dct:title ?title . 
-    ?work dct:issued ?year . 
+    ?work a dcterms:BibliographicResource . 
+    ?work dcterms:creator ?authors . 
+    ?work dcterms:title ?title . 
+    ?work dcterms:issued ?year . 
   FILTER (CONTAINS(?authors, "Niebert") ).
   }
 
@@ -47,10 +47,10 @@ SELECT ?work ?year ?authors ?title
 SELECT ?work ?year ?authors ?title
   WHERE
   {
-    ?work a dct:BibliographicResource . 
-    ?work dct:creator ?authors . 
-    ?work dct:title ?title . 
-    ?work dct:issued ?year . 
+    ?work a dcterms:BibliographicResource . 
+    ?work dcterms:creator ?authors . 
+    ?work dcterms:title ?title . 
+    ?work dcterms:issued ?year . 
     ?work :indexKeywords ?keywords . 
   FILTER (CONTAINS(?keywords, "climate") ).
   }
@@ -61,10 +61,10 @@ SELECT ?work ?year ?authors ?title
   WHERE
 {
   {
-    ?work a dct:BibliographicResource . 
-    ?work dct:creator ?authors . 
-    ?work dct:title ?title . 
-    ?work dct:issued ?year . 
+    ?work a dcterms:BibliographicResource . 
+    ?work dcterms:creator ?authors . 
+    ?work dcterms:title ?title . 
+    ?work dcterms:issued ?year . 
     ?work :indexKeywords ?keywords . 
   FILTER (CONTAINS(?keywords, "climate") ).
   }
@@ -78,10 +78,10 @@ SELECT ?work ?year ?authors ?title
 SELECT ?work ?year ?authors ?title
   WHERE
   {
-    ?work a dct:BibliographicResource . 
-    ?work dct:creator ?authors . 
-    ?work dct:title ?title . 
-    ?work dct:issued ?year . 
+    ?work a dcterms:BibliographicResource . 
+    ?work dcterms:creator ?authors . 
+    ?work dcterms:title ?title . 
+    ?work dcterms:issued ?year . 
     ?work :indexKeywords ?keywords . 
   FILTER (CONTAINS(?keywords, "climate") ).
   FILTER (CONTAINS(?keywords, "attitude") )
@@ -143,7 +143,7 @@ INSERT {?work :indexKeywords ?index2}
 # SELECT ?work ?index2
   WHERE
   {
-   ?work a dct:BibliographicResource . 
+   ?work a dcterms:BibliographicResource . 
    ?work edtech:authorKeywords ?index2 . 
   FILTER NOT EXISTS {?work :indexKeywords ?index1}
   }
@@ -154,7 +154,7 @@ INSERT {?work :indexKeywords ?index2}
 INSERT {?work :technology :eLearning}
 where
 {
-    ?work a dct:BibliographicResource . 
+    ?work a dcterms:BibliographicResource . 
     ?work edtech:indexKeywords ?index . 
     FILTER (CONTAINS(?index,"e-learning") ). 
     
@@ -221,6 +221,9 @@ WHERE
 {
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"programming") ).}
+     UNION
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"coding") ).}
     UNION
     {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"software engineering") ).}
@@ -243,6 +246,21 @@ WHERE
     {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"software architecture") ).}
 }
+
+
+### Knowledge technologies
+
+
+INSERT {?work :technology :ConceptMapping}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"concept mapping") ).}
+    UNION
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"cmaptools") ).}
+}
+
 
 
 ### MultiMedia
@@ -272,6 +290,31 @@ WHERE
                 FILTER (CONTAINS(?index, "language technology")) .} 
 }
 
+
+INSERT {?work :technology :VirtualReality}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"virtual reality") ).}
+    UNION
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"Unity3D") ).}
+}
+
+
+INSERT {?work :technology :AugmentedReality}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"augmented reality") ).}
+    UNION
+    {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"augmentation") ).}
+}
+
+
+
+
 ### Research software applications
 
 INSERT {?work :technology :GIS}
@@ -297,7 +340,7 @@ WHERE
      FILTER (CONTAINS(?index,"sensing")).}
    UNION
    {?work :indexKeywords ?index .
-     FILTER (CONTAINS(?index,"recording")).
+     FILTER (CONTAINS(?index,"recording")).}
 }
 
 ### Mobile learning 
@@ -597,6 +640,19 @@ WHERE
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"tafe")).}
 
+}
+
+INSERT {?work lrmi:educationalLevel :TeacherTraining}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"teacher training")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"pre-service teachers")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"teacher education")).}
 }
 
 

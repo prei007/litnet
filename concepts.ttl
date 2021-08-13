@@ -54,6 +54,11 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "Tertiary Education" ; 
 	skos:inScheme :EducationLevel . 
 	
+:TeacherTraining a skos:concept ;
+	skos:prefLabel "Teacher training"@en ;
+	skos:altLabel "Teacher educaiton"@en; 
+	skos:inScheme :EducationLevel . 
+	
 :Adult a skos:Concept, lrmi:EducationalAudience ; 
 	skos:prefLabel "Adults"@en ;
 	skos:altLabel "Lifelong Education"@en ;
@@ -150,6 +155,11 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:altLabel "AR"@en ; 
 	skos:broader :ImmersiveTech . 
 	
+:VirtualReality a skos:concept ; 
+	skos:prefLabel "Virtual Reality"@en ; 
+	skos:altLabel "VR"@en ; 
+	skos:broader :ImmersiveTech . 
+	
 :MixedReality a skos:concept ; 
 	skos:prefLabel "Mixed Reality"@en ; 
 	skos:broader :ImmersiveTech .
@@ -237,7 +247,20 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 :Programming a skos:concept ; 
 	skos:prefLabel "Computer programming"@en ; 
+	skos:altLabel "Coding" ;
 	skos:broader :EduTech . 
+	
+### Knowledge technologies
+
+:KnowledgeTech a skos:concept ; 
+	skos:prefLabel "Knowledge technologies"@en ; 
+	skos:broader :EduTech . 
+
+
+:ConceptMapping a skos:concept ;
+	skos:prefLabel "Concept mapping"@en ; 
+	skos:broader :KnowledgeTech . 
+	
 
 ### Research Software, Modelling, data science
 
@@ -278,8 +301,6 @@ PREFIX dct: <http://purl.org/dc/terms/>
 	skos:prefLabel "AI in Education"@en ; 
 	skos:altLabel "AIED"@en ; 
 	skos:broader :AI .
-	
-
 
 
 ### Sensors, Drones, IoT

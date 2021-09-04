@@ -9,19 +9,19 @@ PREFIX deo: <http://purl.org/spar/deo>
 
 
 :Annotation0001 a anno:Comment ; 
-	:annotates :Miyaji2020 ; 
-	:context "page 5 where it says this and that" ; 
+	anno:annotates :Miyaji2020 ; 
+	anno:context "page 5 where it says this and that" ; 
 	dc:creator :PeterReimann ; 
-	:created "2021-09-04" ; 
-	:body "This is my comment..." . 
+	anno:created "2021-09-04" ; 
+	anno:body "This is my comment..." . 
 	
 :Annotation0002 a anno:Comment ; 
-	:annotates :Miyaji2020 ; 
-	:context [
+	anno:annotates :Miyaji2020 ; 
+	anno:context [
 		rdf:value "The namespaces for these additional types are specified to Amaya in a local configuration file that is read at startup. Amaya will use the namespace name to try to retrieve an RDF schema from the Web or the schema content can be cached in a local file and specified with the same startup configuration." ; 
 		:startpage 56 ; 
 		:section deo:methods
 		] ; 
 	dc:creator :PeterReimann ; 
-	:created "2021-09-04" ; 
-	:body "This is my comment..." . 
+	anno:created "2021-09-04" ; 
+	anno:body "This is my comment..." . 

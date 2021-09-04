@@ -52,7 +52,8 @@ in this format, the rdf:value holds a quote and the other predicates provide met
 The simplest way is of course to just add a descriptive string, e.g.:
 
 anno:context \"page 56, 2nd paragraph\" or such."""@en ,
-                      "Context within the resource named in annotates to which the annotation most directly applies."@en .
+                      "Context within the resource named in annotates to which the annotation most directly applies."@en ;
+         rdfs:seeAlso "https://sparontologies.github.io/deo/current/deo.html#d4e270"^^xsd:anyURI .
 
 
 ###  http://www.coolfutures.net/rdf/2021/bibannotation#related

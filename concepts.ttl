@@ -6,6 +6,54 @@ PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+#################################
+# Predicates as RDF properties
+#################################
+
+# Most of the predicates are from dcterms, but additional ones are needed
+# to link to information that is relevant to the literature review. 
+
+:annotation a rdf:Property ; 
+	rdfs:comment "predicate linking to an annotation.".
+	
+:science a rdf:Property ; 
+	rdfs:comment "predicate linking to a description of the science domain".
+	
+:technology a rdf:Property ; 
+	rdfs:comment "predicate linking to a descriptor of the technology used for teaching".
+
+:outcome a rdf:Property ; 
+	rdfs:comment "predicate linking to a descriptor of the learning outcome area".
+
+:pedagogy a rdf:Property ; 
+	rdfs:comment "predicate linking to a descriptor of the pedagogical strategy".
+	
+:researchMethod a rdf:Property ; 
+	rdfs:comment "predicate linking to a descriptor of the research method used".
+	
+	
+### Properties from lrmi1.1 that are useful
+
+lrmi:educationalLevel a rdf:Property ;
+	rdfs:comment "predicate linking to a descriptor of the education level".
+	
+lrmi:educationalUse a rdf:Property ;
+	rdfs:comment "String with the purpose of the work in the context of education".
+	
+lrmi:educationalAlignment a rdf:Property ;
+	rdfs:comment "predicate linking to an schema.org/AlignmentObject".
+	
+lrmi:timeRequired a rdf:Property ;
+	rdfs:comment "a string with a schema.org/Duration specification, ex. PT30M".
+	
+lrmi:typicalAgeRange a rdf:Property ;
+	rdfs:comment "string ex. 7-9, 18+".
+	
+
 
 #################################
 # Concept schemes
@@ -85,6 +133,8 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 #################################
 
 # Using Australian Bureau of Statistics ANZSRC2020
+# goes with predicate :science
+
 
 :ScienceThesaurus a skos:ConceptScheme ; 
 	dcterms:title "Simple science thesaurus " ;
@@ -183,6 +233,8 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 #################################
 # Concepts: Educational technologies
 #################################
+
+# Predicate: :technology
 
 :EdTechThesaurus a skos:ConceptScheme ; 
 	dcterms:title "Eductional technology thesaurus " ;
@@ -579,6 +631,8 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 #################################
 # Concepts: Outcomes
 #################################
+
+# predicate: :outcomes
 
 :OutcomesThesaurus a skos:ConceptScheme ; 
 	dcterms:title "Learning outcomes thesaurus " ;

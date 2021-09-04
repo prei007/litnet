@@ -11,6 +11,11 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 # Concept schemes
 #################################
 
+# Really need to think properly about predicates. Because these concepts 
+# stand in the role of objects, with a bibwork as the subject. 
+# And then there a annotations. I very different thing! Seed the Annotea model, which 
+# makes sense to me. 
+
 # Educational levels
 # goes with predicate lrmi:educationalLevel. 
 

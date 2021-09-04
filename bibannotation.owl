@@ -1,0 +1,128 @@
+@prefix : <http://www.coolfutures.net/rdf/2021/bibannotation#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.coolfutures.net/rdf/2021/bibannotation#> .
+
+<http://www.coolfutures.net/rdf/2021/bibannotation#> rdf:type owl:Ontology ;
+                                                      <http://purl.org/dc/elements/1.1/creator> "Peter Reimann"@en ;
+                                                      rdfs:comment "A simple annotation ontology for biobliographic references"@en ;
+                                                      rdfs:seeAlso "https://www.w3.org/2001/Annotea/Papers/www10/annotea-www10.html"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#annotates
+:annotates rdf:type owl:ObjectProperty ;
+           rdfs:comment ""@en ,
+                        "The relation between an annotation resource and the resource to which the annotation applies." .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#body
+:body rdf:type owl:ObjectProperty ;
+      rdfs:comment "The content of the annotation."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#context
+:context rdf:type owl:ObjectProperty ;
+         rdfs:comment "Context within the resource named in annotates to which the annotation most directly applies."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#related
+:related rdf:type owl:ObjectProperty ;
+         rdfs:comment "A relation between an annotation and a (collection of) resource(s) that augment the resource that is the body of the annotation. This may point to related issues, discussion threads, etc."@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:DatatypeProperty ;
+                                       rdfs:comment "The date and time on which the annotation was last modified."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#created
+:created rdf:type owl:DatatypeProperty ;
+         rdfs:comment "The date and time on which the annotation was created"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Advice
+:Advice rdf:type owl:Class ;
+        rdfs:subClassOf :BibAnnotation ;
+        rdfs:comment "A subclass of Annotation representing advice to the reader.Different Suggestion as the suggestion addresses mor the writer, or the annotator themselves."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#BibAnnotation
+:BibAnnotation rdf:type owl:Class .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Change
+:Change rdf:type owl:Class ;
+        rdfs:subClassOf :Suggestion ;
+        rdfs:comment "A subclass of Annotation describing annotations that document or propose a change to the source document."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Comment
+:Comment rdf:type owl:Class ;
+         rdfs:subClassOf :BibAnnotation ;
+         rdfs:comment "A subclass of Annotation describing annotations that are comments."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Example
+:Example rdf:type owl:Class ;
+         rdfs:subClassOf :BibAnnotation ;
+         rdfs:comment "A subclass of Annotation representing examples."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Explanation
+:Explanation rdf:type owl:Class ;
+             rdfs:subClassOf :BibAnnotation ;
+             rdfs:comment "A subclass of Annotation representing explanations of content."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Question
+:Question rdf:type owl:Class ;
+          rdfs:subClassOf :BibAnnotation ;
+          rdfs:comment "A subclass of Annotation representing questions about the content."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#SeeAlso
+:SeeAlso rdf:type owl:Class ;
+         rdfs:subClassOf :BibAnnotation ;
+         rdfs:comment "A subclass of Annotation representing a reference to another resource."@en .
+
+
+###  http://www.coolfutures.net/rdf/2021/bibannotation#Suggestion
+:Suggestion rdf:type owl:Class ;
+            rdfs:subClassOf :BibAnnotation ;
+            rdfs:comment "A subtype of annotation that suggests further lines of research, an improvement, etc."@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://purl.org/dc/elements/1.1/creator> rdfs:comment "The creator of the annotation."@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

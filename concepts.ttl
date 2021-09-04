@@ -17,8 +17,26 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 # Most of the predicates are from dcterms, but additional ones are needed
 # to link to information that is relevant to the literature review. 
 
+:DOI a rdf:Property ; 
+	rdfs:comment "Data property for the DOI".
+	
+:startPage a rdf:Property ; 
+	rdfs:comment "Data property with the start page".
+	
+:endPage a rdf:Property ; 
+	rdfs:comment "Data property for the end page".
+	
+:volume a rdf:Property ; 
+	rdfs:comment "Data property for the journal volume".
+	
+:authorKeywords a rdf:Property ; 
+	rdfs:comment "Data property for author-provided".
+	
+:indexKeywords a rdf:Property ; 
+	rdfs:comment "Data property for keywords other than provided by author".
+	
 :annotation a rdf:Property ; 
-	rdfs:comment "predicate linking to an annotation.".
+	rdfs:comment "Object property linking to an annotation.".
 	
 :science a rdf:Property ; 
 	rdfs:comment "predicate linking to a description of the science domain".

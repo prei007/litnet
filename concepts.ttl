@@ -735,7 +735,7 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:hasTopConcept :ResearchMethod .
 
 
-:ResearchMethod a skos:Concept 
+:ResearchMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus . 
 
 :ReviewMethod a skos:Concept ;

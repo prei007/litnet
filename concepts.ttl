@@ -8,26 +8,16 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
 
 
 #################################
-# Predicates as RDF properties
+# Classes and Predicates
 #################################
 
-# Most of the predicates are from dcterms, but additional ones are needed
+# Most of the predicates are from dcterms and bibo, but additional ones are needed
 # to link to information that is relevant to the literature review. 
 
-:DOI a rdf:Property ; 
-	rdfs:comment "Data property for the DOI".
-	
-:startPage a rdf:Property ; 
-	rdfs:comment "Data property with the start page".
-	
-:endPage a rdf:Property ; 
-	rdfs:comment "Data property for the end page".
-	
-:volume a rdf:Property ; 
-	rdfs:comment "Data property for the journal volume".
 	
 :authorKeywords a rdf:Property ; 
 	rdfs:comment "Data property for author-provided".

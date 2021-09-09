@@ -1,0 +1,27 @@
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix ex: <http://example.net/>
+prefix bibo: <http://purl.org/ontology/bibo/>
+
+# Figure with details
+
+ex:Brown1992 dc:creator "Ann L. Brown" . 
+ex:Brown1992 dc:title "Design experiments" .
+ex:Brown1992 dc:bibliographicCitation "The Journal of the Learning Sciences" .
+ex:Brown1992 dc:type "Text" .
+ex:Brown1992 dc:issued "1992" .
+ex:Brown1992 bibo:volume "2" .
+ex:Brown1992 bibo:startingPage "141" .
+ex:Brown1992 bibo:endingPage "178" .
+ex:Brown1992 bibo:DOI "10.1207/s15327809jls0202_2" .
+
+
+# Figure with less details and a connected node
+
+ex:Brown1992 dc:creator "Ann L. Brown" . 
+ex:Brown1992 dc:title "Design experiments" .
+ex:Brown1992 dc:issued "1992" .
+ex:Brown1992 ex:researchMethod ex:DesignResearchMethodology .
+ex:DesignResearchMethodology dc:description "Design research is a methodology…".
+ex:Brown1992 dc:related ex:Barab1995 .
+
+ex:DesignResearchMethodology dc:description  <https://en.wikipedia.org/wiki/Design_research>. 

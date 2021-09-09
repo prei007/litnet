@@ -23,5 +23,26 @@ ex:Brown1992 dc:issued "1992" .
 ex:Brown1992 ex:researchMethod ex:DesignResearchMethodology .
 ex:DesignResearchMethodology dc:description "Design research is a methodology…".
 ex:Brown1992 dc:related ex:Barab1995 .
-
 ex:DesignResearchMethodology dc:description  <https://en.wikipedia.org/wiki/Design_research>. 
+
+
+
+# Linking to SKOS
+
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix ex: <http://example.net/> 
+
+ex:Brown1992 dc:creator "Ann L. Brown" . 
+ex:Brown1992 dc:title "Design experiments" .
+ex:Brown1992 dc:issued "1992" .
+ex:Brown1991 ex:learningOutcomes ex:KnowledgeOutcomes. 
+
+
+ex:OutcomesThesaurus rdf:type skos:ConceptScheme . 
+ex:Outcomes rdf:type skos:Concept ; 
+	skos:inScheme ex:OutcomesThesaurus . 
+ex:KnowledgeOutcomes rdf:type skos:Concept ; 
+	skos:inScheme ex:OutcomesThesaurus ; 
+	skos:broader ex:Outcomes .

@@ -13,6 +13,7 @@ ex:Brown1992 bibo:volume "2" .
 ex:Brown1992 bibo:startingPage "141" .
 ex:Brown1992 bibo:endingPage "178" .
 ex:Brown1992 bibo:DOI "10.1207/s15327809jls0202_2" .
+ex:Brown1992 dc:related ex:Barab1995 .
 
 
 # Figure with less details and a connected node

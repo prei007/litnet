@@ -1,0 +1,282 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/">
+ 
+ 
+    <rdf:Description rdf:nodeID="n403">
+        <dc:title>Using Representational Tools to Learn about Complex Systems: A Tale of Two Classrooms</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Hmelo-Silver, Cindy E.</dc:creator>
+        <dc:creator>Liu, Lei</dc:creator>
+        <dc:creator>Gray, Steven</dc:creator>
+        <dc:creator>Jordan, Rebecca</dc:creator>
+        <dc:date>2015/01/00</dc:date>
+        <dc:identifier>ISSN 0022-4308</dc:identifier>
+        <dc:identifier>DOI 10.1002/tea.21187</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="https://www.ejmste.com/article/technology-supported-inquiry-forlearning-about-aquatic-ecosystems-4329">
+        <dc:title>Technology-Supported Inquiry forLearning about Aquatic Ecosystems</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Hmelo-Silver, Cindy E.</dc:creator>
+        <dc:creator>Eberbach, Catherine</dc:creator>
+        <dc:creator>Jordan, Rebecca</dc:creator>
+        <dc:date>2014-12-15</dc:date>
+        <dc:identifier>ISSN 13058223</dc:identifier>
+        <dc:identifier>DOI 10.12973/eurasia.2014.1170a</dc:identifier>
+    </rdf:Description>
+    
+    
+    <rdf:Description rdf:about="https://onlinelibrary.wiley.com/doi/abs/10.1002/tea.21404">
+        <dc:title>Student development of model-based reasoning about carbon cycling and climate change in a socio-scientific issues unit</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Zangori, Laura</dc:creator>
+        <dc:creator>Peel, Amanda</dc:creator>
+        <dc:creator>Kinslow, Andrew</dc:creator>
+        <dc:creator>Friedrichsen, Patricia</dc:creator>
+        <dc:creator>Sadler, Troy D.</dc:creator>
+        <dc:date>2017</dc:date>
+        <dc:identifier>ISSN 1098-2736</dc:identifier>
+        <dc:identifier>DOI 10.1002/tea.21404</dc:identifier>
+    </rdf:Description>
+    
+    
+    <rdf:Description rdf:about="https://eric.ed.gov/?q=environmental+education+computer+simulation&amp;pr=on&amp;id=EJ1101684">
+        <dc:title>Environmental Systems Simulations for Carbon, Energy, Nitrogen, Water, and Watersheds: Design Principles and Pilot Testing</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Lant, Christopher</dc:creator>
+        <dc:creator>Pérez-Lapeña, Blanca</dc:creator>
+        <dc:creator>Xiong, Weidong</dc:creator>
+        <dc:creator>Kraft, Steven</dc:creator>
+        <dc:creator>Kowalchuk, Rhonda</dc:creator>
+        <dc:creator>Blair, Michael</dc:creator>
+        <dc:date>2016/05/00</dc:date>
+        <dc:identifier>ISSN 1089-9995</dc:identifier>
+        <dc:identifier>DOI 10.5408/14-004.1</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n404">
+        <dc:title>The Effect of PhET Simulation-Based Instruction on 6th Grade Students' Achievement Regarding the Concept of Greenhouse Gas</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Özcan, Hasan</dc:creator>
+        <dc:creator>Çetin, Gülcan</dc:creator>
+        <dc:creator>Kostur, H. Ilker</dc:creator>
+        <dc:date>Dec 2020</dc:date>
+        <dc:identifier>ISSN EISSN-2077-2327</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n405">
+        <dc:title>Long-Term Effectiveness of Immersive VR Simulations in Undergraduate Science Learning: Lessons from a Media-Comparison Study</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Pande, Prajakt</dc:creator>
+        <dc:creator>Thit, Amalie</dc:creator>
+        <dc:creator>Sørensen, Anja Elaine</dc:creator>
+        <dc:creator>Mojsoska, Biljana</dc:creator>
+        <dc:creator>Moeller, Morten E.</dc:creator>
+        <dc:creator>Jepsen, Per Meyer</dc:creator>
+        <dc:date>2021</dc:date>
+        <dc:identifier>ISSN ISSN-2156-7069</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n406">
+        <dc:title>Improving Learners' Ability to Recognize Emergence with Embedded Assessment in a Virtual Watershed</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Erlandson, Benjamin E.</dc:creator>
+        <dc:date>Jul 2014</dc:date>
+        <dc:identifier>ISSN ISSN-2211-1662</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n407">
+        <dc:title>Teaching with Interactive Computer-Based Simulation Models: Instructional Dilemmas and Opportunities in the High-Adventure Science Project</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Mutch-Jones, Karen</dc:creator>
+        <dc:creator>Gasca, Santiago</dc:creator>
+        <dc:creator>Pallant, Amy</dc:creator>
+        <dc:creator>Lee, Hee-Sun</dc:creator>
+        <dc:date>May 2018</dc:date>
+        <dc:identifier>ISSN ISSN-0036-6803</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n408">
+        <dc:title>A Scaffolding Framework to Support Learning of Emergent Phenomena Using Multi-Agent-Based Simulation Environments</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Basu, Satabdi</dc:creator>
+        <dc:creator>Sengupta, Pratim</dc:creator>
+        <dc:creator>Biswas, Gautam</dc:creator>
+        <dc:date>Apr 2015</dc:date>
+        <dc:identifier>ISSN ISSN-0157-244X</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n409">
+        <dc:title>Simulation Modeling of Lakes in Undergraduate and Graduate Classrooms Increases Comprehension of Climate Change Concepts and Experience with Computational Tools</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Carey, Cayelan C.</dc:creator>
+        <dc:creator>Gougis, Rebekka Darner</dc:creator>
+        <dc:date>Feb 2017</dc:date>
+        <dc:identifier>ISSN ISSN-1059-0145</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n410">
+        <dc:title>The Interactive Effect of Pro-Environmental Disciplinary Concentration under Cooperation versus Competition Contexts</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Cuadrado, Esther</dc:creator>
+        <dc:creator>Tabernero, Carmen</dc:creator>
+        <dc:creator>García, Rocío</dc:creator>
+        <dc:creator>Luque, Bárbara</dc:creator>
+        <dc:date>2017</dc:date>
+        <dc:identifier>ISSN ISSN-1350-4622</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n411">
+        <dc:title>EcoXPT: Designing for Deeper Learning through Experimentation in an Immersive Virtual Ecosystem</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Dede, Chris</dc:creator>
+        <dc:creator>Grotzer, Tina A.</dc:creator>
+        <dc:creator>Kamarainen, Amy</dc:creator>
+        <dc:creator>Metcalf, Shari</dc:creator>
+        <dc:date>2017</dc:date>
+        <dc:identifier>ISSN EISSN-1436-4522</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n412">
+        <dc:title>A 3D Serious City Building Game on Waste Disposal</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Cuccurullo, Stefania</dc:creator>
+        <dc:creator>Francese, Rita</dc:creator>
+        <dc:creator>Passero, Ignazio</dc:creator>
+        <dc:creator>Tortora, Genoveffa</dc:creator>
+        <dc:date>Oct-Dec 2013</dc:date>
+        <dc:identifier>ISSN ISSN-1539-3100</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n413">
+        <dc:title>Sixth-Grade Students' Progress in Understanding the Mechanisms of Global Climate Change</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Visintainer, Tammie</dc:creator>
+        <dc:creator>Linn, Marcia</dc:creator>
+        <dc:date>Apr 2015</dc:date>
+        <dc:identifier>ISSN ISSN-1059-0145</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n414">
+        <dc:title>Comparing Pedagogies for Plastic Waste Management at University Level</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Yeung, Siu-Kit</dc:creator>
+        <dc:creator>So, Wing-Mui Winnie</dc:creator>
+        <dc:creator>Cheng, Nga-Yee Irene</dc:creator>
+        <dc:creator>Cheung, Tsz-Yan</dc:creator>
+        <dc:creator>Chow, Cheuk-Fai</dc:creator>
+        <dc:date>2017</dc:date>
+        <dc:identifier>ISSN ISSN-1467-6370</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n415">
+        <dc:title>Modeling Earth's Climate</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Pallant, Amy</dc:creator>
+        <dc:creator>Lee, Hee-Sun</dc:creator>
+        <dc:creator>Pryputniewicz, Sara</dc:creator>
+        <dc:date>Oct 2012</dc:date>
+        <dc:identifier>ISSN ISSN-0036-8555</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n416">
+        <dc:title>Developing Computational Methods to Measure and Track Learners' Spatial Reasoning in an Open-Ended Simulation</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Mallavarapu, Aditi</dc:creator>
+        <dc:creator>Lyons, Leilah</dc:creator>
+        <dc:creator>Shelley, Tia</dc:creator>
+        <dc:creator>Minor, Emily</dc:creator>
+        <dc:creator>Slattery, Brian</dc:creator>
+        <dc:creator>Zellner, Moria</dc:creator>
+        <dc:date>2015</dc:date>
+        <dc:identifier>ISSN EISSN-2157-2100</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n417">
+        <dc:title>A Computer Simulation of the Trophic Dynamics of an Aquatic System.</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Bowker, D. W.</dc:creator>
+        <dc:creator>Randerson, P. F.</dc:creator>
+        <dc:date>Spr 1989</dc:date>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-85100408653&amp;doi=10.1038%2fs41598-021-82421-y&amp;partnerID=40&amp;md5=5b35f4d1b2e1a03a94228e4693f121c5">
+        <dc:title>Scientific, societal and pedagogical approaches to tackle the impact of climate change on marine pollution</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Alves, T.M.</dc:creator>
+        <dc:creator>Kokinou, E.</dc:creator>
+        <dc:creator>Ekström, M.</dc:creator>
+        <dc:creator>Nikolaidis, A.</dc:creator>
+        <dc:creator>Georgiou, G.C.</dc:creator>
+        <dc:creator>Miliou, A.</dc:creator>
+        <dc:date>2021</dc:date>
+        <dc:identifier>DOI 10.1038/s41598-021-82421-y</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-85053700116&amp;doi=10.3390%2fsu10103363&amp;partnerID=40&amp;md5=0f19ab5b67b52f9deb6e92db6327e581">
+        <dc:title>Exploring sustainability environment educational design and learning effect evaluation through migration theory: An example of environment educational serious games</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Su, C.-H.</dc:creator>
+        <dc:date>2018</dc:date>
+        <dc:identifier>DOI 10.3390/su10103363</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-84927673334&amp;doi=10.1017%2fS1466046614000222&amp;partnerID=40&amp;md5=7d5eb1cca79324def2ad7ff13e5d68fc">
+        <dc:title>Research article: Using simulation games to teach ecosystem service synergies and trade-offs</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Verutes, G.M.</dc:creator>
+        <dc:creator>Rosenthal, A.</dc:creator>
+        <dc:date>2014</dc:date>
+        <dc:identifier>DOI 10.1017/S1466046614000222</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-80052788050&amp;doi=10.1007%2fs11191-010-9325-0&amp;partnerID=40&amp;md5=db112b97fad7372f3674c52bc0644e39">
+        <dc:title>Towards a Critical Re-Appraisal of Ecology Education: Scheduling an Educational Intervention to Revisit the 'Balance of Nature' Metaphor</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Hovardas, T.</dc:creator>
+        <dc:creator>Korfiatis, K.</dc:creator>
+        <dc:date>2011</dc:date>
+        <dc:identifier>DOI 10.1007/s11191-010-9325-0</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-80051674246&amp;doi=10.1080%2f10382046.2011.588501&amp;partnerID=40&amp;md5=f0ba6af2d841a949d7c6374ca28df797">
+        <dc:title>Urban environmental education: Leveraging technology and ecology to engage students in studying the environment</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Barnett, M.</dc:creator>
+        <dc:creator>Vaughn, M.H.</dc:creator>
+        <dc:creator>Strauss, E.</dc:creator>
+        <dc:creator>Cotter, L.</dc:creator>
+        <dc:date>2011</dc:date>
+        <dc:identifier>DOI 10.1080/10382046.2011.588501</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-38949212304&amp;doi=10.1111%2fj.1745-5871.2007.00490.x&amp;partnerID=40&amp;md5=75a74efcf13f10aec0ce2b57ea94d8c0">
+        <dc:title>Active learning for understanding land degradation: African catchment game and riskmap</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Rowntree, K.M.</dc:creator>
+        <dc:creator>Fox, R.C.</dc:creator>
+        <dc:date>2008</dc:date>
+        <dc:identifier>DOI 10.1111/j.1745-5871.2007.00490.x</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-33845603480&amp;partnerID=40&amp;md5=ec09de697b0140a207c1944612539294">
+        <dc:title>PuMe - Interactive learning environment employing the pipequal model for forest growth and wood quality</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Vanninen, P.</dc:creator>
+        <dc:creator>Härkönen, S.</dc:creator>
+        <dc:creator>Enkenberg, J.</dc:creator>
+        <dc:creator>Mäkelä, A.</dc:creator>
+        <dc:date>2006</dc:date>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.scopus.com/inward/record.uri?eid=2-s2.0-33745147278&amp;doi=10.1016%2fj.intcom.2005.10.007&amp;partnerID=40&amp;md5=cab51d5cae042ff69b85347ee96d13c9">
+        <dc:title>An interactive computer graphics interface for the introduction of fuzzy inference in environmental education</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Ioannidou, I.A.</dc:creator>
+        <dc:creator>Paraskevopoulos, S.</dc:creator>
+        <dc:creator>Tzionas, P.</dc:creator>
+        <dc:date>2006</dc:date>
+        <dc:identifier>DOI 10.1016/j.intcom.2005.10.007</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://onlinelibrary.wiley.com/doi/10.1111/bjet.12806">
+        <dc:title>Scaffolding ecosystems science practice by blending immersive environments and computational modeling</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Dickes, Amanda C.</dc:creator>
+        <dc:creator>Kamarainen, Amy</dc:creator>
+        <dc:creator>Metcalf, Shari J.</dc:creator>
+        <dc:creator>Gün‐Yildiz, Semiha</dc:creator>
+        <dc:creator>Brennan, Karen</dc:creator>
+        <dc:creator>Grotzer, Tina</dc:creator>
+        <dc:creator>Dede, Chris</dc:creator>
+        <dc:date>09/2019</dc:date>
+        <dc:identifier>ISSN 0007-1013, 1467-8535</dc:identifier>
+        <dc:identifier>DOI 10.1111/bjet.12806</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://onlinelibrary.wiley.com/doi/10.1111/bjet.13087">
+        <dc:title>Patches as an expressive medium for exploratory multi‐agent modelling</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Brady, Corey</dc:creator>
+        <dc:date>05/2021</dc:date>
+        <dc:identifier>ISSN 0007-1013, 1467-8535</dc:identifier>
+        <dc:identifier>DOI 10.1111/bjet.13087</dc:identifier>
+    </rdf:Description>
+</rdf:RDF>

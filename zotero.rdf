@@ -4,7 +4,7 @@
  xmlns:edtech="http://coolfutures.net/rdf/2021/edtech#">
  
  
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#HmeloSilver2015a">
+    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#HmeloSilver2015">
         <dc:title>Using Representational Tools to Learn about Complex Systems: A Tale of Two Classrooms</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Hmelo-Silver, Cindy E.</dc:creator>
@@ -13,9 +13,10 @@
         <dc:creator>Jordan, Rebecca</dc:creator>
         <dc:date>2015/01/00</dc:date>
         <dc:identifier>DOI 10.1002/tea.21187</dc:identifier>
+        <edtech:wikiLink>"https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hmelo-Silver2015"</edtech:wikiLink>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#HmeloSilver2015b">
+    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#HmeloSilver2014">
         <dc:title>Technology-Supported Inquiry forLearning about Aquatic Ecosystems</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Hmelo-Silver, Cindy E.</dc:creator>
@@ -23,7 +24,7 @@
         <dc:creator>Jordan, Rebecca</dc:creator>
         <dc:date>2014-12-15</dc:date>
         <dc:identifier>DOI 10.12973/eurasia.2014.1170a</dc:identifier>
-      <edtech:webLink>"https://www.ejmste.com/article/technology-supported-inquiry-forlearning-about-aquatic-ecosystems-4329"></edtech:webLink>
+    <edtech:webLink>"https://www.ejmste.com/article/technology-supported-inquiry-forlearning-about-aquatic-ecosystems-4329"></edtech:webLink>   <edtech:wikiLink>"https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hmelo-Silver2014"</edtech:wikiLink>
     </rdf:Description>
     
     

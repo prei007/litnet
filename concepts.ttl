@@ -76,56 +76,118 @@ lrmi:typicalAgeRange a rdf:Property ;
 # goes with predicate lrmi:educationalLevel. 
 
 :EducationLevel a skos:ConceptScheme ;
-	dcterms:title "Educational levels" . 
+	dcterms:title "Educational levels thesaurus" ;
+	skos:note "Using terminology from ERIC". 
 	
-:GradesKto5 a skos:Concept, lrmi:EducationalAudience ; 
-	skos:prefLabel "Grades K-5"@en ;
-	skos:altLabel "Preschool and Primary School"@en ;
-	skos:related :PrimarySchool ; 
-	skos:inScheme :EducationLevel . 
+:Grade01 a skos:Concept ; 
+	skos:prefLabel "Grade 1"@en ; 
+	skos:related :PrimaryEducation ;
+	skos:inScheme :EducationLevel .
 	
-:Grades6to8 a skos:Concept, lrmi:EducationalAudience ; 
-	skos:prefLabel "Grades 6-8"@en ;
-	skos:altLabel "Middle School"@en ;
-	skos:related :HighSchool ; 
-	skos:inScheme :EducationLevel . 
+:Grade02 a skos:Concept ; 
+	skos:prefLabel "Grade 2"@en ; 
+	skos:related :PrimaryEducation ;
+	skos:inScheme :EducationLevel .
 	
-:Grades9to12 a skos:Concept, lrmi:EducationalAudience ; 
-	skos:prefLabel "Grades 9-12"@en ;
-	skos:altLabel "High School"@en ;
-	skos:related :HighSchool ; 
-	skos:inScheme :EducationLevel . 
+:Grade03 a skos:Concept ; 
+	skos:prefLabel "Grade 3"@en ; 
+	skos:related :PrimaryEducation ;
+	skos:inScheme :EducationLevel .
+	
+:Grade04 a skos:Concept ; 
+	skos:prefLabel "Grade 4"@en ; 
+	skos:related :IntermediateGrades ;
+	skos:inScheme :EducationLevel .
+	
+:Grade05 a skos:Concept ; 
+	skos:prefLabel "Grade 5"@en ; 
+	skos:related :IntermediateGrades ;
+	skos:related :MiddleSchools ;
+	skos:inScheme :EducationLevel .
 
-:College a skos:Concept, lrmi:EducationalAudience ; 
-	skos:prefLabel "College"@en ;
-	skos:altLabel "Tertiary Education"@en ;
-	skos:inScheme :EducationLevel . 
+:Grade06 a skos:Concept ; 
+	skos:prefLabel "Grade 6"@en ; 
+	skos:related :IntermediateGrades ;
+	skos:related :MiddleSchools ;
+	skos:inScheme :EducationLevel .
 	
-:HighSchool a skos:Concept, lrmi:EducationalAudience ; 
-	skos:prefLabel "High School"@en ;
-	skos:altLabel "Secondary Education"@en ;
-	skos:inScheme :EducationLevel . 
+:Grade07 a skos:Concept ; 
+	skos:prefLabel "Grade 7"@en ; 
+	skos:related :MiddleSchools ;
+	skos:inScheme :EducationLevel .
 	
-:PrimarySchool a skos:Concept, lrmi:EducationalAudience ; 
-	skos:prefLabel "Primary School"@en ;
-	skos:altLabel "Elementary School"@en ;
-	skos:inScheme :EducationLevel. 
+:Grade08 a skos:Concept ; 
+	skos:prefLabel "Grade 8"@en ; 
+	skos:related :MiddleSchools ;
+	skos:inScheme :EducationLevel .
 	
-:TertiaryLevel a skos:Concept, lrmi:EducationalAudience  ; 
-	skos:prefLabel "Tertiary Education" ; 
-	skos:inScheme :EducationLevel . 
+:Grade09 a skos:Concept ; 
+	skos:prefLabel "Grade 9"@en ; 
+	skos:related :MiddleSchools ;
+	skos:inScheme :EducationLevel .
 	
-:TeacherTraining a skos:Concept, lrmi:EducationalAudience ;
+:Grade10 a skos:Concept ; 
+	skos:prefLabel "Grade 10"@en ; 
+	skos:related :HighSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade11 a skos:Concept ; 
+	skos:prefLabel "Grade 11"@en ; 
+	skos:related :HighSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade12 a skos:Concept ; 
+	skos:prefLabel "Grade 12"@en ; 
+	skos:related :HighSchools ;
+	skos:inScheme :EducationLevel .
+	
+:PrimaryEducation a skos:Concept ; 
+	skos:prefLabel "Primary Education"@en ; 
+	skos:scopeNote "Kindergarten through grade 3" ;
+	skos:inScheme :EducationLevel .
+	
+:IntermediateGrades a skos:Concept ; 
+	skos:prefLabel "Intermediate grades"@en ; 
+	skos:scopeNote "Grades 4, 5, and 6" ;
+	skos:inScheme :EducationLevel .
+	
+:MiddleSchools a skos:Concept ; 
+	skos:prefLabel "Middle Schools"@en ; 
+	skos:scopeNote "Various combinations of grades 5-9." ;
+	skos:inScheme :EducationLevel .
+
+:HighSchools a skos:Concept ; 
+	skos:prefLabel "High Schools"@en ; 
+	skos:scopeNote "Grades 9 or 10 through 12" ;
+	skos:inScheme :EducationLevel .
+	
+:HigherEducation a skos:Concept ;
+	skos:prefLabel "Higher Education"@en ; 
+	skos:inScheme :EducationLevel .
+	
+:UndergraduateStudy a skos:Concept ;
+	skos:prefLabel "Undergraduate Study"@en ; 
+	skos:scopeNote "Study in an institution of higher education the precedes the bachelor's or first professional degree." ;
+	skos:broader :HigherEducation ;
+	skos:inScheme :EducationLevel .
+	
+:GraduateStudy a skos:Concept ;
+	skos:prefLabel "Graduate Study"@en ; 
+	skos:scopeNote "Study in an institution of higher education after the bachelor's degree and before a Master's." ;
+	skos:broader :HigherEducation ;
+	skos:inScheme :EducationLevel .
+
+:TeacherTraining a skos:Concept ;
 	skos:prefLabel "Teacher training"@en ;
-	skos:altLabel "Teacher education"@en; 
+	skos:altLabel "Teacher education"@en ; 
 	skos:inScheme :EducationLevel . 
 	
-:TeacherProfDev a skos:Concept, lrmi:EducationalAudience ;
+:TeacherProfDev a skos:Concept ;
 	skos:prefLabel "Teacher professional development"@en ;
-	skos:altLabel "Teacher PD"@en; 
+	skos:altLabel "Teacher PD"@en ; 
 	skos:inScheme :EducationLevel . 
 	
-:Adult a skos:Concept, lrmi:EducationalAudience ; 
+:Adult a skos:Concept ; 
 	skos:prefLabel "Adults"@en ;
 	skos:altLabel "Lifelong Education"@en ;
 	skos:inScheme :EducationLevel . 
@@ -446,11 +508,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "e-Research"@en ; 
 	skos:altLabel "Cyber-research"@en ; 
 	skos:broader :EduTech . 
-	
-:ComputerModel a skos:Concept ; 
-	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Computer model"@en ; 
-	skos:broader :eResearch . 
+
 	
 :GIS a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -486,7 +544,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "AI in Education"@en ; 
 	skos:altLabel "AIED"@en ; 
 	skos:broader :AI .
-
+	
 
 ### Sensors, Drones, IoT
 
@@ -520,6 +578,77 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "GPS"@en ; 
 	skos:broader :SensingAndRecording .
+	
+
+### A special Thesaurus for computer modelling
+
+:CompuMod a skos:ConceptScheme ; 
+	dcterms:title "Computational models thesaurus" ;
+	skos:hasTopConcept :ComputerModel .
+	
+:ComputerModel a skos:Concept ; 
+	skos:inScheme :CompuMod ;
+	skos:prefLabel "Computer model"@en .
+	
+:ABM a skos:Concept ;
+	skos:inScheme :CompuMod ;
+	skos:prefLabel "Agent-Based Model" ;
+	skos:altLabel "Individual model" ;
+	skos:broader :ComputerModel . 
+	
+:SysDyn a skos:Concept ;
+	skos:inScheme :CompuMod ;
+	skos:prefLabel "System Dynamics Model" ;
+	skos:broader :ComputerModel . 
+	
+:NetLogoModel a skos:Concept ; 
+	skos:inScheme :CompuMod ;
+	skos:prefLabel "NetLogo" ;
+	skos:broader :ABM . 
+
+:StellaModel a skos:Concept ;
+	skos:inScheme :CompuMod ;
+	skos:prefLabel "Stella" ;
+	skos:broader :SysDyn . 
+	
+	
+### A thesaurus for model use and model pedagogy
+
+:CompModelPedagogy a skos:ConceptScheme ; 
+	dcterms:title "Computational models pedagogy thesaurus" ;
+	skos:hasTopConcept :ExpressiveModelling ;
+	skos:hasTopConcept :ExplorativeModelling .
+	
+:ExpressiveModelling a skos:Concept ; 
+	skos:inScheme :CompModelPedagogy ;
+	skos:prefLabel "Expressive modelling"@en ;
+	skos:definition "Engaging learners in creating their own model to explore an idea or solve a problem. Suggested by Bliss 1994". 
+	
+:ExplorativeModelling a skos:Concept ; 
+	skos:inScheme :CompModelPedagogy ;
+	skos:prefLabel "Explorative modelling"@en ;
+	skos:definition "Engaging learners in exploring a model explore developed by somebody else. Suggested by Bliss 1994". 
+	
+:ModelSimulation a skos:Concept ;
+	skos:inScheme :CompModelPedagogy ;
+	skos:prefLabel "Model simulation"@en ;
+	skos:broader :ExplorativeModelling .
+	
+:ModelExtension a skos:Concept ;
+	skos:inScheme :CompModelPedagogy ;
+	skos:prefLabel "Model extension"@en ;
+	skos:broader :ExpressiveModelling .
+	
+:ModelInspection a skos:Concept ;
+	skos:inScheme :CompModelPedagogy ;
+	skos:prefLabel "Model inspection"@en ;
+	skos:broader :ExplorativeModelling .
+	
+:MultiModelling a skos:Concept ; 
+	skos:inScheme :CompModelPedagogy ;
+	skos:prefLabel "Combining multiple models"@en ;
+	skos:example "Combining a causal map with a system dynamics model" .
+	
 	
 
 	
@@ -580,6 +709,11 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:inScheme :PedagogyThesaurus ;
 	skos:prefLabel "Interact with scientists"@en ; 
 	skos:broader :STEMStrategy . 
+	
+:RolePlay a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Role play"@en ; 
+	skos:broader :ExperientialLearning . 
 	
 :LabBasedLearning a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;

@@ -475,7 +475,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:creator>Tasquier, Giulia</dc:creator>
         <dc:creator>Levrini, Olivia</dc:creator>
         <dc:creator>Dillon, Justin</dc:creator>
-        <dc:date>2016/</dc:date>
+        <dc:date>2016/Hm</dc:date>
         <dc:identifier>DOI 10.1080/09500693.2016.1148828</dc:identifier>
     </rdf:Description>
     
@@ -488,5 +488,84 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>ISSN 1306-3065</dc:identifier>
        <edtech:webLink>"https://eric.ed.gov/?q=%22climate+science%22+AND+model&amp;pg=2&amp;id=EJ884408"</edtech:webLink>
     </rdf:Description>
-    
+<rdf:Description rdf:about="http://journals.sagepub.com/doi/10.1177/1046878117753498">
+        <dc:title>Grim FATE: Learning About Systems Thinking in an In-Depth Climate Change Simulation</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Waddington, David I.</dc:creator>
+        <dc:creator>Fennewald, Thomas</dc:creator>
+        <dc:date>04/2018</dc:date>
+        <dc:identifier>ISSN 1046-8781, 1552-826X</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878117753498</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://direct.mit.edu/posc/article/22/3/336-356/15372">
+        <dc:title>Simulation and Understanding in the Study of Weather and Climate</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Parker, Wendy S.</dc:creator>
+        <dc:date>09/2014</dc:date>
+        <dc:identifier>ISSN 1063-6145, 1530-9274</dc:identifier>
+        <dc:identifier>DOI 10.1162/POSC_a_00137</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://journals.sagepub.com/doi/10.1177/1046878119890643">
+        <dc:title>The Climate Action Simulation</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Rooney-Varga, Juliette N.</dc:creator>
+        <dc:creator>Kapmeier, Florian</dc:creator>
+        <dc:creator>Sterman, John D.</dc:creator>
+        <dc:creator>Jones, Andrew P.</dc:creator>
+        <dc:creator>Putko, Michele</dc:creator>
+        <dc:creator>Rath, Kenneth</dc:creator>
+        <dc:date>04/2020</dc:date>
+        <dc:identifier>ISSN 1046-8781, 1552-826X</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878119890643</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n729">
+        <dc:title>The Relation between Cognitive and Metacognitive Strategic Processing during a Science Simulation</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Dinsmore, Daniel L.</dc:creator>
+        <dc:creator>Zoellner, Brian P.</dc:creator>
+        <dc:date>2018/03/00</dc:date>
+        <dc:identifier>ISSN 0007-0998</dc:identifier>
+        <dc:identifier>DOI 10.1111/bjep.12177</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n730">
+        <dc:title>Efficient, Adaptable Simulations: A Case Study of a Climate Negotiation Game</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Brown, Joseph M.</dc:creator>
+        <dc:date>2018/00/00</dc:date>
+        <dc:identifier>ISSN 1551-2169</dc:identifier>
+        <dc:identifier>DOI 10.1080/15512169.2018.1431129</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://eric.ed.gov/?q=climate+simulation&amp;id=EJ1082016">
+        <dc:title>Losing the Lake: Simulations to Promote Gains in Student Knowledge and Interest about Climate Change</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Nussbaum, E. Michael</dc:creator>
+        <dc:creator>Owens, Marissa C.</dc:creator>
+        <dc:creator>Sinatra, Gale M.</dc:creator>
+        <dc:creator>Rehmat, Abeera P.</dc:creator>
+        <dc:creator>Cordova, Jacqueline R.</dc:creator>
+        <dc:creator>Ahmad, Sajjad</dc:creator>
+        <dc:creator>Harris, Fred C.</dc:creator>
+        <dc:creator>Dascalu, Sergiu M.</dc:creator>
+        <dc:date>2015/00/00</dc:date>
+        <dc:identifier>ISSN EISSN-1306 3065</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="n731">
+        <dc:title>The Effects of Scaffolded Simulation-Based Inquiry Learning on Fifth-Graders' Representations of the Greenhouse Effect</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Kukkonen, Jari Ensio</dc:creator>
+        <dc:creator>Kärkkäinen, Sirpa</dc:creator>
+        <dc:creator>Dillon, Patrick</dc:creator>
+        <dc:creator>Keinonen, Tuula</dc:creator>
+        <dc:date>2014/00/00</dc:date>
+        <dc:identifier>ISSN 0950-0693</dc:identifier>
+        <dc:identifier>DOI 10.1080/09500693.2013.782452</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://eric.ed.gov/?q=climate+simulation&amp;pg=3&amp;id=EJ1255162">
+        <dc:title>Playing with Complex Systems? The Potential to Gain Geographical System Competence through Digital Gaming</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Lux, Joelle-Denise</dc:creator>
+        <dc:creator>Budke, Alexandra</dc:creator>
+        <dc:date>2020/00/00</dc:date>
+        <dc:identifier>ISSN 2227-7102</dc:identifier>
+    </rdf:Description>
 </rdf:RDF>

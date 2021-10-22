@@ -5,7 +5,7 @@
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
@@ -17,31 +17,47 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 
 # Most of the predicates are from dcterms and bibo, but additional ones are needed
 # to link to information that is relevant to the literature review. 
+	
+	
+:annotation a rdf:Property ; 
+	rdfs:comment "Object property linking to an annotation.".
+	
+:category a rdf:Property ; 
+	rdfs:comment "Object property linking to a category or classification.".
+	
+# The following predicates are deemed useful to have explicitely around for 
+# classification/categorisation. Note that they subtype on :category.
+# It is design choice to use a generic category predicate along with a 
+# controlled vocab, and/or use specific predicates. 
+	
+:learningDomain rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a description of the learning domain".
+	
+:science rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a description of the science domain".
+	
+:technology rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of the technology used for teaching".
 
+:outcome rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of the learning outcome area".
+
+:pedagogy rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of the pedagogical strategy".
+	
+:effectiveness rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention".
+	
+:researchMethod rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of the research method used".
+	
+# Miscalleneous
 	
 :authorKeywords a rdf:Property ; 
 	rdfs:comment "Data property for author-provided".
 	
 :indexKeywords a rdf:Property ; 
 	rdfs:comment "Data property for keywords other than provided by author".
-	
-:annotation a rdf:Property ; 
-	rdfs:comment "Object property linking to an annotation.".
-	
-:science a rdf:Property ; 
-	rdfs:comment "predicate linking to a description of the science domain".
-	
-:technology a rdf:Property ; 
-	rdfs:comment "predicate linking to a descriptor of the technology used for teaching".
-
-:outcome a rdf:Property ; 
-	rdfs:comment "predicate linking to a descriptor of the learning outcome area".
-
-:pedagogy a rdf:Property ; 
-	rdfs:comment "predicate linking to a descriptor of the pedagogical strategy".
-	
-:researchMethod a rdf:Property ; 
-	rdfs:comment "predicate linking to a descriptor of the research method used".
 	
 	
 ### Properties from lrmi1.1 that are useful
@@ -187,7 +203,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:altLabel "Teacher PD"@en ; 
 	skos:inScheme :EducationLevel . 
 	
-:Adult a skos:Concept ; 
+:Adults a skos:Concept ; 
 	skos:prefLabel "Adults"@en ;
 	skos:altLabel "Lifelong Education"@en ;
 	skos:inScheme :EducationLevel . 
@@ -276,6 +292,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	
 :Ecology a skos:Concept ; 
 	skos:prefLabel "Ecology" ; 
+	skos:altLabel "Ecosystems science" ; 
 	skos:broader :BiologicalScience ; 
 	skos:inScheme :ScienceThesaurus .
 	
@@ -296,6 +313,12 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "Energy education"@en ;
 	skos:broader :SustainabilityEducation ;
 	skos:inScheme :ScienceThesaurus .
+	
+	
+## We need some terminology for human environment interactions
+## and ODD concepts etc. 
+
+
 	
 
 
@@ -323,7 +346,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "Educational technology"@en ; 
 	skos:broader :Technology.  
 
-### Games and Simulations
+### Games, models, simulations
 
 :GamesAndSimulations a skos:Concept; 
 	skos:inScheme :EdTechThesaurus ;
@@ -348,16 +371,61 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "Computer simulation"@en ; 
 	skos:broader :GamesAndSimulations . 
 	
+:RolePlay a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:scopeNote "A technology-mediated role play, not any role play" ;
+	skos:prefLabel "Role play"@en ; 
+	skos:broader :GamesAndSimulations . 
+	
 :ComputerModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer model"@en ;
 	skos:broader :GamesAndSimulations ;
 	skos:related :Simulation .
 	
-:RolePlay a skos:Concept ; 
+:ABM a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Role play"@en ; 
-	skos:broader :GamesAndSimulations . 
+	skos:prefLabel "Agent-Based Model"@en ;
+	skos:altLabel "Individual model"@en ;
+	skos:broader :ComputerModel . 
+	
+:SysDyn a skos:Concept ;
+	skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "System Dynamics Model"@en ;
+	skos:broader :ComputerModel . 
+	
+:CausalMapModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "Causal Map Model"@en ;
+	skos:related :SysDyn, :FeedbackLoopModel ;
+	skos:broader :ComputerModel . 
+
+:FeedbackLoopModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "Feedback Loop Model"@en ;
+	skos:related :SysDyn, :CausalMapModel ;
+	skos:broader :ComputerModel . 
+	
+:ClimateModel a skos:Concept ; 
+ skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "Climate change model"@en ;
+	skos:scopeNote "Scientific models of climate change."
+	skos:broader :ComputerModel . 
+	
+:NetLogoModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "NetLogo" ;
+	skos:broader :ABM . 
+
+:StellaModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Stella" ;
+	skos:broader :SysDyn . 
+	
+:EDGCM a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Educational Global Climate Model" ;
+	skos:broader :ClimateModel . 
 
 ### Immersive 
 
@@ -410,6 +478,11 @@ lrmi:typicalAgeRange a rdf:Property ;
 :DigitalPhotography a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Digital Photography"@en ; 
+	skos:broader :MultiMedia . 
+	
+:Hypermedia a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Educational hypermedia"@en ; 
 	skos:broader :MultiMedia . 
 	
 :PodCast a skos:Concept ; 
@@ -494,7 +567,6 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "Knowledge technologies"@en ; 
 	skos:broader :EduTech . 
 
-
 :ConceptMapping a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Concept mapping"@en ; 
@@ -508,7 +580,6 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "e-Research"@en ; 
 	skos:altLabel "Cyber-research"@en ; 
 	skos:broader :EduTech . 
-
 	
 :GIS a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -580,77 +651,6 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:broader :SensingAndRecording .
 	
 
-### A special Thesaurus for computer modelling
-
-:CompuMod a skos:ConceptScheme ; 
-	dcterms:title "Computational models thesaurus" ;
-	skos:hasTopConcept :ComputerModel .
-	
-:ComputerModel a skos:Concept ; 
-	skos:inScheme :CompuMod ;
-	skos:prefLabel "Computer model"@en .
-	
-:ABM a skos:Concept ;
-	skos:inScheme :CompuMod ;
-	skos:prefLabel "Agent-Based Model" ;
-	skos:altLabel "Individual model" ;
-	skos:broader :ComputerModel . 
-	
-:SysDyn a skos:Concept ;
-	skos:inScheme :CompuMod ;
-	skos:prefLabel "System Dynamics Model" ;
-	skos:broader :ComputerModel . 
-	
-:NetLogoModel a skos:Concept ; 
-	skos:inScheme :CompuMod ;
-	skos:prefLabel "NetLogo" ;
-	skos:broader :ABM . 
-
-:StellaModel a skos:Concept ;
-	skos:inScheme :CompuMod ;
-	skos:prefLabel "Stella" ;
-	skos:broader :SysDyn . 
-	
-	
-### A thesaurus for model use and model pedagogy
-
-:CompModelPedagogy a skos:ConceptScheme ; 
-	dcterms:title "Computational models pedagogy thesaurus" ;
-	skos:hasTopConcept :ExpressiveModelling ;
-	skos:hasTopConcept :ExplorativeModelling .
-	
-:ExpressiveModelling a skos:Concept ; 
-	skos:inScheme :CompModelPedagogy ;
-	skos:prefLabel "Expressive modelling"@en ;
-	skos:definition "Engaging learners in creating their own model to explore an idea or solve a problem. Suggested by Bliss 1994". 
-	
-:ExplorativeModelling a skos:Concept ; 
-	skos:inScheme :CompModelPedagogy ;
-	skos:prefLabel "Explorative modelling"@en ;
-	skos:definition "Engaging learners in exploring a model explore developed by somebody else. Suggested by Bliss 1994". 
-	
-:ModelSimulation a skos:Concept ;
-	skos:inScheme :CompModelPedagogy ;
-	skos:prefLabel "Model simulation"@en ;
-	skos:broader :ExplorativeModelling .
-	
-:ModelExtension a skos:Concept ;
-	skos:inScheme :CompModelPedagogy ;
-	skos:prefLabel "Model extension"@en ;
-	skos:broader :ExpressiveModelling .
-	
-:ModelInspection a skos:Concept ;
-	skos:inScheme :CompModelPedagogy ;
-	skos:prefLabel "Model inspection"@en ;
-	skos:broader :ExplorativeModelling .
-	
-:MultiModelling a skos:Concept ; 
-	skos:inScheme :CompModelPedagogy ;
-	skos:prefLabel "Combining multiple models"@en ;
-	skos:example "Combining a causal map with a system dynamics model" .
-	
-	
-
 	
 #################################
 # Concepts: Pedagogies
@@ -709,11 +709,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:inScheme :PedagogyThesaurus ;
 	skos:prefLabel "Interact with scientists"@en ; 
 	skos:broader :STEMStrategy . 
-	
-:RolePlay a skos:Concept ; 
-	skos:inScheme :PedagogyThesaurus ;
-	skos:prefLabel "Role play"@en ; 
-	skos:broader :ExperientialLearning . 
+
 	
 :LabBasedLearning a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;
@@ -769,6 +765,57 @@ lrmi:typicalAgeRange a rdf:Property ;
     skos:prefLabel "Learning community"@en ; 
 	skos:broader :PedagogicalStategy .
 	
+:CollaborativeLearning a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Collaborative learning"@en ; 
+    skos:altLabel "Group learning"@en ;
+	skos:broader :PedagogicalStategy .
+	
+:CSCL a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Computer-supported collaborative learning"@en ; 
+    skos:altLabel "Group learning"@en ;
+	skos:broader :CollaborativeLearning .
+	
+# Model-based learning and subcategories
+	
+:ModelBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Model-based learning"@en ; 
+	skos:broader :PedagogicalStategy .
+	
+:ExpressiveModelling a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Expressive modelling"@en ;
+	skos:broader :ModelBasedLearning ;
+	skos:definition "Engaging learners in creating their own model to explore an idea or solve a problem. Suggested by Bliss 1994". 
+	
+:ExplorativeModelling a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Explorative modelling"@en ;
+	skos:broader :ModelBasedLearning ;
+	skos:definition "Engaging learners in exploring a model explore developed by somebody else. Suggested by Bliss 1994". 
+	
+:ModelSimulation a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Model simulation"@en ;
+	skos:broader :ExplorativeModelling .
+	
+:ModelExtension a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Model extension"@en ;
+	skos:broader :ExpressiveModelling .
+	
+:ModelInspection a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Model inspection"@en ;
+	skos:broader :ExplorativeModelling .
+	
+:MultiModelling a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Combining multiple models"@en ;
+	skos:broader :ModelBasedLearning ;
+	skos:example "Combining a causal map with a system dynamics model" .
 	
 #################################
 # Concepts: Outcomes
@@ -789,6 +836,11 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "Knowledge outcomes"@en ; 
 	skos:definition "Including awareness, perceptions, content knowledge, skills knowledge, sociopolitical knowledge, and issue-speciﬁc understandings" ;
 	skos:broader :Outcomes . 
+	
+:SystemsThinking a skos:Concept ;
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Systems thinking"@en ; 
+	skos:broader :KnowledgeOutcomes .
 	
 :Misconceptions a skos:Concept ;
 	skos:inScheme :OutcomesThesaurus ; 
@@ -876,7 +928,6 @@ skos:inScheme :OutcomesThesaurus ;
 	dcterms:title "Research methods thesaurus " ;
 	skos:hasTopConcept :ResearchMethod .
 
-
 :ResearchMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus . 
 
@@ -895,6 +946,17 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:prefLabel "Meta-analysis"@en ; 
 	skos:broader :ReviewMethod .
 	
+:SynthesisMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Synthesis method"@en ; 
+	skos:broader :ReviewMethod .
+	
+	
+:ObsevationMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Observational method"@en ; 
+	skos:broader :ResearchMethod .
+	
 :SurveyMethod a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Survey"@en ;
@@ -906,7 +968,32 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:prefLabel "Interview"@en ;
 	skos:broader :ResearchMethod .
 	
+:CaseStudyMethod  a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Case study"@en ;
+	skos:broader :ResearchMethod .
+	
 :ExperimentalMethod  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Experimental study"@en ;
 	skos:broader :ResearchMethod .
+	
+:PrePost a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Pre and post test."@en ;
+	skos:broader :ExperimentalMethod . 
+	
+:DesignExperiment a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Design Experiment."@en ;
+	skos:broader :ExperimentalMethod . 
+	
+:InferentialStatistics a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Inferential statistical testing."@en ;
+	skos:broader :ResearchMethod .
+	
+:UnspecificMethod a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Unspecified method"@en ;
+	skos:broader :ResearchMethod . 

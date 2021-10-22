@@ -1,0 +1,146 @@
+########################################
+# Coding computatinonal modelling	    #
+########################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+
+
+	
+:Bush2016
+	:science :ClimateChange ;
+	:researchMethod :LitReview ; 
+	:technology :ClimateModel, :GIS, :eResearch, :DataScienceTool; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2016" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
+		anno:body "The authors identify as an important gap the one between the kind tools and processes that climate scientists use and what is used in teaching, including teaching at undergraduate level. "] .
+	
+:Bush2017
+	:science :ClimateChange ;
+	lrmi:educationalLevel :UndergraduateStudy ;
+	:researchMethod :LitReview ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2017" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
+		anno:body "A review valuable as overview of teaching practices in U/G Geography education."] .
+		
+:Bush2018
+	:science :ClimateChange ;
+	lrmi:educationalLevel :UndergraduateStudy ;
+	:researchMethod :ExperimentalMethod ; 
+	:technology :EDGCM ; 
+	:effectiveness "moderate" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2018" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
+		anno:body "Fully relevant for our research question. Performs a comparison of students learning with EDGCm versus students learning from simpler tools, also available on the web. The latter may be quite often used in schools, come to think of it. Quant and qual data. Needs to be read carefully. A main finding pertains to similarity of student practice to authentic science practices."] .
+	
+:Bush2019
+	:science :ClimateChange ;
+	lrmi:educationalLevel :UndergraduateStudy ;
+	:researchMethod :SurveyMethod ; 
+	:technology :EDGCM ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2019" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
+		anno:body "A teacher survey. Not particularly strong in the method aspect. Sampled from people who asked for an license of EDGCM and asked for their experience. No theory, purely descriptive. Marginally useful, but not as an example to understand learning from/with models"] .
+	
+	
+:Carey2017
+	:science :Ecology, :ClimateChange ;
+	lrmi:educationalLevel :UndergraduateStudy, GraduateStudy ;
+	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:technology :DataScienceTool , :ComputerModel ; 
+	:researchMethod :PrePost ; 
+	:effectiveness "moderate" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Carey2017" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
+		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance ina pre-post measurement. That comparison is adhoc, but the study overall is somewhat rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects. Needs detailed reading"] .
+		
+:Dickes2019
+	:science :Ecology ;
+	lrmi:educatoinalLevel :MiddleSchools ;
+	:researchMethod :ObservationMethod ; 
+	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap ;
+	:outcome :SystemThinking  ; 
+	dc:related :HmeloSilver2014, :HmeloSilver2015 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
+		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. I think the VR might be easily replaced with video or stop-image animation as it mainly is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
+		
+		
+:HmeloSilver2014 
+	:science :Ecology ; 
+	:outcome :SystemsThinking ;
+	lrmi:educationalLevel :MiddleSchools ;
+	:technology :Hypermedia, :NetLogoModel, :CausalMapModel ;
+	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
+	:researchMethod :PrePost ;
+	:effectiveness "Moderate to large positive" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2014" .
+	
+:HmeloSilver2015 
+	:science :Ecology ; 
+	:outcome :SystemsThinking ;
+	lrmi:educationalLevel :MiddleSchools ;
+	:technology :Hypermedia, :NetLogoModel, :CausalMapModel ;
+	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
+	:researchMethod :CaseStudyMethod ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" ,
+
+	
+:Jordan2019 
+	:science :ClimateChange ;
+	:outcome :SystemsThinking ;
+	:researchMethod :SynthesisMethod ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2019" ;
+		:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
+		anno:body "Not a empirical research paper, but a research synthesis. Modellng not really considered, despite the claim in the abstract. Not relevant"] .
+		
+:Lant2016
+	:science :ClimateChange ; 
+	:outcome :KnowledgeOutcomes ;
+	lrmi:educationalLevel :MiddleSchools ;
+	:technology :ComputerModel ;
+	:pedagogy :ModelSimulation ; 
+	:researchMethod :PrePost , :InferentialStatistics;
+	:effectiveness "Moderate to large positive" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2016" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
+		anno:body "Describes design of 5 science-based simulations and a small evaluation study. Nothing exciting, but solid. The evaluation design is not particularly valid. "] .
+
+
+:Mallavarapu2016 
+	:science :EnvironmentalManagement ; 
+	:outcome :KnowledgeOutcomes ;
+	lrmi:educationalLevel :HighSchools, :UndergraduateStudy ;
+	:technology :NetLogoModel ;
+	:pedagogy :ModelSimulation ; 
+	:researchMethod :ExperimentalMethod, :InferentialStatistics ;
+	:effectiveness "Moderate to large positive" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2016" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
+		anno:body "Serious and relevant study. "] .
+
+
+
+:Rowntree2007 
+	:science :SoilSciences ;
+	lrmi:educatoinalLevel :Adults ;
+	:researchMethod :UnspecificMethod ; 
+	:technology :ComputerModel , :RolePlay ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Rowntree2007" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
+		anno:body "A rather weak paper in the educational research part. Describes a role play and a computer model of land use. Participants are citizens? Likely drop because of method weakness and lack of detail"] .
+		
+
+
+
+		
+	
+	
+	

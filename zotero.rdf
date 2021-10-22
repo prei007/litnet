@@ -488,7 +488,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>ISSN 1306-3065</dc:identifier>
        <edtech:webLink>"https://eric.ed.gov/?q=%22climate+science%22+AND+model&amp;pg=2&amp;id=EJ884408"</edtech:webLink>
     </rdf:Description>
-<rdf:Description rdf:about="http://journals.sagepub.com/doi/10.1177/1046878117753498">
+ <rdf:Description rdf:about="http://journals.sagepub.com/doi/10.1177/1046878117753498">
         <dc:title>Grim FATE: Learning About Systems Thinking in an In-Depth Climate Change Simulation</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Waddington, David I.</dc:creator>
@@ -518,7 +518,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>ISSN 1046-8781, 1552-826X</dc:identifier>
         <dc:identifier>DOI 10.1177/1046878119890643</dc:identifier>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="n729">
+    <rdf:Description rdf:nodeID="n732">
         <dc:title>The Relation between Cognitive and Metacognitive Strategic Processing during a Science Simulation</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Dinsmore, Daniel L.</dc:creator>
@@ -527,7 +527,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>ISSN 0007-0998</dc:identifier>
         <dc:identifier>DOI 10.1111/bjep.12177</dc:identifier>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="n730">
+    <rdf:Description rdf:nodeID="n733">
         <dc:title>Efficient, Adaptable Simulations: A Case Study of a Climate Negotiation Game</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Brown, Joseph M.</dc:creator>
@@ -549,7 +549,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2015/00/00</dc:date>
         <dc:identifier>ISSN EISSN-1306 3065</dc:identifier>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="n731">
+    <rdf:Description rdf:nodeID="n734">
         <dc:title>The Effects of Scaffolded Simulation-Based Inquiry Learning on Fifth-Graders' Representations of the Greenhouse Effect</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Kukkonen, Jari Ensio</dc:creator>
@@ -568,4 +568,86 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2020/00/00</dc:date>
         <dc:identifier>ISSN 2227-7102</dc:identifier>
     </rdf:Description>
-</rdf:RDF>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878113480867">
+        <dc:title>Climate Change Gaming on Board and Screen: A Review</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Reckien, Diana</dc:creator>
+        <dc:creator>Eisenack, Klaus</dc:creator>
+        <dc:date>April 1, 2013</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878113480867</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878120904393">
+        <dc:title>Supporting Dialogue and Analysis on Trade-Offs in Climate Adaptation Research With the Maladaptation Game</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Neset, Tina-Simone</dc:creator>
+        <dc:creator>Juhola, Sirkku</dc:creator>
+        <dc:creator>Wiréhn, Lotten</dc:creator>
+        <dc:creator>Käyhkö, Janina</dc:creator>
+        <dc:creator>Navarra, Carlo</dc:creator>
+        <dc:creator>Asplund, Therese</dc:creator>
+        <dc:creator>Glaas, Erik</dc:creator>
+        <dc:creator>Wibeck, Victoria</dc:creator>
+        <dc:creator>Linnér, Björn-Ola</dc:creator>
+        <dc:date>June 1, 2020</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878120904393</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878112441693">
+        <dc:title>A Perspective-Based Simulation Game to Explore Future Pathways of a Water-Society System Under Climate Change</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Valkering, Pieter</dc:creator>
+        <dc:creator>van der Brugge, Rutger</dc:creator>
+        <dc:creator>Offermans, Astrid</dc:creator>
+        <dc:creator>Haasnoot, Marjolijn</dc:creator>
+        <dc:creator>Vreugdenhil, Heleen</dc:creator>
+        <dc:date>April 1, 2013</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878112441693</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878105279116">
+        <dc:title>Enhancing environmental awareness: Ecological and economic effects of food consumption</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Hansmann, Ralf</dc:creator>
+        <dc:creator>Scholz, Roland W.</dc:creator>
+        <dc:creator>Francke, Carl-Johan A. C.</dc:creator>
+        <dc:creator>Weymann, Martin</dc:creator>
+        <dc:date>September 1, 2005</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878105279116</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878114531764">
+        <dc:title>Improving Learners’ Understanding of Environmental Accumulations through Simulation</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Stave, Krystyna A.</dc:creator>
+        <dc:creator>Beck, Abby</dc:creator>
+        <dc:creator>Galvan, Chris</dc:creator>
+        <dc:date>June 1, 2015</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878114531764</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878107300665">
+        <dc:title>BUTORSTAR: A role-playing game for collective awareness of wise reedbed use</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Mathevet, Raphaël</dc:creator>
+        <dc:creator>Le Page, Christophe</dc:creator>
+        <dc:creator>Etienne, Michel</dc:creator>
+        <dc:creator>Lefebvre, Gaëtan</dc:creator>
+        <dc:creator>Poulin, Brigitte</dc:creator>
+        <dc:creator>Gigot, Guillaume</dc:creator>
+        <dc:creator>Proréol, Sophie</dc:creator>
+        <dc:creator>Mauchamp, André</dc:creator>
+        <dc:date>June 1, 2007</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878107300665</dc:identifier>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://doi.org/10.1177/1046878118770217">
+        <dc:title>Games Ready to Use: A Serious Game for Teaching Natural Risk Management</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Taillandier, Franck</dc:creator>
+        <dc:creator>Adam, Carole</dc:creator>
+        <dc:date>August 1, 2018</dc:date>
+        <dc:identifier>ISSN 1046-8781</dc:identifier>
+        <dc:identifier>DOI 10.1177/1046878118770217</dc:identifier>
+    </rdf:Description>
+</rdf>

@@ -5,14 +5,50 @@
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 
-
+:Alves2021
+	:science :ClimateChange, :Pollution ; 
+	:outcome :KnowledgeOutcomes ;
+	lrmi:educationalLevel :TeacherTraining ;
+	:technology :eResearch, :GIS, :DataScienceTool, :ComputerModel, :eLearning ;
+	:pedagogy :ModelSimulation ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Alves2021" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
+		anno:body "This paper is a combination of scientific research and learning design. Based on real science, real models and real data a set of instructional resources for teacher PD are introduced. The learning materials comprise tutorials, case studies and a small simulation game. There is no empirical research on the learning materials, nor other forms of evaluation."] .
+	
+:Barnett2011
+	:science :Ecology ; 
+	:outcome :MultiDomainOutcomes ;
+	lrmi:educationalLevel :HighSchools ;
+	:technology :GIS, :ComputerModel ;
+	:pedagogy :ModelSimulation ; 
+	:researchMethod :PrePost , :InferentialStatistics ; 
+	:effectiveness "positive" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Barnett2011" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
+		anno:body "A in the research part lightweight study on a summer program uses bioaucustic and tree data together with GIS mapping and a small-scale tree growth simulation. Measures changes to science self-efficacy, science interest, ecological mindset, career planning and career knowledge; scales applied pre and post the program. No modellling of human decision making. "] .
+		
+		
+		
+:Basu2015
+	:science :Ecology ; 
+	:outcome :KnowledgeOutcomes ;
+	lrmi:educationalLevel :Grade8 ;
+	:technology :GIS, :ComputerModel ;
+	:pedagogy :ModelSimulation ; MultiModelling ; 
+	:researchMethod :ClinicalInterview ; :MixedMethods, :InferentialStatistics; 
+	:effectiveness "positive" ; 
+	dc:relation :HmeloSilver 2014, 2015 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Basu2015" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "23-Oct-2021" ;
+		anno:body "The main concern of this paper is about the forms of scaffolds requiered for learners in their interaction with ABMs. Three types of scaffolds are deemed necessary: for sense-making, process management, and reflection articulation processes. This is an important paper also from the persepctive of peer tutoring and scaffolding. The main strategy for providing scaffolds is through Multiple External Representations. These are dynamic simulation of agents (species), graphs of the total population over time, textual resources, and causal maps. See HmeloSilver. There's a lot of attention spent on a fading strategy. The leaerning domain is a desert ecosystem model built in NetLogo. 20 8th graders. The data analysis is very nuanced. No modelling of human decision making"] .
+		
+		
 	
 :Bush2016
 	:science :ClimateChange ;
@@ -67,7 +103,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:researchMethod :ObservationMethod ; 
 	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap ;
 	:outcome :SystemThinking  ; 
-	dc:related :HmeloSilver2014, :HmeloSilver2015 ; 
+	dc:relation :HmeloSilver2014, :HmeloSilver2015 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
 		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. I think the VR might be easily replaced with video or stop-image animation as it mainly is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
@@ -90,7 +126,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:technology :Hypermedia, :NetLogoModel, :CausalMapModel ;
 	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
 	:researchMethod :CaseStudyMethod ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" ,
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" .
 
 	
 :Jordan2019 
@@ -126,6 +162,24 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Serious and relevant study. "] .
 
+:Parker2014 
+	:science :ClimateScience ;
+	:technology :ComputerModel ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Parker2014" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
+		anno:body "Not a empirical paper but a methdological essay on the role of simulation. Important to get the science of modelling right. "] .
+		
+
+:Taillandier2018
+	:science :EnvironmentalManagement ; 
+	:outcome :KnowledgeOutcomes ;
+	lrmi:educationalLevel :UndergraduateStudy ;
+	:technology :ABM ;
+	:pedagogy :ModelSimulation ; 
+	:researchMethod :SurveyMethod , :PerformanceAnalysis ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Taillandier2018" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
+		anno:body "Not great as an research study but reasonable quality. Game programmed in a propriety ABM shell. Domain is risk management for coastal flooding, sea level rise. Looks like real or close to real data in the simulation. Audience is engineering students."] .
 
 
 :Rowntree2007 

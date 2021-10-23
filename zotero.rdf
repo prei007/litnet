@@ -653,4 +653,4 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2018</dc:date>
         <dc:identifier>DOI 10.1177/1046878118770217</dc:identifier>
     </rdf:Description>
-</rdf>
+</rdf:RDF>

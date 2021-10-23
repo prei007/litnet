@@ -40,8 +40,8 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :Grade8 ;
 	:technology :GIS, :ComputerModel ;
-	:pedagogy :ModelSimulation ; MultiModelling ; 
-	:researchMethod :ClinicalInterview ; :MixedMethods, :InferentialStatistics; 
+	:pedagogy :ModelSimulation , MultiModelling ; 
+	:researchMethod :ClinicalInterview , :MixedMethods, :InferentialStatistics ; 
 	:effectiveness "positive" ; 
 	dc:relation :HmeloSilver 2014, 2015 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Basu2015" ; 

@@ -100,64 +100,64 @@ lrmi:typicalAgeRange a rdf:Property ;
 	
 :Grade01 a skos:Concept ; 
 	skos:prefLabel "Grade 1"@en ; 
-	skos:related :PrimaryEducation ;
+	skos:broader :PrimaryEducation ;
 	skos:inScheme :EducationLevel .
 	
 :Grade02 a skos:Concept ; 
 	skos:prefLabel "Grade 2"@en ; 
-	skos:related :PrimaryEducation ;
+	skos:broader :PrimaryEducation ;
 	skos:inScheme :EducationLevel .
 	
 :Grade03 a skos:Concept ; 
 	skos:prefLabel "Grade 3"@en ; 
-	skos:related :PrimaryEducation ;
+	skos:broader :PrimaryEducation ;
 	skos:inScheme :EducationLevel .
 	
 :Grade04 a skos:Concept ; 
 	skos:prefLabel "Grade 4"@en ; 
-	skos:related :IntermediateGrades ;
+	skos:broader:IntermediateGrades ;
 	skos:inScheme :EducationLevel .
 	
 :Grade05 a skos:Concept ; 
 	skos:prefLabel "Grade 5"@en ; 
-	skos:related :IntermediateGrades ;
-	skos:related :MiddleSchools ;
+	skos:broader:IntermediateGrades ;
+	skos:broader :MiddleSchools ;
 	skos:inScheme :EducationLevel .
 
 :Grade06 a skos:Concept ; 
 	skos:prefLabel "Grade 6"@en ; 
-	skos:related :IntermediateGrades ;
-	skos:related :MiddleSchools ;
+	skos:broader :IntermediateGrades ;
+	skos:broader :MiddleSchools ;
 	skos:inScheme :EducationLevel .
 	
 :Grade07 a skos:Concept ; 
 	skos:prefLabel "Grade 7"@en ; 
-	skos:related :MiddleSchools ;
+	skos:broader :MiddleSchools ;
 	skos:inScheme :EducationLevel .
 	
 :Grade08 a skos:Concept ; 
 	skos:prefLabel "Grade 8"@en ; 
-	skos:related :MiddleSchools ;
+	skos:broader :MiddleSchools ;
 	skos:inScheme :EducationLevel .
 	
 :Grade09 a skos:Concept ; 
 	skos:prefLabel "Grade 9"@en ; 
-	skos:related :MiddleSchools ;
+	skos:broader :MiddleSchools ;
 	skos:inScheme :EducationLevel .
 	
 :Grade10 a skos:Concept ; 
 	skos:prefLabel "Grade 10"@en ; 
-	skos:related :HighSchools ;
+	skos:broader :HighSchools ;
 	skos:inScheme :EducationLevel .
 	
 :Grade11 a skos:Concept ; 
 	skos:prefLabel "Grade 11"@en ; 
-	skos:related :HighSchools ;
+	skos:broader :HighSchools ;
 	skos:inScheme :EducationLevel .
 	
 :Grade12 a skos:Concept ; 
 	skos:prefLabel "Grade 12"@en ; 
-	skos:related :HighSchools ;
+	skos:broader :HighSchools ;
 	skos:inScheme :EducationLevel .
 	
 :PrimaryEducation a skos:Concept ; 

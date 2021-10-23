@@ -1056,7 +1056,12 @@ skos:inScheme :OutcomesThesaurus ;
 
 :ResearchMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus . 
-
+	
+:MixedMethods a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ; 
+	skos:prefLabel "Mixed methods"@en ;
+	skos:broader :ResearchMethod . 
+	
 :ReviewMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Research review"@en ;

@@ -38,6 +38,9 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 	
 :technology rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the technology used for teaching".
+	
+:modelDesign rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of simulation model design  in terms of ODD+D framework".
 
 :outcome rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the learning outcome area".
@@ -92,7 +95,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 # goes with predicate lrmi:educationalLevel. 
 
 :EducationLevel a skos:ConceptScheme ;
-	dcterms:title "Educational levels thesaurus" ;
+	dc:title "Educational levels thesaurus" ;
 	skos:note "Using terminology from ERIC". 
 	
 :Grade01 a skos:Concept ; 
@@ -195,8 +198,14 @@ lrmi:typicalAgeRange a rdf:Property ;
 
 :TeacherTraining a skos:Concept ;
 	skos:prefLabel "Teacher training"@en ;
-	skos:altLabel "Teacher education"@en ; 
+	skos:altLabel "Professional development"@en ; 
 	skos:inScheme :EducationLevel . 
+	
+:TeacherEducation a skos:Concept ;
+    skos:prefLabel "Teacher education"@en ;
+	skos:altLabel "Pre-service teacher education"@en ; 
+	skos:broader :UndergraduateStudy ;
+	skos:inScheme :EducationLevel .
 	
 :TeacherProfDev a skos:Concept ;
 	skos:prefLabel "Teacher professional development"@en ;
@@ -223,7 +232,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 
 
 :ScienceThesaurus a skos:ConceptScheme ; 
-	dcterms:title "Simple science thesaurus " ;
+	dc:title "Simple science thesaurus " ;
 	skos:hasTopConcept :Sciences.
 	
 :Sciences a skos:Concept ; 
@@ -315,13 +324,130 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:inScheme :ScienceThesaurus .
 	
 	
-## We need some terminology for human environment interactions
-## and ODD concepts etc. 
+#################################
+# Concepts: Social-Environmental Systems
+#################################
 
+# predicate is :modelDesign 
 
+:SESThesaurus a skos:ConceptScheme ; 
+	dc:title "Social environmental systems " ;
+	skos:hasTopConcept :IndividualCognition, :ModelDesign .
+	
+:IndividualCognition a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual cognition"@en .
+	
+:IndividualSensing a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual sensing"@en ;
+	skos:scopeNote "What endogenous and exogenous state variables are individuals assumed to sense and consider in their decisions? Is the sensing process erroneous? What state variables of which other individuals can an individual perceive? Is the sensing process erroneous? What is the spatial scale of sensing? Are the mechanisms by which agents obtain information modelled explicitly, or are individuals simply assumed to know these variables?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition . 
+	
+:IndividualLearning a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual learning"@en ;
+	skos:scopeNote "Is individual learning included in the decision process? How do individuals change their decision rules over time as consequence of their experience?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition . 
+	
+:IndividualPrediction a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual prediction"@en ;
+	skos:scopeNote "Which data do the agents use to predict future conditions? What internal models are agents assumed to use to estimate future conditions or consequences of their decisions? Might agents be erroneous in the prediction process, and how is it implemented?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition .
+	
+:IndividualDecisionMaking a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual decision making"@en ;
+	skos:scopeNote "What are the subjects and objects of the decision-making? On which level of aggregation is decision-making modelled? Are multiple levels of decision making included? What is the basic rationality behind agent decision-making in the model? Do agents pursue an explicit objective or have other success criteria?
+How do agents make their decisions? Do the agents adapt their behaviour to changing endogenous and exogenous state variables? And if yes, how? Do social norms or cultural values play a role in the decision-making process? Do spatial aspects play a role in the decision process? Do temporal aspects play a role in the decision process? To which extent and how is uncertainty included in the agents’ decision rules?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition .
+	
+:CognitionCosts a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Costs of cognition"@en ;
+	skos:scopeNote "Are the costs for cognition and the costs for gathering information explicitly included in the model?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition .
+	
+:ModelDesign a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Model design"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " .
+	
+:Stochasticity a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Model design"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "What processes (including initialisation) are modelled by assuming they are random or partly random?" ;
+	skos:broader :ModelDesign . 
+
+:AgentInteractions a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Interactions between agents"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "Are interactions among agents and entities assumed as direct or indirect? On what do the interactions depend? If the interactions involve communication, how are such communications represented? If a coordination network exists, how does it affect the agent behaviour? Is the structure of the network imposed or emergent?" ;
+	skos:broader :ModelDesign . 
+	
+:Emergence a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Emergence"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:broader :ModelDesign . 
+	
+:AgentHeterogeneity a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Heterogeneity of agents"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "Are the agents heterogeneous? If yes, which state variables and/or processes differ between the agents? Are the agents heterogeneous in their decision-making? If yes, which decision models or decision objects differ between the agents?" ;
+	skos:broader :ModelDesign . 
+	
+:AgentCollectives a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Collectives of agents"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "Do the individuals form or belong to aggregations that affect and are affected by the individuals? Are these aggregations imposed by the modeller or do they emerge during the simulation?" ;
+	skos:broader :ModelDesign . 
 	
 
+#################################
+# Concepts: Behavioural theories
+#################################
 
+# predicate is :modelDesign 
+
+:BehaviouralTheoriesThesaurus a skos:ConceptScheme ; 
+	dc:title "Behavioural theories thesaurus " .
+
+:RationalChoiceTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Rational choice theory"@en ;
+	skos:altLabel "Home economicus"@en ; 
+	skos:note "From Schlüter et al., 2017. " .
+
+:BoundedRationalityTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Bounded rationality theory"@en ;
+	skos:note "From Schlüter et al., 2017. " .
+	
+:TheoryOfPlannedBehavior a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Theory of Planned Behaviour"@en ;
+	skos:note "From Schlüter et al., 2017. " .
+	
+:DescriptiveNormTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Descriptive norm theory"@en ;
+	skos:note "From Schlüter et al., 2017. " .
+	
+:ProspectTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Prospect theory"@en ;
+	skos:note "From Schlüter et al., 2017. " .
 
 #################################
 # Concepts: Educational technologies
@@ -330,7 +456,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 # Predicate: :technology
 
 :EdTechThesaurus a skos:ConceptScheme ; 
-	dcterms:title "Eductional technology thesaurus " ;
+	dc:title "Eductional technology thesaurus " ;
 	skos:hasTopConcept :Technology .
 
 
@@ -407,9 +533,9 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:broader :ComputerModel . 
 	
 :ClimateModel a skos:Concept ; 
- skos:inScheme :EdTechThesaurus;
+ skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Climate change model"@en ;
-	skos:scopeNote "Scientific models of climate change."
+	skos:scopeNote "Scientific models of climate change." ;
 	skos:broader :ComputerModel . 
 	
 :NetLogoModel a skos:Concept ; 
@@ -659,7 +785,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 # currently our own terms, inductively from terms used in the literature. 
 
 :PedagogyThesaurus a skos:ConceptScheme ; 
-	dcterms:title "Pedagogical strategies thesaurus " ;
+	dc:title "Pedagogical strategies thesaurus " ;
 	skos:hasTopConcept :PedagogicalStrategy .
 
 :ArtsEducation a skos:Concept ; 
@@ -824,7 +950,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 # predicate: :outcomes
 
 :OutcomesThesaurus a skos:ConceptScheme ; 
-	dcterms:title "Learning outcomes thesaurus " ;
+	dc:title "Learning outcomes thesaurus " ;
 	skos:hasTopConcept :Outcomes .
 
 :Outcomes a skos:Concept ; 
@@ -925,7 +1051,7 @@ skos:inScheme :OutcomesThesaurus ;
 #################################
 
 :MethodsThesaurus a skos:ConceptScheme ; 
-	dcterms:title "Research methods thesaurus " ;
+	dc:title "Research methods thesaurus " ;
 	skos:hasTopConcept :ResearchMethod .
 
 :ResearchMethod a skos:Concept ;
@@ -952,9 +1078,16 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:broader :ReviewMethod .
 	
 	
-:ObsevationMethod a skos:Concept ;
+:ObservationMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Observational method"@en ; 
+	skos:broader :ResearchMethod .
+	
+:PerformanceAnalysis a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Performance analysis"@en ; 
+	skos:altLabel "Logfile analysis"@en ; 
+	skos:definition "Performance gets captured digitally and analysed in terms of success criteria etc.Syn  Logfile analysis" ;
 	skos:broader :ResearchMethod .
 	
 :SurveyMethod a skos:Concept ; 
@@ -967,6 +1100,11 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Interview"@en ;
 	skos:broader :ResearchMethod .
+	
+:ClinicalInterview a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Clinical interview"@en ;
+	skos:broader :InterviewMethod .
 	
 :CaseStudyMethod  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;

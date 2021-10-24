@@ -48,6 +48,17 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "23-Oct-2021" ;
 		anno:body "The main concern of this paper is about the forms of scaffolds requiered for learners in their interaction with ABMs. Three types of scaffolds are deemed necessary: for sense-making, process management, and reflection articulation processes. This is an important paper also from the persepctive of peer tutoring and scaffolding. The main strategy for providing scaffolds is through Multiple External Representations. These are dynamic simulation of agents (species), graphs of the total population over time, textual resources, and causal maps. See HmeloSilver. There's a lot of attention spent on a fading strategy. The leaerning domain is a desert ecosystem model built in NetLogo. 20 8th graders. The data analysis is very nuanced. No modelling of human decision making"] .
 		
+:Bhattacharya2020
+	:science :ClimateScience ; 
+	:outcome :KnowledgeOutcomes ;
+	lrmi:educationalLevel :Grade8 ;
+	:technology :EDGCM  ;
+	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
+	dc:relation :Bush2018 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bhattacharya2020" ; 
+    :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "24-Oct-2021" ;
+		anno:body "This is a curriculum paper, not an empirical study: a 4-week curriculum module on using EDBCM (here called EzGCM) to develop understanding of core climate-science concepts. Adds numerous pedagogical elements such as formative assessments, investigation tasks, and out-of-model activities. Close in spirit to the model augmentation concept, but more out-of-model oriented. Serious curriculum work."] .
+		
 		
 	
 :Bush2016

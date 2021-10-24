@@ -115,12 +115,12 @@ lrmi:typicalAgeRange a rdf:Property ;
 	
 :Grade04 a skos:Concept ; 
 	skos:prefLabel "Grade 4"@en ; 
-	skos:broader:IntermediateGrades ;
+	skos:broader :IntermediateGrades ;
 	skos:inScheme :EducationLevel .
 	
 :Grade05 a skos:Concept ; 
 	skos:prefLabel "Grade 5"@en ; 
-	skos:broader:IntermediateGrades ;
+	skos:broader :IntermediateGrades ;
 	skos:broader :MiddleSchools ;
 	skos:inScheme :EducationLevel .
 

@@ -48,6 +48,9 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 :pedagogy rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the pedagogical strategy".
 	
+:learningTime rdfs:subPropertyOf :category ; 
+	rdfs:comment "a literal with the time in minutes or bigger units".
+	
 :effectiveness rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention".
 	
@@ -464,8 +467,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :Technology a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Digital technology" ; 
-	skos:note "Top level". 
+	skos:prefLabel "Digital technology" .
 	
 :EduTech a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -885,6 +887,12 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:prefLabel "STEM pedagogical strategy"@en ; 
 	skos:altLabel "STEM teaching strategy"@en ; 
 	skos:broader :PedagogicalStategy .
+	
+:InquiryLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Inquiry learning"@en ; 
+	skos:broader :STEMStategy .
+	
 	
 :LearningCommunity a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;

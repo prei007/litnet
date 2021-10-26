@@ -58,8 +58,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bhattacharya2020" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "24-Oct-2021" ;
 		anno:body "This is a curriculum paper, not an empirical study: a 4-week curriculum module on using EDBCM (here called EzGCM) to develop understanding of core climate-science concepts. Adds numerous pedagogical elements such as formative assessments, investigation tasks, and out-of-model activities. Close in spirit to the model augmentation concept, but more out-of-model oriented. Serious curriculum work."] .
-		
-		
 	
 :Bush2016
 	:science :ClimateChange ;
@@ -79,6 +77,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 :Bush2018
 	:science :ClimateChange ;
+	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy ;
 	:researchMethod :ExperimentalMethod ; 
 	:technology :EDGCM ; 
@@ -99,6 +98,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	
 :Carey2017
 	:science :Ecology, :ClimateChange ;
+	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy, GraduateStudy ;
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :DataScienceTool , :ComputerModel ; 
@@ -106,7 +106,46 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Carey2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
-		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance ina pre-post measurement. That comparison is adhoc, but the study overall is somewhat rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects. Needs detailed reading"] .
+		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance in a pre-post measurement. That comparison is adhoc, but the study overall is somewhat rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects. Needs detailed reading"] .
+		
+:Cuadrado2017
+	:science :EnvironmentalManagement ;
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :UndergraduateStudy ;
+	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:technology :RolePlay, :ComputerModel ; 
+	:effectiveness "moderate" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Cuadrado2017" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
+		anno:body "uses a game/simulation called Irrigania, a resource management game (very simple, equation based, not data based). Experimental study comparing cooperation versus competition strategy. Does reflect on human decision making, but that one is not simulated. Is an example for the cases where human decision making are considered, and are the research topic. But shows the case that the DM is not part of the computer simulation. I need to decide still if resource management is in scope, and probably need to say that games are not core unless the simulation part is substantive "] .
+		
+:Cuccurullo2013
+	:science :EnvironmentalManagement ;
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :PrimaryEducation ;
+	:researchMethod :PrePost, :InferentialStatistics ; 
+	:technology :VirtualReality, :Game ;  
+	:researchMethod :PrePost ;
+	:effectiveness "moderate" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Cuccurullo2013" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
+		anno:body "A waste management 3D game called Pappi World. Not based on real data or mooel. Cant get to the full paper because of pay wall. Is a marginal case because no simulation, and the research is a bit lightweight. "] .
+		
+
+:Dede2017 
+	:science :Ecology ;
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :MiddleSchools ;
+	:researchMethod :PrePost, :InferentialStatistics ; 
+	:technology :VirtualReality ;  
+	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
+	:researchMethod :PrePost , :InferentialStatistics ;
+	:effectiveness "moderate to strong" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dede2017" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
+		anno:body "Immersive EcoXPT application. Not a scientific simulation at the environmental . Numerous in-simulation tools for scientific inquiry. Amazingly complete, including laboratory simulations. Elements of multi-modelling.  "] .
+
+
 		
 :Dickes2019
 	:science :Ecology ;
@@ -118,6 +157,20 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
 		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. I think the VR might be easily replaced with video or stop-image animation as it mainly is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
+		
+:Dinsmore2018 
+	:science :ClimateScience ;
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :UndergraduateStudies ;
+	:researchMethod :PrePost, :InferentialStatistics ; 
+	:technology :Computermodel ;  
+	:pedagogy :InquiryLearning ; 
+	:learningTime "30 minutes" ;
+	:researchMethod :PrePost , :PerformanceAnalysis , :InferentialStatistics ;
+	:effectiveness "NA" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dinsmore2018" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
+		anno:body " More a psychological than educational study. Focus is on metacognitive strategy. Nuanced coding for several strategies. Learning time is only 30 minutes. Advanced statistical analysis. Marginal in environmental education aspects. Marginal for review. "] .
 		
 		
 :HmeloSilver2014 

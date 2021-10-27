@@ -499,6 +499,11 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:prefLabel "Computer simulation"@en ; 
 	skos:broader :GamesAndSimulations . 
 	
+:StrategyGame a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Strategy game"@en ; 
+	skos:broader :Game .  
+	
 :RolePlay a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:scopeNote "A technology-mediated role play, not any role play" ;
@@ -892,6 +897,11 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :PedagogyThesaurus ;
 	skos:prefLabel "Inquiry learning"@en ; 
 	skos:broader :STEMStategy .
+	
+:Scaffolding a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Scaffolding"@en ; 
+	skos:broader :PedagogicalStrategy .
 	
 	
 :LearningCommunity a skos:Concept ; 

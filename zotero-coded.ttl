@@ -11,7 +11,7 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 
-:Alves2021
+:Alves2021 a dc:BibliographicResource ;
 	:science :ClimateChange, :Pollution ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :TeacherTraining ;
@@ -21,7 +21,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "This paper is a combination of scientific research and learning design. Based on real science, real models and real data a set of instructional resources for teacher PD are introduced. The learning materials comprise tutorials, case studies and a small simulation game. There is no empirical research on the learning materials, nor other forms of evaluation."] .
 	
-:Barnett2011
+:Barnett2011 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :MultiDomainOutcomes ;
 	lrmi:educationalLevel :HighSchools ;
@@ -35,7 +35,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 		
 		
-:Basu2015
+:Basu2015 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :Grade8 ;
@@ -48,7 +48,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "23-Oct-2021" ;
 		anno:body "The main concern of this paper is about the forms of scaffolds requiered for learners in their interaction with ABMs. Three types of scaffolds are deemed necessary: for sense-making, process management, and reflection articulation processes. This is an important paper also from the persepctive of peer tutoring and scaffolding. The main strategy for providing scaffolds is through Multiple External Representations. These are dynamic simulation of agents (species), graphs of the total population over time, textual resources, and causal maps. See HmeloSilver. There's a lot of attention spent on a fading strategy. The leaerning domain is a desert ecosystem model built in NetLogo. 20 8th graders. The data analysis is very nuanced. No modelling of human decision making"] .
 		
-:Bhattacharya2020
+:Bhattacharya2020 a dc:BibliographicResource ;
 	:science :ClimateScience ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :Grade8 ;
@@ -59,7 +59,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "24-Oct-2021" ;
 		anno:body "This is a curriculum paper, not an empirical study: a 4-week curriculum module on using EDBCM (here called EzGCM) to develop understanding of core climate-science concepts. Adds numerous pedagogical elements such as formative assessments, investigation tasks, and out-of-model activities. Close in spirit to the model augmentation concept, but more out-of-model oriented. Serious curriculum work."] .
 	
-:Bush2016
+:Bush2016 a dc:BibliographicResource ;
 	:science :ClimateChange ;
 	:researchMethod :LitReview ; 
 	:technology :ClimateModel, :GIS, :eResearch, :DataScienceTool; 
@@ -67,7 +67,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "The authors identify as an important gap the one between the kind tools and processes that climate scientists use and what is used in teaching, including teaching at undergraduate level. "] .
 	
-:Bush2017
+:Bush2017 a dc:BibliographicResource ;
 	:science :ClimateChange ;
 	lrmi:educationalLevel :UndergraduateStudy ;
 	:researchMethod :LitReview ; 
@@ -75,7 +75,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "A review valuable as overview of teaching practices in U/G Geography education."] .
 		
-:Bush2018
+:Bush2018 a dc:BibliographicResource ;
 	:science :ClimateChange ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy ;
@@ -86,7 +86,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "Fully relevant for our research question. Performs a comparison of students learning with EDGCm versus students learning from simpler tools, also available on the web. The latter may be quite often used in schools, come to think of it. Quant and qual data. Needs to be read carefully. A main finding pertains to similarity of student practice to authentic science practices."] .
 	
-:Bush2019
+:Bush2019 a dc:BibliographicResource ;
 	:science :ClimateChange ;
 	lrmi:educationalLevel :UndergraduateStudy ;
 	:researchMethod :SurveyMethod ; 
@@ -96,7 +96,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "A teacher survey. Not particularly strong in the method aspect. Sampled from people who asked for an license of EDGCM and asked for their experience. No theory, purely descriptive. Marginally useful, but not as an example to understand learning from/with models"] .
 	
 	
-:Carey2017
+:Carey2017 a dc:BibliographicResource ;
 	:science :Ecology, :ClimateChange ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy, GraduateStudy ;
@@ -108,7 +108,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
 		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance in a pre-post measurement. That comparison is adhoc, but the study overall is somewhat rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects. Needs detailed reading"] .
 		
-:Cuadrado2017
+:Cuadrado2017 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy ;
@@ -119,7 +119,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
 		anno:body "uses a game/simulation called Irrigania, a resource management game (very simple, equation based, not data based). Experimental study comparing cooperation versus competition strategy. Does reflect on human decision making, but that one is not simulated. Is an example for the cases where human decision making are considered, and are the research topic. But shows the case that the DM is not part of the computer simulation. I need to decide still if resource management is in scope, and probably need to say that games are not core unless the simulation part is substantive "] .
 		
-:Cuccurullo2013
+:Cuccurullo2013 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :PrimaryEducation ;
@@ -132,7 +132,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "A waste management 3D game called Pappi World. Not based on real data or mooel. Cant get to the full paper because of pay wall. Is a marginal case because no simulation, and the research is a bit lightweight. "] .
 		
 
-:Dede2017 
+:Dede2017 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :MiddleSchools ;
@@ -147,7 +147,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 
 
 		
-:Dickes2019
+:Dickes2019 a dc:BibliographicResource ;
 	:science :Ecology ;
 	lrmi:educatoinalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
@@ -158,7 +158,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
 		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. I think the VR might be easily replaced with video or stop-image animation as it mainly is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
 		
-:Dinsmore2018 
+:Dinsmore2018 a dc:BibliographicResource ;
 	:science :ClimateScience ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudies ;
@@ -173,7 +173,54 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body " More a psychological than educational study. Focus is on metacognitive strategy. Nuanced coding for several strategies. Learning time is only 30 minutes. Advanced statistical analysis. Marginal in environmental education aspects. Marginal for review. "] .
 		
 		
-:HmeloSilver2014 
+		
+:Erlandson2014 a dc:BibliographicResource ;
+	:science :Hydrology;
+	:learningDomain "Water cycle" ; 
+	:outcome :KnowledgeOutcomes; 
+	lrmi:educationalLevel  ; 
+	:technology :VirtualReality ;  
+	:pedagogy :ModelSimulation ,  :RolePlay, :InquiryLearning ; 
+	:learningTime "120 minutes" ;
+	:researchMethod :PrePost, :PerformanceAnalysis ;
+	:effectiveness "moderate"; 
+	dc:relation :Dede2017 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Erlandson2014" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "26-Oct-2021" ;
+		anno:body " Says its a socialecological simulation called Cloverdale. Simulates a town hall plus a water system. Not sure about the scientific basis. Human decision making and social mechanisms are not modeled, but are what the user enacts as the decision maker. So, its not a social ecological simulation in the strong sense of both components being modelled. Pedagogical logic similar to Chris Dede : a combination of immersion, inquiry and simulation. Pretty extensive analysis of learning and learning results. Needs to be mentioned in the analysis as one of the few cases that does have the social dimension.  "] .
+		
+		
+Gold2015 a dc:BibliographicResource ;
+	:science ClimateScience ;
+	lrmi:educationalLevel :HighSchools ;
+	:pedagogy  :STEMStrategy ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Gold2015" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "26-Oct-2021" ;
+		anno:body " This is a curriculum planning study, not a empirical paper. It's also not about modelling, but mainly about data. Not uninteresting though, and aligned with the idea to have more authentic science in EE. But can't be part of the review as such. "] .
+		
+		
+Hansmann2005 a dc:BibliographicResource ;
+	:science :EnvironmentalScience ;
+	:learningDomain "Food consumption"; 
+	:outcome :Awareness , CompetencyOutcomes; 
+	lrmi:educationalLevel  :HighSchools ; 
+	:technology :Game, :Simulation ;  
+	:pedagogy :ModelSimulation ; 
+	:learningTime  "Not mentioned";
+	:researchMethod :ExperimentalMethod ;
+	:effectiveness "moderate to low" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "27-Oct-2021" ;
+		anno:body " The (web) game is called SIMULE. It is not fully realistic in the assumpitons as it intentionally overstates some effects for pedagogical purposes. They are quoting some old work of mine. Includes two evaluation studies, one in highschools, one with walk-by sample of adults.  "] .		
+		
+DemoAnnotation0001 a anno:BibAnnotation ; 
+	anno:annotates :Hansmann2005 ; 
+	dc:creator :PeterReimann ;
+	dc:created "27-Oct-2021" ;
+	anno:body "Annotations can also be standalone. If they refer to a particular paper, the :annotates predicate needs to be used to establish the relation. Searches for annotations need to consider this format, and so do displays of a resource.  The point is that they have the resource as an object. AllegroGraph would show it in the usual display". 
+		
+		
+:HmeloSilver2014 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :SystemsThinking ;
 	lrmi:educationalLevel :MiddleSchools ;
@@ -183,7 +230,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:effectiveness "Moderate to large positive" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2014" .
 	
-:HmeloSilver2015 
+:HmeloSilver2015 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :SystemsThinking ;
 	lrmi:educationalLevel :MiddleSchools ;
@@ -193,7 +240,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" .
 
 	
-:Jordan2019 
+:Jordan2019 a dc:BibliographicResource ;
 	:science :ClimateChange ;
 	:outcome :SystemsThinking ;
 	:researchMethod :SynthesisMethod ;
@@ -201,7 +248,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Not a empirical research paper, but a research synthesis. Modellng not really considered, despite the claim in the abstract. Not relevant"] .
 		
-:Lant2016
+:Lant2016 a dc:BibliographicResource ;
 	:science :ClimateChange ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :MiddleSchools ;
@@ -214,7 +261,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Describes design of 5 science-based simulations and a small evaluation study. Nothing exciting, but solid. The evaluation design is not particularly valid. "] .
 
 
-:Mallavarapu2016 
+:Mallavarapu2016 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :HighSchools, :UndergraduateStudy ;
@@ -226,7 +273,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Serious and relevant study. "] .
 
-:Parker2014 
+:Parker2014 a dc:BibliographicResource ;
 	:science :ClimateScience ;
 	:technology :ComputerModel ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Parker2014" ; 
@@ -234,7 +281,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Not a empirical paper but a methdological essay on the role of simulation. Important to get the science of modelling right. "] .
 		
 
-:Taillandier2018
+:Taillandier2018 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :UndergraduateStudy ;
@@ -246,7 +293,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Not great as an research study but reasonable quality. Game programmed in a propriety ABM shell. Domain is risk management for coastal flooding, sea level rise. Looks like real or close to real data in the simulation. Audience is engineering students."] .
 
 
-:Rowntree2007 
+:Rowntree2007 a dc:BibliographicResource ;
 	:science :SoilSciences ;
 	lrmi:educatoinalLevel :Adults ;
 	:researchMethod :UnspecificMethod ; 

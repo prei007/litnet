@@ -308,7 +308,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:broader :BiologicalScience ; 
 	skos:inScheme :ScienceThesaurus .
 	
-:BioDiversity a skos:Concept ; 
+:Biodiversity a skos:Concept ; 
 	skos:prefLabel "Biodiversity education"@en ; 
 	skos:broader :BiologicalSciences ; 
 	skos:inScheme :ScienceThesaurus .
@@ -1078,6 +1078,12 @@ skos:inScheme :OutcomesThesaurus ;
 :MixedMethods a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ; 
 	skos:prefLabel "Mixed methods"@en ;
+	skos:broader :ResearchMethod . 
+	
+:QualitativeMethod a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ; 
+	skos:prefLabel "Qualitative analysis"@en ;
+	skos:scopeNote "A broad class of analysis such as analysing responses for patterns and themes."
 	skos:broader :ResearchMethod . 
 	
 :ReviewMethod a skos:Concept ;

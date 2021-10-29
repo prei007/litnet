@@ -40,7 +40,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :Grade8 ;
 	:technology :GIS, :ComputerModel ;
-	:pedagogy :ModelSimulation , MultiModelling ; 
+	:pedagogy :ModelSimulation , MultiModelling, :Scaffolding ; 
 	:researchMethod :ClinicalInterview , :MixedMethods, :InferentialStatistics ; 
 	:effectiveness "positive" ; 
 	dc:relation :HmeloSilver2014, :HmeloSilver2015 ; 
@@ -178,7 +178,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Hydrology;
 	:learningDomain "Water cycle" ; 
 	:outcome :KnowledgeOutcomes; 
-	lrmi:educationalLevel  ; 
+	lrmi:educationalLevel :HighSchools ; 
 	:technology :VirtualReality ;  
 	:pedagogy :ModelSimulation ,  :RolePlay, :InquiryLearning ; 
 	:learningTime "120 minutes" ;
@@ -190,8 +190,8 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body " Says its a socialecological simulation called Cloverdale. Simulates a town hall plus a water system. Not sure about the scientific basis. Human decision making and social mechanisms are not modeled, but are what the user enacts as the decision maker. So, its not a social ecological simulation in the strong sense of both components being modelled. Pedagogical logic similar to Chris Dede : a combination of immersion, inquiry and simulation. Pretty extensive analysis of learning and learning results. Needs to be mentioned in the analysis as one of the few cases that does have the social dimension.  "] .
 		
 		
-Gold2015 a dc:BibliographicResource ;
-	:science ClimateScience ;
+:Gold2015 a dc:BibliographicResource ;
+	:science :ClimateScience ;
 	lrmi:educationalLevel :HighSchools ;
 	:pedagogy  :STEMStrategy ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Gold2015" ; 
@@ -199,21 +199,21 @@ Gold2015 a dc:BibliographicResource ;
 		anno:body " This is a curriculum planning study, not a empirical paper. It's also not about modelling, but mainly about data. Not uninteresting though, and aligned with the idea to have more authentic science in EE. But can't be part of the review as such. "] .
 		
 		
-Hansmann2005 a dc:BibliographicResource ;
+:Hansmann2005 a dc:BibliographicResource ;
 	:science :EnvironmentalScience ;
 	:learningDomain "Food consumption"; 
-	:outcome :Awareness , CompetencyOutcomes; 
+	:outcome :Awareness , :CompetencyOutcomes; 
 	lrmi:educationalLevel  :HighSchools ; 
 	:technology :Game, :Simulation ;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime  "Not mentioned";
 	:researchMethod :ExperimentalMethod ;
 	:effectiveness "moderate to low" ; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hansmann2005" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "27-Oct-2021" ;
 		anno:body " The (web) game is called SIMULE. It is not fully realistic in the assumpitons as it intentionally overstates some effects for pedagogical purposes. They are quoting some old work of mine. Includes two evaluation studies, one in highschools, one with walk-by sample of adults.  "] .		
 		
-DemoAnnotation0001 a anno:BibAnnotation ; 
+:DemoAnnotation0001 a anno:BibAnnotation ; 
 	anno:annotates :Hansmann2005 ; 
 	dc:creator :PeterReimann ;
 	dc:created "27-Oct-2021" ;
@@ -238,7 +238,32 @@ DemoAnnotation0001 a anno:BibAnnotation ;
 	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
 	:researchMethod :CaseStudyMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" .
-
+	
+:Hovardas2011 a dc:BibliographicResource ;
+	:science :Ecology ;
+	:learningDomain "Balance of nature"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :HighSchools ; 
+	:technology  :StellaModel ;  
+	:pedagogy :MisconceptionStrategy ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hovardas2011" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "27-Oct-2021" ;
+		anno:body "Is critical about the Balance of Nature metaphor, which seems to be important in biology and ecology education. A thoughtful mainly conceptual paper. The simulation aspect is purely conceptual, but inspired by a real system, a vulture population in a Greek national park. No empirical part. Human decision making is not included in the simulation "] .
+	
+:Ioannidou2006 a dc:BibliographicResource ;
+	:science  :Ecology, :EnvironmentalManagement ;
+	:learningDomain "Lake ecosystem"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :PrimaryEducation ; 
+	:technology  :ComputerModel ;  
+	:pedagogy  :ModelSimulation ; 
+	:learningTime "short (estimated)" ;
+	:researchMethod :PrePost ;
+	:effectiveness "high" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Ioannidou2006 " ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
+		anno:body " A simple lake simulation based on a fuzzy rule model. Describes the rationale for using fuzzy logic, the design process, and a small study on eight students. Modelled with MatLab Fuzzy Logic Toolbox. The empirical study is not strong, with the only measure being an adhoc 8-item questionnaire. Definitely an example of a model-based simulation, but no human decision making in the model "] .
+	
 	
 :Jordan2019 a dc:BibliographicResource ;
 	:science :ClimateChange ;
@@ -248,17 +273,45 @@ DemoAnnotation0001 a anno:BibAnnotation ;
 		:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Not a empirical research paper, but a research synthesis. Modellng not really considered, despite the claim in the abstract. Not relevant"] .
 		
+:Kukkonen2014 a dc:BibliographicResource ;
+	:science :ClimateScience ;
+	:learningDomain "Greenhouse Effect"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :Grade05 ; 
+	:technology :Simulation ;  
+	:pedagogy :InquiryLearning, :ModelSimulation, :Scaffolding ; 
+	:learningTime  "5 hours" ;
+	:researchMethod :PrePost  ;
+	:effectiveness "high (qualitative)"; 
+	dc:relation :Basu2015 , HmeloSilver2014 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Kukkonen2014" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
+		anno:body "Like Basu et al (2015), focus on scaffolding. Also similar to Hmelo-Silver in the use of (n this case hand-drawn) concept maps. One of the PhET simulations is used. 21 Participants. Main measure is analysis of participants drawings produced based on the simulation. Integrated into classroom teaching, 5 units.  No human decision making "] .		
+		
+		
 :Lant2016 a dc:BibliographicResource ;
 	:science :ClimateChange ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :MiddleSchools ;
 	:technology :ComputerModel ;
 	:pedagogy :ModelSimulation ; 
-	:researchMethod :PrePost , :InferentialStatistics;
+	:researchMethod :PrePost , :InferentialStatistics ;
 	:effectiveness "Moderate to large positive" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2016" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Describes design of 5 science-based simulations and a small evaluation study. Nothing exciting, but solid. The evaluation design is not particularly valid. "] .
+		
+		
+		
+:Lux2020 a dc:BibliographicResource ;
+	:science :EarthSciences ;
+	:learningDomain "Human geography" ; 
+	:outcome :SystemsThinking ; 
+	:technology  :StrategyGame ;  
+	:researchMethod :LiteratureReview ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Lux2020" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
+		anno:body "A conceptual and review paper. Speaks explicitely to social environmental systems, human geography. Calls it the socio-ecological view on systems. Builds on the competence model by Mehren et al. 2018.  The review of computer games is oriented on a framework for complexity. Driving questions (p. 2): >The main questions we strive to answer are: Do digital games provide the requirements necessary for the development of geographical systems thinking and competence? How complex are their modelled systems, and how do the games diﬀer with respect to their complex game design? Are there groups of games that are more suitable for acquiring geographical system competence than others?< In Figure 1 on Page 6 the authors depict their complexity framework but I find it too syntactic. It's basically asking how many elements and relations. It's useful, but not comprehensive enough. Compared to, say ODD and ODD+, it's simplistic. But then, this is about games, not simulations. From my perspective missing is an opening of the black box that hides human cognition and decision making. It is probably fair to say that these strategy games take the human side much more into account than most educational EE simulations, but they do not simulate actual human decision making. And your typical off-the-shelve game is opaque. The game overview is very helpful though!  As so often, the idea that computer should be mind tools, not only learning tools, is forgotten. "] .
 
 
 :Mallavarapu2016 a dc:BibliographicResource ;
@@ -272,6 +325,48 @@ DemoAnnotation0001 a anno:BibAnnotation ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2016" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Serious and relevant study. "] .
+		
+:Markauskaite2017 a dc:BibliographicResource ;
+	:science ClimateScience;
+	:learningDomain "Carbon cycle"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :HighSchools ; 
+	:technology  :NetLogo ;  
+	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
+	:learningTime "170 minutes" ;
+	:researchMethod :QualitativeMethod ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Markauskaite2017" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
+		anno:body " Mainly about model-based reasoning and learning. Definitely interesting, but No human decision making modelled. Grounded cognition as theoretical backdrop. Not totally sure how that applies, other than that it applies as a general architecture of cognition. But the coding system (Table 2) is interesting because it contains descriptors for gaining knowledge from the model simulation.  See also Table 9 for common sources of mistakes. Interesting! A second coding dimensin (TAble 6) is for the relations participants see between the model and real systems. The notion of observed grounding in an activity system much larger than the simulation resonates with my sense of augmentation, and the linking between real--or modelled real--systems and the computer model. So here we can say: students will add their own interpretations and associations, and it may be better to allow them to make explicit. A quantitative analysis is provided in Kelly et al 2012, ICLS conference."] .
+		
+		
+:Mathevet2007 a dc:BibliographicResource ;
+	:science :EnvironmentalManagment , :Biodiversity ;
+	:learningDomain "Reedbed management", "water management"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel  ; 
+	:technology :ABM ;  
+	:pedagogy :RolePlay, :ModelSimulation ; 
+	:learningTime  "several hours";
+	:researchMethod :PrePost ;
+	:effectiveness "moderate to high"; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Mathevet2007" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "29-Oct-2021" ;
+		anno:body "Socio-environmetal focus. The role-play game is called BUTORSTAR. Combines decision making by players with the simulation of the consequences in the simulation, settting up the simulaiton for the next decision round. Very typical pattern where the human decisin making is NOT in the model. The ABM is built witha shell called CORMAS. The simulation components are scientifically informed and informed by real data but not simulating a real system. Players are taking on the roles of resource users with different profiles, for instance naturalists and hunters. A good study and representative for this pattern. "] .
+		
+:MutchJones2018 a dc:BibliographicResource ;
+	:science :ClimateScience;
+	:learningDomain ; 
+	:outcome ; 
+	lrmi:educationalLevel  ; 
+	:technology :ComputerModel ;  
+	:pedagogy :ModelSimulation ; 
+	:researchMethod :SurveyMethod, :InterviewMethod, ObservationMethod ;
+	:effectiveness ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#MutchJones2018" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "29-Oct-2021" ;
+		anno:body " Pedagogocal paper. Most authors from Concorde. Focus is on teachers. Sample of 12 teachers. Interesting results from the interviews on students challenges with the simulatiosn and the simulation methodology. No human decision making modelled "] .
+		
 
 :Parker2014 a dc:BibliographicResource ;
 	:science :ClimateScience ;

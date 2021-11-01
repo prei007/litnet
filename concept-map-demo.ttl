@@ -1,0 +1,63 @@
+# concept mapping demonstration
+# 
+
+@prefix : <http://example.net/> .
+
+#### Data 
+# Students A-C  only specify one third of the goal map. 
+
+:StudentA {
+	:Gas :condensesTo :Liquid . 
+	:Liquid :boilsTo :Gas . 
+}
+
+:StudentB {
+	:Solid :sublimatesTo :Gas . 
+	:Gas :depositsTo :Solid. 
+}
+
+:StudentC {
+	:Solid :meltsTo :Liquid . 
+	:Liquid :freezesTo :Solid. 
+}
+
+# Student D knows a bit about all three but not all. 
+
+:StudentD {
+	:Gas :condensesTo :Liquid . 
+	:Solid :sublimatesTo :Gas . 
+	:Solid :meltsTo :Liquid .
+}
+
+# Student E is the smart one.  
+
+:StudentE {
+	:Gas :condensesTo :Liquid . 
+	:Liquid :boilsTo :Gas . 
+	:Solid :sublimatesTo :Gas . 
+	:Gas :depositsTo :Solid.  
+	:Solid :meltsTo :Liquid . 
+	:Liquid :freezesTo :Solid.
+}
+
+
+
+#####################
+## Queries
+#####################
+
+# show all quads
+
+SELECT ?s ?p ?o ?g {
+  { GRAPH ?g { ?s ?p ?o . }  }
+}
+
+# Find graphs that have a specific relation.
+# Based on the data above, matches A, D, and E. 
+
+SELECT ?g  WHERE {
+	GRAPH ?g {:Gas :condensesTo :Liquid.} 
+ }
+
+
+

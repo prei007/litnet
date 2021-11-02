@@ -1,5 +1,6 @@
 # concept mapping demonstration
-# 
+# This is written in TRIG. 
+# https://www.w3.org/TR/trig/#sec-graph-statements
 
 @prefix : <http://example.net/> .
 
@@ -29,9 +30,18 @@
 	:Solid :meltsTo :Liquid .
 }
 
-# Student E is the smart one.  
+# Student E added a relation that is not in the teacher graph, plus two that are. 
 
 :StudentE {
+	:Gas :condensesTo :Liquid . 
+	:Solid :errorRelation :Gas . 
+	:Solid :meltsTo :Liquid .
+}
+
+
+# The full  teacher (or goal)  model. 
+
+:Teacher {
 	:Gas :condensesTo :Liquid . 
 	:Liquid :boilsTo :Gas . 
 	:Solid :sublimatesTo :Gas . 
@@ -48,9 +58,10 @@
 
 # show all quads
 
-SELECT ?s ?p ?o ?g {
-  { GRAPH ?g { ?s ?p ?o . }  }
-}
+SELECT ?g ?s ?p ?o  WHERE {
+   GRAPH ?g { ?s ?p ?o }  
+   }
+ORDER BY ?g
 
 # Find graphs that have a specific relation.
 # Based on the data above, matches A, D, and E. 
@@ -58,6 +69,51 @@ SELECT ?s ?p ?o ?g {
 SELECT ?g  WHERE {
 	GRAPH ?g {:Gas :condensesTo :Liquid.} 
  }
+
+# Shows the graphs (if any) that do have the specified relation. 
+
+SELECT DISTINCT ?g  WHERE {
+	GRAPH ?g {  ?s ?p ?o }  
+      FILTER NOT EXISTS {:Gas :condensesTo :Liquid.}
+      }
+ }
+ 
+## Diff between two graphs 
+# Triples that are in B but not in A. 
+
+
+SELECT ?s ?p ?o ?g WHERE {
+   GRAPH :StudentA { ?s ?p ?o } 
+   	FILTER NOT EXISTS {GRAPH :StudentB { ?s ?p ?o }}
+  }
+
+## Errors of ommission. 
+# Triples that are in teacher's map but not in the student's map. 
+
+SELECT * WHERE {
+   GRAPH :Teacher { ?s ?p ?o } 
+   	FILTER NOT EXISTS {GRAPH :StudentA { ?s ?p ?o }}
+  }
+  
+
+## Diff between two graphs: Errors of commission
+# Triples that are in the student map but not the teacher map
+# Student E has an superfluos relation in his map. 
+
+SELECT ?s ?p ?o ?g WHERE {
+   GRAPH :StudentE { ?s ?p ?o } 
+   	FILTER NOT EXISTS {GRAPH :Teacher { ?s ?p ?o }}
+  }
+
+# generalized commission error match: 
+
+SELECT * WHERE {
+   GRAPH ?g { ?s ?p ?o } 
+   	FILTER NOT EXISTS {GRAPH :Teacher { ?s ?p ?o }}
+  }
+
+  
+# If we don't care about the particular triples, we can use an ASK query to check whether any exist, without finding out what they are. For instance,
 
 
 

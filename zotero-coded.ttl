@@ -12,7 +12,7 @@ PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 
 :Alves2021 a dc:BibliographicResource ;
-	:science :ClimateChange, :Pollution ; 
+	:science :ClimateChangeScience, :Pollution ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :TeacherTraining ;
 	:technology :eResearch, :GIS, :DataScienceTool, :ComputerModel, :eLearning ;
@@ -49,7 +49,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "The main concern of this paper is about the forms of scaffolds requiered for learners in their interaction with ABMs. Three types of scaffolds are deemed necessary: for sense-making, process management, and reflection articulation processes. This is an important paper also from the persepctive of peer tutoring and scaffolding. The main strategy for providing scaffolds is through Multiple External Representations. These are dynamic simulation of agents (species), graphs of the total population over time, textual resources, and causal maps. See HmeloSilver. There's a lot of attention spent on a fading strategy. The leaerning domain is a desert ecosystem model built in NetLogo. 20 8th graders. The data analysis is very nuanced. No modelling of human decision making"] .
 		
 :Bhattacharya2020 a dc:BibliographicResource ;
-	:science :ClimateScience ; 
+	:science :ClimateChangeScience ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :Grade8 ;
 	:technology :EDGCM  ;
@@ -68,7 +68,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "The authors identify as an important gap the one between the kind tools and processes that climate scientists use and what is used in teaching, including teaching at undergraduate level. "] .
 	
 :Bush2017 a dc:BibliographicResource ;
-	:science :ClimateChange ;
+	:science :ClimateChangeScience ;
 	lrmi:educationalLevel :UndergraduateStudy ;
 	:researchMethod :LitReview ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2017" ; 
@@ -76,7 +76,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "A review valuable as overview of teaching practices in U/G Geography education."] .
 		
 :Bush2018 a dc:BibliographicResource ;
-	:science :ClimateChange ;
+	:science :ClimateChangeScience ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy ;
 	:researchMethod :ExperimentalMethod ; 
@@ -87,7 +87,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Fully relevant for our research question. Performs a comparison of students learning with EDGCm versus students learning from simpler tools, also available on the web. The latter may be quite often used in schools, come to think of it. Quant and qual data. Needs to be read carefully. A main finding pertains to similarity of student practice to authentic science practices."] .
 	
 :Bush2019 a dc:BibliographicResource ;
-	:science :ClimateChange ;
+	:science :ClimateChangeScience ;
 	lrmi:educationalLevel :UndergraduateStudy ;
 	:researchMethod :SurveyMethod ; 
 	:technology :EDGCM ; 
@@ -97,7 +97,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	
 	
 :Carey2017 a dc:BibliographicResource ;
-	:science :Ecology, :ClimateChange ;
+	:science :Ecology, :ClimateChangeScience ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudy, GraduateStudy ;
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
@@ -159,7 +159,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. I think the VR might be easily replaced with video or stop-image animation as it mainly is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
 		
 :Dinsmore2018 a dc:BibliographicResource ;
-	:science :ClimateScience ;
+	:science :ClimateChangeScience ;
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudies ;
 	:researchMethod :PrePost, :InferentialStatistics ; 
@@ -191,7 +191,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 		
 :Gold2015 a dc:BibliographicResource ;
-	:science :ClimateScience ;
+	:science :ClimateChangeScience ;
 	lrmi:educationalLevel :HighSchools ;
 	:pedagogy  :STEMStrategy ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Gold2015" ; 
@@ -266,7 +266,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	
 	
 :Jordan2019 a dc:BibliographicResource ;
-	:science :ClimateChange ;
+	:science :ClimateChangeScience ;
 	:outcome :SystemsThinking ;
 	:researchMethod :SynthesisMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2019" ;
@@ -274,7 +274,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Not a empirical research paper, but a research synthesis. Modellng not really considered, despite the claim in the abstract. Not relevant"] .
 		
 :Kukkonen2014 a dc:BibliographicResource ;
-	:science :ClimateScience ;
+	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse Effect"; 
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :Grade05 ; 
@@ -290,7 +290,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 		
 :Lant2016 a dc:BibliographicResource ;
-	:science :ClimateChange ; 
+	:science :ClimateChangeScience ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :MiddleSchools ;
 	:technology :ComputerModel ;
@@ -355,7 +355,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Socio-environmetal focus. The role-play game is called BUTORSTAR. Combines decision making by players with the simulation of the consequences in the simulation, settting up the simulaiton for the next decision round. Very typical pattern where the human decisin making is NOT in the model. The ABM is built witha shell called CORMAS. The simulation components are scientifically informed and informed by real data but not simulating a real system. Players are taking on the roles of resource users with different profiles, for instance naturalists and hunters. A good study and representative for this pattern. "] .
 		
 :MutchJones2018 a dc:BibliographicResource ;
-	:science :ClimateScience ;
+	:science :ClimateChangeScience ;
 	:technology :ComputerModel ;  
 	:pedagogy :ModelSimulation ; 
 	:researchMethod :SurveyMethod, :InterviewMethod, ObservationMethod ;
@@ -377,7 +377,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 
 :Nussbaum2015 a dc:BibliographicResource ;
-	:science :ClimateChange ;
+	:science :ClimateChangeScience ;
 	:learningDomain "Lake management"; 
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :Grade07 ; 
@@ -390,16 +390,81 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "31-Oct-2021" ;
 		anno:body "Serious study. 119 participants.  "] . 
 		
+:Özcan2020 a dc:BibliographicResource ;
+	:science :ClimateChangeScience ;
+	:learningDomain "Greenhouse gas"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :Grade06 ; 
+	:technology :ComputerModel ;  
+	:pedagogy  :ModelSimulation ; 
+	:learningTime "120 minutes" ;
+	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
+	:effectiveness "Moderate" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Özcan2020" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body " N = 45. Straightforward experiment with the Greenhouse Effect PhET simulation. No human decision making modelled. "] .
+
+:Pallant2015 a dc:BibliographicResource ;
+	:science :ClimateChangeScience ;
+	:learningDomain ; 
+	:outcome ; 
+	lrmi:educationalLevel :MiddleSchools, :HighSchools ; 
+	:technology  :ComputerModel ;  
+	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling ; 
+	:learningTime "Unspecified" ;
+	:researchMethod :PrePost, :InferentialStatistics ;
+	:effectiveness "Moderate"; 
+	dc:relation :HmeloSilver2014, :Markauskaite2017 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Pallant2015" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body "Concord team. N = 512. Focus is on argumentation patterns based on model simulation. No human decision making modelled. "] .
 		
-
-
+:Pande2021 a dc:BibliographicResource ;
+	:science :Ecology;
+	:learningDomain "Environmental biology"; 
+	:outcome :MultiDomainOutcomes ; 
+	lrmi:educationalLevel :UndergraduateStudies ; 
+	:technology :VirtualReality ;  
+	:pedagogy :InquiryLearning ; 
+	:learningTime "6 days" ;
+	:researchMethod :ExperimentalMethod ;
+	:effectiveness "Moderate" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Pande2021" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body " Delayed post test after 2 months, in addition to immediate testing. N = 28. VR simulation fo field and lab gear. Multiple measurement dimensions, but not the deepest of analysis.  "] .
 
 :Parker2014 a dc:BibliographicResource ;
-	:science :ClimateScience ;
+	:science :ClimateChangeScience ;
 	:technology :ComputerModel ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Parker2014" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not a empirical paper but a methdological essay on the role of simulation. Important to get the science of modelling right. "] .
+		
+:RooneyVarga2020 a dc:BibliographicResource ;
+	:science :ClimateChangeImpacts ;
+	:learningDomain "Energy policy" ; 
+	:outcome :BehaviorOutcomes ; 
+	lrmi:educationalLevel  ; 
+	:technology :ComputerModel ;  
+	:pedagogy  :RolePlay, :ModelSimulation ; 
+	:learningTime "120 minutes" ;
+	:researchMethod  :PrePost, :InterviewMethod ;
+	:effectiveness "Moderate"; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#RooneyVarga2020" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body " Social action oriented. Serious role play component.  "] .
+		
+
+:Rowntree2008 a dc:BibliographicResource ;
+	:science :SoilSciences ;
+	lrmi:educatoinalLevel :Adults ;
+	:researchMethod :UnspecificMethod ; 
+	:technology :ComputerModel , :RolePlay ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Rowntree2008" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
+		anno:body "A rather weak paper in the educational research part. Describes a role play and a computer model of land use. Participants are citizens? Likely drop because of method weakness and lack of detail"] .
+		
+		
 		
 
 :Taillandier2018 a dc:BibliographicResource ;
@@ -412,18 +477,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Taillandier2018" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not great as an research study but reasonable quality. Game programmed in a propriety ABM shell. Domain is risk management for coastal flooding, sea level rise. Looks like real or close to real data in the simulation. Audience is engineering students."] .
-
-
-:Rowntree2007 a dc:BibliographicResource ;
-	:science :SoilSciences ;
-	lrmi:educatoinalLevel :Adults ;
-	:researchMethod :UnspecificMethod ; 
-	:technology :ComputerModel , :RolePlay ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Rowntree2007" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
-		anno:body "A rather weak paper in the educational research part. Describes a role play and a computer model of land use. Participants are citizens? Likely drop because of method weakness and lack of detail"] .
-		
-
 
 
 		

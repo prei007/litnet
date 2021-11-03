@@ -921,6 +921,12 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
     skos:altLabel "Group learning"@en ;
 	skos:broader :CollaborativeLearning .
 	
+:Argumentation a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Argumentation learning"@en ; 
+	skos:broader :PedagogicalStrategy .
+
+	
 # Model-based learning and subcategories
 	
 :ModelBasedLearning a skos:Concept ; 

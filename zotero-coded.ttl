@@ -327,10 +327,10 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Serious and relevant study. "] .
 		
 :Markauskaite2017 a dc:BibliographicResource ;
-	:science ClimateScience;
+	:science :ClimateChangeScience ;
 	:learningDomain "Carbon cycle"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :HighSchools ; 
+	:lrmi:educationalLevel :HighSchools ; 
 	:technology  :NetLogo ;  
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	:learningTime "170 minutes" ;
@@ -483,7 +483,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	lrmi:educationalLevel :MixedAges ; 
 	:technology :ComputerModel,  :VirtualReality ;  
 	:pedagogy :RolePlay , :ExperientialLearning ; 
-	:learningTime  ;
 	:researchMethod :ExperimentalMethod, :SurveyMethod , :InferentialStatistics;
 	:effectiveness "High"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Su2018" ; 
@@ -574,7 +573,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "Ecosystem services" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel  ; 
 	:technology :Game ;  
 	:pedagogy :ExperientialLearning ; 
 	:researchMethod :UnspecificMethod ;
@@ -583,7 +581,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "Two integrated social simulation games. Is a board game, not a computer game. Describes the idea and the game design, not much more. No theory, compared to Vannineen2006. Not really in the analysis, other than as an example for board games and social aspects of EE not simulated.  "] .
 		
 :Visintainer2015 a dc:BibliographicResource ;
-	:science ClimateChangeScience ;
+	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse effect" ; 
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :MiddleSchools ; 
@@ -604,8 +602,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:technology :ComputerModel , :Game ;  
 	:pedagogy :ModelSimulation , :RolePlay ; 
 	:learningTime  "1-2 hours";
-	:researchMethod :ExperimentalMethod , :ConceptMapping , :InterviewMethod , :MixedMethds , :InferentialStatistics ;
-	:effectiveness ; 
+	:researchMethod :ExperimentalMethod , :ConceptMappingMeasure , :InterviewMethod , :MixedMethds , :InferentialStatistics ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Waddington2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
 		anno:body " N = 33. Convience sample.  Control conditions was a different game. The simulation is used in typical role play mode, calculating the effects of decisins in play cycles. The underlying model is not science based, and no real data. Typcial pattern. Careful data analysis The game FATE OF THE WORLD seems a commercial one. Analysis of flaws on p. 187 onwards: Opaque game mechanisms, poor scaffolding of learning, complexity of underlying model.  The learning time is a guestimate "] .

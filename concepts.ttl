@@ -1107,7 +1107,7 @@ skos:inScheme :OutcomesThesaurus ;
 :QualitativeMethod a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ; 
 	skos:prefLabel "Qualitative analysis"@en ;
-	skos:scopeNote "A broad class of analysis such as analysing responses for patterns and themes."
+	skos:scopeNote "A broad class of analysis such as analysing responses for patterns and themes." ;
 	skos:broader :ResearchMethod . 
 	
 :ReviewMethod a skos:Concept ;
@@ -1159,7 +1159,7 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:prefLabel "Clinical interview"@en ;
 	skos:broader :InterviewMethod .
 	
-:ConceptMappping a skos:Concept ; 
+:ConceptMappingMeasure a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Concept mapping (diagnostic)"@en ;
 	skos:broader :ResearchMethod .

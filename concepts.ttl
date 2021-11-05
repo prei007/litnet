@@ -224,7 +224,9 @@ lrmi:typicalAgeRange a rdf:Property ;
 	skos:prefLabel "Special needs students" ;
 	skos:inScheme :EducationLevel . 
 	
-		
+:MixedAges a skos:Concept ;
+	skos:prefLabel "Mixed age groups" ;
+	skos:inScheme :EducationLevel . 
 	
 #################################
 # Concepts: Relevant science areas
@@ -878,7 +880,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	
 :SchoolProject a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;
- skos:prefLabel "Designing/implementing a school project"@en ; 
+    skos:prefLabel "Designing/implementing a school project"@en ; 
 	skos:broader :ProjectBasedLearning ;
 	skos:related :CommunityProject. 
 	
@@ -925,6 +927,22 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :PedagogyThesaurus ;
     skos:prefLabel "Argumentation learning"@en ; 
 	skos:broader :PedagogicalStrategy .
+	
+:Constructionism a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Constructionism"@en ; 
+	skos:broader :PedagogicalStrategy .
+	
+:DesignBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Learning from designing"@en ; 
+	skos:broader :Constructionism . 
+	
+:GameDesignLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Learning from designing games"@en ; 
+	skos:broader :DesignBasedLearning . 
+	
 
 	
 # Model-based learning and subcategories
@@ -1140,6 +1158,11 @@ skos:inScheme :OutcomesThesaurus ;
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Clinical interview"@en ;
 	skos:broader :InterviewMethod .
+	
+:ConceptMappping a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Concept mapping (diagnostic)"@en ;
+	skos:broader :ResearchMethod .
 	
 :CaseStudyMethod  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;

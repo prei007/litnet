@@ -344,7 +344,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :EnvironmentalManagment , :Biodiversity ;
 	:learningDomain "Reedbed management", "water management"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel  ; 
+	lrmi:educationalLevel  "?"; 
 	:technology :ABM ;  
 	:pedagogy :RolePlay, :ModelSimulation ; 
 	:learningTime  "several hours";
@@ -406,8 +406,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 
 :Pallant2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	:learningDomain ; 
-	:outcome ; 
 	lrmi:educationalLevel :MiddleSchools, :HighSchools ; 
 	:technology  :ComputerModel ;  
 	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling ; 
@@ -423,7 +421,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology;
 	:learningDomain "Environmental biology"; 
 	:outcome :MultiDomainOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudies ; 
+	lrmi:educationalLevel :UndergraduateStudy ; 
 	:technology :VirtualReality ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime "6 days" ;
@@ -444,7 +442,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeImpacts ;
 	:learningDomain "Energy policy" ; 
 	:outcome :BehaviorOutcomes ; 
-	lrmi:educationalLevel  ; 
 	:technology :ComputerModel ;  
 	:pedagogy  :RolePlay, :ModelSimulation ; 
 	:learningTime "120 minutes" ;
@@ -464,7 +461,34 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "A rather weak paper in the educational research part. Describes a role play and a computer model of land use. Participants are citizens? Likely drop because of method weakness and lack of detail"] .
 		
+:Stave2014 a dc:BibliographicResource ;
+	:science :EnvironmentalScience;
+	:learningDomain "Environmental accumulations", "carbon cycle"; 
+	:outcome :SystemsThinking ; 
+	lrmi:educationalLevel :UndergraduateStudy ; 
+	:technology :SysDyn ;  
+	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning ; 
+	:learningTime "120 minutes" ;
+	:researchMethod :PrePost , :InferentialStatistics ;
+	:effectiveness "High" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Stave2014" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
+		anno:body " It's noteworthy how few studies are on system dynamics simulations. This is one. N = 126. Two content-independent Vensim simulations, each with a typical pattern. Not sure why they call it that as the second simulation is definitely on the carbon cycle. "] .
 		
+:Su2018 a dc:BibliographicResource ;
+	:science :EnvironmentalScience;
+	:learningDomain "Environmental migration"; 
+	:modelDesign :IndividualCognition ; 
+	:outcome :MultiDomainOutcomes ; 
+	lrmi:educationalLevel :MixedAges ; 
+	:technology :ComputerModel,  :VirtualReality ;  
+	:pedagogy :RolePlay , :ExperientialLearning ; 
+	:learningTime  ;
+	:researchMethod :ExperimentalMethod, :SurveyMethod , :InferentialStatistics;
+	:effectiveness "High"; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Su2018" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
+		anno:body " Kind of a simcity simulation. Uses Migration Theory, which seems a variant of segration theories. Not a scientific model behind the simulation. Partial modelling of human decision making by calculating a happiness value. But also not data or seriously social science based. Reviews Ajzen theory of planned action.  This study wants too much. N = 156. Uses SEM for data analysis. The results are not really intereting because the actual decision making is not analysed. "] .
 		
 
 :Taillandier2018 a dc:BibliographicResource ;
@@ -477,8 +501,189 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Taillandier2018" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not great as an research study but reasonable quality. Game programmed in a propriety ABM shell. Domain is risk management for coastal flooding, sea level rise. Looks like real or close to real data in the simulation. Audience is engineering students."] .
+		
+:Tasquier2016 a dc:BibliographicResource ;
+	:science :ClimateChangeScience;
+	:learningDomain "Model epistemology"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :Grade11 ; 
+	:technology :ComputerSimulation ;  
+	:pedagogy :InquiryLearning, :MultiModelling ; 
+	:learningTime "15 hours" ;
+	:researchMethod :SurveyMethod , :QualitativeMethod ;
+	dc:relation :Markauskaite2017 ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Tasquier2016" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
+		anno:body "Very relevant to our topic. N = 28. After schools science lab. 5 sessions. Model-based thinking more in the science ed sense than computational modelling. Mixed methods analysis, mainly qualitative. Informative!   "] .
 
 
+:Thacker2019 a dc:BibliographicResource ;
+	:science :ClimateChangeScience;
+	:learningDomain  "Greenhouse effect" ; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel  :UndergraduateStudy ; 
+	:technology :ComputerModel ;  
+	:pedagogy :MisconceptionStrategy , :ModelSimulation ; 
+	:learningTime "60 minutes" ;
+	:researchMethod :CaseStudyMethod , :InterviewMethod , :QualitativeMethod, :PrePost ;
+	:effectiveness "moderate to high" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Thacker2019" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
+		anno:body " N = 20. Has a focus on visual-perceptual processing to overcome misconcepions about greenhouse effect. no human decision making. Simulation from the concord consortium. The interviews were partially embedded in the learning phase. Summative analysis plus case studies. A science ed focus.  "] .	
+		
+		
+:TuckerRaymond2019 a dc:BibliographicResource ;
+	:science :ClimateChangeScience ;
+	:learningDomain "Climate system"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :Grade08 ; 
+	:technology :Game ;  
+	:pedagogy  :GameDesignLearning ; 
+	:learningTime  "200 minutes" ;
+	:researchMethod :ObservationMethod , :QualitativeMethod ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#TuckerRaymond2019" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
+		anno:body "Aims at integration of computational thinking and climate science. Thus, very relevant. The study focusses on design critique, a soft element of computational thinking. Found that students critique was much on on game elements than science elements. Uses a design conjecture map! Uses Scratch for modelling. A reasonable example for computational thinking combined with EE. Analysis mainly on patterns  and types of critique.  "] .
+		
+:Valkering2012 a dc:BibliographicResource ;
+	:science :EnvironmentalManagement, :ClimateAdpatation;
+	:learningDomain "Water management"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :Adults ; 
+	:technology :Game , :ComputerModel ;  
+	:pedagogy :RolePlay, :ExperientialLearning ; 
+	:learningTime "2 to 4 hours" ;
+	:researchMethod :QualitativeMethod ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Valkering2012" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body "Focus is on societal responses to adaptation decisions. Perspective-based simulation game. There's a river water simulation integrated that is science-based. The river simulation does not contain human decision making or such. It is used to provide information back to players for the next decice & simulate cycle. The paper outlines a conceptual model for societal response based on three theories. These are interesting from our perspective because they can inform modelling of societal factors. The theories are used to describe and classify. The sample was academics, water managers, and mixed groups. The empirical part is not very strong, but a clearly relevant paper for the typical simulation use pattern in a role play game scenario  "] .
+		
+:Vanninen2006 a dc:BibliographicResource ;
+	:science :EnvironmentalManagement ;
+	:learningDomain "Forest management"; 
+	:outcome :KnowledgeOutcomes; 
+	lrmi:educationalLevel :HighSchools , :UndergraduateStudy ; 
+	:technology :ComputerModel, VirtualReality ;  
+	:pedagogy  :ModelSimulation ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Vanninen2006" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
+		anno:body "Science-based growth simulator for forests. Also includes real data about forest growth in Finland. The scientific simulator is augmented with photos, videos etc for the educational use. No empirical research.  "] .
+		
+		
+:Verutes2014 a dc:BibliographicResource ;
+	:science :Ecology ;
+	:learningDomain "Ecosystem services" ; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel  ; 
+	:technology :Game ;  
+	:pedagogy :ExperientialLearning ; 
+	:researchMethod :UnspecificMethod ;
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Verutes2014" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body "Two integrated social simulation games. Is a board game, not a computer game. Describes the idea and the game design, not much more. No theory, compared to Vannineen2006. Not really in the analysis, other than as an example for board games and social aspects of EE not simulated.  "] .
+		
+:Visintainer2015 a dc:BibliographicResource ;
+	:science ClimateChangeScience ;
+	:learningDomain "Greenhouse effect" ; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :MiddleSchools ; 
+	:technology :NetLogoModel ;  
+	:pedagogy :InquiryLearning ; 
+	:learningTime  "7 days";
+	:researchMethod :PrePost , :ClinicalInterview, :PerformanceAnalysis, :CaseStudyMethod ;
+	:effectiveness "Moderate"; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Visintainer2015" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
+		anno:body "Asks if understanding the mechansisms of greenhouse effect relates to the understanding of the relation between every day energy use and global warming. Careful and extended qualitative analysis on knoweldge level. N=186 "] .
+		
+:Waddington2018 a dc:BibliographicResource ;
+	:science :ClimateChangeScience ;
+	:learningDomain "Energy consumption"; 
+	:outcome :SystemsThinking ; 
+	lrmi:educationalLevel :Adults ; 
+	:technology :ComputerModel , :Game ;  
+	:pedagogy :ModelSimulation , :RolePlay ; 
+	:learningTime  "1-2 hours";
+	:researchMethod :ExperimentalMethod , :ConceptMapping , :InterviewMethod , :MixedMethds , :InferentialStatistics ;
+	:effectiveness ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Waddington2018" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
+		anno:body " N = 33. Convience sample.  Control conditions was a different game. The simulation is used in typical role play mode, calculating the effects of decisins in play cycles. The underlying model is not science based, and no real data. Typcial pattern. Careful data analysis The game FATE OF THE WORLD seems a commercial one. Analysis of flaws on p. 187 onwards: Opaque game mechanisms, poor scaffolding of learning, complexity of underlying model.  The learning time is a guestimate "] .
+	
+:Yeung2017 a dc:BibliographicResource ;
+	:science :EnvironmentalManagement ;
+	:learningDomain "plastic waste management"; 
+	:outcome :MultiDomainOutcomes ; 
+	lrmi:educationalLevel :UndergraduateStudy ; 
+	:technology :ComputerModel , :Game ;  
+	:pedagogy  :InquiryLearning , :ModelSimulation ; 
+	:learningTime "8 hours" ;
+	:researchMethod  :ExperimentalMethod, :PrePost, :InferentialStatistics , :InterviewMethod, :MixedMethods ;
+	:effectiveness "High" ;  
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Yeung2017" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body "city simulation, not science based. N = 60. Teacher students. Good data analysis, simulation is not great. No human decision making modelled.  "] .
+		
+:Zangori2017 a dc:BibliographicResource ;
+	:science :ClimateChangeScience;
+	:learningDomain "Carbon cycle"; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :HighSchools ;  
+	:pedagogy  :ModelBasedLearning ; 
+	:learningTime  "multiple hours";
+	:researchMethod  :MixedMethods, :InterviewMethod, :PrePost ; 
+	:effectiveness "Moderate"; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
+		anno:body " N = 50. This is from the SSI group. No computer model, the models are mental and drawn on paper.Science education focus.  Detailled qualitative analysis. "] .
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	
 	

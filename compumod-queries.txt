@@ -1,0 +1,147 @@
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+
+
+######### basic SKOS searches ########
+
+##### basic INSERTs first
+
+##### construct the narrower relation 
+
+construct {?c1 skos:narrower ?c2}  
+where
+{
+    ?c2  skos:broader ?c1
+}
+
+############ Add the narrower relation to the graph
+
+insert {?c1 skos:narrower ?c2}  
+where
+{
+    ?c2  skos:broader ?c1
+}
+
+
+######## skos one step up 
+
+select  ?concept1 ?concept2
+{
+    ?concept1 skos:broader ?concept2
+}
+
+######### to the top from a concept
+
+select  ?concept2
+{
+    :LabBasedLearning skos:broader+/skos:broader ?concept2
+}
+
+
+
+### Walk down and find all works with are narrower than the Outcomes concept
+# The `+` does path traversal. 
+
+select  ?work ?concept2
+{
+    :Outcomes skos:narrower+ ?concept2.
+    ?work :assessedOutcome ?concept2.
+}
+
+
+########### Counting things
+
+### Number of publications by year in DESCending order
+
+SELECT ?year (COUNT(?year) AS ?yearTotal)
+        WHERE
+	{ 
+    ?work dc:date ?year .
+    }
+GROUP BY ?year 
+ORDER BY DESC(?year)
+
+# Count by category codes 
+SELECT ?code (COUNT(?code) AS ?codeTotal)
+        WHERE
+	{ 
+    ?work :technology  ?code .
+    }
+GROUP BY ?code
+ORDER BY ?codeTotal
+
+
+###  Count by a specific code 
+SELECT ?code (COUNT(?code) AS ?codeTotal)
+        WHERE
+	{ 
+    ?work :technology  ?code .
+     FILTER (?code = :ComputerModel)
+    }
+GROUP BY ?code
+
+
+### Walk down and find all works that are narrower than the Outcomes concept
+# The `+` does path traversal. 
+
+# We also need the "base" category count included. 
+# As in: This and more specific. 
+
+select  ?work ?concept
+{
+    :ComputerModel skos:narrower+ ?concept.
+    ?work :technology ?concept.
+}
+
+
+
+### Walk down and find all works in the base catogory and narrower categories
+# The `+` does path traversal. 
+
+SELECT   ?work ?concept
+WHERE 
+{
+    {?work :technology ?concept.
+    FILTER (?concept = :ComputerModel)} # :ComputerModel is the base category
+ UNION
+    {:ComputerModel skos:narrower+ ?concept.
+    ?work :technology ?concept.}
+
+}
+
+### count all categories inclucing a and more specific than a  particular concept 
+# The `+` does path traversal. 
+# :ComputerModel is the base category in this query. 
+
+SELECT   ?concept (COUNT(?concept) AS ?conceptCount) 
+WHERE 
+{
+    {?work :technology ?concept.
+    FILTER (?concept = :ComputerModel)} 
+ UNION
+    {:ComputerModel skos:narrower+ ?concept.
+    ?work :technology ?concept.}
+
+}
+GROUP BY ?concept
+
+
+
+### Sum over hierarchical codes 
+# Needs a starting code and then going downwards. 
+
+SELECT   (COUNT(?concept) AS ?conceptCount) 
+WHERE 
+{
+    {?work :technology ?concept.
+    FILTER (?concept = :ComputerModel)} # :ComputerModel is the base category
+ UNION
+    {:ComputerModel skos:narrower+ ?concept.
+    ?work :technology ?concept.}
+
+}
+

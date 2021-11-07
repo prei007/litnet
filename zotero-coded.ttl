@@ -452,15 +452,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " Social action oriented. Serious role play component.  "] .
 		
-
-:Rowntree2008 a dc:BibliographicResource ;
-	:science :SoilSciences ;
-	lrmi:educatoinalLevel :Adults ;
-	:researchMethod :UnspecificMethod ; 
-	:technology :ComputerModel , :RolePlay ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Rowntree2008" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
-		anno:body "A rather weak paper in the educational research part. Describes a role play and a computer model of land use. Participants are citizens? Likely drop because of method weakness and lack of detail"] .
 		
 :Stave2014 a dc:BibliographicResource ;
 	:science :EnvironmentalScience;

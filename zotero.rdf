@@ -225,15 +225,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.3390/su10103363</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Verutes2014">
-        <dc:title>Research article: Using simulation games to teach ecosystem service synergies and trade-offs</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Verutes, G.M.</dc:creator>
-        <dc:creator>Rosenthal, A.</dc:creator>
-        <dc:date>2014</dc:date>
-        <dc:identifier>DOI 10.1017/S1466046614000222</dc:identifier>
-    </rdf:Description>
-    
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Hovardas2011">
         <dc:title>Towards a Critical Re-Appraisal of Ecology Education: Scheduling an Educational Intervention to Revisit the 'Balance of Nature' Metaphor</dc:title>
         <dc:type>journalArticle</dc:type>
@@ -252,15 +243,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:creator>Cotter, L.</dc:creator>
         <dc:date>2011</dc:date>
         <dc:identifier>DOI 10.1080/10382046.2011.588501</dc:identifier>
-    </rdf:Description>
-    
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Rowntree2008">
-        <dc:title>Active learning for understanding land degradation: African catchment game and riskmap</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Rowntree, K.M.</dc:creator>
-        <dc:creator>Fox, R.C.</dc:creator>
-        <dc:date>2008</dc:date>
-        <dc:identifier>DOI 10.1111/j.1745-5871.2007.00490.x</dc:identifier>
     </rdf:Description>
     
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Vanninen2006">

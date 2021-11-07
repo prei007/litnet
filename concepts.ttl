@@ -498,7 +498,10 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	
 :Simulation a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Computer simulation"@en ; 
+	skos:prefLabel "Computer simulation"@en ;
+	skos:altLabel "Computer model"@en ; 
+	skos:note "The preferred term is ComputerModel" ; 
+	skos:related :ComputerModel ;  
 	skos:broader :GamesAndSimulations . 
 	
 :StrategyGame a skos:Concept ; 
@@ -950,6 +953,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :ModelBasedLearning a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;
     skos:prefLabel "Model-based learning"@en ; 
+    skos:scopeNote "At this level includes models that are purely conceptual, typically written or drawn on paper."@en ; 
 	skos:broader :PedagogicalStategy .
 	
 :ExpressiveModelling a skos:Concept ; 

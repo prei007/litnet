@@ -297,15 +297,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1111/bjet.12806</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Brady2021">
-        <dc:title>Patches as an expressive medium for exploratory multi‐agent modelling</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Brady, Corey</dc:creator>
-        <dc:date>2021</dc:date>
-        <dc:identifier>DOI 10.1111/bjet.13087</dc:identifier>
-         <edtech:webLink>"https://onlinelibrary.wiley.com/doi/10.1111/bjet.13087"</edtech:webLink>
-    </rdf:Description>
-    
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Yarker2013">
         <dc:title>Teacher Challenges, Perceptions, and Use of Science Models in Middle School Classrooms about Climate, Weather, and Energy Concepts</dc:title>
         <dc:type>book</dc:type>

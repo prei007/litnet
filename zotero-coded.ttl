@@ -58,6 +58,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bhattacharya2020" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "24-Oct-2021" ;
 		anno:body "This is a curriculum paper, not an empirical study: a 4-week curriculum module on using EDBCM (here called EzGCM) to develop understanding of core climate-science concepts. Adds numerous pedagogical elements such as formative assessments, investigation tasks, and out-of-model activities. Close in spirit to the model augmentation concept, but more out-of-model oriented. Serious curriculum work."] .
+		
 	
 :Bush2016 a dc:BibliographicResource ;
 	:science :ClimateChange ;
@@ -163,7 +164,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :UndergraduateStudies ;
 	:researchMethod :PrePost, :InferentialStatistics ; 
-	:technology :Computermodel ;  
+	:technology :ComputerModel ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime "30 minutes" ;
 	:researchMethod :PrePost , :PerformanceAnalysis , :InferentialStatistics ;
@@ -204,7 +205,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningDomain "Food consumption"; 
 	:outcome :Awareness , :CompetencyOutcomes; 
 	lrmi:educationalLevel  :HighSchools ; 
-	:technology :Game, :Simulation ;  
+	:technology :Game, :ComputerModel ;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime  "Not mentioned";
 	:researchMethod :ExperimentalMethod ;
@@ -278,7 +279,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningDomain "Greenhouse Effect"; 
 	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :Grade05 ; 
-	:technology :Simulation ;  
+	:technology :ComputerModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :Scaffolding ; 
 	:learningTime  "5 hours" ;
 	:researchMethod :PrePost  ;
@@ -330,7 +331,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Carbon cycle"; 
 	:outcome :KnowledgeOutcomes ; 
-	:lrmi:educationalLevel :HighSchools ; 
+	lrmi:educationalLevel :HighSchools ; 
 	:technology  :NetLogo ;  
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	:learningTime "170 minutes" ;
@@ -568,17 +569,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
 		anno:body "Science-based growth simulator for forests. Also includes real data about forest growth in Finland. The scientific simulator is augmented with photos, videos etc for the educational use. No empirical research.  "] .
 		
-		
-:Verutes2014 a dc:BibliographicResource ;
-	:science :Ecology ;
-	:learningDomain "Ecosystem services" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:technology :Game ;  
-	:pedagogy :ExperientialLearning ; 
-	:researchMethod :UnspecificMethod ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Verutes2014" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
-		anno:body "Two integrated social simulation games. Is a board game, not a computer game. Describes the idea and the game design, not much more. No theory, compared to Vannineen2006. Not really in the analysis, other than as an example for board games and social aspects of EE not simulated.  "] .
 		
 :Visintainer2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;

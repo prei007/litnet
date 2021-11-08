@@ -1,5 +1,5 @@
 ########################################
-# Coding computatinonal modelling	    #
+# Coding computational modelling	    #
 ########################################
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
@@ -10,6 +10,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+
+##### The studies with coding and inline free annotations 
 
 :Alves2021 a dc:BibliographicResource ;
 	:science :ClimateChangeScience, :Pollution ; 
@@ -191,15 +193,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body " Says its a socialecological simulation called Cloverdale. Simulates a town hall plus a water system. Not sure about the scientific basis. Human decision making and social mechanisms are not modeled, but are what the user enacts as the decision maker. So, its not a social ecological simulation in the strong sense of both components being modelled. Pedagogical logic similar to Chris Dede : a combination of immersion, inquiry and simulation. Pretty extensive analysis of learning and learning results. Needs to be mentioned in the analysis as one of the few cases that does have the social dimension.  "] .
 		
 		
-:Gold2015 a dc:BibliographicResource ;
-	:science :ClimateChangeScience ;
-	lrmi:educationalLevel :HighSchools ;
-	:pedagogy  :STEMStrategy ; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Gold2015" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "26-Oct-2021" ;
-		anno:body " This is a curriculum planning study, not a empirical paper. It's also not about modelling, but mainly about data. Not uninteresting though, and aligned with the idea to have more authentic science in EE. But can't be part of the review as such. "] .
-		
-		
 :Hansmann2005 a dc:BibliographicResource ;
 	:science :EnvironmentalScience ;
 	:learningDomain "Food consumption"; 
@@ -213,14 +206,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hansmann2005" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "27-Oct-2021" ;
 		anno:body " The (web) game is called SIMULE. It is not fully realistic in the assumpitons as it intentionally overstates some effects for pedagogical purposes. They are quoting some old work of mine. Includes two evaluation studies, one in highschools, one with walk-by sample of adults.  "] .		
-		
-:DemoAnnotation0001 a anno:BibAnnotation ; 
-	anno:annotates :Hansmann2005 ; 
-	dc:creator :PeterReimann ;
-	dc:created "27-Oct-2021" ;
-	anno:body "Annotations can also be standalone. If they refer to a particular paper, the :annotates predicate needs to be used to establish the relation. Searches for annotations need to consider this format, and so do displays of a resource.  The point is that they have the resource as an object. AllegroGraph would show it in the usual display". 
-		
-		
+			
 :HmeloSilver2014 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :SystemsThinking ;
@@ -615,6 +601,14 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " N = 50. This is from the SSI group. No computer model, the models are mental and drawn on paper.Science education focus.  Detailled qualitative analysis. "] .
 
+
+##### Demonstration of a free annotation
+
+:DemoAnnotation0001 a anno:BibAnnotation ; 
+	anno:annotates :Hansmann2005 ; 
+	dc:creator :PeterReimann ;
+	dc:created "27-Oct-2021" ;
+	anno:body "Annotations can also be standalone. If they refer to a particular paper, the :annotates predicate needs to be used to establish the relation. Searches for annotations need to consider this format, and so do displays of a resource.  The point is that they have the resource as an object. AllegroGraph would show it in the usual display". 
 		
 		
 		

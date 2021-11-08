@@ -319,22 +319,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>ISSN 2227-7102</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Gold2015">
-        <dc:title>Arctic Climate Connections Curriculum: A Model for Bringing Authentic Data into the Classroom</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Gold, Anne U.</dc:creator>
-        <dc:creator>Kirk, Karin</dc:creator>
-        <dc:creator>Morrison, Deb</dc:creator>
-        <dc:creator>Lynds, Susan</dc:creator>
-        <dc:creator>Sullivan, Susan Buhr</dc:creator>
-        <dc:creator>Grachev, Andrey</dc:creator>
-        <dc:creator>Persson, Ola</dc:creator>
-        <dc:date>2015</dc:date>
-        <dc:identifier>ISSN 1089-9995</dc:identifier>
-        <dc:identifier>DOI 10.5408/14-030.1</dc:identifier>
-         <edtech:webLink>"https://eric.ed.gov/?q=climate+computer+model&amp;id=EJ1074464"</edtech:webLink>
-    </rdf:Description>
-    
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Carey2017">
         <dc:title>Simulation Modeling of Lakes in Undergraduate and Graduate Classrooms Increases Comprehension of Climate Change Concepts and Experience with Computational Tools</dc:title>
         <dc:type>journalArticle</dc:type>

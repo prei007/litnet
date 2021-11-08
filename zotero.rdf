@@ -406,17 +406,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1080/09500693.2016.1148828</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Raper2009">
-        <dc:title>Paleoecology: An Untapped Resource for Teaching Environmental Change</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Raper, Diana J.</dc:creator>
-        <dc:creator>Zander, Holli</dc:creator>
-        <dc:date>2009</dc:date>
-        <dc:identifier>ISSN 1306-3065</dc:identifier>
-       <edtech:webLink>"https://eric.ed.gov/?q=%22climate+science%22+AND+model&amp;pg=2&amp;id=EJ884408"</edtech:webLink>
-    </rdf:Description>
-    
-    
  <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Waddington2018">
         <dc:title>Grim FATE: Learning About Systems Thinking in an In-Depth Climate Change Simulation</dc:title>
         <dc:type>journalArticle</dc:type>

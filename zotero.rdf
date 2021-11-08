@@ -523,22 +523,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1177/1046878113480867</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Neset2020">
-        <dc:title>Supporting Dialogue and Analysis on Trade-Offs in Climate Adaptation Research With the Maladaptation Game</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Neset, Tina-Simone</dc:creator>
-        <dc:creator>Juhola, Sirkku</dc:creator>
-        <dc:creator>Wiréhn, Lotten</dc:creator>
-        <dc:creator>Käyhkö, Janina</dc:creator>
-        <dc:creator>Navarra, Carlo</dc:creator>
-        <dc:creator>Asplund, Therese</dc:creator>
-        <dc:creator>Glaas, Erik</dc:creator>
-        <dc:creator>Wibeck, Victoria</dc:creator>
-        <dc:creator>Linnér, Björn-Ola</dc:creator>
-        <dc:date>2020</dc:date>
-        <dc:identifier>DOI 10.1177/1046878120904393</dc:identifier>
-    </rdf:Description>
-    
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Valkering2013">
         <dc:title>A Perspective-Based Simulation Game to Explore Future Pathways of a Water-Society System Under Climate Change</dc:title>
         <dc:type>journalArticle</dc:type>

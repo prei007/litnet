@@ -341,18 +341,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#MutchJones2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "29-Oct-2021" ;
 		anno:body " Pedagogocal paper. Most authors from Concorde. Focus is on teachers. Sample of 12 teachers. Interesting results from the interviews on students challenges with the simulatiosn and the simulation methodology. No human decision making modelled "] .
-
-:Neset2020 a dc:BibliographicResource ;
-	:science :EnvironmentalManagement;
-	:learningDomain "Agriculural climate adaptation"; 
-	:outcome :Awareness; 
-	lrmi:educationalLevel :Adults ; 
-	:technology :Game ;  
-	:learningTime  "60 minutes" ;
-	:researchMethod  :PerformanceAnalysis ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Neset2020" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "31-Oct-2021" ;
-		anno:body " less of a learning game than a stakeholder game. The human players makes decisions, no decision making in the simulation. 37 participants. Since it's not really a simulation and not really learning its a marginal paper for this review. "] .
 		
 
 :Nussbaum2015 a dc:BibliographicResource ;

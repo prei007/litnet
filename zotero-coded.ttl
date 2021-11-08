@@ -251,14 +251,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
 		anno:body " A simple lake simulation based on a fuzzy rule model. Describes the rationale for using fuzzy logic, the design process, and a small study on eight students. Modelled with MatLab Fuzzy Logic Toolbox. The empirical study is not strong, with the only measure being an adhoc 8-item questionnaire. Definitely an example of a model-based simulation, but no human decision making in the model "] .
 	
-	
-:Jordan2019 a dc:BibliographicResource ;
-	:science :ClimateChangeScience ;
-	:outcome :SystemsThinking ;
-	:researchMethod :SynthesisMethod ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2019" ;
-		:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
-		anno:body "Not a empirical research paper, but a research synthesis. Modellng not really considered, despite the claim in the abstract. Not relevant"] .
 		
 :Kukkonen2014 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;

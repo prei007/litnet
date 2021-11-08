@@ -568,19 +568,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "city simulation, not science based. N = 60. Teacher students. Good data analysis, simulation is not great. No human decision making modelled.  "] .
 		
-:Zangori2017 a dc:BibliographicResource ;
-	:science :ClimateChangeScience;
-	:learningDomain "Carbon cycle"; 
-	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :HighSchools ;  
-	:pedagogy  :ModelBasedLearning ; 
-	:learningTime  "multiple hours";
-	:researchMethod  :MixedMethods, :InterviewMethod, :PrePost ; 
-	:effectiveness "Moderate"; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
-		anno:body " N = 50. This is from the SSI group. No computer model, the models are mental and drawn on paper.Science education focus.  Detailled qualitative analysis. "] .
-
 
 ##### Demonstration of a free annotation
 

@@ -511,7 +511,6 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	
 :RolePlay a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:scopeNote "A technology-mediated role play, not any role play" ;
 	skos:prefLabel "Role play"@en ; 
 	skos:broader :GamesAndSimulations . 
 	
@@ -564,6 +563,25 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Educational Global Climate Model" ;
 	skos:broader :ClimateModel . 
+	
+:ScienceBasedModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ; 
+	skos:prefLabel "Science-based model" ;
+	skos:scopeNote "Models that are grounded in specific science rather than being demonstrative or made up" ;
+	skos:related :DataBasedModel . 
+	
+:DataBasedModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ; 
+	skos:prefLabel "Data-based model" ;
+	skos:scopeNote "Models that are grounded in data such as measurement or observation." ;
+	skos:related :ScienceBasedModel .
+	
+:DemonstrationModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ; 
+	skos:prefLabel "Data-based model" ;
+	skos:scopeNote "Models that demonstrating an effect of process in an idealized form." ;
+	skos:related :ScienceBasedModel .
+
 
 ### Immersive 
 
@@ -837,6 +855,11 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :PedagogyThesaurus ; 
 	skos:prefLabel "Experiential learning"@en ; 
 	skos:broader :PedagogicalStategy . 
+	
+:RolePlayPedagoy a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Role play"@en ; 
+	skos:broader :ExperientialLearning . 
 	
 :InternationalCollaboration a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;

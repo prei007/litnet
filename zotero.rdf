@@ -553,4 +553,72 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2018</dc:date>
         <dc:identifier>DOI 10.1177/1046878118770217</dc:identifier>
     </rdf:Description>
+ 
+    <rdf:Description rdf:about "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Eckhardt2013">
+        <dc:title>How Effective Is Instructional Support for Learning with Computer Simulations?</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Eckhardt, Marc</dc:creator>
+        <dc:creator>Urhahne, Detlef</dc:creator>
+        <dc:creator>Conrad, Olaf</dc:creator>
+        <dc:creator>Harms, Ute</dc:creator>
+        <dc:date>2013</dc:date>
+        <dc:identifier>DOI 10.1007/s11251-012-9220-y</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="http://onlinelibrary.wiley.com/doi/abs/10.1002/sce.21217">
+        <dc:title>Development of Mechanistic Reasoning and Multilevel Explanations of Ecology in Third Grade Using Agent-Based Models</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Dickes, Amanda Catherine</dc:creator>
+        <dc:creator>Sengupta, Pratim</dc:creator>
+        <dc:creator>Farris, Amy Voss</dc:creator>
+        <dc:creator>Basu, Satabdi</dc:creator>
+        <dc:date>2016</dc:date>
+        <dc:identifier>ISSN 1098-237X</dc:identifier>
+        <dc:identifier>DOI 10.1002/sce.21217</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about ="https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#BenhadiMarin">
+        <dc:title>EcoPred: An Educational Individual Based Model to Explain Biological Control, a Case Study within an Arable Land</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Benhadi-Marín, Jacinto</dc:creator>
+        <dc:creator>Pereira, José Alberto</dc:creator>
+        <dc:creator>Sousa, José Paulo</dc:creator>
+        <dc:creator>Santos, Sónia A. P.</dc:creator>
+        <dc:date>2020</dc:date>
+        <dc:identifier>DOI 10.1080/00219266.2019.1569086</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jensen2014">
+        <dc:title>Does Teaching Students How to Explicitly Model the Causal Structure of Systems Improve Their Understanding of These Systems?</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Jensen, Eva</dc:creator>
+        <dc:date>2014</dc:date>
+        <dc:identifier>DOI 10.1080/03043797.2014.881320</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Anderson2020">
+        <dc:title>Alignment of a Digital Watershed and Land Use Game to National Education Standards</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Anderson, Katelyn</dc:creator>
+        <dc:creator>Grudens-Schuck, Nancy</dc:creator>
+        <dc:creator>Valek, Robert</dc:creator>
+        <dc:creator>Schulte, Lisa A.</dc:creator>
+        <dc:creator>Smalley, Scott W.</dc:creator>
+        <dc:date>2020</dc:date>
+        <dc:identifier>DOI 10.1002/nse2.20005</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="http://link.springer.com/10.1007/s10956-014-9531-7">
+        <dc:title>Exploring Ecosystems from the Inside: How Immersive Multi-user Virtual Environments Can Support Development of Epistemologically Grounded Modeling Practices in Ecosystem Science Instruction</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Kamarainen, Amy M.</dc:creator>
+        <dc:creator>Metcalf, Shari</dc:creator>
+        <dc:creator>Grotzer, Tina</dc:creator>
+        <dc:creator>Dede, Chris</dc:creator>
+        <dc:date>2015</dc:date>
+        <dc:identifier>DOI 10.1007/s10956-014-9531-7</dc:identifier>
+    </rdf:Description>
+    
 </rdf:RDF>
+
+    

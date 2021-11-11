@@ -88,11 +88,19 @@ SELECT ?s ?p ?o ?g WHERE {
   }
 
 ## Errors of ommission. 
-# Triples that are in teacher's map but not in the student's map. 
+# Shows the graphs (if any) that do not have the relation. 
+# This is the only way I can come up with to test for 
+# omissions. The elegant of full graph comparison does not work. 
+# Use case wise, this is useful for finding patterns of omissions. 
 
-SELECT * WHERE {
-   GRAPH :Teacher { ?s ?p ?o } 
-   	FILTER NOT EXISTS {GRAPH :StudentA { ?s ?p ?o }}
+SELECT  DISTINCT ?g  WHERE {
+  {GRAPH ?g {  ?s ?p ?o }  
+      FILTER NOT EXISTS {GRAPH ?g {:Gas :condensesTo :Liquid.}}
+      }
+  UNION 
+  {GRAPH ?g {  ?s ?p ?o }  
+      FILTER NOT EXISTS {GRAPH ?g {:Solid :sublimatesTo :Gas.}}
+      }
   }
   
 
@@ -115,5 +123,33 @@ SELECT * WHERE {
   
 # If we don't care about the particular triples, we can use an ASK query to check whether any exist, without finding out what they are. For instance,
 
+###### Scaffolding queries
+
+
+# If a student is clueless about what to link to Gas,  
+# offer them a first link. 
+
+SELECT  ?s ?p ?o  WHERE {
+  {GRAPH :Teacher {  :Liquid ?p ?o }  
+     BIND ("Liquid"  as ?s) 
+      }
+
+  }
+LIMIT 1
+
+# If a student is clueless about what to say about Liquid,  
+# offer them all or some (use Limit) predicates. 
+
+
+SELECT  ?s ?p   WHERE {
+  {GRAPH :Teacher {  :Liquid ?p ?o }  
+     BIND ("Liquid"  as ?s) 
+      }
+
+  }
+  
+# In general, the LIMIT function provides an simple way to realize 
+# increasing help levels - return first 1, then 2, then all parts of 
+# the normative solution. 
 
 

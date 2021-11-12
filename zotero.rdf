@@ -553,17 +553,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2018</dc:date>
         <dc:identifier>DOI 10.1177/1046878118770217</dc:identifier>
     </rdf:Description>
- 
-    <rdf:Description rdf:about "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Eckhardt2013">
-        <dc:title>How Effective Is Instructional Support for Learning with Computer Simulations?</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Eckhardt, Marc</dc:creator>
-        <dc:creator>Urhahne, Detlef</dc:creator>
-        <dc:creator>Conrad, Olaf</dc:creator>
-        <dc:creator>Harms, Ute</dc:creator>
-        <dc:date>2013</dc:date>
-        <dc:identifier>DOI 10.1007/s11251-012-9220-y</dc:identifier>
-    </rdf:Description>
+
     
     <rdf:Description rdf:about="http://onlinelibrary.wiley.com/doi/abs/10.1002/sce.21217">
         <dc:title>Development of Mechanistic Reasoning and Multilevel Explanations of Ecology in Third Grade Using Agent-Based Models</dc:title>
@@ -618,6 +608,40 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2015</dc:date>
         <dc:identifier>DOI 10.1007/s10956-014-9531-7</dc:identifier>
     </rdf:Description>
+    
+
+    <rdf:Description rdf:about="https://eric.ed.gov/?q=environmental+education+computer+simulation&amp;pr=on&amp;ff1=eduSecondary+Education&amp;id=EJ1200073">
+        <dc:title>Instructional Support for Intuitive Knowledge Acquisition When Learning with an Ecological Computer Simulation</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Eckhardt, Marc</dc:creator>
+        <dc:creator>Urhahne, Detlef</dc:creator>
+        <dc:creator>Harms, Ute</dc:creator>
+        <dc:date>2018</dc:date>
+        <dc:identifier>ISSN 2227-7102</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Thomas2019">
+        <dc:title>Simulating a Non-Native Invasion</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Thomas, Debra Kelly</dc:creator>
+        <dc:creator>Milenkovic, Lisa</dc:creator>
+        <dc:creator>Marousky, Annamargareth</dc:creator>
+        <dc:date>2019</dc:date>
+        <dc:identifier>ISSN 0036-8148</dc:identifier>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Papaevripidou2007">
+        <dc:title>Modeling Complex Marine Ecosystems: An Investigation of Two Teaching Approaches with Fifth Graders</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Papaevripidou, M.</dc:creator>
+        <dc:creator>Constantinou, C. P.</dc:creator>
+        <dc:creator>Zacharia, Z. C.</dc:creator>
+        <dc:date>2007</dc:date>
+        <dc:identifier>ISSN 0266-4909</dc:identifier>
+        <dc:identifier>DOI 10.1111/j.1365-2729.2006.00217.x</dc:identifier>
+    </rdf:Description>
+
+
     
 </rdf:RDF>
 

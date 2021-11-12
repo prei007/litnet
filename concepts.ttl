@@ -559,6 +559,11 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:prefLabel "Stella" ;
 	skos:broader :SysDyn . 
 	
+:Scratch a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Scratch programming" ;
+	skos:broader :ComputerModel .
+	
 :EDGCM a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Educational Global Climate Model" ;
@@ -969,6 +974,16 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
     skos:prefLabel "Learning from designing games"@en ; 
 	skos:broader :DesignBasedLearning . 
 	
+:ProblemBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Problem based learning"@en ; 
+	skos:broader :PedagogicalStrategy . 
+	
+:ProjectBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Project based learning"@en ; 
+	skos:broader :PedagogicalStrategy . 
+	
 
 	
 # Model-based learning and subcategories
@@ -1010,6 +1025,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :PedagogyThesaurus ;
 	skos:prefLabel "Combining multiple models"@en ;
 	skos:broader :ModelBasedLearning ;
+	skos:scopeNote "Like multiple representations, just more specific to model representations. "
 	skos:example "Combining a causal map with a system dynamics model" .
 	
 #################################

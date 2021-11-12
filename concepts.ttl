@@ -1025,7 +1025,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :PedagogyThesaurus ;
 	skos:prefLabel "Combining multiple models"@en ;
 	skos:broader :ModelBasedLearning ;
-	skos:scopeNote "Like multiple representations, just more specific to model representations. "
+	skos:scopeNote "Like multiple representations, just more specific to model representations. " ;
 	skos:example "Combining a causal map with a system dynamics model" .
 	
 #################################

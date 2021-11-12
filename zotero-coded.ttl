@@ -26,11 +26,10 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Anderson2020 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:learningDomain "Watershed integration", "Agriculture" ; 
-	:outcome KnowledgeOutcomes ; 
+	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :Highschools ; 
 	:technology :ComputerGame, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation, :InquiryLearning, :ExperientialLearning ; 
-	:learningTime  ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Anderson2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
 		anno:body "a curriculum paper describing the alignments of a strategy game with human players. social factors not modelled.  Not fully topical because not on EE directly. Interesting still because of the learning standards mapping.  "] .
@@ -178,7 +177,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Dickes2015 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Food chains. Foreaging"; 
-	:outcome ; 
+	:outcome :KnowledgeOutcomes ; 
 	lrmi:educationalLevel :Grade03 ; 
 	:technology  :NetLogoModel , :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :MultiModelling ; 
@@ -480,10 +479,10 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Papaevripidou2007 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Marine ecosystem" ; 
-	:outcome ; 
-	lrmi:educationalLevel  ; 
+	:outcome :KnowledgeOutcomes ; 
+	lrmi:educationalLevel :Grade05 ; 
 	:technology :ComputerProgram, :ABM ;  
-	:pedagogy  :ExpressiveModelling; 
+	:pedagogy  :ExpressiveModelling ; 
 	:learningTime "Unspecified" ;
 	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
 	:effectiveness "High"; 

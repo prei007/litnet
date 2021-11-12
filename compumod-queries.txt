@@ -145,3 +145,49 @@ WHERE
 
 }
 
+#### listWorksByThesaurus
+
+SELECT ?work ?p ?concept  
+WHERE {
+	?concept skos:inScheme :EducationLevel .
+    ?work a dc:BibliographicResource . 
+    ?work ?p ?concept . 
+    } 
+ORDER BY ?concept ?work
+
+
+### countThesaurus
+## Count works by concepts from a thesaurus
+
+SELECT  ?concept (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    ?concept skos:inScheme :EducationLevel .
+    ?work a dc:BibliographicResource . 
+    ?work ?p ?concept .   
+}
+
+GROUP BY ?concept
+ORDER BY ?concept
+
+
+
+### Walk down and find all works in the base catogory and narrower categories, and
+# then add additional criteria. 
+# The `+` does path traversal. 
+
+SELECT   ?work ?concept
+WHERE {
+{
+    {?work :technology ?concept.
+    FILTER (?concept = :ComputerModel)} # :ComputerModel is the base category
+ UNION
+    {:ComputerModel skos:narrower+ ?concept.
+    ?work :technology ?concept.}
+
+}
+  ?work :technology :VirtualReality
+}
+
+
+

@@ -123,7 +123,7 @@ SELECT * WHERE {
   
 # If we don't care about the particular triples, we can use an ASK query to check whether any exist, without finding out what they are. For instance,
 
-###### Scaffolding queries
+###### Scaffolding queries  
 
 
 # If a student is clueless about what to link to Gas,  

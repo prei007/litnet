@@ -174,7 +174,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
 		anno:body "Immersive EcoXPT application. Not a scientific simulation at the environmental . Numerous in-simulation tools for scientific inquiry. Amazingly complete, including laboratory simulations. Elements of multi-modelling.  "] .
 
-:Dickes2015 a dc:BibliographicResource ;
+:Dickes2016 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Food chains. Foreaging"; 
 	:outcome :KnowledgeOutcomes ; 
@@ -184,7 +184,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningTime  "10 hours" ;
 	:researchMethod :PrePost , :CaseMethod ;
 	:effectiveness "High"; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2016" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " N = 15. Combines two Netlogo models with graphing and visual mapping. Detailled analysis. "] .
 		
@@ -511,7 +511,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body " Social action oriented. Serious role play component.  "] .
 		
 		
-:Stave2014 a dc:BibliographicResource ;
+:Stave2015 a dc:BibliographicResource ;
 	:science :EnvironmentalScience;
 	:learningDomain "Environmental accumulations", "carbon cycle"; 
 	:outcome :SystemsThinking ; 
@@ -521,7 +521,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningTime "120 minutes" ;
 	:researchMethod :PrePost , :InferentialStatistics ;
 	:effectiveness "High" ; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Stave2014" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Stave2015" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
 		anno:body " It's noteworthy how few studies are on system dynamics simulations. This is one. N = 126. Two content-independent Vensim simulations, each with a typical pattern. Not sure why they call it that as the second simulation is definitely on the carbon cycle. "] .
 		

@@ -4,7 +4,7 @@
 
 @prefix : <http://example.net/> .
 
-#### Data 
+#### Data 1: State of matter
 # Students A-C  only specify one third of the goal map. 
 
 :StudentA {
@@ -151,5 +151,134 @@ SELECT  ?s ?p   WHERE {
 # In general, the LIMIT function provides an simple way to realize 
 # increasing help levels - return first 1, then 2, then all parts of 
 # the normative solution. 
+
+##### Data 2: plants
+
+# This does not work as it does not form a proper graph. 
+:Teacher {
+	:T01 :proposition [:Plants :havePart :Roots] ;
+		:weight "1" . 
+}
+
+# A better idea is to describe the correct network and add meta data to it. 
+# The below is correct. Note that it uses RDF Reification to keep things clean. 
+# https://www.w3.org/TR/rdf-schema/#ch_reificationvocab
+
+
+PREFIX : <http://example.net/> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+:T01 :proposition :P01 ;
+		:isa :Hierarchy ; 
+		:weight "1" .
+		
+:P01 rdf:subject :Plants ;
+	 rdf:predicate :havePart ; 
+     rdf:object :Roots . 
+		
+:T02 :proposition :P02 ;
+		:isa :Hierarchy ; 
+		:weight "1" . 
+:P02    rdf:subject :Plants ;
+		rdf:predicate :havePart ; 
+		rdf:object :Leaves . 
+		
+:T03 :proposition :P03 ;
+		:isa :Hierarchy ; 
+		:weight "1" . 
+:P03 rdf:subject :Plants ;
+		rdf:predicate :havePart ; 
+		rdf:object :Stems . 
+		
+:T04 :proposition :P04 ; 
+		:weight "1" . 
+:P04 rdf:subject :Stems ;
+		rdf:predicate :form ; 
+		rdf:object :Flowers .
+		
+:T05 :proposition :P05 ; 
+		:weight "1" . 
+:P05 rdf:subject :Flowers ;
+		rdf:predicate :produce ; 
+		rdf:object :Seeds .
+		
+:T06 :proposition :P06 ; 
+		:isa :BridgingRelation ; 
+		:weight "2" . 
+:P06 rdf:subject :Seeds ;
+		rdf:predicate :store ; 
+		rdf:object :Food .
+		
+:T07 :proposition :P07 ; 
+		:weight "1" . 
+:P07 rdf:subject :Flowers ;
+		rdf:predicate :mayHave ; 
+		rdf:object :Petals .
+		
+:T08 :proposition :P08 ; 
+		:weight "1" . 
+:P08 rdf:subject :Petals ;
+		rdf:predicate :mayHave ; 
+		rdf:object :Color .
+		
+:T09 :proposition :P09 ; 
+		:weight "1". 
+:P09 rdf:subject :Leaves ;
+		rdf:predicate :areUsually ; 
+		rdf:object :Green .
+		
+:T10 :proposition :P10 ; 
+		:isa :BridgingRelation ;  # It's only a bridge if the Stems relation is realised. 
+		:weight "2". 
+:P10 rdf:subject :Leaves ;
+		rdf:predicate :produce ; 
+		rdf:object :Food .
+		
+
+:StudentA {
+	:Plants :havePart :Leaves . 
+	:Leaves :areUsually :Green . 
+}
+
+
+:StudentB {
+	:Plants :havePart :Leaves . 
+	:Plants :havePart :Roots .
+	:Leaves :produce :Food.  
+}
+
+:StudentC {
+	:Plants :havePart :Leaves . 
+	:Plants :havePart :Roots .
+	:Plants :havePart :Stems . 
+	:Stems :form :Flowers . 
+	:Flowers :produce :Seeds . 
+	:Seeds :store :Food .  
+}
+
+#### And here is the generalised error of ommission query!!!
+## Diff between two graphs: Errors of omission
+# Triples that are in teacher's map but not in the student's map. 
+
+CONSTRUCT 
+{?g :missed ?prop }
+WHERE {
+     ?prop rdf:subject ?sub ; 
+          rdf:predicate ?pred ; 
+          rdf:object ?obj . 
+    GRAPH ?g {?s ?p ?o} . 
+	FILTER NOT EXISTS {GRAPH ?g {?sub ?pred ?obj}}
+  }
+  
+  
+
+
+
+
+
+
+
+
+
 
 

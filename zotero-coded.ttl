@@ -606,7 +606,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
 		anno:body "Aims at integration of computational thinking and climate science. Thus, very relevant. The study focusses on design critique, a soft element of computational thinking. Found that students critique was much on on game elements than science elements. Uses a design conjecture map! Uses Scratch for modelling. A reasonable example for computational thinking combined with EE. Analysis mainly on patterns  and types of critique.  "] .
 		
-:Valkering2012 a dc:BibliographicResource ;
+:Valkering2013 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement, :ClimateAdpatation;
 	:learningDomain "Water management"; 
 	:outcome :KnowledgeOutcomes ; 
@@ -615,7 +615,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:pedagogy :RolePlay, :ExperientialLearning ; 
 	:learningTime "2 to 4 hours" ;
 	:researchMethod :QualitativeMethod ;
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Valkering2012" ; 
+	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Valkering2013" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "Focus is on societal responses to adaptation decisions. Perspective-based simulation game. There's a river water simulation integrated that is science-based. The river simulation does not contain human decision making or such. It is used to provide information back to players for the next decice & simulate cycle. The paper outlines a conceptual model for societal response based on three theories. These are interesting from our perspective because they can inform modelling of societal factors. The theories are used to describe and classify. The sample was academics, water managers, and mixed groups. The empirical part is not very strong, but a clearly relevant paper for the typical simulation use pattern in a role play game scenario  "] .
 		

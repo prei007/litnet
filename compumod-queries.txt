@@ -190,4 +190,14 @@ WHERE {
 }
 
 
+#### count by effectivess
 
+SELECT  ?value (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    ?work a dc:BibliographicResource . 
+    ?work :effectiveness ?value .   
+}
+
+GROUP BY ?value
+ORDER BY ?value

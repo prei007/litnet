@@ -234,19 +234,21 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 		rdf:predicate :produce ; 
 		rdf:object :Food .
 		
-
+# Student A knows little 
 :StudentA {
 	:Plants :havePart :Leaves . 
 	:Leaves :areUsually :Green . 
 }
 
-
+# Stundent B knows a bit more
 :StudentB {
 	:Plants :havePart :Leaves . 
 	:Plants :havePart :Roots .
-	:Leaves :produce :Food.  
+	:Leaves :produce :Food .  
+	:Plants :errorPredicate :error2 . 
 }
 
+# Student C knows much more but not everything. 
 :StudentC {
 	:Plants :havePart :Leaves . 
 	:Plants :havePart :Roots .
@@ -254,6 +256,16 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 	:Stems :form :Flowers . 
 	:Flowers :produce :Seeds . 
 	:Seeds :store :Food .  
+}
+
+# Student has some things wrong. 
+:StudentD {
+	:Plants :havePart :Leaves . 
+	:Plants :havePart :Roots .
+	:Plants :havePart :Stems . 
+	:Stems :form :Flowers . 
+	:Flowers :produce :Petals . # wrong but correct vocabulary
+	:Leaves :errorPredicate :errorTerm .  #wrong because of vocabulary. 
 }
 
 #### And here is the generalised error of ommission query!!!
@@ -270,9 +282,43 @@ WHERE {
 	FILTER NOT EXISTS {GRAPH ?g {?sub ?pred ?obj}}
   }
   
-  
+## Error of commission type 1:
+# Finds any single term not used in the teacher map. 
+# That is: a differnt vocabulary. 
+# This is also not complete because I need a Construction. 
 
+SELECT ?g ?s ?p ?o 
+WHERE {
+  {
+  GRAPH ?g {?s ?p ?o}   
+   MINUS {?prop rdf:object ?o}
+  }
+ UNION 
+  {
+  GRAPH ?g {?s ?p ?o}   
+   MINUS {?prop rdf:predicate ?p}
+  }
+ UNION 
+  {
+  GRAPH ?g {?s ?p ?o}   
+   MINUS {?prop rdf:subject ?s}
+  }
+  }
 
+## Error of commission type 2:
+# Wrong proposition.  
+# Still a problem: ?prop is not bound, so I cant get statements of the 
+# type I need. 
+
+SELECT ?g ?s ?p ?o 
+WHERE {
+  GRAPH ?g {?s ?p ?o}   
+  FILTER NOT EXISTS {
+  ?prop rdf:subject ?s ; 
+        rdf:predicate ?p ;
+        rdf:object ?o.
+  }
+ }
 
 
 

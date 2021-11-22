@@ -371,7 +371,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		anno:body "A conceptual and review paper. Speaks explicitely to social environmental systems, human geography. Calls it the socio-ecological view on systems. Builds on the competence model by Mehren et al. 2018.  The review of computer games is oriented on a framework for complexity. Driving questions (p. 2): >The main questions we strive to answer are: Do digital games provide the requirements necessary for the development of geographical systems thinking and competence? How complex are their modelled systems, and how do the games diﬀer with respect to their complex game design? Are there groups of games that are more suitable for acquiring geographical system competence than others?< In Figure 1 on Page 6 the authors depict their complexity framework but I find it too syntactic. It's basically asking how many elements and relations. It's useful, but not comprehensive enough. Compared to, say ODD and ODD+, it's simplistic. But then, this is about games, not simulations. From my perspective missing is an opening of the black box that hides human cognition and decision making. It is probably fair to say that these strategy games take the human side much more into account than most educational EE simulations, but they do not simulate actual human decision making. And your typical off-the-shelve game is opaque. The game overview is very helpful though!  As so often, the idea that computer should be mind tools, not only learning tools, is forgotten. "] .
 
 
-:Mallavarapu2016 a dc:BibliographicResource ;
+:Mallavarapu2015 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
 	:outcome :KnowledgeOutcomes ;
 	lrmi:educationalLevel :HighSchools, :UndergraduateStudy ;
@@ -383,7 +383,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Serious and relevant study. "] .
 		
-:Markauskaite2017 a dc:BibliographicResource ;
+:Markauskaite2020 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Carbon cycle"; 
 	:outcome :KnowledgeOutcomes ; 

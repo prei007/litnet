@@ -72,7 +72,7 @@
         <dc:identifier>ISSN ISSN-2211-1662</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Mutch-Jones2018">
+    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#MutchJones2018">
         <dc:title>Teaching with Interactive Computer-Based Simulation Models: Instructional Dilemmas and Opportunities in the High-Adventure Science Project</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Mutch-Jones, Karen</dc:creator>
@@ -239,7 +239,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:date>2006</dc:date>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Ionnidou2006">
+    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Ioannidou2006">
         <dc:title>An interactive computer graphics interface for the introduction of fuzzy inference in environmental education</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Ioannidou, I.A.</dc:creator>
@@ -566,7 +566,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1002/sce.21217</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about ="https://http://coolfutures.net/rdf/2021/edtech#BenhadiMarin">
+    <rdf:Description rdf:about ="https://http://coolfutures.net/rdf/2021/edtech#BenhadiMarin2020">
         <dc:title>EcoPred: An Educational Individual Based Model to Explain Biological Control, a Case Study within an Arable Land</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Benhadi-Marín, Jacinto</dc:creator>
@@ -639,6 +639,15 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1111/j.1365-2729.2006.00217.x</dc:identifier>
     </rdf:Description>
 
+<rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Markauskaite2020">
+        <dc:title>Model-Based Knowing: How Do Students Ground Their Understanding about Climate Systems in Agent-Based Computer Models?</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Markauskaite, Lina</dc:creator>
+        <dc:creator>Kelly, Nick</dc:creator>
+        <dc:creator>Jacobson, Michael J.</dc:creator>
+        <dc:date>2020</dc:date>
+        <dc:identifier>DOI 10.1007/s11165-017-9680-9</dc:identifier>
+    </rdf:Description>
 
     
 </rdf:RDF>

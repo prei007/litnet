@@ -1036,7 +1036,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :OutcomesThesaurus a skos:ConceptScheme ; 
 	dc:title "Learning outcomes thesaurus " ;
-	skos:note "Informed by outcome categories in Ardoin et al 2018."
+	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
 	skos:hasTopConcept :Outcomes .
 
 :Outcomes a skos:Concept ; 

@@ -461,28 +461,15 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 # Predicate: :technology
 
 :EdTechThesaurus a skos:ConceptScheme ; 
-	dc:title "Eductional technology thesaurus " ;
-	skos:hasTopConcept :Technology .
-
-
-### Top level
-
-:Technology a skos:Concept ; 
-	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Digital technology" .
-	
-:EduTech a skos:Concept ; 
-	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Educational technology"@en ; 
-	skos:broader :Technology.  
+	dc:title "Eductional technology thesaurus " . 
 
 ### Games, models, simulations
 
 :GamesAndSimulations a skos:Concept; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Games and simulations"@en ; 
-	skos:related :ComputerModel;
-	skos:broader :EduTech . 
+	skos:related :ComputerModel. 
+	
 
 :Game a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -593,8 +580,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :ImmersiveTech a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Immersive technologies"@en ; 
-	skos:altLabel "XR"@en ; 
-	skos:broader :EduTech . 
+	skos:altLabel "XR"@en .
 
 :AugmentedReality a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -628,8 +614,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :MultiMedia a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Multimedia technology"@en ; 
-	skos:broader :EduTech . 
+	skos:prefLabel "Multimedia technology"@en .
 
 :DigitalStory a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -662,8 +647,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :MobileLearning a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Mobile technology"@en ; 
-	skos:broader :EduTech . 
+	skos:prefLabel "Mobile technology"@en .
 	
 :MobileGame a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -675,8 +659,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :SocialMedia a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Socialmedia technology"@en ; 
-	skos:broader :EduTech . 
+	skos:prefLabel "Socialmedia technology"@en .
 	
 :LearningCommunity a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -692,8 +675,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :eLearning a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "E-Learning"@en ; 
-	skos:broader :EduTech .
+	skos:prefLabel "E-Learning"@en .
 
 
 :LMS a skos:Concept ; 
@@ -704,29 +686,25 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :CBA a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer-based assessment"@en ; 
-	skos:altLabel "Computer-based testing"@en ; 
-	skos:broader :EduTech . 
+	skos:altLabel "Computer-based testing"@en .
 	
 :CAI a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer-aided instruction"@en ; 
-	skos:altLabel "Computer-based instruction"@en ; 
-	skos:broader :EduTech. 
+	skos:altLabel "Computer-based instruction"@en .
 
 ### Programming
 
 :Programming a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer programming"@en ; 
-	skos:altLabel "Coding" ;
-	skos:broader :EduTech . 
+	skos:altLabel "Coding" .
 	
 ### Knowledge technologies
 
 :KnowledgeTech a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Knowledge technologies"@en ; 
-	skos:broader :EduTech . 
+	skos:prefLabel "Knowledge technologies"@en .
 
 :ConceptMapping a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
@@ -739,8 +717,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :eResearch a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "e-Research"@en ; 
-	skos:altLabel "Cyber-research"@en ; 
-	skos:broader :EduTech . 
+	skos:altLabel "Cyber-research"@en .
 	
 :GIS a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -768,8 +745,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :AI a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Artificial Intelligence"@en ; 
-	skos:altLabel "AI"@en ; 
-	skos:broader :EduTech . 
+	skos:altLabel "AI"@en .
 	
 :AIED a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
@@ -782,9 +758,7 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 
 :OutDoorsTech a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Outdoors technology use"@en ; 
-	skos:broader :EduTech .
-	
+	skos:prefLabel "Outdoors technology use"@en .
 :Drones a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:broader :OutDoorsTech . 
@@ -798,9 +772,8 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :SensingAndRecording a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Sensing and recording"@en ; 
-	skos:altLabel "IoT"@en ; 
-	skos:broader :EduTech .
-
+	skos:altLabel "IoT"@en .
+	
 :DataLogging a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Data logging"@en ; 

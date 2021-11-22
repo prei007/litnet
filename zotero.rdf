@@ -566,7 +566,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1002/sce.21217</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about ="https://http://coolfutures.net/rdf/2021/edtech#BenhadiMarin2020">
+    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#BenhadiMarin2020">
         <dc:title>EcoPred: An Educational Individual Based Model to Explain Biological Control, a Case Study within an Arable Land</dc:title>
         <dc:type>journalArticle</dc:type>
         <dc:creator>Benhadi-Marín, Jacinto</dc:creator>

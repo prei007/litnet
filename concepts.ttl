@@ -29,10 +29,9 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 	rdfs:comment "Object property linking to a category or classification.".
 	
 	
-# The following predicates are deemed useful to have explicitely around for 
+# The following predicates are deemed useful for 
 # classification/categorisation. Note that they subtype on :category.
-# It is design choice to use a generic category predicate along with a 
-# controlled vocab, and/or use specific predicates. 
+
 	
 :learningDomain rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a description of the learning domain".
@@ -93,10 +92,6 @@ lrmi:typicalAgeRange a rdf:Property ;
 # Concept schemes
 #################################
 
-# Really need to think properly about predicates. Because these concepts 
-# stand in the role of objects, with a bibwork as the subject. 
-# And then there a annotations. I very different thing! Seed the Annotea model, which 
-# makes sense to me. 
 
 # Educational levels
 # goes with predicate lrmi:educationalLevel. 

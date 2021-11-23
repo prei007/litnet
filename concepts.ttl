@@ -19,11 +19,15 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 # to link to information that is relevant to the literature review. 
 	
 	
+:dateAdded a rdf:Property ; 
+	rdfs:comment "The calendar date the reference was added as yyyy-mm-dd."
+
 :annotation a rdf:Property ; 
 	rdfs:comment "Object property linking to an annotation.".
 	
 :category a rdf:Property ; 
 	rdfs:comment "Object property linking to a category or classification.".
+	
 	
 # The following predicates are deemed useful to have explicitely around for 
 # classification/categorisation. Note that they subtype on :category.

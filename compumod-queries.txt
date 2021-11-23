@@ -53,6 +53,23 @@ select  ?work ?concept2
 }
 
 
+##### Model use pedagogy
+# science and/or data based. 
+
+SELECT DISTINCT ?work
+WHERE 
+{
+{
+    ?work a dc:BibliographicResource . 
+    ?work ?p :DataBasedModel .
+}
+  UNION 
+  { ?work a dc:BibliographicResource . 
+    ?work ?p :ScienceBasedModel .}
+  }
+ORDER BY ?work
+
+
 ########### Counting things
 
 ### Number of publications by year in DESCending order
@@ -201,3 +218,6 @@ WHERE
 
 GROUP BY ?value
 ORDER BY ?value
+
+
+### 

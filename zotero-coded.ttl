@@ -112,7 +112,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
-		anno:body "Fully relevant for our research question. Performs a comparison of students learning with EDGCm versus students learning from simpler tools, also available on the web. The latter may be quite often used in schools, come to think of it. Quant and qual data. Needs to be read carefully. A main finding pertains to similarity of student practice to authentic science practices."] .
+		anno:body "Fully relevant for our research question. Performs a comparison of students learning with EDGCm versus students learning from simpler tools, also available on the web.  Quant and qual data. Needs to be read carefully. A main finding pertains to similarity of student practice to authentic science practices."] .
 	
 :Bush2019 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
@@ -121,7 +121,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:technology :EDGCM, :DataBasedModel, :ScienceBasedModel ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
-		anno:body "A teacher survey. Not particularly strong in the method aspect. Sampled from people who asked for an license of EDGCM and asked for their experience. No theory, purely descriptive. Marginally useful, but not as an example to understand learning from/with models"] .
+		anno:body "A teacher survey.  Sampled from people who asked for an license of EDGCM and asked for their experience. No theory, purely descriptive. Useful, but not as an example to understand learning from/with models"] .
 	
 	
 :Carey2017 a dc:BibliographicResource ;
@@ -134,7 +134,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Carey2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
-		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance in a pre-post measurement. That comparison is adhoc, but the study overall is somewhat rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects. Needs detailed reading"] .
+		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance in a pre-post measurement. That comparison is somewhat adhoc, but the study overall is rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects."] .
 		
 :Cuadrado2017 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
@@ -145,7 +145,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Cuadrado2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
-		anno:body "uses a game/simulation called Irrigania, a resource management game (very simple, equation based, not data based). Experimental study comparing cooperation versus competition strategy. Does reflect on human decision making, but that one is not simulated. Is an example for the cases where human decision making are considered, and are the research topic. But shows the case that the DM is not part of the computer simulation. I need to decide still if resource management is in scope, and probably need to say that games are not core unless the simulation part is substantive "] .
+		anno:body "uses a game/simulation called Irrigania, a resource management game (very simple, equation based, not data based). Experimental study comparing cooperation versus competition strategy. Does reflect on human decision making, but that one is not simulated. Is an example for the cases where human decision making are considered, and are the research topic. But shows the case that the DM is not part of the computer simulation. "] .
 		
 :Cuccurullo2013 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
@@ -197,7 +197,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	dc:relation :HmeloSilver2014, :HmeloSilver2015 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
-		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. I think the VR might be easily replaced with video or stop-image animation as it mainly is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
+		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. The VR  is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
 		
 :Dinsmore2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
@@ -227,7 +227,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#
 	Eckhardt2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "11-Nov-2021" ;
-		anno:body "Works with the notion of intuitive knowledge as gained from computer simulations, plus self-regulation. N = 117. The intervention is students describing and interpreting simulation outcomes (control: reception of those). This is an the same logic as scaffolding, but a different instructional task. The literature review is interesting as it mentions a number of instructional support strategies for learning from simulations, which can add to our augmentation idea.  The 2013 study is very simimlar, so we go with the newer one. "] .
+		anno:body "Works with the notion of intuitive knowledge as gained from computer simulations, plus self-regulation. N = 117. The intervention is students describing and interpreting simulation outcomes (control: reception of those). This is an the same logic as scaffolding, but a different instructional task. The literature review is interesting as it mentions a number of instructional support strategies for learning from simulations, which can add to our augmentation idea."] .
 		
 :Erlandson2014 a dc:BibliographicResource ;
 	:science :Hydrology;
@@ -394,7 +394,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:researchMethod :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Markauskaite2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
-		anno:body " Mainly about model-based reasoning and learning. Definitely interesting, but No human decision making modelled. Grounded cognition as theoretical backdrop. Not totally sure how that applies, other than that it applies as a general architecture of cognition. But the coding system (Table 2) is interesting because it contains descriptors for gaining knowledge from the model simulation.  See also Table 9 for common sources of mistakes. Interesting! A second coding dimensin (TAble 6) is for the relations participants see between the model and real systems. The notion of observed grounding in an activity system much larger than the simulation resonates with my sense of augmentation, and the linking between real--or modelled real--systems and the computer model. So here we can say: students will add their own interpretations and associations, and it may be better to allow them to make explicit. A quantitative analysis is provided in Kelly et al 2012, ICLS conference."] .
+		anno:body " Mainly about model-based reasoning and learning. Definitely interesting, but No human decision making modelled. Grounded cognition as theoretical backdrop. The coding system (Table 2) is interesting because it contains descriptors for gaining knowledge from the model simulation.  See also Table 9 for common sources of mistakes. Interesting! A second coding dimensin (TAble 6) is for the relations participants see between the model and real systems. The notion of observed grounding in an activity system much larger than the simulation resonates with my sense of augmentation, and the linking between real--or modelled real--systems and the computer model. So here we can say: students will add their own interpretations and associations, and it may be better to allow them to make explicit. A quantitative analysis is provided in Kelly et al 2012, ICLS conference."] .
 		
 		
 :Mathevet2007 a dc:BibliographicResource ;

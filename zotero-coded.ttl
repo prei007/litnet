@@ -244,20 +244,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "26-Oct-2021" ;
 		anno:body " Says its a socialecological simulation called Cloverdale. Simulates a town hall plus a water system. Not sure about the scientific basis. Human decision making and social mechanisms are not modeled, but are what the user enacts as the decision maker. So, its not a social ecological simulation in the strong sense of both components being modelled. Pedagogical logic similar to Chris Dede : a combination of immersion, inquiry and simulation. Pretty extensive analysis of learning and learning results. Needs to be mentioned in the analysis as one of the few cases that does have the social dimension.  "] .
 		
-		
-:Hansmann2005 a dc:BibliographicResource ;
-	:science :EnvironmentalScience ;
-	:learningDomain "Food consumption"; 
-	:outcome :Awareness , :CompetencyOutcomes; 
-	lrmi:educationalLevel  :HighSchools ; 
-	:technology :Game, :ComputerModel , :DemonstrationModel ;  
-	:pedagogy :ModelSimulation ; 
-	:learningTime  "Not mentioned";
-	:researchMethod :ExperimentalMethod ;
-	:effectiveness "moderate to low" ; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hansmann2005" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "27-Oct-2021" ;
-		anno:body " The (web) game is called SIMULE. It is not fully realistic in the assumpitons as it intentionally overstates some effects for pedagogical purposes. They are quoting some old work of mine. Includes two evaluation studies, one in highschools, one with walk-by sample of adults.  "] .		
 			
 :HmeloSilver2014 a dc:BibliographicResource ;
 	:science :Ecology ; 
@@ -289,19 +275,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "27-Oct-2021" ;
 		anno:body "Is critical about the Balance of Nature metaphor, which seems to be important in biology and ecology education. A thoughtful mainly conceptual paper. The simulation aspect is purely conceptual, but inspired by a real system, a vulture population in a Greek national park. No empirical part. Human decision making is not included in the simulation "] .
 	
-:Ioannidou2006 a dc:BibliographicResource ;
-	:science  :Ecology, :EnvironmentalManagement ;
-	:learningDomain "Lake ecosystem"; 
-	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :PrimaryEducation ; 
-	:technology  :ComputerModel, :ScienceBasedModel ;  
-	:pedagogy  :ModelSimulation ; 
-	:learningTime "short (estimated)" ;
-	:researchMethod :PrePost ;
-	:effectiveness "high" ; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Ioannidou2006 " ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
-		anno:body " A simple lake simulation based on a fuzzy rule model. Describes the rationale for using fuzzy logic, the design process, and a small study on eight students. Modelled with MatLab Fuzzy Logic Toolbox. The empirical study is not strong, with the only measure being an adhoc 8-item questionnaire. Definitely an example of a model-based simulation, but no human decision making in the model "] .
 		
 :Jensen2014 a dc:BibliographicResource ;
 	:science :Ecology ;
@@ -396,20 +369,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
 		anno:body " Mainly about model-based reasoning and learning. Definitely interesting, but No human decision making modelled. Grounded cognition as theoretical backdrop. The coding system (Table 2) is interesting because it contains descriptors for gaining knowledge from the model simulation.  See also Table 9 for common sources of mistakes. Interesting! A second coding dimensin (TAble 6) is for the relations participants see between the model and real systems. The notion of observed grounding in an activity system much larger than the simulation resonates with my sense of augmentation, and the linking between real--or modelled real--systems and the computer model. So here we can say: students will add their own interpretations and associations, and it may be better to allow them to make explicit. A quantitative analysis is provided in Kelly et al 2012, ICLS conference."] .
 		
-		
-:Mathevet2007 a dc:BibliographicResource ;
-	:science :EnvironmentalManagment , :Biodiversity ;
-	:learningDomain "Reedbed management", "water management"; 
-	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel  "?"; 
-	:technology :ABM, :ScienceBasedModel ;  
-	:pedagogy :RolePlay, :ModelSimulation ; 
-	:learningTime  "several hours";
-	:researchMethod :PrePost ;
-	:effectiveness "moderate to high"; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Mathevet2007" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "29-Oct-2021" ;
-		anno:body "Socio-environmetal focus. The role-play game is called BUTORSTAR. Combines decision making by players with the simulation of the consequences in the simulation, settting up the simulaiton for the next decision round. Very typical pattern where the human decisin making is NOT in the model. The ABM is built witha shell called CORMAS. The simulation components are scientifically informed and informed by real data but not simulating a real system. Players are taking on the roles of resource users with different profiles, for instance naturalists and hunters. A good study and representative for this pattern. "] .
+	
 		
 :MutchJones2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
@@ -476,19 +436,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " Delayed post test after 2 months, in addition to immediate testing. N = 28. VR simulation fo field and lab gear. Multiple measurement dimensions, but not the deepest of analysis.  "] .
 		
-:Papaevripidou2007 a dc:BibliographicResource ;
-	:science :Ecology ;
-	:learningDomain "Marine ecosystem" ; 
-	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade05 ; 
-	:technology :ComputerProgram, :ABM ;  
-	:pedagogy  :ExpressiveModelling ; 
-	:learningTime "Unspecified" ;
-	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
-	:effectiveness "High"; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
-		anno:body "An older study that used model creation in the spirit of ABM  and compared with a worksheet based approach. Is kind of an scratch like tool. Not too bad a study overall.  "] .
 
 :Parker2014 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
@@ -619,17 +566,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "Focus is on societal responses to adaptation decisions. Perspective-based simulation game. There's a river water simulation integrated that is science-based. The river simulation does not contain human decision making or such. It is used to provide information back to players for the next decice & simulate cycle. The paper outlines a conceptual model for societal response based on three theories. These are interesting from our perspective because they can inform modelling of societal factors. The theories are used to describe and classify. The sample was academics, water managers, and mixed groups. The empirical part is not very strong, but a clearly relevant paper for the typical simulation use pattern in a role play game scenario  "] .
 		
-:Vanninen2006 a dc:BibliographicResource ;
-	:science :EnvironmentalManagement ;
-	:learningDomain "Forest management"; 
-	:outcome :KnowledgeOutcomes; 
-	lrmi:educationalLevel :HighSchools , :UndergraduateStudy ; 
-	:technology :ComputerModel, VirtualReality, :ScienceBasedModel, :DataBasedModel ;  
-	:pedagogy  :ModelSimulation ; 
-	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Vanninen2006" ; 
-	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
-		anno:body "Science-based growth simulator for forests. Also includes real data about forest growth in Finland. The scientific simulator is augmented with photos, videos etc for the educational use. No empirical research.  "] .
-		
 		
 :Visintainer2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
@@ -677,7 +613,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 ##### Demonstration of a free annotation
 
 :DemoAnnotation0001 a anno:BibAnnotation ; 
-	anno:annotates :Hansmann2005 ; 
+	anno:annotates :Anderson2020 ; 
 	dc:creator :PeterReimann ;
 	dc:created "27-Oct-2021" ;
 	anno:body "Annotations can also be standalone. If they refer to a particular paper, the :annotates predicate needs to be used to establish the relation. Searches for annotations need to consider this format, and so do displays of a resource.  The point is that they have the resource as an object. AllegroGraph would show it in the usual display". 

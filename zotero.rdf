@@ -226,27 +226,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1080/10382046.2011.588501</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Vanninen2006">
-        <dc:title>PuMe - Interactive learning environment employing the pipequal model for forest growth and wood quality</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Vanninen, P.</dc:creator>
-        <dc:creator>Härkönen, S.</dc:creator>
-        <dc:creator>Enkenberg, J.</dc:creator>
-        <dc:creator>Mäkelä, A.</dc:creator>
-        <dc:date>2006</dc:date>
-        <edtech:dateAdded>2021-11-20</edtech:dateAdded>
-    </rdf:Description>
-    
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Ioannidou2006">
-        <dc:title>An interactive computer graphics interface for the introduction of fuzzy inference in environmental education</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Ioannidou, I.A.</dc:creator>
-        <dc:creator>Paraskevopoulos, S.</dc:creator>
-        <dc:creator>Tzionas, P.</dc:creator>
-        <dc:date>2006</dc:date>
-        <edtech:dateAdded>2021-11-20</edtech:dateAdded>
-        <dc:identifier>DOI 10.1016/j.intcom.2005.10.007</dc:identifier>
-    </rdf:Description>
     
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Dickes2019">
         <dc:title>Scaffolding ecosystems science practice by blending immersive environments and computational modeling</dc:title>
@@ -473,18 +452,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1177/1046878112441693</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Hansmann2005">
-        <dc:title>Enhancing environmental awareness: Ecological and economic effects of food consumption</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Hansmann, Ralf</dc:creator>
-        <dc:creator>Scholz, Roland W.</dc:creator>
-        <dc:creator>Francke, Carl-Johan A. C.</dc:creator>
-        <dc:creator>Weymann, Martin</dc:creator>
-        <dc:date>2005</dc:date>
-        <edtech:dateAdded>2021-11-20</edtech:dateAdded>
-        <dc:identifier>DOI 10.1177/1046878105279116</dc:identifier>
-    </rdf:Description>
-    
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Stave2015">
         <dc:title>Improving Learners’ Understanding of Environmental Accumulations through Simulation</dc:title>
         <dc:type>journalArticle</dc:type>
@@ -496,21 +463,7 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1177/1046878114531764</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Mathevet2007">
-        <dc:title>BUTORSTAR: A role-playing game for collective awareness of wise reedbed use</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Mathevet, Raphaël</dc:creator>
-        <dc:creator>Le Page, Christophe</dc:creator>
-        <dc:creator>Etienne, Michel</dc:creator>
-        <dc:creator>Lefebvre, Gaëtan</dc:creator>
-        <dc:creator>Poulin, Brigitte</dc:creator>
-        <dc:creator>Gigot, Guillaume</dc:creator>
-        <dc:creator>Proréol, Sophie</dc:creator>
-        <dc:creator>Mauchamp, André</dc:creator>
-        <dc:date>2007</dc:date>
-        <edtech:dateAdded>2021-11-20</edtech:dateAdded>
-        <dc:identifier>DOI 10.1177/1046878107300665</dc:identifier>
-    </rdf:Description>
+
     
     <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Taillandier2018">
         <dc:title>Games Ready to Use: A Serious Game for Teaching Natural Risk Management</dc:title>
@@ -605,16 +558,6 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>ISSN 0036-8148</dc:identifier>
     </rdf:Description>
     
-    <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Papaevripidou2007">
-        <dc:title>Modeling Complex Marine Ecosystems: An Investigation of Two Teaching Approaches with Fifth Graders</dc:title>
-        <dc:type>journalArticle</dc:type>
-        <dc:creator>Papaevripidou, M.</dc:creator>
-        <dc:creator>Constantinou, C. P.</dc:creator>
-        <dc:creator>Zacharia, Z. C.</dc:creator>
-        <dc:date>2007</dc:date>
-        <edtech:dateAdded>2021-11-20</edtech:dateAdded>
-        <dc:identifier>DOI 10.1111/j.1365-2729.2006.00217.x</dc:identifier>
-    </rdf:Description>
 
 <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Markauskaite2020">
         <dc:title>Model-Based Knowing: How Do Students Ground Their Understanding about Climate Systems in Agent-Based Computer Models?</dc:title>

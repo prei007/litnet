@@ -52,6 +52,32 @@ select  ?work ?concept2
     ?work :assessedOutcome ?concept2.
 }
 
+#### Main categories in one table
+# It needs the UNION style because otherwise the table
+# would look more like permutations of the categories. 
+# This can be wrangled into a tidy table. 
+
+SELECT  ?work ?level ?tech ?pdg ?outcomes ?science
+WHERE {
+  {?work a dc:BibliographicResource ;
+          lrmi:educationalLevel ?level .} 
+UNION         
+  {?work a dc:BibliographicResource ;
+   :science ?science .}
+UNION         
+  {?work a dc:BibliographicResource ;
+   :technology ?tech .}
+UNION         
+  {?work a dc:BibliographicResource ;
+   :pedagogy ?pdg .}
+UNION         
+  {?work a dc:BibliographicResource ;
+   :outcome ?outcomes .}
+ }
+ORDER BY ?work
+
+
+
 
 ##### Model use pedagogy
 # science and/or data based. 

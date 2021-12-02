@@ -20,13 +20,13 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 	
 	
 :dateAdded a rdf:Property ; 
-	rdfs:comment "The calendar date the reference was added as yyyy-mm-dd."
+	rdfs:comment "The calendar date the reference was added as yyyy-mm-dd." .
 
 :annotation a rdf:Property ; 
-	rdfs:comment "Object property linking to an annotation.".
+	rdfs:comment "Object property linking to an annotation." .
 	
 :category a rdf:Property ; 
-	rdfs:comment "Object property linking to a category or classification.".
+	rdfs:comment "Object property linking to a category or classification." .
 	
 	
 # The following predicates are deemed useful for 

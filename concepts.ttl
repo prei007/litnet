@@ -35,6 +35,11 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 	
 :learningDomain rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a description of the learning domain".
+
+:educationalLevel rdfs:subPropertyOf :category ;
+	rdfs:label "Education level"@en ; 
+	rdfs:commment "linking to education level" . 
+
 	
 :science rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a description of the science domain".

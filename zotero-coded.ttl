@@ -4,7 +4,7 @@
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+PREFIX : <http://purl.org/dcx/lrmi-terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
@@ -16,7 +16,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Alves2021 a dc:BibliographicResource ;
 	:science :ClimateChangeScience, :Pollution ; 
 	:outcome :KnowledgeOutcomes ;
-	lrmi:educationalLevel :TeacherTraining ;
+	:educationalLevel :TeacherTraining ;
 	:technology :eResearch, :GIS, :DataScienceTool, :ComputerModel, :eLearning, :ScienceBasedModel, :DataBasedModel ;
 	:pedagogy :ModelSimulation ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Alves2021" ; 
@@ -27,7 +27,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :EnvironmentalManagement ;
 	:learningDomain "Watershed integration", "Agriculture" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Highschools ; 
+	:educationalLevel :Highschools ; 
 	:technology :ComputerGame, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation, :InquiryLearning, :ExperientialLearning ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Anderson2020" ; 
@@ -37,7 +37,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Barnett2011 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :MultiDomainOutcomes ;
-	lrmi:educationalLevel :HighSchools ;
+	:educationalLevel :HighSchools ;
 	:technology :GIS, :ComputerModel , :ScienceBasedModel, :DataBasedModel ;
 	:pedagogy :ModelSimulation ; 
 	:researchMethod :PrePost , :InferentialStatistics ; 
@@ -51,7 +51,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Basu2015 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :KnowledgeOutcomes ;
-	lrmi:educationalLevel :Grade8 ;
+	:educationalLevel :Grade8 ;
 	:technology :GIS, :ComputerModel ;
 	:pedagogy :ModelSimulation , MultiModelling, :Scaffolding, :DemonstrationModel ; 
 	:researchMethod :ClinicalInterview , :MixedMethods, :InferentialStatistics ; 
@@ -65,7 +65,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "biological control, crop and flies" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :HighSchools ; 
+	:educationalLevel :HighSchools ; 
 	:technology :NetLogoModel, :ScienceBasedModel ;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime  "60 minutes";
@@ -77,7 +77,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Bhattacharya2020 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ; 
 	:outcome :KnowledgeOutcomes ;
-	lrmi:educationalLevel :Grade8 ;
+	:educationalLevel :Grade8 ;
 	:technology :EDGCM , :ScienceBasedModel, :DataBasedModel ;
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	dc:relation :Bush2018 ; 
@@ -96,7 +96,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	
 :Bush2017 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	lrmi:educationalLevel :UndergraduateStudy ;
+	:educationalLevel :UndergraduateStudy ;
 	:technology :DataBasedModel, :ScienceBasedModel ;
 	:researchMethod :LitReview ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2017" ; 
@@ -106,7 +106,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Bush2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudy ;
+	:educationalLevel :UndergraduateStudy ;
 	:researchMethod :ExperimentalMethod ; 
 	:technology :EDGCM, :DataBasedModel, :ScienceBasedModel ; 
 	:effectiveness "moderate" ; 
@@ -116,7 +116,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	
 :Bush2019 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	lrmi:educationalLevel :UndergraduateStudy ;
+	:educationalLevel :UndergraduateStudy ;
 	:researchMethod :SurveyMethod ; 
 	:technology :EDGCM, :DataBasedModel, :ScienceBasedModel ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2019" ; 
@@ -127,7 +127,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Carey2017 a dc:BibliographicResource ;
 	:science :Ecology, :ClimateChangeScience ;
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudy, GraduateStudy ;
+	:educationalLevel :UndergraduateStudy, GraduateStudy ;
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :DataScienceTool , :ComputerModel, :ScienceBasedModel, :DataBasedModel ; 
 	:researchMethod :PrePost ; 
@@ -139,7 +139,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Cuadrado2017 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudy ;
+	:educationalLevel :UndergraduateStudy ;
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :RolePlay, :ComputerModel ; 
 	:effectiveness "moderate" ; 
@@ -150,7 +150,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Cuccurullo2013 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :PrimaryEducation ;
+	:educationalLevel :PrimaryEducation ;
 	:researchMethod :PrePost, :InferentialStatistics ; 
 	:technology :VirtualReality, :Game ;  
 	:researchMethod :PrePost ;
@@ -164,7 +164,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Dede2017 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :MiddleSchools ;
+	:educationalLevel :MiddleSchools ;
 	:researchMethod :PrePost, :InferentialStatistics ; 
 	:technology :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
@@ -178,7 +178,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "Food chains. Foreaging"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade03 ; 
+	:educationalLevel :Grade03 ; 
 	:technology  :NetLogoModel , :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :MultiModelling ; 
 	:learningTime  "10 hours" ;
@@ -190,7 +190,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 :Dickes2019 a dc:BibliographicResource ;
 	:science :Ecology ;
-	lrmi:educatoinalLevel :MiddleSchools ;
+	:educatoinalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
 	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap, :DemonstrationModel ;
 	:outcome :SystemThinking  ; 
@@ -202,7 +202,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Dinsmore2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudies ;
+	:educationalLevel :UndergraduateStudies ;
 	:researchMethod :PrePost, :InferentialStatistics ; 
 	:technology :ComputerModel ;  
 	:pedagogy :InquiryLearning ; 
@@ -218,7 +218,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "Ecosystem Water" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade08 ; 
+	:educationalLevel :Grade08 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime  "unspecified" ;
@@ -233,7 +233,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Hydrology;
 	:learningDomain "Water cycle" ; 
 	:outcome :KnowledgeOutcomes; 
-	lrmi:educationalLevel :HighSchools ; 
+	:educationalLevel :HighSchools ; 
 	:technology :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation ,  :RolePlay, :InquiryLearning ; 
 	:learningTime "120 minutes" ;
@@ -248,7 +248,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :HmeloSilver2014 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :SystemsThinking ;
-	lrmi:educationalLevel :MiddleSchools ;
+	:educationalLevel :MiddleSchools ;
 	:technology :Hypermedia, :NetLogoModel, :CausalMapModel , :DemonstrationModel ;
 	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
 	:researchMethod :PrePost ;
@@ -258,7 +258,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :HmeloSilver2015 a dc:BibliographicResource ;
 	:science :Ecology ; 
 	:outcome :SystemsThinking ;
-	lrmi:educationalLevel :MiddleSchools ;
+	:educationalLevel :MiddleSchools ;
 	:technology :Hypermedia, :NetLogoModel, :CausalMapModel , :DemonstrationModel ;
 	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
 	:researchMethod :CaseStudyMethod ;
@@ -268,7 +268,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "Balance of nature"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :HighSchools ; 
+	:educationalLevel :HighSchools ; 
 	:technology  :StellaModel, :DemonstrationModel ;  
 	:pedagogy :MisconceptionStrategy ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hovardas2011" ; 
@@ -280,7 +280,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "predator prey systems"; 
 	:outcome :SystemsThinking; 
-	lrmi:educationalLevel :UndergraduateStudy ; 
+	:educationalLevel :UndergraduateStudy ; 
 	:technology :StellaModel ;  
 	:pedagogy :ExpressiveModelling ; 
 	:learningTime "60 minutes" ;
@@ -293,7 +293,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "Pond ecology", "Forest ecology" ; 
 	:outcome :KnoweldgeOutcomes ; 
-	lrmi:educationalLevel :Grade07 ; 
+	:educationalLevel :Grade07 ; 
 	:technology  :ComputerModel, :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ConceptMapping  ; 
 	:learningTime  "multiple days";
@@ -307,7 +307,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse Effect"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade05 ; 
+	:educationalLevel :Grade05 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :Scaffolding ; 
 	:learningTime  "5 hours" ;
@@ -322,7 +322,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Lant2016 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ; 
 	:outcome :KnowledgeOutcomes ;
-	lrmi:educationalLevel :MiddleSchools ;
+	:educationalLevel :MiddleSchools ;
 	:technology :ComputerModel , :ScienceBasedModel ;
 	:pedagogy :ModelSimulation ; 
 	:researchMethod :PrePost , :InferentialStatistics ;
@@ -347,7 +347,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Mallavarapu2015 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
 	:outcome :KnowledgeOutcomes ;
-	lrmi:educationalLevel :HighSchools, :UndergraduateStudy ;
+	:educationalLevel :HighSchools, :UndergraduateStudy ;
 	:technology :NetLogoModel, :ScienceBasedModel ;
 	:pedagogy :ModelSimulation ; 
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ;
@@ -360,7 +360,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Carbon cycle"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :HighSchools ; 
+	:educationalLevel :HighSchools ; 
 	:technology  :NetLogo , :DemonstrationModel;  
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	:learningTime "170 minutes" ;
@@ -385,7 +385,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Lake management"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade07 ; 
+	:educationalLevel :Grade07 ; 
 	:technology :ComputerModel , :ScienceBasedModel;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime  "2 hours" ;
@@ -399,7 +399,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse gas"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade06 ; 
+	:educationalLevel :Grade06 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy  :ModelSimulation ; 
 	:learningTime "120 minutes" ;
@@ -411,7 +411,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 
 :Pallant2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	lrmi:educationalLevel :MiddleSchools, :HighSchools ; 
+	:educationalLevel :MiddleSchools, :HighSchools ; 
 	:technology  :ComputerModel ;  
 	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling , :DemonstrationModel; 
 	:learningTime "Unspecified" ;
@@ -426,7 +426,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology;
 	:learningDomain "Environmental biology"; 
 	:outcome :MultiDomainOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudy ; 
+	:educationalLevel :UndergraduateStudy ; 
 	:technology :VirtualReality ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime "6 days" ;
@@ -462,7 +462,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :EnvironmentalScience;
 	:learningDomain "Environmental accumulations", "carbon cycle"; 
 	:outcome :SystemsThinking ; 
-	lrmi:educationalLevel :UndergraduateStudy ; 
+	:educationalLevel :UndergraduateStudy ; 
 	:technology :SysDyn , :DemonstrationModel ;  
 	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning ; 
 	:learningTime "120 minutes" ;
@@ -477,7 +477,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningDomain "Environmental migration"; 
 	:modelDesign :IndividualCognition ; 
 	:outcome :MultiDomainOutcomes ; 
-	lrmi:educationalLevel :MixedAges ; 
+	:educationalLevel :MixedAges ; 
 	:technology :ComputerModel,  :VirtualReality , :DemonstrationModel;  
 	:pedagogy :RolePlay , :ExperientialLearning ; 
 	:researchMethod :ExperimentalMethod, :SurveyMethod , :InferentialStatistics;
@@ -490,7 +490,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Taillandier2018 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
 	:outcome :KnowledgeOutcomes ;
-	lrmi:educationalLevel :UndergraduateStudy ;
+	:educationalLevel :UndergraduateStudy ;
 	:technology :ABM, :DataBasedModel ;
 	:pedagogy :ModelSimulation ; 
 	:researchMethod :SurveyMethod , :PerformanceAnalysis ;
@@ -502,7 +502,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience;
 	:learningDomain "Model epistemology"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade11 ; 
+	:educationalLevel :Grade11 ; 
 	:technology :ComputerSimulation, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :MultiModelling ; 
 	:learningTime "15 hours" ;
@@ -517,7 +517,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience;
 	:learningDomain  "Greenhouse effect" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel  :UndergraduateStudy ; 
+	:educationalLevel  :UndergraduateStudy ; 
 	:technology :ComputerModel , :DemonstrationModel ;  
 	:pedagogy :MisconceptionStrategy , :ModelSimulation ; 
 	:learningTime "60 minutes" ;
@@ -531,7 +531,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ;
 	:learningDomain "Plant invasion" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel  :Grade04 ; 
+	:educationalLevel  :Grade04 ; 
 	:technology :ComputerModel , :Scratch  ;  
 	:pedagogy :ProblemBasedLearning , :ExpressiveModelling , :Programming; 
 	:learningTime "5 weeks" ;
@@ -544,7 +544,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Climate system"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Grade08 ; 
+	:educationalLevel :Grade08 ; 
 	:technology :Game ;  
 	:pedagogy  :GameDesignLearning ; 
 	:learningTime  "200 minutes" ;
@@ -557,7 +557,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :EnvironmentalManagement, :ClimateAdpatation;
 	:learningDomain "Water management"; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :Adults ; 
+	:educationalLevel :Adults ; 
 	:technology :Game , :ComputerModel, :ScienceBasedModel ;  
 	:pedagogy :RolePlay, :ExperientialLearning ; 
 	:learningTime "2 to 4 hours" ;
@@ -571,7 +571,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse effect" ; 
 	:outcome :KnowledgeOutcomes ; 
-	lrmi:educationalLevel :MiddleSchools ; 
+	:educationalLevel :MiddleSchools ; 
 	:technology :NetLogoModel, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime  "7 days";
@@ -585,7 +585,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :ClimateChangeScience ;
 	:learningDomain "Energy consumption"; 
 	:outcome :SystemsThinking ; 
-	lrmi:educationalLevel :Adults ; 
+	:educationalLevel :Adults ; 
 	:technology :ComputerModel , :Game ;  
 	:pedagogy :ModelSimulation , :RolePlay ; 
 	:learningTime  "1-2 hours";
@@ -598,7 +598,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :EnvironmentalManagement ;
 	:learningDomain "plastic waste management"; 
 	:outcome :MultiDomainOutcomes ; 
-	lrmi:educationalLevel :UndergraduateStudy ; 
+	:educationalLevel :UndergraduateStudy ; 
 	:technology :ComputerModel , :Game ;  
 	:pedagogy  :InquiryLearning , :ModelSimulation ; 
 	:learningTime "8 hours" ;

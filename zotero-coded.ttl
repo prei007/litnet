@@ -190,7 +190,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 		
 :Dickes2019 a dc:BibliographicResource ;
 	:science :Ecology ;
-	:educatoinalLevel :MiddleSchools ;
+	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
 	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap, :DemonstrationModel ;
 	:outcome :SystemThinking  ; 

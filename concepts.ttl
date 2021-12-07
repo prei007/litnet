@@ -99,7 +99,7 @@ lrmi:typicalAgeRange a rdf:Property ;
 
 
 # Educational levels
-# goes with predicate lrmi:educationalLevel. 
+# goes with predicate :educationalLevel. 
 
 :EducationLevel a skos:ConceptScheme ;
 	dc:title "Educational levels thesaurus" ;

@@ -52,6 +52,38 @@ select  ?work ?concept2
     ?work :assessedOutcome ?concept2.
 }
 
+### Walk down and find all works in the base catogory and narrower categories
+# The `*` does path traversal. 
+
+SELECT   ?work ?concept
+WHERE {
+
+    :ComputerModel skos:narrower* ?concept.
+    ?work :technology ?concept.
+
+}
+
+ORDER BY ?work
+
+### Show concept hierarchy from a thesaurus.  
+
+SELECT DISTINCT  ?concept1 ?concept2
+WHERE 
+{
+{
+  :GamesAndSimulations skos:narrower ?concept1 . 
+  }
+ UNION 
+ {
+   :GamesAndSimulations skos:narrower ?concept1 . 
+   ?concept1 skos:narrower ?concept2}
+ }
+
+ORDER BY ?concept1
+
+
+
+
 #### Main categories in one table
 # It needs the UNION style because otherwise the table
 # would look more like permutations of the categories. 
@@ -97,6 +129,15 @@ ORDER BY ?work
 
 
 ########### Counting things
+
+#### count categories in concept schemes
+SELECT ?scheme  (COUNT(?concept) AS ?conceptTotal)
+
+WHERE {
+  ?scheme a skos:ConceptScheme . 
+  ?concept skos:inScheme ?scheme . 
+} 
+GROUP BY ?scheme
 
 ### Number of publications by year in DESCending order
 

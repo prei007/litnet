@@ -492,7 +492,6 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:prefLabel "Computer simulation"@en ;
 	skos:altLabel "Computer model"@en ; 
 	skos:note "The preferred term is ComputerModel" ; 
-	skos:related :ComputerModel ;  
 	skos:broader :GamesAndSimulations . 
 	
 :StrategyGame a skos:Concept ; 
@@ -503,19 +502,23 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 :RolePlay a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Role play"@en ; 
-	skos:broader :GamesAndSimulations . 
+	skos:broader :Game . 
 	
 :ComputerModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer model"@en ;
-	skos:broader :GamesAndSimulations ;
-	skos:related :Simulation .
+	skos:broader :GamesAndSimulations .
 	
 :ABM a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Agent-Based Model"@en ;
 	skos:altLabel "Individual model"@en ;
 	skos:broader :ComputerModel . 
+	
+:NetLogoModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "NetLogo" ;
+	skos:broader :ABM . 
 	
 :SysDyn a skos:Concept ;
 	skos:inScheme :EdTechThesaurus;
@@ -532,23 +535,18 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:inScheme :EdTechThesaurus;
 	skos:prefLabel "Feedback Loop Model"@en ;
 	skos:related :SysDyn, :CausalMapModel ;
-	skos:broader :ComputerModel . 
+	skos:broader :SysDyn . 
+	
+:StellaModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Stella" ;
+	skos:broader :SysDyn . 
 	
 :ClimateModel a skos:Concept ; 
  skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Climate change model"@en ;
 	skos:scopeNote "Scientific models of climate change." ;
 	skos:broader :ComputerModel . 
-	
-:NetLogoModel a skos:Concept ; 
-	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "NetLogo" ;
-	skos:broader :ABM . 
-
-:StellaModel a skos:Concept ;
-	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Stella" ;
-	skos:broader :SysDyn . 
 	
 :Scratch a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;

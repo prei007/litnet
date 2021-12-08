@@ -182,7 +182,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:technology  :NetLogoModel , :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :MultiModelling ; 
 	:learningTime  "10 hours" ;
-	:researchMethod :PrePost , :CaseMethod ;
+	:researchMethod :PrePost , :CaseStudyMethod ;
 	:effectiveness "High"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2016" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
@@ -193,7 +193,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
 	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap, :DemonstrationModel ;
-	:outcome :SystemThinking  ; 
+	:outcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014, :HmeloSilver2015 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
@@ -208,7 +208,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:pedagogy :InquiryLearning ; 
 	:learningTime "30 minutes" ;
 	:researchMethod :PrePost , :PerformanceAnalysis , :InferentialStatistics ;
-	:effectiveness "NA" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dinsmore2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
 		anno:body " More a psychological than educational study. Focus is on metacognitive strategy. Nuanced coding for several strategies. Learning time is only 30 minutes. Advanced statistical analysis. Marginal in environmental education aspects. Marginal for review. "] .
@@ -297,7 +296,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:technology  :ComputerModel, :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ConceptMapping  ; 
 	:learningTime  "multiple days";
-	:researchMethod :CaseMethod, :QualitativeMethod, :PerformanceAnalysis ;
+	:researchMethod :CaseStudyMethod, :QualitativeMethod, :PerformanceAnalysis ;
 	dc:relation :Dede2017 ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Kamarainen2015" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
@@ -338,7 +337,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningDomain "Human geography" ; 
 	:outcome :SystemsThinking ; 
 	:technology  :StrategyGame ;  
-	:researchMethod :LiteratureReview ;
+	:researchMethod :LitReview ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Lux2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
 		anno:body "A conceptual and review paper. Speaks explicitely to social environmental systems, human geography. Calls it the socio-ecological view on systems. Builds on the competence model by Mehren et al. 2018.  The review of computer games is oriented on a framework for complexity. Driving questions (p. 2): >The main questions we strive to answer are: Do digital games provide the requirements necessary for the development of geographical systems thinking and competence? How complex are their modelled systems, and how do the games diﬀer with respect to their complex game design? Are there groups of games that are more suitable for acquiring geographical system competence than others?< In Figure 1 on Page 6 the authors depict their complexity framework but I find it too syntactic. It's basically asking how many elements and relations. It's useful, but not comprehensive enough. Compared to, say ODD and ODD+, it's simplistic. But then, this is about games, not simulations. From my perspective missing is an opening of the black box that hides human cognition and decision making. It is probably fair to say that these strategy games take the human side much more into account than most educational EE simulations, but they do not simulate actual human decision making. And your typical off-the-shelve game is opaque. The game overview is very helpful though!  As so often, the idea that computer should be mind tools, not only learning tools, is forgotten. "] .
@@ -589,7 +588,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:technology :ComputerModel , :Game ;  
 	:pedagogy :ModelSimulation , :RolePlay ; 
 	:learningTime  "1-2 hours";
-	:researchMethod :ExperimentalMethod , :ConceptMappingMeasure , :InterviewMethod , :MixedMethds , :InferentialStatistics ;
+	:researchMethod :ExperimentalMethod , :ConceptMappingMeasure , :InterviewMethod , :MixedMethods , :InferentialStatistics ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Waddington2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
 		anno:body " N = 33. Convience sample.  Control conditions was a different game. The simulation is used in typical role play mode, calculating the effects of decisins in play cycles. The underlying model is not science based, and no real data. Typcial pattern. Careful data analysis The game FATE OF THE WORLD seems a commercial one. Analysis of flaws on p. 187 onwards: Opaque game mechanisms, poor scaffolding of learning, complexity of underlying model.  The learning time is a guestimate "] .

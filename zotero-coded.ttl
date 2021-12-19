@@ -52,8 +52,8 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:science :Ecology ; 
 	:outcome :KnowledgeOutcomes ;
 	:educationalLevel :Grade8 ;
-	:technology :GIS, :ComputerModel ;
-	:pedagogy :ModelSimulation , MultiModelling, :Scaffolding, :DemonstrationModel ; 
+	:technology :GIS, :ComputerModel, :DemonstrationModel ;
+	:pedagogy :ModelSimulation , MultiModelling, :Scaffolding ; 
 	:researchMethod :ClinicalInterview , :MixedMethods, :InferentialStatistics ; 
 	:effectiveness "positive" ; 
 	dc:relation :HmeloSilver2014, :HmeloSilver2015 ; 
@@ -411,8 +411,8 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 :Pallant2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:educationalLevel :MiddleSchools, :HighSchools ; 
-	:technology  :ComputerModel ;  
-	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling , :DemonstrationModel; 
+	:technology  :ComputerModel , :DemonstrationModel;  
+	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling ; 
 	:learningTime "Unspecified" ;
 	:researchMethod :PrePost, :InferentialStatistics ;
 	:effectiveness "Moderate"; 

@@ -2,7 +2,7 @@
 # SKOS concepts 					   #
 ########################################
 
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX : <T>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dc: <http://purl.org/dc/terms/>

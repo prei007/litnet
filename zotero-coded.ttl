@@ -360,7 +360,7 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	:learningDomain "Carbon cycle"; 
 	:outcome :KnowledgeOutcomes ; 
 	:educationalLevel :HighSchools ; 
-	:technology  :NetLogo , :DemonstrationModel;  
+	:technology  :NetLogoModel , :DemonstrationModel;  
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	:learningTime "170 minutes" ;
 	:researchMethod :QualitativeMethod ;

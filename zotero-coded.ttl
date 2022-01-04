@@ -1,5 +1,5 @@
 ########################################
-# Coding computational modelling	    #
+# Coding computational modelling	   #
 ########################################
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
@@ -10,6 +10,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 ##### The studies with coding and inline free annotations 
 
@@ -616,11 +617,6 @@ PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 	dc:creator :PeterReimann ;
 	dc:created "27-Oct-2021" ;
 	anno:body "Annotations can also be standalone. If they refer to a particular paper, the :annotates predicate needs to be used to establish the relation. Searches for annotations need to consider this format, and so do displays of a resource.  The point is that they have the resource as an object. AllegroGraph would show it in the usual display". 
-		
-		
-		
-		
-		
 		
 		
 		

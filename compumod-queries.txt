@@ -287,4 +287,44 @@ GROUP BY ?value
 ORDER BY ?value
 
 
-### 
+###  Argumentation links
+
+# show Arguments - all arguments and there objects
+SELECT ?s ?p ?o WHERE
+{ ?s a arg:ToulminArgument .
+?s ?p ?o. 
+ MINUS {?s rdf:type ?o}
+}
+ORDER BY ?s
+
+# show the data in support of an argument directly
+SELECT ?s   ?d WHERE
+{ ?s a arg:ToulminArgument .
+
+?s arg:hasData/dc:related ?d . 
+
+}
+ORDER BY ?s
+
+# go via claim 
+
+# show the data in support of an argument directly
+SELECT ?s ?c ?d ?t WHERE
+{ ?s a arg:ToulminArgument .
+	?s arg:hasData ?c. 
+ OPTIONAL {?c dc:related ?d}
+ OPTIONAL {?c arg:text ?t} 
+}
+ORDER BY ?s
+
+Better: 
+
+SELECT ?s ("hasData" as ?p) ?d WHERE
+{?s a arg:ToulminArgument . 
+ ?s arg:hasData/dc:related ?d . 
+ }
+
+
+
+
+

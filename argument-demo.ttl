@@ -1,0 +1,83 @@
+########################################
+# Coding computational modelling	   #
+########################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
+
+###### Demonstration of Toulmin style argumentation.
+
+# There is a tradeoff btw simplicity of writing the arguments, which would suggest putting 
+# the content into arg:text, and querying. From the query side, that is messy because there 
+# is now a mix of data props on and link props. 
+
+
+# Causal maps for scaffolding
+:ArgumentCausalMaps rdf:type owl:NamedIndividual ,
+                       arg:ToulminArgument ;
+              arg:hasBacking :Backing01 ;
+              arg:hasClaim :Claim01 ;
+              arg:hasData :Data01 ;
+              arg:hasQualifier :Qualifier01 ;
+              arg:hasRebuttal :Rebuttal01 ;
+              arg:text "Argument concerning the use of causal maps as a scaffold."^^xsd:string .
+              
+:Backing01 rdf:type owl:NamedIndividual ,
+                      :Backing ;
+                      dc:relation " Vestibulum consectetur orci nec lacinia sodales. Etiam finibus justo lacus, eleifend tristique odio porttitor et. In faucibus ex quis risus cursus ullamcorper. Nam lectus lacus, interdum porttitor mattis sed, laoreet vitae neque."" .
+            
+
+:Claim01 rdf:type owl:NamedIndividual ,
+                    arg:Claim ;
+           arg:text "For computational models and simulations to be effective, they need to be scaffolded by causal maps."^^xsd:string .
+
+:Data01 rdf:type owl:NamedIndividual ,
+                   arg:Data ;
+                   arg:text "A data piece can also be put down as text. " ;
+                   dc:relation :HmeloSilver2014, :HmeloSilver2015 .
+
+:Qualifier01 rdf:type owl:NamedIndividual ,
+                        arg:Qualifier .
+
+:Rebuttal01 rdf:type owl:NamedIndividual ,
+                       arg:Rebuttal ;
+                       dc:relation "There are studies that show successful learning without causal maps." .
+	
+	
+# Immersive experiences are helpful 
+:ArgumentImmersiveExperience rdf:type owl:NamedIndividual ,
+                       arg:ToulminArgument ;
+              arg:hasBacking :Backing02 ;
+              arg:hasClaim :Claim02 ;
+              arg:hasData :Data02 ;
+              arg:hasQualifier :Qualifier02, :Qualifier01 ;
+              arg:hasRebuttal :Rebuttal02 ;
+              arg:text "Argument concerning the use of causal maps as a scaffold." .
+
+:Claim02 rdf:type owl:NamedIndividual ,
+                    arg:Claim ;
+                    dc:relation "For computational models and simulations to be effective, they need to be connected with immersive experiences." .	
+		
+:Backing02 rdf:type owl:NamedIndividual ,
+                      :Backing ;
+                   dc:relation "See Vygotsky's theory of social learning" .
+
+:Data02 rdf:type owl:NamedIndividual ,
+                   arg:Data ;
+                   dc:relation :Dickes2019, :Dede2017 .
+
+:Qualifier02 rdf:type owl:NamedIndividual ,
+                        arg:Qualifier .
+
+:Rebuttal02 rdf:type owl:NamedIndividual ,
+                       arg:Rebuttal ;
+                       dc:relation "There are studies that show successful learning without immersive experiences. " .

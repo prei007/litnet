@@ -29,16 +29,16 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
               arg:hasData :Data01 ;
               arg:hasQualifier :Qualifier01 ;
               arg:hasRebuttal :Rebuttal01 ;
-              arg:text "Argument concerning the use of causal maps as a scaffold."^^xsd:string .
+              arg:text "Argument concerning the use of causal maps as a scaffold." .
               
 :Backing01 rdf:type owl:NamedIndividual ,
                       :Backing ;
-                      dc:relation " Vestibulum consectetur orci nec lacinia sodales. Etiam finibus justo lacus, eleifend tristique odio porttitor et. In faucibus ex quis risus cursus ullamcorper. Nam lectus lacus, interdum porttitor mattis sed, laoreet vitae neque."" .
+                      arg:text "Vestibulum consectetur orci nec lacinia sodales. Etiam finibus justo lacus, eleifend tristique odio porttitor et. In faucibus ex quis risus cursus ullamcorper. Nam lectus lacus, interdum porttitor mattis sed, laoreet vitae neque." .
             
 
 :Claim01 rdf:type owl:NamedIndividual ,
                     arg:Claim ;
-           arg:text "For computational models and simulations to be effective, they need to be scaffolded by causal maps."^^xsd:string .
+           arg:text "For computational models and simulations to be effective, they need to be scaffolded by causal maps." .
 
 :Data01 rdf:type owl:NamedIndividual ,
                    arg:Data ;
@@ -50,7 +50,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Rebuttal01 rdf:type owl:NamedIndividual ,
                        arg:Rebuttal ;
-                       dc:relation "There are studies that show successful learning without causal maps." .
+                       arg:text "There are studies that show successful learning without causal maps." .
 	
 	
 # Immersive experiences are helpful 
@@ -58,18 +58,18 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
                        arg:ToulminArgument ;
               arg:hasBacking :Backing02 ;
               arg:hasClaim :Claim02 ;
-              arg:hasData :Data02 ;
+              arg:hasData :Data02, :Data01 ;
               arg:hasQualifier :Qualifier02, :Qualifier01 ;
               arg:hasRebuttal :Rebuttal02 ;
               arg:text "Argument concerning the use of causal maps as a scaffold." .
 
 :Claim02 rdf:type owl:NamedIndividual ,
                     arg:Claim ;
-                    dc:relation "For computational models and simulations to be effective, they need to be connected with immersive experiences." .	
+                    arg:text "For computational models and simulations to be effective, they need to be connected with immersive experiences." .	
 		
 :Backing02 rdf:type owl:NamedIndividual ,
                       :Backing ;
-                   dc:relation "See Vygotsky's theory of social learning" .
+                   arg:text "See Vygotsky's theory of social learning" .
 
 :Data02 rdf:type owl:NamedIndividual ,
                    arg:Data ;
@@ -80,4 +80,4 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Rebuttal02 rdf:type owl:NamedIndividual ,
                        arg:Rebuttal ;
-                       dc:relation "There are studies that show successful learning without immersive experiences. " .
+                       arg:text "There are studies that show successful learning without immersive experiences. " .

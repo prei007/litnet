@@ -9,6 +9,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
+PRERIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
@@ -69,7 +70,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :HighSchools ; 
 	:technology :NetLogoModel, :ScienceBasedModel ;  
 	:pedagogy :ModelSimulation ; 
-	:learningTime  "60 minutes";
+	:learningTime "P1H"^^xsd:duration ;
 	:researchMethod :SurveyMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#BenhadiMarin2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
@@ -182,7 +183,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade03 ; 
 	:technology  :NetLogoModel , :VirtualReality , :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation , :MultiModelling ; 
-	:learningTime  "10 hours" ;
+	:learningTime "P10H"^^xsd:duration ;
 	:researchMethod :PrePost , :CaseStudyMethod ;
 	:effectiveness "High"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2016" ; 
@@ -194,7 +195,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
 	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap, :DemonstrationModel ;
-	:pedagogy :InquiryLearning , :ModelSimulation , :MultiModelling ; 
+	:pedagogy :InquiryLearning  , :ModelSimulation , :MultiModelling ; 
 	:outcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014, :HmeloSilver2015 , Dickes2016 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
@@ -208,7 +209,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:researchMethod :PrePost, :InferentialStatistics ; 
 	:technology :ComputerModel ;  
 	:pedagogy :InquiryLearning ; 
-	:learningTime "30 minutes" ;
+	:learningTime "P30M"^^xsd:duration ;
 	:researchMethod :PrePost , :PerformanceAnalysis , :InferentialStatistics ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dinsmore2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
@@ -222,7 +223,6 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade08 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation ; 
-	:learningTime  "unspecified" ;
 	:researchMethod  :ExperimentalMethod, :InferentialStatistics ;
 	:effectiveness "Moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#
@@ -237,7 +237,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :HighSchools ; 
 	:technology :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation ,  :RolePlay, :InquiryLearning ; 
-	:learningTime "120 minutes" ;
+	:learningTime "P2H"^^xsd:duration ;
 	:researchMethod :PrePost, :PerformanceAnalysis ;
 	:effectiveness "moderate"; 
 	dc:relation :Dede2017 ; 
@@ -284,7 +284,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :UndergraduateStudy ; 
 	:technology :StellaModel ;  
 	:pedagogy :ExpressiveModelling ; 
-	:learningTime "60 minutes" ;
+	:learningTime "P1H"^^xsd:duration ;
 	:researchMethod :ExperimentalMethod , MixedMethods ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jensen2014" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
@@ -297,7 +297,6 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade07 ; 
 	:technology  :ComputerModel, :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ConceptMapping  ; 
-	:learningTime  "multiple days";
 	:researchMethod :CaseStudyMethod, :QualitativeMethod, :PerformanceAnalysis ;
 	dc:relation :Dede2017 ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Kamarainen2015" ; 
@@ -311,7 +310,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade05 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :Scaffolding ; 
-	:learningTime  "5 hours" ;
+	:learningTime  "P5H"^^xsd:duration  ;
 	:researchMethod :PrePost  ;
 	:effectiveness "high (qualitative)"; 
 	dc:relation :Basu2015 , HmeloSilver2014 ; 
@@ -364,7 +363,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :HighSchools ; 
 	:technology  :NetLogoModel , :DemonstrationModel;  
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
-	:learningTime "170 minutes" ;
+	:learningTime "P3H"^^xsd:duration  ;
 	:researchMethod :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Markauskaite2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
@@ -389,7 +388,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade07 ; 
 	:technology :ComputerModel , :ScienceBasedModel;  
 	:pedagogy :ModelSimulation ; 
-	:learningTime  "2 hours" ;
+	:learningTime  "P2H"^^xsd:duration ;
 	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
 	:effectiveness "High"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Nussbaum2015" ; 
@@ -403,7 +402,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade06 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy  :ModelSimulation ; 
-	:learningTime "120 minutes" ;
+	:learningTime "P2H"^^xsd:duration ;
 	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
 	:effectiveness "Moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Özcan2020" ; 
@@ -415,7 +414,6 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :MiddleSchools, :HighSchools ; 
 	:technology  :ComputerModel , :DemonstrationModel;  
 	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling ; 
-	:learningTime "Unspecified" ;
 	:researchMethod :PrePost, :InferentialStatistics ;
 	:effectiveness "Moderate"; 
 	dc:relation :HmeloSilver2014, :Markauskaite2017 ; 
@@ -430,7 +428,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :UndergraduateStudy ; 
 	:technology :VirtualReality ;  
 	:pedagogy :InquiryLearning ; 
-	:learningTime "6 days" ;
+	:learningTime "P6D"^^xsd:duration ;
 	:researchMethod :ExperimentalMethod ;
 	:effectiveness "Moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Pande2021" ; 
@@ -451,7 +449,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:outcome :BehaviorOutcomes ; 
 	:technology :ComputerModel, :ScienceBasedModel ;  
 	:pedagogy  :RolePlay, :ModelSimulation ; 
-	:learningTime "120 minutes" ;
+	:learningTime "P2H"^^xsd:duration ;
 	:researchMethod  :PrePost, :InterviewMethod ;
 	:effectiveness "Moderate"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#RooneyVarga2020" ; 
@@ -466,7 +464,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :UndergraduateStudy ; 
 	:technology :SysDyn , :DemonstrationModel ;  
 	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning ; 
-	:learningTime "120 minutes" ;
+	:learningTime "P2H"^^xsd:duration ;
 	:researchMethod :PrePost , :InferentialStatistics ;
 	:effectiveness "High" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Stave2015" ; 
@@ -506,7 +504,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade11 ; 
 	:technology :ComputerSimulation, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :MultiModelling ; 
-	:learningTime "15 hours" ;
+	:learningTime "P15H"^^xsd:duration ;
 	:researchMethod :SurveyMethod , :QualitativeMethod ;
 	dc:relation :Markauskaite2017 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Tasquier2016" ; 
@@ -521,7 +519,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel  :UndergraduateStudy ; 
 	:technology :ComputerModel , :DemonstrationModel ;  
 	:pedagogy :MisconceptionStrategy , :ModelSimulation ; 
-	:learningTime "60 minutes" ;
+	:learningTime "P1H"^^xsd:duration ;
 	:researchMethod :CaseStudyMethod , :InterviewMethod , :QualitativeMethod, :PrePost ;
 	:effectiveness "moderate to high" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Thacker2019" ; 
@@ -535,7 +533,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel  :Grade04 ; 
 	:technology :ComputerModel , :Scratch  ;  
 	:pedagogy :ProblemBasedLearning , :ExpressiveModelling , :Programming; 
-	:learningTime "5 weeks" ;
+	:learningTime "P35D"^^xsd:duration ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Thomas2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "A curriculum document  describing a learning unit. Aims for integration of computer science and coding with science education. A good example for a modern curriculum. No modelling of social factors"] .
@@ -548,7 +546,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Grade08 ; 
 	:technology :Game ;  
 	:pedagogy  :GameDesignLearning ; 
-	:learningTime  "200 minutes" ;
+	:learningTime  "P3H20M"^^xsd:duration ;
 	:researchMethod :ObservationMethod , :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#TuckerRaymond2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
@@ -561,7 +559,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Adults ; 
 	:technology :Game , :ComputerModel, :ScienceBasedModel ;  
 	:pedagogy :RolePlay, :ExperientialLearning ; 
-	:learningTime "2 to 4 hours" ;
+	:learningTime "P3H"^^xsd:duration ;
 	:researchMethod :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Valkering2013" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
@@ -575,7 +573,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :MiddleSchools ; 
 	:technology :NetLogoModel, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning ; 
-	:learningTime  "7 days";
+	:learningTime  "P7D"^^xsd:duration;
 	:researchMethod :PrePost , :ClinicalInterview, :PerformanceAnalysis, :CaseStudyMethod ;
 	:effectiveness "Moderate"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Visintainer2015" ; 
@@ -589,7 +587,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :Adults ; 
 	:technology :ComputerModel , :Game ;  
 	:pedagogy :ModelSimulation , :RolePlay ; 
-	:learningTime  "1-2 hours";
+	:learningTime  "P2H"^^xsd:duration;
 	:researchMethod :ExperimentalMethod , :ConceptMappingMeasure , :InterviewMethod , :MixedMethods , :InferentialStatistics ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Waddington2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
@@ -602,7 +600,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :UndergraduateStudy ; 
 	:technology :ComputerModel , :Game ;  
 	:pedagogy  :InquiryLearning , :ModelSimulation ; 
-	:learningTime "8 hours" ;
+	:learningTime "P8H"^^xsd:duration ;
 	:researchMethod  :ExperimentalMethod, :PrePost, :InferentialStatistics , :InterviewMethod, :MixedMethods ;
 	:effectiveness "High" ;  
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Yeung2017" ; 

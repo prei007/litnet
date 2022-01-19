@@ -128,6 +128,29 @@ WHERE
 ORDER BY ?work
 
 
+##### Retrieve and AND/OR by filter
+# this is handy for a query string of "open length"
+# when the literals are coming from a selection of a textInput. 
+SELECT ?work ?p ?category
+	{ ?work a dc:BibliographicResource . 
+     ?work ?p ?category . 
+    FILTER (?category in (:NetLogoModel, :StellaModel, :PrePost)) . 
+    }
+ORDER BY ?work
+
+###### Learning time
+# SPARQL does not know about xsd:duration, so xsd:duration() does not work. 
+# It's necessary to use xsd:string() just to get the same string values in 
+# the right order. 
+
+SELECT ?work ?learningTime 
+	{ ?work a dc:BibliographicResource . 
+     ?work :learningTime  ?duration . 
+      BIND (xsd:string(?duration) as ?learningTime )
+    }
+ORDER BY ?learningTime
+
+
 ########### Counting things
 
 #### count categories in concept schemes

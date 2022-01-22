@@ -190,11 +190,13 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " N = 15. Combines two Netlogo models with graphing and visual mapping. Detailled analysis. "] .
 		
+
+# There maybe sthg wrong with the pedagogy line but I have no clue what. 
 :Dickes2019 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
-	:technology :MultiModelling , :VirtualReality , :ABM, :CausalMap , :DemonstrationModel ;
+	:technology :MultiModelling , :VirtualReality , :ABM , :CausalMap , :DemonstrationModel ;
 	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  ; 
 	:outcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014 , :HmeloSilver2015 , Dickes2016 ; 

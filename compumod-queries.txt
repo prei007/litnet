@@ -150,6 +150,11 @@ SELECT ?work ?learningTime
     }
 ORDER BY ?learningTime
 
+# Count duration categories
+SELECT ?duration (COUNT(?duration) as ?learningTime) WHERE {
+     ?work :learningTime  ?duration . }
+GROUP BY ?duration
+
 
 ########### Counting things
 

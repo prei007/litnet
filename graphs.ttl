@@ -47,3 +47,12 @@ ex:Outcomes rdf:type skos:Concept ;
 ex:KnowledgeOutcomes rdf:type skos:Concept ; 
 	skos:inScheme ex:OutcomesThesaurus ; 
 	skos:broader ex:Outcomes .
+
+# Blank node
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+PREFIX dc: <http://purl.org/dc/terms/>
+
+
+:Alves2021 :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ; anno:body "This paper is a combination of scientific research..."]. 

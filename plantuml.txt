@@ -1,0 +1,34 @@
+# PlantUML models
+
+# High level sequence
+
+@startuml
+actor Student as S
+participant RStudio as RS
+database    Database     as DB
+actor Administrator as A 
+participant Shiny
+collections Results
+S -> A : request account
+A -> S : provide access rights 
+S -> A : request repository
+A -> DB : create repository
+A -> DB : create namespace
+A -> RS : create R project
+S -> RS : conduct search and save references
+RS -> Results : Corpus of references
+RS -> DB : import as RDF file
+S -> RS : develop coding scheme 
+RS -> Results : Coding scheme
+RS -> DB : import as RDF file
+S -> RS : Apply coding scheme & annotate
+RS -> Results : Coded and annotated corpus
+S -> DB : perform analysis (SPARQL)
+DB -> RS : document queries 
+S -> RS : perform analysis (R)
+S -> RS : produce report (RMarkdown)
+RS -> Results : report (HTML, Word, PDF)
+S -> A : request dashboard design
+A -> Shiny : develop dashboard design
+Shiny -> Results : interactive dashboard
+@enduml

@@ -38,7 +38,7 @@ select  ?concept1 ?concept2
 
 select  ?concept2
 {
-    :LabBasedLearning skos:broader+/skos:broader ?concept2
+    :LabBasedLearning skos:broader+/ ?concept2
 }
 
 

@@ -1,0 +1,455 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:res="http://purl.org/vocab/resourcelist/schema#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:bibo="http://purl.org/ontology/bibo/"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/">
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/QH95V5CM">
+        <res:resource rdf:resource="info:doi/10.1007/s11251-012-9220-y"/>
+        <z:accessDate>2021-11-10 02:51:31</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <bibo:AcademicArticle rdf:about="info:doi/10.1007/s11251-012-9220-y">
+        <bibo:pages>105-124</bibo:pages>
+        <z:extra>Publisher: Springer</z:extra>
+        <bibo:doi>10.1007/s11251-012-9220-y</bibo:doi>
+        <dcterms:language>en</dcterms:language>
+        <dcterms:abstract>The study examined the effects of two different instructional interventions as support for scientific discovery learning using computer simulations. In two well-known categories of difficulty, data interpretation and self-regulation, instructional interventions for learning with computer simulations on the topic &quot;ecosystem water&quot; were developed and tested using a sample of 124 eighth graders in science classes. The results demonstrate the effectiveness of instructional support for domain-specific factual, conceptual, and procedural knowledge acquisition. Students who received either only instructional support for data interpretation or only for self-regulation achieved the highest learning outcomes. However, a combination of instructional support for data interpretation and self-regulation seemed detrimental for knowledge acquisition. Students who received instructional interventions for both data interpretation and self-regulation also showed the highest values of perceived cognitive load. High cognitive load could be a reason for why a combination of particular instructional interventions does not lead to the expected positive learning outcomes.</dcterms:abstract>
+        <dcterms:title>How Effective Is Instructional Support for Learning with Computer Simulations?</dcterms:title>
+        <dcterms:creator rdf:nodeID="n5"/>
+        <bibo:authorList>
+            <rdf:Seq>
+                <rdf:li rdf:nodeID="n5"/>
+                <rdf:li rdf:nodeID="n7"/>
+                <rdf:li rdf:nodeID="n8"/>
+                <rdf:li rdf:nodeID="n9"/>
+            </rdf:Seq>
+        </bibo:authorList>
+        <dcterms:creator rdf:nodeID="n7"/>
+        <dcterms:creator rdf:nodeID="n8"/>
+        <dcterms:creator rdf:nodeID="n9"/>
+        <dcterms:isPartOf>
+            <bibo:Issue>
+                <bibo:volume>41</bibo:volume>
+                <bibo:issue>1</bibo:issue>
+                <dcterms:date>2013/01/00</dcterms:date>
+                <dcterms:isPartOf>
+                    <bibo:Journal>
+                        <dcterms:title>Instructional Science: An International Journal of the Learning Sciences</dcterms:title>
+                        <bibo:issn>0020-4277</bibo:issn>
+                    </bibo:Journal>
+                </dcterms:isPartOf>
+            </bibo:Issue>
+        </dcterms:isPartOf>
+    </bibo:AcademicArticle>
+    <foaf:Person rdf:nodeID="n5">
+       <foaf:givenName>Marc</foaf:givenName><foaf:surname>Eckhardt</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n7">
+       <foaf:givenName>Detlef</foaf:givenName><foaf:surname>Urhahne</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n8">
+       <foaf:givenName>Olaf</foaf:givenName><foaf:surname>Conrad</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n9">
+       <foaf:givenName>Ute</foaf:givenName><foaf:surname>Harms</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/MKLMCRV2">
+        <res:resource>
+            <bibo:AcademicArticle>
+                <bibo:pages>39-59</bibo:pages>
+                <z:extra>Publisher: Baywood Publishing Company, Inc</z:extra>
+                <dcterms:language>en</dcterms:language>
+                <dcterms:abstract>The objective of this article is to investigate the computer animation and virtual reality technologies for developing a virtual marine museum. The museum consists of three exhibition areas. The first area displays fishes in freshwater, including creeks, rivers, and dams in Taiwan. The second area exhibits marine ecology and creatures of different species in the ocean. The third area is an undersea transparent tunnel where one can see sharks, tuna, and lovely butterfly fish swimming around beautiful coral reefs. Since the museum is developed by computer animation and virtual reality technology, it provides 3D visual effects and interactive user interface. People can breed their favorite fish in the virtual aquarium, and make observations through networks for educational and recreational purposes. A qualitative study was conducted and the results showed that the virtual marine museum could raise students' interest and learning motivation. Therefore, it can be used as an assistant tool in science education for learning marine ecology and promoting ecological protection of oceanic environments as well. (Contains 12 figures.)</dcterms:abstract>
+                <dcterms:title>The Development of a Virtual Marine Museum for Educational Applications</dcterms:title>
+                <dcterms:creator rdf:nodeID="n16"/>
+                <bibo:authorList>
+                    <rdf:Seq>
+                        <rdf:li rdf:nodeID="n16"/>
+                        <rdf:li rdf:nodeID="n18"/>
+                        <rdf:li rdf:nodeID="n19"/>
+                        <rdf:li rdf:nodeID="n20"/>
+                        <rdf:li rdf:nodeID="n21"/>
+                    </rdf:Seq>
+                </bibo:authorList>
+                <dcterms:creator rdf:nodeID="n18"/>
+                <dcterms:creator rdf:nodeID="n19"/>
+                <dcterms:creator rdf:nodeID="n20"/>
+                <dcterms:creator rdf:nodeID="n21"/>
+                <dcterms:isPartOf>
+                    <bibo:Issue>
+                        <bibo:volume>37</bibo:volume>
+                        <bibo:issue>1</bibo:issue>
+                        <dcterms:date>2009/00/00</dcterms:date>
+                        <dcterms:isPartOf>
+                            <bibo:Journal>
+                                <dcterms:title>Journal of Educational Technology Systems</dcterms:title>
+                                <bibo:issn>0047-2395</bibo:issn>
+                            </bibo:Journal>
+                        </dcterms:isPartOf>
+                    </bibo:Issue>
+                </dcterms:isPartOf>
+            </bibo:AcademicArticle>
+        </res:resource>
+        <z:accessDate>2021-11-10 02:52:24</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <foaf:Person rdf:nodeID="n16">
+       <foaf:givenName>Wermhuar</foaf:givenName><foaf:surname>Tarng</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n18">
+       <foaf:givenName>Mei-Yu</foaf:givenName><foaf:surname>Change</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n19">
+       <foaf:givenName>Kuo-Liang</foaf:givenName><foaf:surname>Ou</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n20">
+       <foaf:givenName>Ya-Wen</foaf:givenName><foaf:surname>Chang</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n21">
+       <foaf:givenName>Hsin-Hun</foaf:givenName><foaf:surname>Liou</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/XRUX8GV2">
+        <res:resource rdf:resource="http://onlinelibrary.wiley.com/doi/abs/10.1002/sce.21217"/>
+        <z:accessDate>2021-11-10 02:56:33</z:accessDate>
+        <z:repository>Wiley Online Library</z:repository>
+    </z:UserItem>
+    <bibo:AcademicArticle rdf:about="http://onlinelibrary.wiley.com/doi/abs/10.1002/sce.21217">
+        <bibo:uri>http://onlinelibrary.wiley.com/doi/abs/10.1002/sce.21217</bibo:uri>
+        <bibo:pages>734-776</bibo:pages>
+        <z:extra>_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/sce.21217</z:extra>
+        <bibo:doi>10.1002/sce.21217</bibo:doi>
+        <dcterms:language>en</dcterms:language>
+        <dcterms:abstract>In this paper, we present a third-grade ecology learning environment that integrates two forms of modeling––embodied modeling and agent-based modeling (ABMs)––through the generation of mathematical representations that are common to both forms of modeling. The term “agent” in the context of ABMs indicates individual computational objects or actors that obey simple rules assigned or controlled by the user. It is the interactions between these agents that give rise to emergent, aggregate-level behaviors in complex systems. While several researchers have argued for the effectiveness of ABMs for learning about complex systems, the design of classroom activity systems using ABMs, especially for elementary students, has received relatively less attention. In this paper, we report on a 2-week long proof-of-concept study conducted in a third-grade classroom of 15 students in which students began with an embodied modeling activity of foraging behavior, followed with the generation of mathematical inscriptions based on their embodied actions, and finally, conducted further inquiry of interdependence in an ecosystem using two separate ABMs. Furthermore, we show that the lens of mechanistic reasoning can be productively used to identify the process of students’ conceptual development of interdependence in an ecosystem as they engage in the modeling activities.</dcterms:abstract>
+        <dcterms:title>Development of Mechanistic Reasoning and Multilevel Explanations of Ecology in Third Grade Using Agent-Based Models</dcterms:title>
+        <dcterms:creator rdf:nodeID="n27"/>
+        <bibo:authorList>
+            <rdf:Seq>
+                <rdf:li rdf:nodeID="n27"/>
+                <rdf:li rdf:nodeID="n29"/>
+                <rdf:li rdf:nodeID="n30"/>
+                <rdf:li rdf:nodeID="n31"/>
+            </rdf:Seq>
+        </bibo:authorList>
+        <dcterms:creator rdf:nodeID="n29"/>
+        <dcterms:creator rdf:nodeID="n30"/>
+        <dcterms:creator rdf:nodeID="n31"/>
+        <dcterms:isPartOf>
+            <bibo:Issue>
+                <bibo:volume>100</bibo:volume>
+                <bibo:issue>4</bibo:issue>
+                <dcterms:date>2016</dcterms:date>
+                <dcterms:isPartOf>
+                    <bibo:Journal>
+                        <dcterms:title>Science Education</dcterms:title>
+                        <bibo:issn>1098-237X</bibo:issn>
+                    </bibo:Journal>
+                </dcterms:isPartOf>
+            </bibo:Issue>
+        </dcterms:isPartOf>
+    </bibo:AcademicArticle>
+    <foaf:Person rdf:nodeID="n27">
+        <foaf:givenName>Amanda Catherine</foaf:givenName>
+        <foaf:surname>Dickes</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n29">
+        <foaf:givenName>Pratim</foaf:givenName>
+        <foaf:surname>Sengupta</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n30">
+        <foaf:givenName>Amy Voss</foaf:givenName>
+        <foaf:surname>Farris</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n31">
+       <foaf:givenName>Satabdi</foaf:givenName><foaf:surname>Basu</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/33NJEK4W">
+        <res:resource rdf:resource="info:doi/10.1080/00219266.2019.1569086"/>
+        <z:accessDate>2021-11-10 02:59:10</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <bibo:AcademicArticle rdf:about="info:doi/10.1080/00219266.2019.1569086">
+        <bibo:pages>271-286</bibo:pages>
+        <z:extra>Publisher: Routledge</z:extra>
+        <bibo:doi>10.1080/00219266.2019.1569086</bibo:doi>
+        <dcterms:language>en</dcterms:language>
+        <dcterms:abstract>Individual based models (IBMs) are up-to-date tools both in research and educational areas. Here we introduce an IBM built on NetLogo platform that simulates a top-down trophic cascade controlled by the pressure exerted by two model predators (web-building spiders and ground runner spiders) on a model pest (the olive fruit fly) within a hypothetical agricultural landscape (the olive crop). EcoPred is an IBM that aims to be an educational tool that can help teachers to explain concepts related to ecology in a modern, enjoyable and comprehensive way. EcoPred reflects the changes on a fly population within a simulated olive crop according to (1) the mortality rate caused by the predation of two spider species and energy loss, (2) the energy gain by feeding on flowers and (3) the reproduction rate in olive trees. The model was tested with 26 students achieving very good results in terms of acceptance and interest on the learning method. EcoPred can be used for educational purposes with 16 year old students and older to explain ecological concepts such as trophic level, species interactions, limiting factor and biological control in an interactive way simultaneously introducing students to biology oriented programming languages.</dcterms:abstract>
+        <dcterms:title>EcoPred: An Educational Individual Based Model to Explain Biological Control, a Case Study within an Arable Land</dcterms:title>
+        <bibo:shortTitle>EcoPred</bibo:shortTitle>
+        <dcterms:creator rdf:nodeID="n37"/>
+        <bibo:authorList>
+            <rdf:Seq>
+                <rdf:li rdf:nodeID="n37"/>
+                <rdf:li rdf:nodeID="n39"/>
+                <rdf:li rdf:nodeID="n40"/>
+                <rdf:li rdf:nodeID="n41"/>
+            </rdf:Seq>
+        </bibo:authorList>
+        <dcterms:creator rdf:nodeID="n39"/>
+        <dcterms:creator rdf:nodeID="n40"/>
+        <dcterms:creator rdf:nodeID="n41"/>
+        <dcterms:isPartOf>
+            <bibo:Issue>
+                <bibo:volume>54</bibo:volume>
+                <bibo:issue>3</bibo:issue>
+                <dcterms:date>2020/00/00</dcterms:date>
+                <dcterms:isPartOf>
+                    <bibo:Journal>
+                        <dcterms:title>Journal of Biological Education</dcterms:title>
+                        <bibo:issn>0021-9266</bibo:issn>
+                    </bibo:Journal>
+                </dcterms:isPartOf>
+            </bibo:Issue>
+        </dcterms:isPartOf>
+    </bibo:AcademicArticle>
+    <foaf:Person rdf:nodeID="n37">
+        <foaf:givenName>Jacinto</foaf:givenName>
+        <foaf:surname>Benhadi-Marín</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n39">
+        <foaf:givenName>José Alberto</foaf:givenName>
+        <foaf:surname>Pereira</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n40">
+        <foaf:givenName>José Paulo</foaf:givenName>
+        <foaf:surname>Sousa</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n41">
+        <foaf:givenName>Sónia A. P.</foaf:givenName>
+        <foaf:surname>Santos</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/N2MMMFPK">
+        <res:resource rdf:resource="info:doi/10.1080/03043797.2014.881320"/>
+        <z:accessDate>2021-11-10 03:02:22</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <bibo:AcademicArticle rdf:about="info:doi/10.1080/03043797.2014.881320">
+        <bibo:pages>391-411</bibo:pages>
+        <z:extra>Publisher: Taylor &amp; Francis, Ltd</z:extra>
+        <bibo:doi>10.1080/03043797.2014.881320</bibo:doi>
+        <dcterms:language>en</dcterms:language>
+        <dcterms:abstract>If students really understand the systems they study, they would be able to tell how changes in the system would affect a result. This demands that the students understand the mechanisms that drive its behaviour. The study investigates potential merits of learning how to explicitly model the causal structure of systems. The approach and performance of 15 system dynamics students who are taught to explicitly model the causal structure of the systems they study were compared with the approach and performance of 22 engineering students, who generally did not receive such training. The task was to bring a computer-simulated predator-and-prey ecology to equilibrium. The system dynamics students were significantly more likely than the engineering students to correctly frame the problem. They were not much better at solving the task, however. It seemed that they had only learnt how to make models and not how to use them for reasoning.</dcterms:abstract>
+        <dcterms:title>Does Teaching Students How to Explicitly Model the Causal Structure of Systems Improve Their Understanding of These Systems?</dcterms:title>
+        <dcterms:creator rdf:nodeID="n47"/>
+        <bibo:authorList>
+           <rdf:Seq><rdf:li rdf:nodeID="n47"/></rdf:Seq>
+        </bibo:authorList>
+        <dcterms:isPartOf>
+            <bibo:Issue>
+                <bibo:volume>39</bibo:volume>
+                <bibo:issue>4</bibo:issue>
+                <dcterms:date>2014/00/00</dcterms:date>
+                <dcterms:isPartOf>
+                    <bibo:Journal>
+                        <dcterms:title>European Journal of Engineering Education</dcterms:title>
+                        <bibo:issn>0304-3797</bibo:issn>
+                    </bibo:Journal>
+                </dcterms:isPartOf>
+            </bibo:Issue>
+        </dcterms:isPartOf>
+    </bibo:AcademicArticle>
+    <foaf:Person rdf:nodeID="n47">
+       <foaf:givenName>Eva</foaf:givenName><foaf:surname>Jensen</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/YE8UKPH4">
+        <res:resource rdf:resource="info:doi/10.1080/13504622.2014.911247"/>
+        <z:accessDate>2021-11-10 03:05:01</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <bibo:AcademicArticle rdf:about="info:doi/10.1080/13504622.2014.911247">
+        <bibo:pages>525-541</bibo:pages>
+        <z:extra>Publisher: Routledge</z:extra>
+        <bibo:doi>10.1080/13504622.2014.911247</bibo:doi>
+        <dcterms:language>en</dcterms:language>
+        <dcterms:abstract>Marine education comprises rich and multifaceted issues. Raising general awareness of marine environments and issues demands the development of new learning materials. This study adapts concepts from digital game-based learning to design an innovative marine learning program integrating augmented reality (AR) technology for lower grade primary school students. The proposed activity integrates physical and virtual learning materials, encouraging students to engage in an interactive learning environment that makes learning fun and interesting. The program introduces Taiwan's marine ecology and water resources. To assess learners' engagement, a quasi-experimental research design was used, where the participant pool consisted of 51 primary school students in Taiwan. Results indicate that (1) students were highly confident by the learning activities and viewed them satisfactorily, (2) students acquired the target knowledge, and (3) the innovative learning program specifically helps low academic achievers improve learning performance.</dcterms:abstract>
+        <dcterms:title>Integrating Augmented Reality Technology to Enhance Children's Learning in Marine Education</dcterms:title>
+        <dcterms:creator rdf:nodeID="n54"/>
+        <bibo:authorList>
+           <rdf:Seq><rdf:li rdf:nodeID="n54"/><rdf:li rdf:nodeID="n56"/></rdf:Seq>
+        </bibo:authorList>
+        <dcterms:creator rdf:nodeID="n56"/>
+        <dcterms:isPartOf>
+            <bibo:Issue>
+                <bibo:volume>21</bibo:volume>
+                <bibo:issue>4</bibo:issue>
+                <dcterms:date>2015/00/00</dcterms:date>
+                <dcterms:isPartOf>
+                    <bibo:Journal>
+                        <dcterms:title>Environmental Education Research</dcterms:title>
+                        <bibo:issn>1350-4622</bibo:issn>
+                    </bibo:Journal>
+                </dcterms:isPartOf>
+            </bibo:Issue>
+        </dcterms:isPartOf>
+    </bibo:AcademicArticle>
+    <foaf:Person rdf:nodeID="n54">
+       <foaf:givenName>Su-Ju</foaf:givenName><foaf:surname>Lu</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n56">
+       <foaf:givenName>Ying-Chieh</foaf:givenName><foaf:surname>Liu</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/29CB5DVZ">
+        <res:resource>
+            <bibo:AcademicArticle>
+                <bibo:pages>31-39</bibo:pages>
+                <z:extra>Publisher: National Science Teachers Association</z:extra>
+                <dcterms:language>en</dcterms:language>
+                <dcterms:abstract>For the past 15 years, pine forests across the United States have experienced devastating mountain and southern pine beetle outbreaks (Rosner 2015). These outbreaks are not uncommon but have become increasingly severe. Due to the effects of global warming, pine beetles have been able to survive warmer winters in their native habitats, producing greater numbers of offspring (Strain 2012). Warming temperatures have also allowed pine beetles to migrate farther north into territories where they have never been seen on both the east and west coasts (Blake 2018; Rosner 2015; Schlossberg 2016). Additionally, rising temperatures accompanied by droughts are stressing trees, making it harder for the trees to defend themselves and easier for the beetles to take over (Rosner 2015). As pine beetles have entered new regions of the United States, foresters have not been prepared to tackle the problem and lack the resources to protect their forests (Schlossberg 2016). Over the course of four weeks, in a 50-minute class period, high school biology students engaged in understanding this phenomenon through various lessons aligned to the &quot;Next Generation Science Standards&quot; (NGSS Lead States 2013). Throughout the ecology unit, students were able to build a vast collection of knowledge to better understand the underlying mechanisms that drive pine beetle attacks and then apply this knowledge to an ecological engineering task. This unit is based on the same phenomenon of Xiang and Mitchell (2019), who took middle school students on a field trip to ask experts questions about bark beetle outbreaks and modeled the phenomenon through a computer simulation. In this article, the unit the authors describe takes a different approach, providing teachers with an example of how students are able to develop models in science to drive and support their understanding of engineering.</dcterms:abstract>
+                <dcterms:title>Modeling for Ecological Engineering</dcterms:title>
+                <dcterms:creator rdf:nodeID="n63"/>
+                <bibo:authorList>
+                    <rdf:Seq>
+                       <rdf:li rdf:nodeID="n63"/><rdf:li rdf:nodeID="n65"/>
+                    </rdf:Seq>
+                </bibo:authorList>
+                <dcterms:creator rdf:nodeID="n65"/>
+                <dcterms:isPartOf>
+                    <bibo:Issue>
+                        <bibo:volume>87</bibo:volume>
+                        <bibo:issue>2</bibo:issue>
+                        <dcterms:date>2019/09/00</dcterms:date>
+                        <dcterms:isPartOf>
+                            <bibo:Journal>
+                                <dcterms:title>Science Teacher</dcterms:title>
+                                <bibo:issn>0036-8555</bibo:issn>
+                            </bibo:Journal>
+                        </dcterms:isPartOf>
+                    </bibo:Issue>
+                </dcterms:isPartOf>
+            </bibo:AcademicArticle>
+        </res:resource>
+        <z:accessDate>2021-11-10 03:06:55</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <foaf:Person rdf:nodeID="n63">
+       <foaf:givenName>Lauren</foaf:givenName><foaf:surname>Simpson</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n65">
+        <foaf:givenName>Brooke A.</foaf:givenName>
+        <foaf:surname>Whitworth</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/YRPMJTIF">
+        <res:resource rdf:resource="info:doi/10.1002/nse2.20005"/>
+        <z:accessDate>2021-11-10 03:08:56</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <bibo:AcademicArticle rdf:about="info:doi/10.1002/nse2.20005">
+        <z:extra>Publisher: Wiley</z:extra>
+        <bibo:doi>10.1002/nse2.20005</bibo:doi>
+        <dcterms:language>en</dcterms:language>
+        <dcterms:abstract>Digital games, especially simulations, have supported student learning outcomes in the areas of science and agriculture in classrooms and nonformal settings. Simulations contribute robustly to student achievement in science, technology, engineering, and mathematics (STEM), and agriculture content areas, especially when they are aligned with national education standards. The People in Ecosystems Watershed Integration (PEWI) simulation is a digital game that was evaluated for fit to two national standards: the Next Generation Science Standards (NGSS) and the Agriculture, Food, and Natural Resources Standards (AFNR). The evaluation of alignment of PEWI to NGSS provided &quot;extensive&quot; evidence on a four-point scale for meeting Criterion A: Explaining phenomenon/designing solutions; Criterion B: 3-D learning, science and engineering practices, rated for three areas: (a) &quot;extensive&quot; for science and engineering practices, (b) &quot;adequate&quot; for disciplinary core ideas, and (c) &quot;extensive&quot; for cross-cutting concepts. Additionally, PEWI aligned with nine high school-level NGSS student performance expectations categories. For AFNR Standards, the PEWI evaluation provided evidence for alignment to 10 standards and 17 indicators from the AFNR areas of Environmental Service Systems, Natural Resource Systems, and Plant Systems.</dcterms:abstract>
+        <dcterms:title>Alignment of a Digital Watershed and Land Use Game to National Education Standards</dcterms:title>
+        <dcterms:creator rdf:nodeID="n71"/>
+        <bibo:authorList>
+            <rdf:Seq>
+                <rdf:li rdf:nodeID="n71"/>
+                <rdf:li rdf:nodeID="n73"/>
+                <rdf:li rdf:nodeID="n74"/>
+                <rdf:li rdf:nodeID="n75"/>
+                <rdf:li rdf:nodeID="n76"/>
+            </rdf:Seq>
+        </bibo:authorList>
+        <dcterms:creator rdf:nodeID="n73"/>
+        <dcterms:creator rdf:nodeID="n74"/>
+        <dcterms:creator rdf:nodeID="n75"/>
+        <dcterms:creator rdf:nodeID="n76"/>
+        <dcterms:isPartOf>
+            <bibo:Issue>
+                <bibo:volume>49</bibo:volume>
+                <bibo:issue>1</bibo:issue>
+                <dcterms:date>2020/00/00</dcterms:date>
+                <dcterms:isPartOf>
+                    <bibo:Journal>
+                        <dcterms:title>Natural Sciences Education</dcterms:title>
+                        <bibo:issn>2168-8281</bibo:issn>
+                    </bibo:Journal>
+                </dcterms:isPartOf>
+            </bibo:Issue>
+        </dcterms:isPartOf>
+    </bibo:AcademicArticle>
+    <foaf:Person rdf:nodeID="n71">
+        <foaf:givenName>Katelyn</foaf:givenName>
+        <foaf:surname>Anderson</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n73">
+        <foaf:givenName>Nancy</foaf:givenName>
+        <foaf:surname>Grudens-Schuck</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n74">
+       <foaf:givenName>Robert</foaf:givenName><foaf:surname>Valek</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n75">
+        <foaf:givenName>Lisa A.</foaf:givenName>
+        <foaf:surname>Schulte</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n76">
+        <foaf:givenName>Scott W.</foaf:givenName>
+        <foaf:surname>Smalley</foaf:surname>
+    </foaf:Person>
+    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/5CZ5WM95">
+        <res:resource>
+            <bibo:AcademicArticle>
+                <z:extra>Publisher: Society for Information Technology and Teacher Education</z:extra>
+                <dcterms:language>en</dcterms:language>
+                <dcterms:abstract>This report presents research on preservice (PST) and in-service teachers acquiring digital practices for addressing climate change related to knowing how to employ digital practices for studying visual representations of climate change and engaging students in critiquing online information about climate change. Study 1 examined PSTs understanding of climate change through participation in visiting a laboratory involving scientific study of ecological systems to interact with scientists, collect digital artifacts, and create a virtual field trip using these artifacts for instructional purposes. Study 2 involved PSTs and in-service teachers responding critically to the NASA Climate Change website, identifying digital literacies their sixth-grade students would need to employ in responding to this website and designing activities to foster critical response to the website. Some PSTs focused on issues of bias and ideological assumptions, while other PSTs focused on comprehension strategy instruction. Study 3 examined PSTs critiques of the reliability of two web sources containing conflicting claims and evidence about climate change based on analysis of screenshots of each source, a digital literacy web-based tool for critical analysis of the sources, and whole group class discussion. PSTs assumed the need to consider both perspectives on the validity of climate change claims.</dcterms:abstract>
+                <dcterms:title>Fostering Preservice and In-Service ELA Teachers' Digital Practices for Addressing Climate Change</dcterms:title>
+                <dcterms:creator rdf:nodeID="n83"/>
+                <bibo:authorList>
+                    <rdf:Seq>
+                        <rdf:li rdf:nodeID="n83"/>
+                        <rdf:li rdf:nodeID="n85"/>
+                        <rdf:li rdf:nodeID="n86"/>
+                        <rdf:li rdf:nodeID="n87"/>
+                        <rdf:li rdf:nodeID="n88"/>
+                        <rdf:li rdf:nodeID="n89"/>
+                        <rdf:li rdf:nodeID="n90"/>
+                    </rdf:Seq>
+                </bibo:authorList>
+                <dcterms:creator rdf:nodeID="n85"/>
+                <dcterms:creator rdf:nodeID="n86"/>
+                <dcterms:creator rdf:nodeID="n87"/>
+                <dcterms:creator rdf:nodeID="n88"/>
+                <dcterms:creator rdf:nodeID="n89"/>
+                <dcterms:creator rdf:nodeID="n90"/>
+                <dcterms:isPartOf>
+                    <bibo:Issue>
+                        <bibo:volume>20</bibo:volume>
+                        <bibo:issue>1</bibo:issue>
+                        <dcterms:date>2020/00/00</dcterms:date>
+                        <dcterms:isPartOf>
+                            <bibo:Journal>
+                                <dcterms:title>Contemporary Issues in Technology and Teacher Education (CITE Journal)</dcterms:title>
+                                <bibo:issn>1528-5804</bibo:issn>
+                            </bibo:Journal>
+                        </dcterms:isPartOf>
+                    </bibo:Issue>
+                </dcterms:isPartOf>
+            </bibo:AcademicArticle>
+        </res:resource>
+        <z:accessDate>2021-11-10 03:13:26</z:accessDate>
+        <z:repository>ERIC</z:repository>
+    </z:UserItem>
+    <foaf:Person rdf:nodeID="n83">
+       <foaf:givenName>Richard</foaf:givenName><foaf:surname>Beach</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n85">
+       <foaf:givenName>George</foaf:givenName><foaf:surname>Boggs</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n86">
+       <foaf:givenName>Jill</foaf:givenName><foaf:surname>Castek</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n87">
+       <foaf:givenName>James</foaf:givenName><foaf:surname>Damico</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n88">
+        <foaf:givenName>Alexandra</foaf:givenName>
+        <foaf:surname>Panos</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n89">
+       <foaf:givenName>Renee</foaf:givenName><foaf:surname>Spellman</foaf:surname>
+    </foaf:Person>
+    <foaf:Person rdf:nodeID="n90">
+       <foaf:givenName>Nance</foaf:givenName><foaf:surname>Wilson</foaf:surname>
+    </foaf:Person>
+</rdf:RDF>

@@ -5,11 +5,6 @@
  xmlns:bibo="http://purl.org/ontology/bibo/"
  xmlns:dcterms="http://purl.org/dc/terms/"
  xmlns:foaf="http://xmlns.com/foaf/0.1/">
-    <z:UserItem rdf:about="http://zotero.org/users/local/JzXCrmjR/items/QH95V5CM">
-        <res:resource rdf:resource="info:doi/10.1007/s11251-012-9220-y"/>
-        <z:accessDate>2021-11-10 02:51:31</z:accessDate>
-        <z:repository>ERIC</z:repository>
-    </z:UserItem>
     <bibo:AcademicArticle rdf:about="info:doi/10.1007/s11251-012-9220-y">
         <bibo:pages>105-124</bibo:pages>
         <z:extra>Publisher: Springer</z:extra>

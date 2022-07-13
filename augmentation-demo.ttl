@@ -11,9 +11,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 PREFIX amo: <http://purl.org/spar/amo>
 PREFIX cito: <http://purl.org/spar/cito>
-PREFIX deo: <http://coolfutures.net/rdf/2021/deo#>
+PREFIX deo: <http://purl.org/spar/deo>
+PREFIX oa: <http://www.w3.org/ns/oa#>
 
-# 
+#### Themes 
 
 :Dede2017 a dc:BibliographicResource ;
 	:science :Ecology ;
@@ -55,3 +56,25 @@ PREFIX deo: <http://coolfutures.net/rdf/2021/deo#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
 		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. The VR  is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
+		
+
+#### Rethorical parts
+
+:Dickes2019 dc:hasPart 
+	[a deo:ProblemStatement ; rdf:value "we explore the integration of two such computing technologies for ecosystems science learning: Immersive virtual environments and agent-based computational modeling tools."], 
+	[ a deo:Conclusion ; rdf:value "we believe that the design framework presented in this paper offers insights for researchers and practitioners who aim to better understand how technology can be integrated into everyday classroom science activities, and leveraged to support the co-development of scientific and computational practices in the elementary classroom"] . 
+
+
+		
+#### Citation relations
+
+:Dickes2019 cito:cites :Senguta2019 ;
+	cito:sharesAuthorWith :Sengupta2019 . 
+:Danish2011 cito:expands :Sengupta2019 . 
+:Dickes2019 cito:citesAsEvidence :Dickes2016; 
+	cito:sharesAuthorWith :Dickes2016 . 
+
+
+#### Arguments
+
+

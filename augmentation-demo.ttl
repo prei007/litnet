@@ -1,4 +1,7 @@
-# Are  you okay? 
+#######################
+# Augmenting bibliographic information
+#######################
+
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -13,8 +16,10 @@ PREFIX amo: <http://purl.org/spar/amo>
 PREFIX cito: <http://purl.org/spar/cito>
 PREFIX deo: <http://purl.org/spar/deo>
 PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX semsur: <http://purl.org/SemSur/>
 
-#### Themes 
+#### Some thematically coded works
+
 
 :Dede2017 a dc:BibliographicResource ;
 	:science :Ecology ;
@@ -50,15 +55,42 @@ PREFIX oa: <http://www.w3.org/ns/oa#>
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
 	:technology :MultiModelling , :VirtualReality , :ABM , :CausalMap , :DemonstrationModel ;
-	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  ; 
+#	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  ; 
 	:outcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014 , :HmeloSilver2015 , Dickes2016 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
 		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. The VR  is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
 		
+:Dickes2019 :pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  . 
+		
+		
+#### Some SKOS concepts (Methods)
 
-#### Rethorical parts
+:MethodsThesaurus a skos:ConceptScheme ; 
+	dc:title "Research methods thesaurus " ;
+	skos:hasTopConcept :ResearchMethod .
+
+:ResearchMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus . 
+	
+:ReviewMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Research review"@en ;
+	skos:broader :ResearchMethod .
+
+:ExperimentalMethod  a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Experimental study"@en ;
+	skos:broader :ResearchMethod .
+	
+:PrePost a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Pre and post test."@en ;
+	skos:broader :ExperimentalMethod . 
+	
+
+#### Rhetorical parts
 
 :Dickes2019 dc:hasPart 
 	[a deo:ProblemStatement ; rdf:value "we explore the integration of two such computing technologies for ecosystems science learning: Immersive virtual environments and agent-based computational modeling tools."], 
@@ -77,4 +109,19 @@ PREFIX oa: <http://www.w3.org/ns/oa#>
 
 #### Arguments
 
+:Arg1 a amo:Argument ; 
+	amo:hasClaim :Claim_Arg1 ; 
+	amo:hasEvidence :Evidence_Arg1 ; 
+	amo:hasWarrant :Warrant_Arg1 . 
+	
+:Claim_Arg1 a amo:Claim ; 
+	dc:description "Immersion supports learning about complexity" . 
+	
+:Evidence_Arg1 a amo:Evidence ; 
+	dc:source [ a dc:BibliographicResource ; dc:description "a publication or some other documentary resource" ]; 
+	dc:description "a description of the evidence" . 
+
+:Warrant_Arg1 a amo:Warrant ;
+	dc:description "A formulation of the warrant" . 
+	
 

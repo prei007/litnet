@@ -8,13 +8,58 @@ PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
+PREFIX semsur: <http://purl.org/SemSur/>
+PREFIX deo: <http://purl.org/spar/deo/>
 
 
 #################################
 # Classes and Predicates
 #################################
+
+#### Classes for approaches
+
+semsur:Problem rdf:type owl:Class ; 
+	rdfs:label "research problem"@en; 
+	rdfs:comment "The problem addressed. Synonym: research question." ;
+	rdfs:subClassOf owl:Thing ;
+	owl:equivalentClass deo:ProblemStatement. 
+
+semsur:Approach rdf:type owl:Class ; 
+	rdfs:label "research approach"@en; 
+	rdfs:comment "The plans and procedures for a research topic to solve a particular research problem."
+	rdfs:subClassOf owl:Thing . 
+	
+:Implementation rdf:type owl:Class ; 
+	rdfs:label "mplementation"@en; 
+	rdfs:comment "The realisation of a research approach, e.g, in form of a a course, a study or computer implementation."
+	rdfs:subClassOf owl:Thing . 
+
+:Application rdf:type owl:Class ; 
+	rdfs:label "practical application"@en; 
+	rdfs:comment "The application of a research approach in practice, such as in schools."
+	rdfs:subClassOf owl:Thing . 
+
+#### approach related properties
+
+semsur:hasPositiveAspects a rdf:Property . 
+
+:hasNewAspects a rdf:Property ;
+	rdfs:subPropertyOf semsur:hasPositiveAspects . 
+	
+semsur:hasLimitations a rdf:Property . 
+
+semsur:hasChallenges a rdf:Property . 
+
+semsur:hasImplementation a rdf:Property . 
+
+:respondsTo a rdf:Property . 
+
+
+
+#### Other Properties
 
 # Most of the predicates are from dcterms and bibo, but additional ones are needed
 # to link to information that is relevant to the literature review. 

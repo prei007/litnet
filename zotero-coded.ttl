@@ -196,13 +196,13 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:science :Ecology ;
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
-	:technology :MultiModelling , :VirtualReality , :ABM , :CausalMap , :DemonstrationModel ;
+	:technology :MultiModelling , :VirtualReality , :NetLogo , :CausalMap , :DemonstrationModel ;
 	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  ; 
 	:outcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014 , :HmeloSilver2015 , Dickes2016 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
-		anno:body "A very interesting paper. Combines VR (of a river ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. The VR  is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
+		anno:body "A very interesting paper. Combines VR (of a forest lake ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. The VR  is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
 
 :Dinsmore2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
@@ -431,8 +431,9 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:technology :VirtualReality ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime "P6D"^^xsd:duration ;
-	:researchMethod :ExperimentalMethod ;
+	:researchMethod :ExperimentalMethod ;;
 	:effectiveness "Moderate" ; 
+	:approach :Approach_Immersive_VR ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Pande2021" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " Delayed post test after 2 months, in addition to immediate testing. N = 28. VR simulation fo field and lab gear. Multiple measurement dimensions, but not the deepest of analysis.  "] .
@@ -444,6 +445,20 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Parker2014" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not a empirical paper but a methdological essay on the role of simulation. Important to get the science of modelling right. "] .
+		
+:Puttick2018 a dc:BibliographicResource ;
+	:science :ClimateChangeScience ;
+	:learningDomain "Climate Science" ; 
+	:educationLevel :MiddleSchools;
+	:outcome :SystemsThinking ; 
+	:technology :ComputerModel, :Scratch, :Game ;  
+	:pedagogy  :GameDesignLearning, :InformalLearning ; 
+	:learningTime "P12H"^^xsd:duration ;
+	:researchMethod  :InterviewMethod , :QualitativeMethod, ;
+	:wikiLink "https://eric.ed.gov/?q=puttick&id=EJ1182432" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "30-Jul-2022" ;
+		anno:body " Almost paradigmatic for modelling through programming and game design.  "] .
+
 		
 :RooneyVarga2020 a dc:BibliographicResource ;
 	:science :ClimateChangeImpacts ;
@@ -530,7 +545,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 		
 :Thomas2019 a dc:BibliographicResource ;
 	:science :Ecology ;
-	:learningDomain "Plant invasion" ; 
+	:learningDomain "Species invasion" ; 
 	:outcome :KnowledgeOutcomes ; 
 	:educationalLevel  :Grade04 ; 
 	:technology :ComputerModel , :Scratch  ;  

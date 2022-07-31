@@ -1,0 +1,76 @@
+#### Media and presentation coding
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
+PREFIX semsur: <http://purl.org/SemSur/>
+PREFIX deo: <http://purl.org/spar/deo/>
+PREFIX schema: <http://schema.org/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+
+
+### 1. Adding media to one paper 
+
+:Dickes2019 :learningResource :EcoMOD .
+
+:EcoMOD a schema:LearningResource ; 
+	rdfs:label "EcoMOD curriculum and tools"@en ;
+	schema:name "EcoMOD curriculum and tools"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType edtech:VirtualReality, edtech:NetLogo, "Curriculum materials" ; 
+	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
+	schema:image :EcoMOD_Image_1 , NetLogo_Image_1. 
+	
+:ChrisDede a schema:Person, foaf:Person ;
+	rdfs:label "Chris Dede". 
+
+:AmandaDickes a schema:Person, foaf:Person ;
+	rdfs:label "Amanda Dickes" . 
+
+:ChrisDede_Video a schema:VideoObject ;
+	schema:actor :ChrisDede ;
+	schema:description "Christopher Dede (Harvard University): Immersion in Virtual and Augmented Worlds" ; 
+	schema:LearningResourceType "Presentation" ; 
+	schema:contentUrl "https://www.youtube.com/watch?v=uvxGqyXw7pM"^^anyURI . 
+	
+:EcoMOD_Image_1 a schema:ImageObject ; 
+	schema:caption "EcoMOD screenshot with beaver" ;
+	schema:contentUrl "https://images.app.goo.gl/HW2gu9SCifqgvqDV7"^^xsd:anyURI . 
+	
+:NetLogo_Image_1 a schema:ImageObject ; 
+	schema:caption "NetLogo screenshot" ;
+	schema:contentUrl "https://images.app.goo.gl/gRxHa9Vnpq8nrpsy6"^^xsd:anyURI . 
+	
+:EcoMOD_Image_2 a schema:ImageObject ; 
+	schema:caption "A shot of a lake close to a forest." ;
+	schema:contentUrl "https://photos.smugmug.com/Trail-Photos/n-wFDTst/Indian-Lake-State-Forest/i-TWhCRhx/0/875bddf7/L/Indian%20Lake%20south%20shore-L.jpg"^^xsd:anyURI ;
+	schema:url "https://floridahikes.com/indian-lake-state-forest"^^xsd:anyURI. 
+	
+:EcoMOD_Video_1 a schema:VideoObject ;
+	schema:contentUrl "https://www.youtube.com/watch?v=AKXw4GywF8o"^^xsd:anyURI ;
+	schema:duration "T2M49S"^^xsd:date ;
+	schema:abstract "A 3 minute video describing the project's context and short clips from students and teachers'" . 
+	
+:EcoMOD_Video_2 a schema:VideoObject ;
+	schema:actor :AmandaDickes ;
+	schema:duration "T2M52S"^^xsd:date ;
+	schema:contentUrl "https://www.youtube.com/watch?v=j0pQHyBgGW"^^xsd:anyURI ;
+	schema:abstract "A 3 minute video describing the user interface of EcoMOd" . 	
+
+
+### 2. Sequencing of content (one and multiple papers) 
+
+# you need to use the sequence constructs in RDF: collections or ordered containers. 
+# collections can be embedded and that is likely an advantage. 
+# :slide_a :elements (:image_1 text_3 image_2) . 
+# But you need to learn how to query those structures. 
+

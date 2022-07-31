@@ -1,0 +1,113 @@
+#### Approaches coded
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
+PREFIX semsur: <http://purl.org/SemSur/>
+PREFIX deo: <http://purl.org/spar/deo/>
+
+
+:Cognitivism a :ResearchFramework . 
+
+:MultipleTypesOfKnowledge_Theory a :Theory ;
+	rdfs:label "theory of multiple types of knowledge"@en ; 
+	hasKeyConcepts "Declarative, procedural, conceptual and episodic knowledge" ;
+	:isAlignedWith :Cognitivism. 
+
+:InteractiveImmersiveVR a semsur:ResearchTopic ; 
+	rdfs:label "interactive immersive virtual reality" ;
+	hasGap :IIVR_Problem_1 , IIVR_Problem_2 , :IIVR_Problem_3 , :IIVR_Problem_4 ,
+	 IIVR_Problem_5 , IIVR_Problem_6 .
+	 
+# From Pande 2021
+	
+:IIVR_Problem_1 a :EmpiricalProblem ; 
+	dc:description "Not enough studies" ;
+	:documentedIn :Pande2021 . 
+	
+:IIVR_Problem_2 a :MethodologicalProblem ; 
+	dc:description "Lack of process analyses of how learning happens" ;
+	:documentedIn :Pande2021 . 
+	
+:IIVR_Problem_3 a :EmpiricalProblem ; 
+	dc:description "Insufficient evidence of learning effectiveness (in Higher Education)" ;
+	:documentedIn :Pande2021 . 
+	
+:IIVR_Problem_4 a :EmpiricalProblem ; 
+	dc:description "Novelty effect: Insufficient evidence of long-term learning effectiveness" ;
+	:documentedIn :Pande2021 . 
+	
+:IIVR_Problem_5 a :EmpiricalProblem ; 
+	dc:description "Lack of comparisons with other media/technologies" ;
+	:documentedIn :Pande2021 . 
+	
+:IIVR_Problem_6 a :PedagogicalProblem ; 
+	dc:description "Too little integration of conceptual with procedural-practical knowledge" ;
+	:isInformedBy :MultipleTypesOfKnowledge_Theory ; 
+	:documentedIn :Pande2021 . 
+	
+:Approach_Immersive_VR_1 a semsur:Approach ; 
+	dc:description "The gist of this approach lies, on the design side, on working with authentic content over an extended period of time, using immersiveVR. As a research approach, highlights are longitudinal design and comparison of multiple technologies, compared to VR. "  ; 
+	:respondsTo :IIVR_Problem_1 , IIVR_Problem_2 , :IIVR_Problem_3 , :IIVR_Problem_4 ,
+	 IIVR_Problem_5, IIVR_Problem_6 ; 
+	:hasPositiveAspects "media comparison; longitudinal data; ecological valid setting " ;
+	:hasChallenges "Repeated testing/surveying let to boredom and annoyance. Technology perceived by some 
+		as additional work." ;
+	semsur:hasEvaluation :Evaluation_Pande2021. 
+	
+:Evaluation_Pande2021 a deo:Evaluation ;
+	:documentedIn :Pande2021 ; 
+	:evaluationMethod :QuasiExperiment ;
+	semsur:hasLimitations "Low sample size" ; 
+	:hasResults "moderate effect size" . 
+	
+	
+# From Dickes et al, 2019. 
+
+:SocioConstructivism a :ResearchFramework . 
+
+:EpistemicPractice_Theory a :Theory ;
+	rdfs:label "theory of epistemic practice"@en ; 
+	hasKeyConcepts "practice, community-of-pratice, knowledge-building " ;
+	:isAlignedWith :SocioConstructivism. 
+	
+:MultipleRepresentations_Theory a :Theory ;
+	rdfs:label "learning from multiple representations"@en ; 
+	hasKeyConcepts "graphical representation, textual representation " ;
+	:isAlignedWith :Cognitivism. 
+
+:IIVR_Problem_7 a :PedagogicalProblem ; 
+	dc:description "No research on integration of virtual reality and ABM such that the epistemic practices of ecosystem scientists are made visible to young learner" ;
+	:isInformedBy :EpistemicPractice_Theory, :MultipleRepresentations_Theory ; 
+	:documentedIn :Dickes2019 . 
+
+:Approach_Immersive_VR_2 a semsur:DesignApproach ; 
+	:documentedIn :Dickes2019 ; 
+	:developed_by :ChrisDede, :AmandaDickes ;
+	:documentedIn :Pande2021 ; 
+	dc:description "The first point is the combination of VR with ABM: ... we present a possible pathway for meaningfully blending immersive virtual environments with agent-based computational modeling tools by grounding EcoMOD’s design framework in a conception of the scientific process that makes explicit the material and representational nature of science (Dickes et al 2019, p. 2184)."  ; 
+	:respondsTo :IIVR_Problem_7 ; 
+	:hasPositiveAspects "here " ;
+	:hasChallenges "here" ;
+	semsur:hasEvaluation :Dickes_2019 . 
+	
+:Approach_Immersive_VR_3 a semsur:EmpiricalApproach ; 
+	:documentedIn :Dickes2019 ; 
+	dc:description "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
+	:respondsTo :IIVR_Problem_7 ; 
+	:hasPositiveAspects "here " ;
+	:hasChallenges "here" ;
+	semsur:hasEvaluation :Dickes_2019 . 
+	
+:Evaluation_Dickes2019 a deo:Evaluation ;
+	:documentedIn :Dickes2019 ; 
+	:evaluationMethod :QuasiExperiment ;
+	semsur:hasLimitations "Low sample size" ; 
+	:hasResults "moderate effect size" . 
+	

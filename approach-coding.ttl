@@ -17,12 +17,12 @@ PREFIX deo: <http://purl.org/spar/deo/>
 
 :MultipleTypesOfKnowledge_Theory a :Theory ;
 	rdfs:label "theory of multiple types of knowledge"@en ; 
-	hasKeyConcepts "Declarative, procedural, conceptual and episodic knowledge" ;
-	:isAlignedWith :Cognitivism. 
+	:hasKeyConcepts "Declarative, procedural, conceptual and episodic knowledge" ;
+	:isAlignedWith :Cognitivism . 
 
 :InteractiveImmersiveVR a semsur:ResearchTopic ; 
 	rdfs:label "interactive immersive virtual reality" ;
-	hasGap :IIVR_Problem_1 , IIVR_Problem_2 , :IIVR_Problem_3 , :IIVR_Problem_4 ,
+	:hasGap :IIVR_Problem_1 , IIVR_Problem_2 , :IIVR_Problem_3 , :IIVR_Problem_4 ,
 	 IIVR_Problem_5 , IIVR_Problem_6 .
 	 
 # From Pande 2021
@@ -74,12 +74,12 @@ PREFIX deo: <http://purl.org/spar/deo/>
 
 :EpistemicPractice_Theory a :Theory ;
 	rdfs:label "theory of epistemic practice"@en ; 
-	hasKeyConcepts "practice, community-of-pratice, knowledge-building " ;
+	:hasKeyConcepts "practice, community-of-pratice, knowledge-building " ;
 	:isAlignedWith :SocioConstructivism. 
 	
 :MultipleRepresentations_Theory a :Theory ;
 	rdfs:label "learning from multiple representations"@en ; 
-	hasKeyConcepts "graphical representation, textual representation " ;
+	:hasKeyConcepts "graphical representation, textual representation " ;
 	:isAlignedWith :Cognitivism. 
 
 :IIVR_Problem_7 a :PedagogicalProblem ; 

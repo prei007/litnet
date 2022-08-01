@@ -196,13 +196,15 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:science :Ecology ;
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ObservationMethod ; 
-	:technology :MultiModelling , :VirtualReality , :NetLogo , :CausalMap , :DemonstrationModel ;
-	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  ; 
+	:technology  :VirtualReality , :NetLogo , :CausalMap , :DemonstrationModel ;
+#	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning  ; 
 	:outcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014 , :HmeloSilver2015 , Dickes2016 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
 		anno:body "A very interesting paper. Combines VR (of a forest lake ecosystem) with a simple variant of NetLogo plus various non-computational representations: Causal maps and variables over time diagrams. Builds on the notion of transformative modeling, which refers to a notion from Latour of scientists inscribing models in multiple notations and overlaying them, comparing and constrasting them. The VR  is about going back and forth in time in the ecoystem, thus showing chanbges over years in minutes or a time travel format. I think the re-presentation/transformative modeling is important. see also HmeloSilver2014, HmeloSilver2015"] .
+
+:Dickes2019 :pedagogy :ModelSimulation, :MultiModelling, :InquiryLearning . 
 
 :Dinsmore2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;

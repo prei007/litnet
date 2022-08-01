@@ -8,6 +8,7 @@ PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 PREFIX semsur: <http://purl.org/SemSur/>
@@ -28,10 +29,11 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType edtech:VirtualReality, edtech:NetLogo, "Curriculum materials" ; 
 	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
-	schema:image :EcoMOD_Image_1 , NetLogo_Image_1. 
+	schema:image :EcoMOD_Image_1 , :NetLogo_Image_1 ;
+	schema:video :EcoMOD_Video_1 , :EcoMOD_Video_2 . 
 	
 :ChrisDede a schema:Person, foaf:Person ;
-	rdfs:label "Chris Dede". 
+	rdfs:label "Chris Dede"  . 
 
 :AmandaDickes a schema:Person, foaf:Person ;
 	rdfs:label "Amanda Dickes" . 
@@ -40,7 +42,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 	schema:actor :ChrisDede ;
 	schema:description "Christopher Dede (Harvard University): Immersion in Virtual and Augmented Worlds" ; 
 	schema:LearningResourceType "Presentation" ; 
-	schema:contentUrl "https://www.youtube.com/watch?v=uvxGqyXw7pM"^^anyURI . 
+	schema:contentUrl "https://www.youtube.com/watch?v=uvxGqyXw7pM"^^xsd:anyURI . 
 	
 :EcoMOD_Image_1 a schema:ImageObject ; 
 	schema:caption "EcoMOD screenshot with beaver" ;
@@ -53,16 +55,16 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 :EcoMOD_Image_2 a schema:ImageObject ; 
 	schema:caption "A shot of a lake close to a forest." ;
 	schema:contentUrl "https://photos.smugmug.com/Trail-Photos/n-wFDTst/Indian-Lake-State-Forest/i-TWhCRhx/0/875bddf7/L/Indian%20Lake%20south%20shore-L.jpg"^^xsd:anyURI ;
-	schema:url "https://floridahikes.com/indian-lake-state-forest"^^xsd:anyURI. 
+	schema:url "https://floridahikes.com/indian-lake-state-forest"^^xsd:anyURI . 
 	
 :EcoMOD_Video_1 a schema:VideoObject ;
 	schema:contentUrl "https://www.youtube.com/watch?v=AKXw4GywF8o"^^xsd:anyURI ;
-	schema:duration "T2M49S"^^xsd:date ;
+	schema:duration "T2M49S"^^xsd:duration ;
 	schema:abstract "A 3 minute video describing the project's context and short clips from students and teachers'" . 
 	
 :EcoMOD_Video_2 a schema:VideoObject ;
 	schema:actor :AmandaDickes ;
-	schema:duration "T2M52S"^^xsd:date ;
+	schema:duration "T2M52S"^^xsd:duration ;
 	schema:contentUrl "https://www.youtube.com/watch?v=j0pQHyBgGW"^^xsd:anyURI ;
 	schema:abstract "A 3 minute video describing the user interface of EcoMOd" . 	
 
@@ -73,4 +75,6 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 # collections can be embedded and that is likely an advantage. 
 # :slide_a :elements (:image_1 text_3 image_2) . 
 # But you need to learn how to query those structures. 
+
+:EcoMOD :presentationSequence (:EcoMOD_Image_2 :EcoMOD_Video_1 :EcoMOD_Image_1 :EcoMOD_Video_2 ) . 
 

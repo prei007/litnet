@@ -61,12 +61,18 @@ semsur:TechnologicalProblem rdf:type owl:Class ;
 :ResearchApproach rdf:type owl:Class ; 
 	rdfs:label "research approach"@en ; 
 	rdfs:comment "The plans and procedures for a research topic to solve a particular research problem." ; 
-	owl:equivalentClass semsur:Approach.
+	owl:equivalentClass semsur:Approach .
 	
 :DesignApproach rdf:type owl:Class ; 
 	rdfs:label "design approach"@en ; 
 	rdfs:comment "The problem is addressed through a design." ; 
 	rdfs:subClassOf semsur:Approach . 
+	
+:DesignFeature rdf:type owl:Class ; 
+	rdfs:label "design feature"@en ; 
+	rdfs:comment "Design features make up a design approach." ; 
+	rdfs:subClassOf owl:Thing. 
+
 
 :Implementation rdf:type owl:Class ; 
 	rdfs:label "implementation"@en ; 
@@ -94,6 +100,8 @@ semsur:hasImplementation a rdf:Property .
 :hasApplication a rdf:Property . 
 
 :respondsTo a rdf:Property . 
+
+:hasDesignFeatures a rdf:Property . 
 
 
 

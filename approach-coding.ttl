@@ -87,18 +87,16 @@ PREFIX deo: <http://purl.org/spar/deo/>
 	:isInformedBy :EpistemicPractice_Theory, :MultipleRepresentations_Theory ; 
 	:documentedIn :Dickes2019 . 
 
-:Approach_Immersive_VR_2 a semsur:DesignApproach ; 
+:Approach_Immersive_VR_2 a :DesignApproach ; 
 	:documentedIn :Dickes2019 ; 
-	:developed_by :ChrisDede, :AmandaDickes ;
-	:documentedIn :Pande2021 ; 
 	dc:description "The first point is the combination of VR with ABM: ... we present a possible pathway for meaningfully blending immersive virtual environments with agent-based computational modeling tools by grounding EcoMOD’s design framework in a conception of the scientific process that makes explicit the material and representational nature of science (Dickes et al 2019, p. 2184)."  ; 
 	:respondsTo :IIVR_Problem_7 ; 
+	:hasDesignFeatures :EcoMOD ;
 	:hasPositiveAspects "here " ;
 	:hasChallenges "here" ;
 	semsur:hasEvaluation :Dickes_2019 . 
 	
-:Approach_Immersive_VR_3 a semsur:EmpiricalApproach ; 
-	:documentedIn :Dickes2019 ; 
+:Approach_Immersive_VR_3 a :ResearchApproach
 	dc:description "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
 	:respondsTo :IIVR_Problem_7 ; 
 	:hasPositiveAspects "here " ;
@@ -110,4 +108,26 @@ PREFIX deo: <http://purl.org/spar/deo/>
 	:evaluationMethod :QuasiExperiment ;
 	semsur:hasLimitations "Low sample size" ; 
 	:hasResults "moderate effect size" . 
+
+:EcoMOD a schema:LearningResource ; 
+	rdfs:label "EcoMOD curriculum and tools"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  "Curriculum materials" ; 
+	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
+	schema:hasPart :EcoMOD_VR, :EcoMOD_NetLogo.
+	
+:EcoMOD_VR_Part a schema:LearningResource ; 
+	rdfs:label "EcoMOD VR component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:VirtualReality ; 
+	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+	
+:EcoMOD_NetLogo_Part a schema:LearningResource ; 
+	rdfs:label "EcoMOD NetLogo component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:NetLogo ; 
+	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
 	

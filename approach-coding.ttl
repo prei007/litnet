@@ -1,16 +1,19 @@
 #### Approaches coded
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 PREFIX semsur: <http://purl.org/SemSur/>
 PREFIX deo: <http://purl.org/spar/deo/>
+PREFIX schema: <http://schema.org/> 
 
 
 :Cognitivism a :ResearchFramework . 
@@ -96,12 +99,12 @@ PREFIX deo: <http://purl.org/spar/deo/>
 	:hasChallenges "here" ;
 	semsur:hasEvaluation :Dickes_2019 . 
 	
-:Approach_Immersive_VR_3 a :ResearchApproach
+:Approach_Immersive_VR_3 a :ResearchApproach ;
 	dc:description "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
 	:respondsTo :IIVR_Problem_7 ; 
 	:hasPositiveAspects "here " ;
 	:hasChallenges "here" ;
-	semsur:hasEvaluation :Dickes_2019 . 
+	semsur:hasEvaluation :Evaluation_Dickes2019 . 
 	
 :Evaluation_Dickes2019 a deo:Evaluation ;
 	:documentedIn :Dickes2019 ; 
@@ -115,7 +118,7 @@ PREFIX deo: <http://purl.org/spar/deo/>
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  "Curriculum materials" ; 
 	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
-	schema:hasPart :EcoMOD_VR, :EcoMOD_NetLogo.
+	schema:hasPart :EcoMOD_VR_Part, :EcoMOD_NetLogo_Part.
 	
 :EcoMOD_VR_Part a schema:LearningResource ; 
 	rdfs:label "EcoMOD VR component"@en ;

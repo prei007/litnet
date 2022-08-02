@@ -1,34 +1,35 @@
-##################################
-## Creating slides from queries ##
-##################################
-
+#' ---
+#' title: "Slides generated from a database query"
+#' author: "Peter Reimann"
+#' date: '2022-08-01'
+#' output: slidy_presentation
+#' always_allow_html: true
+#' ---
+#' 
+#+ echo=FALSE
 library(kableExtra)
 library(allegRo)
 library(tidyverse)
-# library(knitr)
 library(urltools)
-
-### Functions
+#'
+#+ echo=FALSE
 stripOffNS <- function(df) {
   df <- lapply(df, function(x) {gsub(">", "", x)})
   df <- lapply(df, function(x) {gsub("<", "", x)})
   df
 }
-
+#'
+#+ echo=FALSE
 ### Making contact with AG 
-
 url = "http://learn-web.com"
 user = "anonymous"
 password = ""
-service = service(url, user, password, testConnection = TRUE)
+service = service(url, user, password, testConnection = FALSE)
 cat = catalog(service, "coolfutures")
 rep = repository(cat, "compumod")
-
-# Optional: Add namespaces
-# addNameSpace(repo = rep, prefix= "lrmi", nsURI = "http://purl.org/dcx/lrmi-terms/")
-
+#'
+#+ echo=FALSE
 ### First query
-
 query = 'SELECT ?s ?d WHERE {
   {?s a :DesignApproach . 
   ?s dc:description ?d}
@@ -37,22 +38,31 @@ query = 'SELECT ?s ?d WHERE {
   ?s dc:description ?d}
   }
 ORDER BY ?s'
-
+#' 
+#+ echo=FALSE
+# clean the dataframe
 workTable <- evalQuery(rep,
                        query = query, returnType = "dataframe",
                        cleanUp = TRUE, convert = TRUE) 
-
 wTab <- as.data.frame(workTable[1])
-# Rename the columns 
-colnames(wTab) <- c("work", "category", "code")
-
+colnames(wTab) <- c("approach", "gist")
 wTab <- stripOffNS(wTab)
-wTab$work <- fragment(wTab$work)
-wTab$category <- fragment(wTab$category)
-wTab$code <- fragment(wTab$code)
+wTab$approach <- urltools::fragment(wTab$approach)
+wTab <- as.tibble(wTab)
+#' 
+#' # Approaches 
+#'
+#+ echo=FALSE, results='asis'
+wTab %>% 
+  kbl() %>%
+  kable_styling()
+#'
+#' # Cars too
+#' 
+#+ echo=FALSE, results='asis'
+dt <- mtcars[1:5, 1:6]
+dt %>%
+  kbl() %>%
+  kable_styling()
+#'
 
-wTabWide %>%
-  kbl(caption = "Categories by works") %>%
-  kable_paper(bootstrap_options = c("striped", "condensed"), full_width = T)
-
-wTabWide 

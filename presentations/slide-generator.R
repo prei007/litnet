@@ -2,6 +2,13 @@
 ## Creating slides from queries using officer ##
 ################################################
 
+# This is a first version, with much left out. In particular, this version does not 
+# allow flexible sequencing of slides. A better version would use presentation-oriented
+# information (a graph, for instance) and then built the slides accordingly. 
+#
+# An important distinction is between a single study and summary information, also not 
+# taken into account here. This is a template for summary information only. 
+
 library(allegRo)
 library(tidyverse)
 library(urltools)
@@ -25,7 +32,7 @@ cat = catalog(service, "coolfutures")
 rep = repository(cat, "compumod")
 
 # Optional: Add namespaces
-# addNameSpace(repo = rep, prefix= "lrmi", nsURI = "http://purl.org/dcx/lrmi-terms/")
+addNameSpace(repo = rep, prefix= "semsur", nsURI = "http://purl.org/SemSur/")
 
 ### Title slide 
 
@@ -33,13 +40,36 @@ pres <- read_pptx("blank-wide.pptx")
 
 
 # add title slide
-pres <- add_slide(pres, layout = "Title Only", master = "Office Theme")
+pres <- add_slide(pres, layout = "Title Slide", master = "Office Theme")
 
 # add Title text
-pres <- ph_with(pres, value = "Research and design approaches", location = ph_location_type(type = "title")) 
+pres <- ph_with(pres, value = "Research and design approaches", location = ph_location_type(type = "ctrTitle")) 
 pres <- ph_with(pres, value = "Peter Reimann, The University of Sydney", location = ph_location_type(type = "subTitle"))
 
-###  add second slide with list of approaches
+### add slide with list of problems
+
+query = 'SELECT ?s ?d WHERE 
+  {?s a ?problemType . 
+   ?problemType rdfs:subClassOf semsur:Problem . 
+  ?s dc:description ?d}
+ORDER BY ?s'
+
+# clean the dataframe
+workTable <- evalQuery(rep,
+                       query = query, returnType = "dataframe",
+                       cleanUp = TRUE, convert = TRUE) 
+wTab <- as.data.frame(workTable[1])
+colnames(wTab) <- c("problem", "gist")
+wTab <- stripOffNS(wTab)
+wTab$problem <- urltools::fragment(wTab$problem)
+wTab <- as.tibble(wTab)
+
+pres <- add_slide(pres, layout = "Title and Content", master = "Office Theme")
+pres <- ph_with(pres, value = "Problems stated in the literature", location = ph_location_type(type = "title"))
+pres <- ph_with(pres, value = wTab, location = ph_location_type(type = "body"))
+
+
+###  add slide with list of approaches
 
 query = 'SELECT ?s ?d WHERE {
   {?s a :DesignApproach . 
@@ -51,7 +81,6 @@ query = 'SELECT ?s ?d WHERE {
 ORDER BY ?s'
 
 # clean the dataframe
-
 workTable <- evalQuery(rep,
                        query = query, returnType = "dataframe",
                        cleanUp = TRUE, convert = TRUE) 
@@ -66,17 +95,6 @@ pres <- ph_with(pres, value = "Approaches found in the literature", location = p
 # pres <- ph_with(pres, value = as.vector(wTab[,1]), location = ph_location_type(type = "body"))
 pres <- ph_with(pres, value = wTab, location = ph_location_type(type = "body"))
 
-##  add a third slide with a table 
-
-# create sample data frame
-frame <- data.frame(a = 1:10, b = 11:20, c = 21:30)
-
-# create slide to hold table
-pres <- add_slide(pres, layout = "Title and Content", master = "Office Theme")
-pres <- ph_with(pres, value = "Table Example", location = ph_location_type(type = "title"))
-
-# add data frame to PowerPoint slide
-pres <- ph_with(pres, value = frame, location = ph_location_type(type = "body"))
 
 ## Add a slide with a picture
 

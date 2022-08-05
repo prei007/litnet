@@ -314,6 +314,38 @@ WHERE
 GROUP BY ?value
 ORDER BY ?value
 
+### Approach
+
+# Find me all problems
+PREFIX semsur: <http://purl.org/SemSur/>
+SELECT ?s ?d WHERE 
+  {?s a ?problemType . 
+   ?problemType rdfs:subClassOf semsur:Problem . 
+  ?s dc:description ?d}
+ORDER BY ?s
+
+# Find me all approaches
+SELECT ?s ?d WHERE {
+  {?s a :DesignApproach . 
+  ?s dc:description ?d}
+  UNION
+  {?s a :ResearchApproach . 
+  ?s dc:description ?d}
+  }
+ORDER BY ?s
+
+### Presentation
+
+# Find me media elaborating on resources
+PREFIX schema: <http://schema.org/>
+
+SELECT ?concept ?mediaName ?mediaType WHERE 
+  {?mediaName a ?mediaType. 
+  ?mediaName schema:about ?concept . 
+  FILTER (?mediaType IN (schema:ImageObject, schema:VideoObject))}
+
+ORDER BY ?concept
+
 
 ###  Argumentation links
 

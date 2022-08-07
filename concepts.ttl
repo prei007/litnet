@@ -14,6 +14,7 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 PREFIX semsur: <http://purl.org/SemSur/>
 PREFIX deo: <http://purl.org/spar/deo/>
+PREFIX schema: <http://schema.org/> 
 
 
 #################################
@@ -167,21 +168,22 @@ semsur:hasImplementation a rdf:Property .
 	rdfs:comment "Data property for keywords other than provided by author".
 	
 	
-### Properties from lrmi1.1 that are useful
+### Properties from schema.org
+# Note: to be replaced by schema:LearningResource properties. 
 
-lrmi:educationalLevel a rdf:Property ;
-	rdfs:comment "predicate linking to a descriptor of the education level".
+schema:educationalLevel a rdf:Property ;
+	rdfs:comment "The level in terms of progression through an educational or training context.".
 	
-lrmi:educationalUse a rdf:Property ;
+schema:educationalUse a rdf:Property ;
 	rdfs:comment "String with the purpose of the work in the context of education".
 	
-lrmi:educationalAlignment a rdf:Property ;
-	rdfs:comment "predicate linking to an schema.org/AlignmentObject".
+schema:educationalAlignment a rdf:Property ;
+	rdfs:comment "predicate linking to a schema:AlignmentObject".
 	
-lrmi:timeRequired a rdf:Property ;
-	rdfs:comment "a string with a schema.org/Duration specification, ex. PT30M".
+schema:timeRequired a rdf:Property ;
+	rdfs:comment "a string with a schema:Duration specification, ex. PT30M".
 	
-lrmi:typicalAgeRange a rdf:Property ;
+schema:typicalAgeRange a rdf:Property ;
 	rdfs:comment "string ex. 7-9, 18+".
 	
 
@@ -190,6 +192,9 @@ lrmi:typicalAgeRange a rdf:Property ;
 # Concept schemes
 #################################
 
+# The concept schemes are mainly codes. Categories only where necessary. 
+# Some of the codes should be moved to their own name space. For instance, for ed tech. 
+# Only specific ones should stay in the default namespace. 
 
 # Educational levels
 # goes with predicate :educationalLevel. 

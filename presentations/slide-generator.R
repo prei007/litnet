@@ -130,9 +130,7 @@ yearTable <- evalQuery(rep,
                        cleanUp = TRUE, limit = 100)
 prtTable <- as.data.frame(yearTable[1])
 colnames(prtTable) <- c("year", "count")
-# create a percentage column
-prtTable$count <- as.numeric(as.character(prtTable$count))
-prtTable <- mutate(prtTable, percentage = round((count / sum(count))*100, 1))
+
 # Nunmbers in graphical form:
 df <- as.data.frame(yearTable[1])
 plot_object <- ggplot(df,aes(return.year, return.yearTotal) ) +
@@ -145,8 +143,7 @@ pres <- add_slide(pres, layout = "Title and Content")
 pres <- ph_with(x = pres, value = plot_object, 
                location = ph_location_type("body") )
 pres<- ph_with(x = pres, "Publications by Year", 
-               location = ph_location_type(
-                 type = "title") )
+               location = ph_location_type(type = "title") )
 
 
 ####### Creating the ppt means printing the object to a file ########

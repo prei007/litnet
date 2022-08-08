@@ -3,7 +3,6 @@
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -20,7 +19,7 @@ PREFIX schema: <http://schema.org/>
 
 :MultipleTypesOfKnowledge_Theory a :Theory ;
 	rdfs:label "theory of multiple types of knowledge"@en ; 
-	:hasKeyConcepts "Declarative, procedural, conceptual and episodic knowledge" ;
+	:hasKeyConcept "Declarative, procedural, conceptual and episodic knowledge" ;
 	:isAlignedWith :Cognitivism . 
 
 :InteractiveImmersiveVR a semsur:ResearchTopic ; 
@@ -28,7 +27,7 @@ PREFIX schema: <http://schema.org/>
 	:hasGap :IIVR_Problem_1 , IIVR_Problem_2 , :IIVR_Problem_3 , :IIVR_Problem_4 ,
 	 IIVR_Problem_5 , IIVR_Problem_6 .
 	 
-# From Pande 2021
+###### From Pande 2021
 	
 :IIVR_Problem_1 a :EmpiricalProblem ; 
 	dc:description "Not enough studies" ;
@@ -55,29 +54,30 @@ PREFIX schema: <http://schema.org/>
 	:isInformedBy :MultipleTypesOfKnowledge_Theory ; 
 	:documentedIn :Pande2021 . 
 	
-:Approach_Immersive_VR_1 a semsur:Approach ; 
+:Approach_Immersive_VR_1 a :ResearchApproach ; 
 	dc:description "The gist of this approach lies, on the design side, on working with authentic content over an extended period of time, using immersiveVR. As a research approach, highlights are longitudinal design and comparison of multiple technologies, compared to VR. "  ; 
 	:respondsTo :IIVR_Problem_1 , IIVR_Problem_2 , :IIVR_Problem_3 , :IIVR_Problem_4 ,
 	 IIVR_Problem_5, IIVR_Problem_6 ; 
-	:hasPositiveAspects "media comparison; longitudinal data; ecological valid setting " ;
-	:hasChallenges "Repeated testing/surveying let to boredom and annoyance. Technology perceived by some 
+	:hasPositiveAspect "media comparison; longitudinal data; ecological valid setting " ;
+	:hasChallenge "Repeated testing/surveying let to boredom and annoyance. Technology perceived by some 
 		as additional work." ;
 	semsur:hasEvaluation :Evaluation_Pande2021. 
 	
 :Evaluation_Pande2021 a deo:Evaluation ;
 	:documentedIn :Pande2021 ; 
 	:evaluationMethod :QuasiExperiment ;
-	semsur:hasLimitations "Low sample size" ; 
-	:hasResults "moderate effect size" . 
+	semsur:hasLimitation "Low sample size" ; 
+	:hasResult "moderate effect size" . 
 	
 	
-# From Dickes et al, 2019. 
+#######  From Dickes et al, 2019. 
+# EcoMOD
 
 :SocioConstructivism a :ResearchFramework . 
 
 :EpistemicPractice_Theory a :Theory ;
 	rdfs:label "theory of epistemic practice"@en ; 
-	:hasKeyConcepts "practice, community-of-pratice, knowledge-building " ;
+	:hasKeyConcept "practice, community-of-practice, knowledge-building " ;
 	:isAlignedWith :SocioConstructivism. 
 	
 :MultipleRepresentations_Theory a :Theory ;
@@ -94,30 +94,27 @@ PREFIX schema: <http://schema.org/>
 	:documentedIn :Dickes2019 ; 
 	dc:description "The first point is the combination of VR with ABM: ... we present a possible pathway for meaningfully blending immersive virtual environments with agent-based computational modeling tools by grounding EcoMOD’s design framework in a conception of the scientific process that makes explicit the material and representational nature of science (Dickes et al 2019, p. 2184)."  ; 
 	:respondsTo :IIVR_Problem_7 ; 
-	:hasDesignFeatures :EcoMOD ;
-	:hasPositiveAspects "here " ;
-	:hasChallenges "here" ;
-	semsur:hasEvaluation :Dickes_2019 . 
+	:hasDesignFeature :EcoMOD ;
+	:advances :SimulationApproach_3 ;
+	:hasPositiveAspect "combines immersive learning with ABM modelling " ;
+	:hasChallenge "limited freedom to students for construcing models" ;
+	semsur:hasEvaluation :Dickes_2019 ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI . 
 	
 :Approach_Immersive_VR_3 a :ResearchApproach ;
 	dc:description "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
 	:respondsTo :IIVR_Problem_7 ; 
-	:hasPositiveAspects "here " ;
-	:hasChallenges "here" ;
 	semsur:hasEvaluation :Evaluation_Dickes2019 . 
 	
 :Evaluation_Dickes2019 a deo:Evaluation ;
-	:documentedIn :Dickes2019 ; 
-	:evaluationMethod :QuasiExperiment ;
-	semsur:hasLimitations "Low sample size" ; 
-	:hasResults "moderate effect size" . 
+	:documentedIn :Dickes2019 .
 
 :EcoMOD a schema:LearningResource ; 
 	rdfs:label "EcoMOD curriculum and tools"@en ;
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  "Curriculum materials" ; 
-	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
 	schema:hasPart :EcoMOD_VR_Part, :EcoMOD_NetLogo_Part.
 	
 :EcoMOD_VR_Part a schema:LearningResource ; 
@@ -125,12 +122,168 @@ PREFIX schema: <http://schema.org/>
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  edtech:VirtualReality ; 
-	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
 	
 :EcoMOD_NetLogo_Part a schema:LearningResource ; 
 	rdfs:label "EcoMOD NetLogo component"@en ;
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  edtech:NetLogo ; 
-	schema:url "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+	
+######  Dede et al 2017
+# ExoCept
+
+:Simulation_Approach_3 a :DesignApproach ; 
+	rdfs:label "immersive simulation EcoXPT"@en ;
+	dc:description "The gist of this approach to simulation is to provide space for modelling, not only simulation, and to link the model to almost real-world environments made available through VR technolgy:Immersive simulations." ;
+	:respondsTo :EcoSystemLearning_Problem_2 , :EcoSystemLearning_Problem_3 ; 
+	:advances :Simulation_Approach_2 ;
+	:hasNewAspect "Situated experimentation tools. Quote: >adds new components to the digital ecosystem and includes six types of experimental tools authentic to ecosystems science< (p.168)" ;
+	:hasDesignFeature :EcoXPT ; 
+	:hasEvaluation  :Evaluation_Grotzer2013 ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecoxpt"^^xsd:anyURI ; 
+	:documentedIn :Dede2017 . 
+	
+
+:EcoXPT a schema:LearningResource ; 
+	rdfs:label "EcoXPT curriculum and tools"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  "Curriculum materials" ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecoxpt"^^xsd:anyURI ;
+	schema:hasPart :EcoXPT_VR_Part , :EcoXPT_Data_Part , :EcoXPT_ConceptMap_Part , :EcoXPT_ExperimentationTools ; 
+	:documentedIn :Dede2017 . 
+	
+:EcoXPT_VR_Part a schema:LearningResource ; 
+	rdfs:label "EcoXPT VR component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:VirtualReality ; 
+	:documentedIn :Dede2017 ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecoxpt"^^xsd:anyURI .
+	
+:EcoXPT_Data_Part a schema:LearningResource ; 
+	rdfs:label "EcoXPT VR component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:DataScienceTool ; 
+	:documentedIn :Dede2017 ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecoxpt"^^xsd:anyURI .
+	
+:EcoXPT_ConceptMap_Part a schema:LearningResource ; 
+	rdfs:label "EcoXPT VR component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:ConceptMapping ; 
+	:documentedIn :Dede2017 ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecoxpt"^^xsd:anyURI .
+	
+:EcoXPT_ExperimentationTools a schema:LearningResource ; 
+	rdfs:label "EcoXPT situated experimentation tools"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:VirtualExperimentation ; 
+	schema:hasPart "Tolerance Tanks", "Tracers", "Comparison Tanks", "Weather Simulator", "Mecosoms", "Sensor Buoy" ;
+	:documentedIn :Dede2017 ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecoxpt"^^xsd:anyURI .
+	
+
+
+####### Kamarainen et al. 2015
+#EcoMuve
+
+:SituatedLearning_Theory a :Theory ;
+	rdfs:label "situated learning theory"@en ; 
+	:hasKeyConcepts "practice, external cognition " ;
+	:isAlignedWith :SocioConstructivism. 
+
+:EcoSystemLearning_Problem_1 a :PedagogicalProblem ; 
+	dc:description "How to overcome the problem that the time frame for real ecosystems investigations is much longer than available in classrooms?" ;
+	:documentedIn :Kamarainen2015 . 
+	
+:Simulation_Approach_1 a :DesignApproach ; 
+	rdfs:label "generic simulation approach"@en ; 
+	:respondsTo :EcoSystemLearning_Problem_1 ; 
+	dc:description "Quote: A common approach is to use a computer-based simulation that represents abstract components and constrains or expands spatial and temporal scales ... allowing students to quickly see a summary of the emergent patterns, cascading or rippling effects of perturbations, and long-term dynamics of a subset of ecosystem components. (Kamarainen 2015 p. 151)" ;
+	:hasChallenge :EcoSystemLearning_Problem_2,:EcoSystemLearning_Problem_3 ;
+	:documentedIn :Kamarainen2015 .
+	
+:EcoSystemLearning_Problem_2 a :PedagogicalProblem ; 
+	dc:description "Quote: While these kinds of simulations are useful in illustrating specific concepts, we argue that they do not provide an appropriate epistemic frame for understanding the process of modeling and the use of models in scientific inquiry. (...) The actions in which the student can engage (variable manipulation, followed by data interpretation) superficially approximate the actions ecological scientists would take when using a computer model, but remove students from the intellectual work of constructing the model and understanding the problem space. (p.151)" ;
+	:documentedIn :Kamarainen2015 .
+	
+:EcoSystemLearning_Problem_3 a :PedagogicalProblem ; 
+	dc:description "Quote: ... the data generated in these activities tends to be self-referential—the model generates data, students reflect on the relationship between the data and model, and students manipulate variables to generate new data for comparison. In contrast, scientists devote a great deal of time and energy to reconciling anomalous data during the process of theory development (p.151)" ;
+	:documentedIn :Kamarainen2015 .
+	
+:Simulation_Approach_2 a :DesignApproach ; 
+	rdfs:label "immersive simulation EcoMUVE"@en ;
+	dc:description "The gist of this approach to simulation is to provide space for modelling, not only simulation, and to link the model to almost real-world environments made available through VR technolgy:Immersive simulations." ;
+	:respondsTo :EcoSystemLearning_Problem_2 , :EcoSystemLearning_Problem_3 ; 
+	:advances :Simulation_Approach_1 ;
+	:hasDesignFeature :EcoMUVE ; 
+	:hasPositiveAspect "provides socio-physical context for situated learning.", "provides scaffolds and augmentation", "combines insider (egocentric) with outside (exocentric) perspective." , "reduces complexity" ; 
+	:hasPositiveAspect "Quote: The immersive environment offers scaffolding and support for perception of important relationships, and for the collection, aggregation and interpretation of data. (p. 153)" ; 
+	:hasPositiveAspect "Quote: The immersive virtual world offers a higher degree of complexity compared to models and simulations typically used in the classroom. (p. 153)" ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomuve"^^xsd:anyURI ;
+	:documentedIn :Kamarainen2015 .
+
+:EcoSystemModelling_Problem_1 a :PedagogicalProblem ; 
+	dc:description "Quote: Students frequently lack the background knowledge and reasoning that would help them build arguments about the relationships in the model. (p. 151)" ;
+	:documentedIn :Kamarainen2015 .
+	
+:EcoSystemModelling_Problem_2 a :PedagogicalProblem ; 
+	dc:description "Quote: students have difficulty organizing and representing data (...), which can impede students’ ability to confront models with data. (p. 151)" ;
+	:documentedIn :Kamarainen2015 .
+
+:EcoMUVE a schema:LearningResource ; 
+	rdfs:label "EcoMUVE curriculum and tools"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  "Curriculum materials" ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomuve"^^xsd:anyURI ;
+	schema:hasPart :EcoMUVE_VR_Part , :EcoMUVE_Data_Part , :EcoMUVE_ConceptMap_Part ; 
+	semsur:hasEvaluation :Evaluation_Kamarainen2012, :Evaluation_Kamarainen2015  , :Evaluation_Grotzer2013 , :Evaluation_Metcalf2014 , :Evaluation_Chen2014 ;
+	:documentedIn :Kamarainen2015 . 
+	
+:EcoMUVE_VR_Part a schema:LearningResource ; 
+	rdfs:label "EcoMUVE VR component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:VirtualReality ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomuve"^^xsd:anyURI .
+	
+:EcoMUVE_Data_Part a schema:LearningResource ; 
+	rdfs:label "EcoMUVE data gathering and visualisation component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:DataScienceTool ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomuve"^^xsd:anyURI .
+	
+:EcoMUVE_ConceptMap_Part a schema:LearningResource ; 
+	rdfs:label "EcoMUVE data gathering and visualisation component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  edtech:ConceptMapping ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomuve"^^xsd:anyURI .
+	
+:Evaluation_Kamarainen2015  a deo:Evaluation ;
+	:documentedIn :Kamarainen2015 .
+	
+:Evaluation_Grotzer2013 a deo:Evaluation ;
+	dc:description  "Grotzer, T. A., Kamarainen, A., Tutwiler, M. S., Metcalf, S., & Dede, C. (2013). Learning to reason about ecosystems dynamics over time: The Challenges of an event-based causal focus. BioScience, 63(4), 288-296." . 
+
+:Evaluation_Grotzer2017 a deo:Evaluation ;
+	dc:description  "Grotzer, T. A., Metcalf, S. J., Tutwiler, M. S., Kamarainen, A. M., Thompson, M., & Dede, C. (2017, April). Teaching the systems aspects of epistemologically authentic experimentation in ecosystems through immersive virtual worlds. Paper presented at the National Association for Research in Science Teaching (NARST), San Antonio, TX." . 
+	
+:Evaluation_Kamarainen2012 a deo:Evaluation ;
+	dc:description  "Kamarainen, A. M., Metcalf, S., Grotzer, T., & Dede, C. (2012). Relating student actions to learning gains: using immersive virtual worlds to support understanding of ecological systems. Indianapolis, ID: National Association of Research in Science Teaching (NARST)." . 
+	
+:Evaluation_Metcalf2014 a deo:Evaluation ;
+	dc:description  "Metcalf, S., Chen, J., Kamarainen, A., Frumin, K., Vickrey, T., Grotzer, T., & Dede, C. (2014). Shifts in student motivation during usage of a multi-user virtual environment for ecosystem science. International Journal of Virtual and Personal Learning Environments (IJVPLE), 5(4), 1-16." . 
+	
+:Evaluation_Chen2014 a deo:Evaluation ;
+	dc:description  "Chen, J. A., Metcalf, S. J., & Tutwiler, M. S. (2014). Motivation and beliefs about the nature of scientific knowledge within an immersive virtual ecosystems environment. Contemporary Educational Psychology, 39, 112-123." . 
+
 	

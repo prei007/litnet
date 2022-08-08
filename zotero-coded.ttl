@@ -87,7 +87,18 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bhattacharya2020" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "24-Oct-2021" ;
 		anno:body "This is a curriculum paper, not an empirical study: a 4-week curriculum module on using EDBCM (here called EzGCM) to develop understanding of core climate-science concepts. Adds numerous pedagogical elements such as formative assessments, investigation tasks, and out-of-model activities. Close in spirit to the model augmentation concept, but more out-of-model oriented. Serious curriculum work."] .
-		
+
+:Bielik2019 a dc:BibliographicResource ;
+	:science :Oceanography ;
+	:learningDomain "Ocean acidification" ;
+	:outcome :KnowledgeOutcomes ;
+	:educationalLevel :MiddleSchools ; 
+	:pedagogy :ExpressiveModeling ; 
+	:researchMethod :DesignExperiment, :PrePost, :InterviewMethod ; 
+	:technology :SageModeller ; 
+	:wikiLink "https://www.ejmste.com/article/shifting-the-balance-engaging-students-in-using-a-modeling-tool-to-learn-about-ocean-acidification-5612" ; 
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "08-Aug-2022" ;
+		anno:body "58 students in two  classes. Interview with 10 students.  Mainly interest measures, with some increase in interest. Also some analysis of questions asked by students. "] .
 	
 :Bush2016 a dc:BibliographicResource ;
 	:science :ClimateChange ;
@@ -300,8 +311,8 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:learningDomain "Pond ecology", "Forest ecology" ; 
 	:outcome :KnoweldgeOutcomes ; 
 	:educationalLevel :Grade07 ; 
-	:technology  :ComputerModel, :VirtualReality, :DemonstrationModel ;  
-	:pedagogy :InquiryLearning, :ConceptMapping  ; 
+	:technology  :ComputerModel, :VirtualReality, :DemonstrationModel , :ConceptMapping ;  
+	:pedagogy :InquiryLearning  ; 
 	:researchMethod :CaseStudyMethod, :QualitativeMethod, :PerformanceAnalysis ;
 	dc:relation :Dede2017 ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Kamarainen2015" ; 

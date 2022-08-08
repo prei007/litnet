@@ -580,6 +580,18 @@ rdf:about="http://coolfutures.net/rdf/2021/edtech#Alves2021">
         <dc:identifier>DOI 10.1007/s10956-017-9725-x</dc:identifier>
     </rdf:Description>
     
+<rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Bielik2018">
+        <dc:title>Shifting the Balance: Engaging Students in Using a Modeling Tool
+to Learn about Ocean Acidification</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Bielik, Tom</dc:creator>
+        <dc:creator>Damelin, Dan</dc:creator>
+        <dc:creator>Krajcik, Joseph S.</dc:creator>
+        <dc:date>2019</dc:date>
+        <edtech:dateAdded>2022-08-08</edtech:dateAdded>
+        <dc:identifier>10.29333/ejmste/99512</dc:identifier>
+    </rdf:Description>
+    
 <!-- 
 Let's leave this one out to meet the year boundary 
 <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Xiang2022">

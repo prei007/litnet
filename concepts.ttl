@@ -63,7 +63,7 @@ semsur:TechnologicalProblem rdf:type owl:Class ;
 :ResearchApproach rdf:type owl:Class ; 
 	rdfs:label "research approach"@en ; 
 	rdfs:comment "The plans and procedures for a research topic to solve a particular research problem." ; 
-	owl:equivalentClass semsur:Approach .
+	rdfs:subClassOf semsur:Approach .
 	
 :DesignApproach rdf:type owl:Class ; 
 	rdfs:label "design approach"@en ; 
@@ -90,12 +90,12 @@ semsur:TechnologicalProblem rdf:type owl:Class ;
 
 semsur:hasPositiveAspects a rdf:Property . 
 
-:hasNewAspects a rdf:Property ;
+:hasNewAspect a rdf:Property ;
 	rdfs:subPropertyOf semsur:hasPositiveAspects . 
 	
-semsur:hasLimitations a rdf:Property . 
+semsur:hasLimitation a rdf:Property . 
 
-semsur:hasChallenges a rdf:Property . 
+semsur:hasChallenge a rdf:Property . 
 
 semsur:hasImplementation a rdf:Property . 
 
@@ -103,7 +103,7 @@ semsur:hasImplementation a rdf:Property .
 
 :respondsTo a rdf:Property . 
 
-:hasDesignFeatures a rdf:Property . 
+:hasDesignFeature a rdf:Property . 
 
 
 
@@ -640,6 +640,11 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:prefLabel "Stella" ;
 	skos:broader :SysDyn . 
 	
+:SageModeler a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "SageModeler" ;
+	skos:broader :SysDyn .
+	
 :ClimateModel a skos:Concept ; 
  skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Climate change model"@en ;
@@ -709,6 +714,11 @@ How do agents make their decisions? Do the agents adapt their behaviour to chang
 	skos:prefLabel "Virtual exhibition"@en ;
 	skos:altLabel "Virtual museum"@en; 
 	skos:broader :ImmersiveTech . 
+	
+:VirtualExperimentation a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Virtual experimentation"@en ;
+	skos:broader :ImmersiveTech .
 
 ### MultiMedia
 

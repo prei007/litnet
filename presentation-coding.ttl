@@ -17,10 +17,10 @@ PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 
-
 ### 1. Adding media to one paper or approach
 
-
+# Step 1: Find (media) resources and describe them, using schema.org
+# Step 2: Link them to other resources (refs, approaches...) with schema:about.
 	
 :ChrisDede a schema:Person, foaf:Person ;
 	rdfs:label "Chris Dede"  . 

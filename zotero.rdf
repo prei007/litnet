@@ -592,6 +592,32 @@ to Learn about Ocean Acidification</dc:title>
         <dc:identifier>10.29333/ejmste/99512</dc:identifier>
     </rdf:Description>
     
+<rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Chen2021">
+        <dc:title>Analyzing student thinking reflected in self‑constructed cognitive maps and its influence on inquiry task performance</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Chen, Juanjuan</dc:creator>
+        <dc:creator>Wang, Minhong</dc:creator>
+        <dc:creator>Dede, Chris</dc:creator>
+        <dc:creator>Grotzer, Tina A.</dc:creator>
+        <dc:date>2021</dc:date>
+        <edtech:dateAdded>2022-08-09</edtech:dateAdded>
+        <dc:identifier>10.1007/s11251-021-09543-8</dc:identifier>
+    </rdf:Description>
+    
+<rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Reilly2021">
+        <dc:title>Assessing Science Identity Exploration in Immersive Virtual Environments: A Mixed Methods Approach</dc:title>
+        <dc:type>journalArticle</dc:type>
+        <dc:creator>Reilly, Joseph M.</dc:creator>
+        <dc:creator>McGivney, Eileen</dc:creator>
+        <dc:creator>Dede, Chris</dc:creator>
+        <dc:creator>Grotzer, Tina A.</dc:creator>
+        <dc:date>2021</dc:date>
+        <edtech:dateAdded>2022-08-09</edtech:dateAdded>
+        <dc:identifier>10.1080/00220973.2020.1712313</dc:identifier>
+    </rdf:Description>
+    
+
+    
 <!-- 
 Let's leave this one out to meet the year boundary 
 <rdf:Description rdf:about="http://coolfutures.net/rdf/2021/edtech#Xiang2022">

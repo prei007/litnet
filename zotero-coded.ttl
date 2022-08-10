@@ -150,6 +150,21 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
 		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance in a pre-post measurement. That comparison is somewhat adhoc, but the study overall is rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects."] .
 		
+:Chen2021 a dc:BibliographicResource ;
+	:science :Ecology, :ClimateChangeScience ;
+	:outcome :KnowledgeOutcomes ; 
+	:educationalLevel :MiddleSchools ;
+	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:technology :VirtualReality, :ConceptMapping ; 
+	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
+	:learningTime "P225M"^^xsd:duration ;
+	:researchMethod :QuasiExperiment, :ConceptMappingMeasure ; 
+	:effectiveness "moderate" ; 
+	:wikiLink "https://doi.org/10.1007/s11251-021-09543-8" ; 
+	dc:related :Kamarainen2015 ;
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "09-Aug-2022" ;
+		anno:body "Uses ecoMUVE as the learning environment  From the abstract: Sixty-nine 11th grade students worked in small groups to explain a fish die-off phenomenon in a virtual ecosystem and collaboratively constructed an integrative cognitive map to facilitate thinking during the task. The map comprised a concept map (representing conceptual thinking about relevant subject knowledge) and a reasoning map (representing the reasoning process). Regression analyses showed that the quality of the student-constructed maps, particularly the reasoning maps, was a significant predictor of inquiry task performance assessed based on students’ written explanations of the phenomenon. Although the quality of the concept maps was not a significant predictor of inquiry task performance, it did predict the quality of the reasoning maps. Student thinking reflected in concept mapping and that reflected in reasoning mapping play different roles in inquiry learning."] .
+		
 :Cuadrado2017 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:outcome :KnowledgeOutcomes ; 
@@ -472,6 +487,21 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:wikiLink "https://eric.ed.gov/?q=puttick&id=EJ1182432" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "30-Jul-2022" ;
 		anno:body " Almost paradigmatic for modelling through programming and game design.  "] .
+		
+:Reilly2021 a dc:BibliographicResource ;
+	:science :Ecology, :ClimateChangeScience ;
+	:outcome :DispositionOutcomes ; 
+	:educationalLevel :MiddleSchools ;
+	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:technology :VirtualReality, :ConceptMapping ; 
+	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
+	:duration "P650M"; 
+	:researchMethod :PrePost, :InterviewMethod ; 
+	:effectiveness "moderate" ; 
+	:wikiLink "https://doi.org/10.1080/00220973.2020.1712313" ; 
+	dc:related :Dede2017 ;
+	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "09-Aug-2022" ;
+		anno:body "Uses ecoXPT as the learning environment.  From the abstract: This paper presents a mixed-methods study of identity exploration in 7th grade science students using a three-week immersive virtual world-based curriculum. Data sources include interviews and prepost assessments which are compared to see how one can best assess science identity exploration. Students had statistically significant gains in scientific self-efficacy, and interviews showed an increasing awareness of what it means to be a scientist and how inquiry and argumentation skills can be used across different disciplines."] .
 
 		
 :RooneyVarga2020 a dc:BibliographicResource ;

@@ -1,0 +1,729 @@
+---
+title: 'Research synthesis: Use of computer simulations for environmental education'
+author: "Peter Reimann & Peter Freebody"
+output:
+  pdf_document: default
+  html_notebook: default
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r include=FALSE}
+# devtools::install_github("baasman/allegRo") # only on first install
+library(kableExtra)
+library(shiny)
+library(allegRo)
+library(tidyverse)
+library(knitr)
+library(urltools)
+```
+
+```{r include=FALSE}
+stripOffNS <- function(df) {
+  df <- lapply(df, function(x) {gsub(">", "", x)})
+  df <- lapply(df, function(x) {gsub("<", "", x)})
+  df
+}
+```
+
+```{r global_options, include=FALSE}
+# This is a way to set options for all code chunks at once
+# Note that you can also dynamically control options by setting them to a value
+
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
+                      dev="png", fig.width = 10, fig.height = 7)
+```
+
+```{r include=FALSE}
+url = "http://learn-web.com"
+user = "anonymous"
+password = ""
+service = service(url, user, password, testConnection = TRUE)
+```
+
+```{r include=FALSE}
+cat = catalog(service, "coolfutures")
+rep = repository(cat, "compumod")
+addNameSpace(repo = rep, prefix= "lrmi", nsURI = "http://purl.org/dcx/lrmi-terms/")
+addNameSpace(repo = rep, prefix= "arg", nsURI = "http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>")
+```
+
+## Introduction
+
+This report provides an analysis of research on the use of models and
+computational models in Environmenal Education (EE), including 
+Climate Change Education (CCE). 
+
+The main gap we identify is the
+almost complete absence of educational use of models that integrate the
+social dimension with the geophysical and environmental dimension While
+there is an abundance of such integrated models in science, engineering
+and resource management, these are rarely used for learning purposes (as
+far as documented in the research literature). We found that the models
+used in educational contexts are almost exclusively focussed on the
+science. We argue that this gap can be overcome by a closer cooperation
+between educators and the socio-environmental and ecological modellers,
+and by a deeper integration of technology education---in particular
+digital technologies/computational thinking---into environmental,
+science and social science education.
+
+This report contains the analysis of the study corpus as of November
+2021. The guiding research questions are: 
+
+1. What kind of computational models are used for environmental and climate science education?
+
+2. What are the pedagogical strategies for including computational modelling?
+
+## Method
+
+## Literature search process
+
+The main source is [ERIC](http://eric.ed.gov) because of its focus on
+educational research and because it uses a controlled vocabulary
+(descriptors). The two constraints on ERIC searches were (a) peer
+reviewed journal publications that are (b) published in the English
+language.
+
+ERIC search tearms and results
+
++-------------------------------+--------------------------------------+
+| Query                         | Results                              |
++===============================+======================================+
+| (1)                           | 79                                   |
+| descriptor:"environmental     |                                      |
+| education" AND                |                                      |
+| descriptor:"computer          |                                      |
+| simulation"                   |                                      |
++-------------------------------+--------------------------------------+
+| (2)                           | 11 results, seven of which           |
+| descriptor:"environmental     | overlapping with (1).                |
+| education" AND                |                                      |
+| descriptor:"computer model"   |                                      |
++-------------------------------+--------------------------------------+
+| (3)                           | 54 results largely not overlapping   |
+| descriptor:"environmental     | with (1) and (2), and indeed more    |
+| education" AND                | general in technology formats.       |
+| descriptor:"Technology        |                                      |
+| integration"                  |                                      |
++-------------------------------+--------------------------------------+
+| (4)                           | Does not yield additional studies    |
+| Replacing “environmental      | that include computer simulations.    | 
+| education” with “climate      |                                       |
+| change education” in (1)-(3)  |                                     |
+| education"                    |                                      |
++-------------------------------+--------------------------------------+
+
+
+
+Similar earches in SCOPUS and OVID did not result in additional relevant
+studies.
+
+The abstracts of 86 studies from (1) and (2) above were then downloaded
+and read to make sure that some kind of computer model was used and that
+the context was formal education (K-12 and Tertiary). 42 studies did not
+meet these criteria and were removed. The remaining studies were read
+and coded, and in the process eight studies were added based on
+following links from the papers.
+
+Initially we imposed no year limits, to make sure we do not miss
+important older works. Since only five papers in the corpus identified
+were published before 2011, and because of the rapid speed of
+technological change, it was decided to use 2011 as the lower and July
+2021 as the upper level for the year range. The five studies were
+remofed from analysis.
+
+The final corpus comprised 47 papers. The data set is publicly available
+in RDF format ([DOI](http://dx.doi.org/10.13140/RG.2.2.18597.42721)) and
+can be accessed as a live data set
+[here](http://h2931697.stratoserver.net:10035/#/catalogs/coolfutures/repositories/compumod/query/r/showAllWorks).
+(Relevant are those with "date added" = 2021-11-20. ).
+
+### Coding
+
+For classifying the studies, we developed several thesauri. The coding categories were developed in an iterative manner, starting from a number of seed categories that got refined and extended based on observations while reading through the studies. The final coding scheme is summarised in `Table 2`.  To make it manageable and reliable, the categories within each thesaurus are hierarchically structured. Furthermore, the categories are managed in database.  More details are provided in the next section and in the Results section. 
+
+The result of the coding in one table:
+
+```{r include=FALSE}
+query = 'SELECT ?work ?p ?o
+ 
+WHERE {
+  ?work a dc:BibliographicResource.
+  ?o a skos:Concept . 
+  ?work ?p ?o . 
+ }
+ORDER BY ?work'
+
+workTable <- evalQuery(rep,
+query = query, returnType = "dataframe",
+cleanUp = TRUE, convert = TRUE) 
+```
+
+```{r include=FALSE}
+wTab <- as.data.frame(workTable[1])
+# Rename the columns 
+colnames(wTab) <- c("work", "category", "code")
+```
+
+```{r include=FALSE}
+# Stripp of URIs
+#wTab <- data.frame(lapply(wTab, function(x) {gsub(">", "", x)}))
+# wTab <- data.frame(lapply(wTab, function(x) {gsub("<", "", x)}))
+wTab <- stripOffNS(wTab)
+wTab$work <- fragment(wTab$work)
+wTab$category <- fragment(wTab$category)
+wTab$code <- fragment(wTab$code)
+```
+
+
+```{r warning=FALSE, include=FALSE}
+wTabWide <- wTab %>%
+  pivot_wider(names_from = category, values_from = code)
+```
+
+
+```{r}
+# Drop the column modelDesign and display table
+wTabWide$modelDesign <- NULL
+# kable(wTabWide, caption = "Table: Categories by Studies.")
+wTabWide %>%
+  kbl(caption = "Categories by works") %>%
+  kable_paper(bootstrap_options = c("striped", "condensed"), full_width = T)
+```
+
+## Descriptive quantitative findings
+
+### Publications by year
+
+The distribution of publications over the years is as follows. 
+
+
+```{r}
+query = 'SELECT ?year (COUNT(?year) AS ?yearTotal)
+        WHERE
+	{ 
+    ?work dc:date ?year .
+    }
+GROUP BY ?year 
+ORDER BY DESC(?year) '
+yearTable <- evalQuery(rep,
+query = query, returnType = "dataframe",
+cleanUp = TRUE, limit = 100)
+prtTable <- as.data.frame(yearTable[1])
+colnames(prtTable) <- c("year", "count")
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count / sum(count))*100, 1))
+# Render the table. 
+prtTable %>%
+  kbl(caption = "Publications by year") %>%
+  kable_paper(full_width = F)
+```
+
+In graphical form:
+
+
+```{r, fig.cap = "Publications by year"}
+df <- as.data.frame(yearTable[1])
+ggplot(df,aes(return.year, return.yearTotal) ) +
+  geom_col() + 
+  xlab("Year") +
+  ylab ("Count") +
+ ggtitle ("Number of publications by year.")
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique. Nunc vel risus commodo viverra maecenas accumsan lacus. Feugiat in ante metus dictum at tempor commodo. Ac felis donec et odio. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Donec ac odio tempor orci dapibus ultrices in. Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+### Student age groups
+
+
+```{r countEducationLevels}
+# count Primary
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    {:PrimaryEducation skos:narrower* ?concept.
+    ?work :educationalLevel ?concept.}
+
+}'
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+schoolPrimary <- qReturn[["return"]][["workCount"]]
+
+#Count Middle
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    {:MiddleSchools skos:narrower* ?concept.
+    ?work :educationalLevel ?concept.}
+
+}'
+qReturn <- evalQuery(rep,
+query = query, returnType = "dataframe",
+cleanUp = TRUE, convert = TRUE) 
+schoolMiddle <- qReturn[["return"]][["workCount"]]
+
+#Count Highschool
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    {:HighSchools skos:narrower* ?concept.
+    ?work :educationalLevel ?concept.}
+
+}'
+qReturn <- evalQuery(rep,
+query = query, returnType = "dataframe",
+cleanUp = TRUE, convert = TRUE) 
+schoolHigh <- qReturn[["return"]][["workCount"]]
+
+#Count Higher Ed
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    {:HigherEducation skos:narrower* ?concept.
+    ?work :educationalLevel ?concept.}
+
+}'
+qReturn <- evalQuery(rep,
+query = query, returnType = "dataframe",
+cleanUp = TRUE, convert = TRUE) 
+schoolTertiary <- qReturn[["return"]][["workCount"]]
+
+#Count Adult ed
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    {:Adults skos:narrower* ?concept.
+    ?work :educationalLevel ?concept.}
+
+}'
+qReturn <- evalQuery(rep,
+query = query, returnType = "dataframe",
+cleanUp = TRUE, convert = TRUE) 
+schoolAdult <- qReturn[["return"]][["workCount"]]
+
+# Finally gather in a df 
+levelsDF <- data.frame(EduLevel = c("Primary", "MiddleSchool", "HighSchool", "HigherEducation", "Adult"), freq = c(schoolPrimary, schoolMiddle, schoolHigh, schoolTertiary, schoolAdult))
+```
+
+```{r include=FALSE}
+# create a percentage column
+levelsDF <- mutate(levelsDF, percentage = round((freq / sum(freq))*100, 1))
+```
+
+
+```{r}
+levelsDF %>%
+  kbl(caption = "Educational levels") %>%
+  kable_paper(full_width = F)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique. Nunc vel risus commodo viverra maecenas accumsan lacus. Feugiat in ante metus dictum at tempor commodo. Ac felis donec et odio. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Donec ac odio tempor orci dapibus ultrices in. 
+
+### Science areas
+
+Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+```{r include=FALSE}
+query = 'SELECT ?science (COUNT(?science) AS ?scienceTotal)
+        WHERE
+	{ 
+    ?work :science ?science .
+    }
+GROUP BY ?science  
+ORDER BY ?science '
+scienceTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(scienceTable[1])
+colnames(prtTable) <- c("science", "count")
+```
+
+```{r include=FALSE}
+# Stripp of URIs
+prtTable <- as.data.frame(stripOffNS(prtTable))
+prtTable$science <- fragment(prtTable$science)
+```
+
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Science areas addressed") %>%
+  kable_paper(full_width = F)
+```
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique. Nunc vel risus commodo viverra maecenas accumsan lacus. Feugiat in ante metus dictum at tempor commodo. Ac felis donec et odio. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Donec ac odio tempor orci dapibus ultrices in. Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+### Learning outcomes targeted
+
+```{r}
+query = 'SELECT ?outcome (COUNT(?outcome) AS ?outcomeTotal)
+        WHERE
+	{ 
+    ?work :outcome ?outcome .
+    }
+GROUP BY ?outcome  
+ORDER BY ?outcome '
+outcomeTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(outcomeTable[1])
+colnames(prtTable) <- c("outcome", "count")
+```
+
+```{r include=FALSE}
+# Stripp of URIs
+prtTable <- data.frame(stripOffNS(prtTable))
+prtTable$outcome <- fragment(prtTable$outcome)
+```
+
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Learning outcomes") %>%
+  kable_paper(full_width = F)
+```
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique. Nunc vel risus commodo viverra maecenas accumsan lacus. Feugiat in ante metus dictum at tempor commodo. Ac felis donec et odio. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Donec ac odio tempor orci dapibus ultrices in. 
+
+
+### Types of simulations and pedagogical strategies
+
+ Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+#### Types of simulations and other technologies 
+
+##### Overview
+
+```{r}
+# All tech
+
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    ?concept a skos:Concept.
+    ?work :technology ?concept.
+} '
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+techAll <- qReturn[["return"]][["workCount"]]
+
+# All types of computer models
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+  :ComputerModel skos:narrower* ?concept.
+  ?work :technology ?concept . 
+
+}' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+techCompModels <- qReturn[["return"]][["workCount"]]
+
+# All immersive tech 
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+  :ImmersiveTech skos:narrower* ?concept.
+  ?work :technology ?concept . 
+
+}' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+techImmersive <- qReturn[["return"]][["workCount"]]
+
+# All multimedia tech 
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+  :MultiMedia skos:narrower* ?concept.
+  ?work :technology ?concept . 
+
+}' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+techMultimmedia <- qReturn[["return"]][["workCount"]]
+
+# All eResearch tech 
+query = 'SELECT  (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+  :eResearch skos:narrower* ?concept.
+  ?work :technology ?concept . 
+
+}' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+techEResearch <- qReturn[["return"]][["workCount"]]
+
+# Finally gather in a df 
+techDF <- data.frame(tech = c("Any technology", "ComputerModels", "ImmersiveTech", "Multimedia", "eResearch"), freq = c(techAll, techCompModels, techImmersive, techMultimmedia, techEResearch))
+```
+
+Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+```{r}
+techDF %>%
+  kbl(caption = "Learning technologies overview") %>%
+  kable_paper(full_width = F)
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique.
+
+##### Studies with 3 or more technologies
+
+goes here.
+
+```{r eval=FALSE, include=FALSE}
+query = 'SELECT  ?work (COUNT(?tech) as ?techCount)
+WHERE 
+{
+    ?work a dc:BibliographicResource . 
+    ?work :technology ?tech .
+}
+
+GROUP BY ?work
+ORDER BY DESC(?techCount)'
+```
+
+
+##### Types of simulations 
+
+
+```{r}
+query = 'SELECT ?concept (COUNT(?work) AS ?techTotal)
+        WHERE
+	{ 
+    :ComputerModel skos:narrower+ ?concept.
+    ?work :technology ?concept .
+    }
+GROUP BY ?concept  
+ORDER BY ?concept '
+modelTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(modelTable[1])
+colnames(prtTable) <- c("modelType", "count")
+```
+
+```{r include=FALSE}
+# Stripp off URIs
+prtTable <- data.frame(stripOffNS(prtTable))
+prtTable$modelType <- fragment(prtTable$modelType)
+```
+
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Simulation and modelling subtypes") %>%
+  kable_paper(full_width = F)
+```
+
+ in. Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+ 
+```{r}
+# demonstration models 
+query = 'SELECT (COUNT(?work) AS ?workCount)
+        WHERE {?work :technology :DemonstrationModel } ' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+d1 <- qReturn[["return"]][["workCount"]]
+
+# science models 
+query = 'SELECT (COUNT(?work) AS ?workCount)
+        WHERE {?work :technology  :DataBasedModel} ' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+d2 <- qReturn[["return"]][["workCount"]]
+
+# datea models 
+query = 'SELECT (COUNT(?work) AS ?workCount)
+        WHERE {?work :technology  :ScienceBasedModel} ' 
+qReturn <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE, convert = TRUE) 
+d3 <- qReturn[["return"]][["workCount"]]
+
+# Finally gather in a df 
+typeDF <- data.frame(grounding = c("Demonstration model", "Data-based model", "Science-based model"), freq = c(d1, d2, d3))
+```
+
+```{r include=FALSE}
+# create a percentage column
+typeDF$freq <- as.numeric(as.character(typeDF$freq))
+typeDF <- mutate(typeDF, percentage = round((freq/sum(freq))*100, 1))
+```
+
+```{r}
+typeDF %>%
+  kbl(caption = "Simulation model grounding") %>%
+  kable_paper(full_width = F)
+```
+
+
+Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+
+#### Pedagogies
+
+
+```{r}
+query = 'SELECT ?pedagogy (COUNT(?work) AS ?count)
+        WHERE
+	{ ?work :pedagogy ?pedagogy }
+GROUP BY ?pedagogy  
+ORDER BY ?pedagogy ' 
+pdgTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(pdgTable[1])
+colnames(prtTable) <- c("pedagogy", "count")
+```
+
+```{r include=FALSE}
+# Stripp of URIs
+prtTable <- data.frame(stripOffNS(prtTable))
+prtTable$pedagogy <- fragment(prtTable$pedagogy)
+```
+
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Pedagogies") %>%
+  kable_paper(full_width = F)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique. 
+
+### Learning time
+Learning time is an important parameter, but by far not all studies mention learning time precisely. We coded learning time in a format starting with the capital letter P (for Period) and then the amount of minutes (M), hours (H), or days (D): P30M is 30 minutes, P2H30M is 2 hours 30 minutes. (This follows the XML standard https://www.w3.org/TR/xmlschema11-1/). 
+
+```{r}
+query = 'SELECT ?duration (COUNT(?duration) as ?learningTime) WHERE {
+            ?work :learningTime  ?duration . }
+         GROUP BY ?duration '
+timeTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(timeTable[1])
+colnames(prtTable) <- c("duration", "count")
+```
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Learning duration") %>%
+  kable_paper(full_width = F)
+```
+
+### Research Methods 
+
+```{r}
+query = 'SELECT ?method (COUNT(?method) AS ?methodTotal)
+        WHERE
+	{?work :researchMethod ?method }
+GROUP BY ?method  
+ORDER BY ?method '
+methodTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(methodTable[1])
+colnames(prtTable) <- c("method", "count")
+```
+
+```{r include=FALSE}
+# Stripp of URIs
+prtTable <- data.frame(stripOffNS(prtTable))
+prtTable$method <- fragment(prtTable$method)
+```
+
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Research methods") %>%
+  kable_paper(full_width = F)
+```
+
+ Ac felis donec et odio. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Donec ac odio tempor orci dapibus ultrices in. Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+
+### Effectiveness of interventions
+Needs some introduction to how this has been assessed. 
+
+```{r}
+query = 'SELECT ?effect (COUNT(?effect) AS ?effectTotal)
+        WHERE
+	{ ?work :effectiveness ?effect }
+GROUP BY ?effect  
+ORDER BY ?effect '
+effectTable <- evalQuery(rep,
+  query = query, returnType = "dataframe",
+  cleanUp = TRUE)
+prtTable <- as.data.frame(effectTable[1])
+colnames(prtTable) <- c("effectiveness", "count")
+```
+
+
+
+```{r include=FALSE}
+# create a percentage column
+prtTable$count <- as.numeric(as.character(prtTable$count))
+prtTable <- mutate(prtTable, percentage = round((count/sum(count))*100, 1))
+```
+
+```{r}
+prtTable %>%
+  kbl(caption = "Effectiveness of interventions") %>%
+  kable_paper(full_width = F)
+```
+
+
+
+## Summary and conclusions
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sociis natoque penatibus et magnis dis parturient montes nascetur. Vivamus arcu felis bibendum ut tristique. Nunc vel risus commodo viverra maecenas accumsan lacus. Feugiat in ante metus dictum at tempor commodo. Ac felis donec et odio. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Donec ac odio tempor orci dapibus ultrices in. Et egestas quis ipsum suspendisse ultrices gravida dictum. Accumsan tortor posuere ac ut consequat semper viverra nam. Ac tortor vitae purus faucibus ornare. Arcu ac tortor dignissim convallis aenean et tortor. Sed pulvinar proin gravida hendrerit lectus. Amet mauris commodo quis imperdiet massa tincidunt.
+

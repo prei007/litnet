@@ -12,10 +12,9 @@ editor_options:
 ```{r include=FALSE}
 # devtools::install_github("baasman/allegRo") # only on first install
 library(kableExtra)
-library(shiny)
 library(allegRo)
 library(tidyverse)
-library(knitr)
+# library(knitr)
 library(urltools)
 ```
 
@@ -207,9 +206,9 @@ query = 'SELECT ?year (COUNT(?year) AS ?yearTotal)
     }
 GROUP BY ?year 
 ORDER BY DESC(?year) '
-yearTable <- evalQuery(rep,
-query = query, returnType = "dataframe",
-cleanUp = TRUE, limit = 100)
+
+yearTable <- evalQuery(rep, query = query, returnType = "dataframe", cleanUp = TRUE, convert = TRUE)
+
 prtTable <- as.data.frame(yearTable[1])
 colnames(prtTable) <- c("year", "count")
 # create a percentage column

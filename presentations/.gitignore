@@ -1,9 +1,4 @@
-slide-generator-markdown.Rmd
-slide-generator-markdown.html
-slide-generator-markdown.knit.md
-slide-generator-markdown.nb.html
-slide-generator-markdown.pptx
-slide-generator-markdown.spin.R
-slide-generator-markdown.spin.Rmd
-slide-generator-markdown.spin.nb.html
-lake.jpeg
+.html
+*.html
+.jpeg
+.jpg

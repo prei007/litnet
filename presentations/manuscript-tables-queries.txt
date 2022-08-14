@@ -1,0 +1,8 @@
+### Queries for review manuscript tables
+
+Table Thesauri 
+
+SELECT  ?scheme (COUNT(?concept) as ?theCount)
+    WHERE { ?scheme a skos:ConceptScheme. 
+      ?concept skos:inScheme ?scheme}
+   GROUP BY ?scheme

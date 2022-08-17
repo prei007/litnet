@@ -95,7 +95,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:educationalLevel :MiddleSchools ; 
 	:pedagogy :ExpressiveModeling ; 
 	:researchMethod :DesignExperiment, :PrePost, :InterviewMethod ; 
-	:technology :SageModeller ; 
+	:technology :SageModeller , ScienceModel; 
 	:wikiLink "https://www.ejmste.com/article/shifting-the-balance-engaging-students-in-using-a-modeling-tool-to-learn-about-ocean-acidification-5612" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "08-Aug-2022" ;
 		anno:body "58 students in two  classes. Interview with 10 students.  Mainly interest measures, with some increase in interest. Also some analysis of questions asked by students. "] .
@@ -155,7 +155,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:outcome :KnowledgeOutcomes ; 
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
-	:technology :VirtualReality, :ConceptMapping ; 
+	:technology :VirtualReality, :ConceptMapping, :DemonstrationModel ; 
 	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
 	:learningTime "P225M"^^xsd:duration ;
 	:researchMethod :QuasiExperiment, :ConceptMappingMeasure ; 
@@ -480,7 +480,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:learningDomain "Climate Science" ; 
 	:educationLevel :MiddleSchools;
 	:outcome :SystemsThinking ; 
-	:technology :ComputerModel, :Scratch, :Game ;  
+	:technology :ComputerModel, :Scratch, :Game, :DemonstrationModel ;  
 	:pedagogy  :GameDesignLearning, :InformalLearning ; 
 	:learningTime "P12H"^^xsd:duration ;
 	:researchMethod  :InterviewMethod , :QualitativeMethod, ;

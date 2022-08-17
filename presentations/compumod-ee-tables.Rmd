@@ -449,8 +449,7 @@ techDF %>%
 
 ##### Studies with 3 or more technologies
 
-
-```{r eval=FALSE, include=FALSE}
+```
 query = 'SELECT  ?work (COUNT(?tech) as ?techCount)
 WHERE 
 {

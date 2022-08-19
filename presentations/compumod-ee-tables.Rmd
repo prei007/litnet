@@ -593,7 +593,7 @@ query = 'SELECT ?duration (COUNT(?duration) as ?learningTime) WHERE {
          GROUP BY ?duration '
 timeTable <- evalQuery(rep,
   query = query, returnType = "dataframe",
-  cleanUp = TRUE)
+  cleanUp = TRUE, convert= TRUE)
 prtTable <- as.data.frame(timeTable[1])
 colnames(prtTable) <- c("duration", "count")
 ```

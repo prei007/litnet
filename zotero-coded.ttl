@@ -493,7 +493,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:outcome :DispositionOutcomes ; 
 	:educationalLevel :MiddleSchools ;
 	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
-	:technology :VirtualReality, :ConceptMapping ; 
+	:technology :VirtualReality, :ConceptMapping , :DemonstrationModel; 
 	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
 	:duration "P650M"; 
 	:researchMethod :PrePost, :InterviewMethod ; 

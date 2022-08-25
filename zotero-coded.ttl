@@ -478,7 +478,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Puttick2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Climate Science" ; 
-	:educationLevel :MiddleSchools;
+	:educationalLevel :MiddleSchools;
 	:outcome :SystemsThinking ; 
 	:technology :ComputerModel, :Scratch, :Game, :DemonstrationModel ;  
 	:pedagogy  :GameDesignLearning, :InformalLearning ; 

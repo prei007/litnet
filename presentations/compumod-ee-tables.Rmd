@@ -198,6 +198,15 @@ ggplot(df,aes(return.year, return.yearTotal) ) +
 
 ### Student age groups
 
+```
+SELECT  ?concept (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    :MiddleSchools skos:narrower* ?concept.
+    ?work ?p ?concept; a dc:BibliographicResource
+}
+GROUP BY ?concept
+```
 
 ```{r countEducationLevels}
 # count Primary

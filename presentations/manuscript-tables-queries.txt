@@ -1,8 +1,21 @@
 ### Queries for review manuscript tables
 
-Table Thesauri 
+## Table Thesauri 
 
 SELECT  ?scheme (COUNT(?concept) as ?theCount)
     WHERE { ?scheme a skos:ConceptScheme. 
       ?concept skos:inScheme ?scheme}
    GROUP BY ?scheme
+
+
+## EducationLevels  general format
+# Needs to be generalised to add over sub categories. 
+# Needs to go via computing variables, see order examples. 
+
+SELECT  ?concept (COUNT(?work) AS ?workCount) 
+WHERE 
+{
+    :MiddleSchools skos:narrower* ?concept .
+    ?work ?p ?concept ; a dc:BibliographicResource .
+}
+GROUP BY ?concept

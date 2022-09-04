@@ -1,0 +1,36 @@
+#################################
+# Concepts: Behavioural theories
+#################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:BehaviouralTheoriesThesaurus a skos:ConceptScheme ; 
+	dc:title "Behavioural theories thesaurus " .
+
+:RationalChoiceTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Rational choice theory"@en ;
+	skos:altLabel "Home economicus"@en ; 
+	skos:note "From Schlüter et al., 2017. " .
+
+:BoundedRationalityTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Bounded rationality theory"@en ;
+	skos:note "From Schlüter et al., 2017. " .
+	
+:TheoryOfPlannedBehavior a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Theory of Planned Behaviour"@en ;
+	skos:note "From Schlüter et al., 2017. " .
+	
+:DescriptiveNormTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Descriptive norm theory"@en ;
+	skos:note "From Schlüter et al., 2017. " .
+	
+:ProspectTheory a skos:Concept ; 
+	skos:inScheme :BehaviouralTheoriesThesaurus ; 
+	skos:prefLabel "Prospect theory"@en ;
+	skos:note "From Schlüter et al., 2017. " .

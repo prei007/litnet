@@ -1,0 +1,138 @@
+########################################
+# SKOS Education Levels				   #
+########################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:EducationLevel a skos:ConceptScheme ;
+	dc:title "Educational levels thesaurus" ;
+	skos:note "Using terminology from ERIC". 
+	
+:Grade01 a skos:Concept ; 
+	skos:prefLabel "Grade 1"@en ; 
+	skos:broader :PrimaryEducation ;
+	skos:inScheme :EducationLevel .
+	
+:Grade02 a skos:Concept ; 
+	skos:prefLabel "Grade 2"@en ; 
+	skos:broader :PrimaryEducation ;
+	skos:inScheme :EducationLevel .
+	
+:Grade03 a skos:Concept ; 
+	skos:prefLabel "Grade 3"@en ; 
+	skos:broader :PrimaryEducation ;
+	skos:inScheme :EducationLevel .
+	
+:Grade04 a skos:Concept ; 
+	skos:prefLabel "Grade 4"@en ; 
+	skos:broader :IntermediateGrades ;
+	skos:inScheme :EducationLevel .
+	
+:Grade05 a skos:Concept ; 
+	skos:prefLabel "Grade 5"@en ; 
+	skos:broader :IntermediateGrades ;
+	skos:broader :MiddleSchools ;
+	skos:inScheme :EducationLevel .
+
+:Grade06 a skos:Concept ; 
+	skos:prefLabel "Grade 6"@en ; 
+	skos:broader :IntermediateGrades ;
+	skos:broader :MiddleSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade07 a skos:Concept ; 
+	skos:prefLabel "Grade 7"@en ; 
+	skos:broader :MiddleSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade08 a skos:Concept ; 
+	skos:prefLabel "Grade 8"@en ; 
+	skos:broader :MiddleSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade09 a skos:Concept ; 
+	skos:prefLabel "Grade 9"@en ; 
+	skos:broader :MiddleSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade10 a skos:Concept ; 
+	skos:prefLabel "Grade 10"@en ; 
+	skos:broader :HighSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade11 a skos:Concept ; 
+	skos:prefLabel "Grade 11"@en ; 
+	skos:broader :HighSchools ;
+	skos:inScheme :EducationLevel .
+	
+:Grade12 a skos:Concept ; 
+	skos:prefLabel "Grade 12"@en ; 
+	skos:broader :HighSchools ;
+	skos:inScheme :EducationLevel .
+	
+:PrimaryEducation a skos:Concept ; 
+	skos:prefLabel "Primary Education"@en ; 
+	skos:scopeNote "Kindergarten through grade 3" ;
+	skos:inScheme :EducationLevel .
+	
+:IntermediateGrades a skos:Concept ; 
+	skos:prefLabel "Intermediate grades"@en ; 
+	skos:scopeNote "Grades 4, 5, and 6" ;
+	skos:inScheme :EducationLevel .
+	
+:MiddleSchools a skos:Concept ; 
+	skos:prefLabel "Middle Schools"@en ; 
+	skos:scopeNote "Various combinations of grades 5-9." ;
+	skos:inScheme :EducationLevel .
+
+:HighSchools a skos:Concept ; 
+	skos:prefLabel "High Schools"@en ; 
+	skos:scopeNote "Grades 9 or 10 through 12" ;
+	skos:inScheme :EducationLevel .
+	
+:HigherEducation a skos:Concept ;
+	skos:prefLabel "Higher Education"@en ; 
+	skos:inScheme :EducationLevel .
+	
+:UndergraduateStudy a skos:Concept ;
+	skos:prefLabel "Undergraduate Study"@en ; 
+	skos:scopeNote "Study in an institution of higher education the precedes the bachelor's or first professional degree." ;
+	skos:broader :HigherEducation ;
+	skos:inScheme :EducationLevel .
+	
+:GraduateStudy a skos:Concept ;
+	skos:prefLabel "Graduate Study"@en ; 
+	skos:scopeNote "Study in an institution of higher education after the bachelor's degree and before a Master's." ;
+	skos:broader :HigherEducation ;
+	skos:inScheme :EducationLevel .
+
+:TeacherTraining a skos:Concept ;
+	skos:prefLabel "Teacher training"@en ;
+	skos:altLabel "Professional development"@en ; 
+	skos:inScheme :EducationLevel . 
+	
+:TeacherEducation a skos:Concept ;
+    skos:prefLabel "Teacher education"@en ;
+	skos:altLabel "Pre-service teacher education"@en ; 
+	skos:broader :UndergraduateStudy ;
+	skos:inScheme :EducationLevel .
+	
+:TeacherProfDev a skos:Concept ;
+	skos:prefLabel "Teacher professional development"@en ;
+	skos:altLabel "Teacher PD"@en ; 
+	skos:inScheme :EducationLevel . 
+	
+:Adults a skos:Concept ; 
+	skos:prefLabel "Adults"@en ;
+	skos:altLabel "Lifelong Education"@en ;
+	skos:inScheme :EducationLevel . 
+	
+:SpecialNeeds a skos:Concept ;
+	skos:prefLabel "Special needs students" ;
+	skos:inScheme :EducationLevel . 
+	
+:MixedAges a skos:Concept ;
+	skos:prefLabel "Mixed age groups" ;
+	skos:inScheme :EducationLevel . 

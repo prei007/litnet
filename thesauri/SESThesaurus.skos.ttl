@@ -1,0 +1,90 @@
+#################################
+# Concepts: Social-Environmental Systems
+#################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:SESThesaurus a skos:ConceptScheme ; 
+	dc:title "Social environmental systems " ;
+	skos:hasTopConcept :IndividualCognition, :ModelDesign .
+	
+:IndividualCognition a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual cognition"@en .
+	
+:IndividualSensing a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual sensing"@en ;
+	skos:scopeNote "What endogenous and exogenous state variables are individuals assumed to sense and consider in their decisions? Is the sensing process erroneous? What state variables of which other individuals can an individual perceive? Is the sensing process erroneous? What is the spatial scale of sensing? Are the mechanisms by which agents obtain information modelled explicitly, or are individuals simply assumed to know these variables?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition . 
+	
+:IndividualLearning a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual learning"@en ;
+	skos:scopeNote "Is individual learning included in the decision process? How do individuals change their decision rules over time as consequence of their experience?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition . 
+	
+:IndividualPrediction a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual prediction"@en ;
+	skos:scopeNote "Which data do the agents use to predict future conditions? What internal models are agents assumed to use to estimate future conditions or consequences of their decisions? Might agents be erroneous in the prediction process, and how is it implemented?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition .
+	
+:IndividualDecisionMaking a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Individual decision making"@en ;
+	skos:scopeNote "What are the subjects and objects of the decision-making? On which level of aggregation is decision-making modelled? Are multiple levels of decision making included? What is the basic rationality behind agent decision-making in the model? Do agents pursue an explicit objective or have other success criteria?
+How do agents make their decisions? Do the agents adapt their behaviour to changing endogenous and exogenous state variables? And if yes, how? Do social norms or cultural values play a role in the decision-making process? Do spatial aspects play a role in the decision process? Do temporal aspects play a role in the decision process? To which extent and how is uncertainty included in the agents’ decision rules?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition .
+	
+:CognitionCosts a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Costs of cognition"@en ;
+	skos:scopeNote "Are the costs for cognition and the costs for gathering information explicitly included in the model?" ; 
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ;
+	skos:broader :IndividualCognition .
+	
+:ModelDesign a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Model design"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " .
+	
+:Stochasticity a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Model design"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "What processes (including initialisation) are modelled by assuming they are random or partly random?" ;
+	skos:broader :ModelDesign . 
+
+:AgentInteractions a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Interactions between agents"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "Are interactions among agents and entities assumed as direct or indirect? On what do the interactions depend? If the interactions involve communication, how are such communications represented? If a coordination network exists, how does it affect the agent behaviour? Is the structure of the network imposed or emergent?" ;
+	skos:broader :ModelDesign . 
+	
+:Emergence a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Emergence"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:broader :ModelDesign . 
+	
+:AgentHeterogeneity a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Heterogeneity of agents"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "Are the agents heterogeneous? If yes, which state variables and/or processes differ between the agents? Are the agents heterogeneous in their decision-making? If yes, which decision models or decision objects differ between the agents?" ;
+	skos:broader :ModelDesign . 
+	
+:AgentCollectives a skos:Concept ; 
+	skos:inScheme :SESThesaurus ; 
+	skos:prefLabel "Collectives of agents"@en ;
+	skos:note "From Müller et al., 2013, extended version of ODD protocol. " ; 
+	skos:scopeNote "Do the individuals form or belong to aggregations that affect and are affected by the individuals? Are these aggregations imposed by the modeller or do they emerge during the simulation?" ;
+	skos:broader :ModelDesign . 

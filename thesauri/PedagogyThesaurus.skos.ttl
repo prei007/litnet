@@ -1,0 +1,223 @@
+#################################
+# Concepts: Pedagogies
+#################################
+
+# currently our own terms, inductively from terms used in the literature. 
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:PedagogyThesaurus a skos:ConceptScheme ; 
+	dc:title "Pedagogical strategies thesaurus " ;
+	skos:hasTopConcept :PedagogicalStrategy .
+
+:ArtsEducation a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Arts education" ; 
+	skos:altLabel "STEAM" ; 
+	skos:broader :PedagogicalStategy .
+	
+:ArtElicitation a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Art elicitation" ; 
+	skos:broader :ArtEducationStrategy, :MeasurementMethod .
+
+:ClimateScienceEducation a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:broader :STEMStrategy . 
+	
+:CommunityProject a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Designing/implementing a community project"@en ; 
+	skos:broader :ProjectBasedLearning ;
+	skos:related :SchoolProject. 
+	
+:DeliberativeDiscussion a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+ 	skos:prefLabel "Deliberative discussion"@en ; 
+	skos:altLabel "Argumentation"@en ; 
+	skos:broader :PedagogicalStategy . 
+	
+:Engagement a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Engaged learners"@en ; 
+	skos:altLabel "Motivated learners"@en ; 
+	skos:broader :PedagogicalStategy . 
+	
+:ExperientialLearning a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ; 
+	skos:prefLabel "Experiential learning"@en ; 
+	skos:broader :PedagogicalStategy . 
+	
+:RolePlayPedagoy a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Role play"@en ; 
+	skos:broader :ExperientialLearning . 
+	
+:InternationalCollaboration a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "International collaboration"@en ; 
+	skos:broader :PedagogicalStategy . 
+	
+:InteractWithScientists a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Interact with scientists"@en ; 
+	skos:broader :STEMStrategy . 
+
+	
+:LabBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Lab-based learning"@en ; 
+	skos:broader :PlaceBasedLearning . 
+	
+:MisconceptionStrategy a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Uncovering and addressing misconceptions"@en ; 
+	skos:broader :STEMStrategy .  
+	
+:OutDoorEducation a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Outdoors education"@en ; 
+	skos:broader :ExperientialLearning .  
+	
+:InformalLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Informal Learning"@en ; 
+	skos:broader :PedagogicalStrategy .  
+
+:PedagogicalStrategy a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Pedagogical strategy"@en ; 
+	skos:altLabel "Pedagogy"@en . 
+	
+:PersonalRelevance a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Personally relevant"@en ; 
+	skos:altLabel "Personally meaningful"@en ; 
+	skos:broader :PedagogicalStategy . 
+	
+:PlaceBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Place-based learning"@en ; 
+	skos:broader :ExperientialLearning ;
+	skos:narrower :LabBasedLearning . 
+	
+:SchoolProject a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Designing/implementing a school project"@en ; 
+	skos:broader :ProjectBasedLearning ;
+	skos:related :CommunityProject. 
+	
+:SocioScientificIssue a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Socio-scientific issue"@en ; 
+	skos:broader :STEMStrategy . 
+	
+:STEMStrategy a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "STEM pedagogical strategy"@en ; 
+	skos:altLabel "STEM teaching strategy"@en ; 
+	skos:broader :PedagogicalStategy .
+	
+:InquiryLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Inquiry learning"@en ; 
+	skos:broader :STEMStategy .
+	
+:Scaffolding a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Scaffolding"@en ; 
+	skos:broader :PedagogicalStrategy .
+	
+	
+:LearningCommunity a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Learning community"@en ; 
+	skos:broader :PedagogicalStategy .
+	
+:CollaborativeLearning a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Collaborative learning"@en ; 
+    skos:altLabel "Group learning"@en ;
+	skos:broader :PedagogicalStategy .
+	
+:CSCL a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Computer-supported collaborative learning"@en ; 
+    skos:altLabel "Group learning"@en ;
+	skos:broader :CollaborativeLearning .
+	
+:Argumentation a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Argumentation learning"@en ; 
+	skos:broader :PedagogicalStrategy .
+	
+:Constructionism a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Constructionism"@en ; 
+	skos:broader :PedagogicalStrategy .
+	
+:DesignBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Learning from designing"@en ; 
+	skos:broader :Constructionism . 
+	
+:GameDesignLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Learning from designing games"@en ; 
+	skos:broader :DesignBasedLearning . 
+	
+:ProblemBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Problem based learning"@en ; 
+	skos:broader :PedagogicalStrategy . 
+	
+:ProjectBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Project based learning"@en ; 
+	skos:broader :PedagogicalStrategy . 
+	
+
+	
+# Model-based learning and subcategories
+	
+:ModelBasedLearning a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+    skos:prefLabel "Model-based learning"@en ; 
+    skos:scopeNote "At this level includes models that are purely conceptual, typically written or drawn on paper."@en ; 
+	skos:broader :PedagogicalStategy .
+	
+:ExpressiveModelling a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Expressive modelling"@en ;
+	skos:broader :ModelBasedLearning ;
+	skos:definition "Engaging learners in creating their own model to explore an idea or solve a problem. Suggested by Bliss 1994". 
+	
+:ExplorativeModelling a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Explorative modelling"@en ;
+	skos:broader :ModelBasedLearning ;
+	skos:definition "Engaging learners in exploring a model explore developed by somebody else. Suggested by Bliss 1994". 
+	
+:ModelSimulation a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Model simulation"@en ;
+	skos:broader :ExplorativeModelling .
+	
+:ModelExtension a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Model extension"@en ;
+	skos:broader :ExpressiveModelling .
+	
+:ModelInspection a skos:Concept ;
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Model inspection"@en ;
+	skos:broader :ExplorativeModelling .
+	
+:MultiModelling a skos:Concept ; 
+	skos:inScheme :PedagogyThesaurus ;
+	skos:prefLabel "Combining multiple models"@en ;
+	skos:broader :ModelBasedLearning ;
+	skos:scopeNote "Like multiple representations, just more specific to model representations. " ;
+	skos:example "Combining a causal map with a system dynamics model" .

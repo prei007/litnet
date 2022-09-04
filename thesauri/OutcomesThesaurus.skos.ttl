@@ -1,0 +1,94 @@
+#################################
+# Concepts: Outcomes
+#################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:OutcomesThesaurus a skos:ConceptScheme ; 
+	dc:title "Learning outcomes thesaurus " ;
+	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
+	skos:hasTopConcept :Outcomes .
+
+:Outcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Learning outcomes"@en . 
+	
+:KnowledgeOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Knowledge outcomes"@en ; 
+	skos:definition "Including awareness, perceptions, content knowledge, skills knowledge, sociopolitical knowledge, and issue-speciﬁc understandings" ;
+	skos:broader :Outcomes . 
+	
+:SystemsThinking a skos:Concept ;
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Systems thinking"@en ; 
+	skos:broader :KnowledgeOutcomes .
+	
+:Misconceptions a skos:Concept ;
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Misconceptions and their change"@en ; 
+	skos:broader :KnowledgeOutcomes .
+	
+:ClimateSystemKnowledge a skos:Concept ;
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Climate system knowledge"@en ; 
+	skos:broader :KnowledgeOutcomes .
+	
+:Awareness a skos:Concept ;
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:broader :KnowledgeOutcomes. 
+	
+:DispositionOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Dispositional outcomes"@en ;
+	skos:broader :Outcomes ;
+	skos:definition "such as, interest, affect, attitude, and behavioral intentions" ;
+	skos:narrower :AttitudeOutcomes .
+	
+:AttitudeOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Attitude change outcomes"@en ;
+	skos:broader :DispositionOutcomes . 
+	
+:CompetenceOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Growth in competencies"@en ; 
+	skos:definition "skills, including cognitive and social" ;
+	skos:broader :Outcomes .
+	
+:BehaviorOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Behavioral outcomes"@en ; 
+	skos:prefLabel "Action outcomes"@en ;
+	skos:definition "Unlike skills and actions this means outcomes in concrete actions" ;
+	skos:broader :Outcomes .
+	
+:PersonalOutcomes a skos:Concept ; 
+skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Changes in personal characteristics"@en ; 
+	skos:definition "self-esteem and character development, among others" ;
+	skos:broader :Outcomes .
+	
+:MultiDomainOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Multi-domain outcomes"@en ; 
+	skos:definition "spanning more than one domain, such as academic achievement, which involves at least knowledge and competencies" ;
+	skos:broader :Outcomes .
+	
+:AchievementOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Achievement outcomes"@en ; 
+	skos:broader :MultiDomainOutcomes .
+	
+:EpistemicOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Changes to epistemic cognition"@en ; 
+	skos:broader :MultiDomainOutcomes .
+	
+:ActionCompetenceOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Growth in action competence"@en ; 
+	skos:broader :KnowledgeOutcomes , :CompetenceOutcomes , :BehaviorOutcomes .
+	

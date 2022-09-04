@@ -1,0 +1,104 @@
+#################################
+# Concepts: Relevant science areas
+#################################
+
+# Using Australian Bureau of Statistics ANZSRC2020
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+
+:ScienceThesaurus a skos:ConceptScheme ; 
+	dc:title "Simple science thesaurus " ;
+	skos:hasTopConcept :Sciences.
+	
+:Sciences a skos:Concept ; 
+    skos:inScheme :ScienceThesaurus .
+	
+:EarthSciences a skos:Concept ; 
+	skos:prefLabel "Earth Sciences"@en ;
+	skos:altLabel "Geosciences"@en ;
+	skos:broader :Sciences ;
+    skos:inScheme :ScienceThesaurus .
+    
+:ClimateChangeScience a skos:Concept ; 
+	skos:prefLabel "Climate change science"@en ;
+	skos:broader :EarthSciences ;
+	skos:inScheme :ScienceThesaurus .
+	
+:Oceanography a skos:Concept ; 
+	skos:prefLabel "Oceanography"@en ;
+	skos:broader :EarthSciences ;
+	skos:inScheme :ScienceThesaurus .
+	
+:Hydrology a skos:Concept ; 
+	skos:prefLabel "Hydrology"@en ;
+	skos:broader :EarthSciences ;
+	skos:inScheme :ScienceThesaurus .
+	
+:OceanLiteracy a skos:Concept ; 
+	skos:prefLabel "Ocean literacy" ;
+	skos:broader :EarthSciences ;
+	skos:inScheme :ScienceThesaurus .
+	
+:EnvironmentalScience a skos:Concept ;
+	skos:prefLabel "Environmental Science" ; 
+	skos:broader :Sciences ; 
+	skos:inScheme :ScienceThesaurus .
+	
+:ClimateChangeImpacts a skos:Concept ; 
+	skos:prefLabel "Climate change impact and adaptation" ; 
+	skos:broader :EnvironmentalScience ; 
+	skos:inScheme :ScienceThesaurus .
+
+:EnvironmentalManagement a skos:Concept ; 
+	skos:prefLabel "Environmental management" ; 
+	skos:broader :EnvironmentalScience ; 
+	skos:inScheme :ScienceThesaurus .
+
+:Pollution a skos:Concept ; 
+	skos:prefLabel "Pollution and contamination" ; 
+	skos:broader :EnvironmentalScience ; 
+	skos:inScheme :ScienceThesaurus .
+	
+:SoilSciences a skos:Concept ; 
+	skos:prefLabel "Soil sciences" ; 
+	skos:broader :EnvironmentalScience ; 
+	skos:inScheme :ScienceThesaurus .
+	
+:ClimateChangeMitigation a skos:Concept ; 
+	skos:prefLabel "Climate change mitigation"@en ;
+	skos:broader :ClimateChangeScience ; 
+	skos:inScheme :ScienceThesaurus .
+	
+:BiologicalSciences a skos:Concept ; 
+	skos:prefLabel "Biological sciences" ;
+	skos:broader :Sciences ;
+	skos:inScheme :ScienceThesaurus .
+	
+:Ecology a skos:Concept ; 
+	skos:prefLabel "Ecology" ; 
+	skos:altLabel "Ecosystems science" ; 
+	skos:broader :BiologicalScience ; 
+	skos:inScheme :ScienceThesaurus .
+	
+:Biodiversity a skos:Concept ; 
+	skos:prefLabel "Biodiversity education"@en ; 
+	skos:broader :BiologicalSciences ; 
+	skos:inScheme :ScienceThesaurus .
+
+:SocialSciences a skos:Concept ; 
+	skos:inScheme :ScienceThesaurus .
+
+
+:SustainabilityEducation a skos:Concept ;
+	skos:prefLabel "Education for sustainability" ;
+	skos:inScheme :ScienceThesaurus .
+	
+:EnergyEducation a skos:Concept ;
+	skos:prefLabel "Energy education"@en ;
+	skos:broader :SustainabilityEducation ;
+	skos:inScheme :ScienceThesaurus .
+	
+	

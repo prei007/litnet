@@ -1,0 +1,121 @@
+#################################
+# Concepts: Research methods
+#################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:MethodsThesaurus a skos:ConceptScheme ; 
+	dc:title "Research methods thesaurus " ;
+	skos:hasTopConcept :ResearchMethod .
+
+:ResearchMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus . 
+	
+:MixedMethods a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ; 
+	skos:prefLabel "Mixed methods"@en ;
+	skos:broader :ResearchMethod . 
+	
+:QualitativeMethod a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ; 
+	skos:prefLabel "Qualitative analysis"@en ;
+	skos:scopeNote "A broad class of analysis such as analysing responses for patterns and themes." ;
+	skos:broader :ResearchMethod . 
+	
+:ReviewMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Research review"@en ;
+	skos:broader :ResearchMethod .
+
+:LitReview a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Literature review"@en ;
+	skos:broader :ReviewMethod .
+	
+:MetaAnalysis a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Meta-analysis"@en ; 
+	skos:broader :ReviewMethod .
+	
+:SynthesisMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Synthesis method"@en ; 
+	skos:broader :ReviewMethod .
+	
+	
+:ObservationMethod a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Observational method"@en ; 
+	skos:broader :ResearchMethod .
+	
+:PerformanceAnalysis a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Performance analysis"@en ; 
+	skos:altLabel "Logfile analysis"@en ; 
+	skos:definition "Performance gets captured digitally and analysed in terms of success criteria etc.Syn  Logfile analysis" ;
+	skos:broader :ResearchMethod .
+	
+:DocumentAnalysis a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Document analysis"@en ; 
+	skos:altLabel "Artifact analysis"@en ; 
+	skos:definition "Analysis of a learner-produced document or other artifact, such as a design" ;
+	skos:broader :QualitativeMethod .
+	
+:SurveyMethod a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Survey"@en ;
+    skos:note "Questionnaire etc." ; 
+	skos:broader :ResearchMethod .
+	
+:InterviewMethod  a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Interview"@en ;
+	skos:broader :ResearchMethod .
+	
+:ClinicalInterview a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Clinical interview"@en ;
+	skos:broader :InterviewMethod .
+	
+:ConceptMappingMeasure a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Concept mapping (diagnostic)"@en ;
+	skos:broader :ResearchMethod .
+	
+:CaseStudyMethod  a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Case study"@en ;
+	skos:broader :ResearchMethod .
+	
+:ExperimentalMethod  a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Experimental study"@en ;
+	skos:broader :ResearchMethod .
+	
+:QuasiExperiment  a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Experimental study"@en ;
+	skos:broader :ExperimentalMethod .
+	
+:PrePost a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Pre and post test."@en ;
+	skos:broader :ExperimentalMethod . 
+	
+:DesignExperiment a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Design Experiment."@en ;
+	skos:broader :ExperimentalMethod . 
+	
+:InferentialStatistics a skos:Concept ;
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Inferential statistical testing."@en ;
+	skos:broader :ResearchMethod .
+	
+:UnspecificMethod a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ;
+	skos:prefLabel "Unspecified method"@en ;
+	skos:broader :ResearchMethod . 

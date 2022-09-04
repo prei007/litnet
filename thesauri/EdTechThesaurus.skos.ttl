@@ -1,0 +1,340 @@
+#################################
+# Concepts: Educational technologies
+#################################
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+
+:EdTechThesaurus a skos:ConceptScheme ; 
+	dc:title "Eductional technology thesaurus " . 
+
+### Games, models, simulations
+
+:GamesAndSimulations a skos:Concept; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Games and simulations"@en ; 
+	skos:related :ComputerModel. 
+	
+
+:Game a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Educational game"@en ; 
+	skos:altLabel "Serious game"@en ; 
+	skos:related :MobileGame ;
+	skos:broader :GamesAndSimulations . 
+	
+:VideoGame a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Video game"@en ; 
+	skos:broader :Game .
+	
+:Simulation a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Computer simulation"@en ;
+	skos:altLabel "Computer model"@en ; 
+	skos:note "The preferred term is ComputerModel" ; 
+	skos:broader :GamesAndSimulations . 
+	
+:StrategyGame a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Strategy game"@en ; 
+	skos:broader :Game .  
+	
+:RolePlay a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Role play"@en ; 
+	skos:broader :Game . 
+	
+:ComputerModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Computer model"@en ;
+	skos:broader :GamesAndSimulations .
+	
+:ABM a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Agent-Based Model"@en ;
+	skos:altLabel "Individual model"@en ;
+	skos:broader :ComputerModel . 
+	
+:NetLogoModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "NetLogo" ;
+	skos:broader :ABM . 
+	
+:SysDyn a skos:Concept ;
+	skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "System Dynamics Model"@en ;
+	skos:broader :ComputerModel . 
+	
+:CausalMapModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "Causal Map Model"@en ;
+	skos:related :SysDyn, :FeedbackLoopModel ;
+	skos:broader :ComputerModel . 
+
+:FeedbackLoopModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus;
+	skos:prefLabel "Feedback Loop Model"@en ;
+	skos:related :SysDyn, :CausalMapModel ;
+	skos:broader :SysDyn . 
+	
+:StellaModel a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Stella" ;
+	skos:broader :SysDyn . 
+	
+:SageModeler a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "SageModeler" ;
+	skos:broader :SysDyn .
+	
+:ClimateModel a skos:Concept ; 
+ skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Climate change model"@en ;
+	skos:scopeNote "Scientific models of climate change." ;
+	skos:broader :ComputerModel . 
+	
+:Scratch a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Scratch programming" ;
+	skos:broader :ComputerModel .
+	
+:EDGCM a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Educational Global Climate Model" ;
+	skos:broader :ClimateModel . 
+	
+:ScienceBasedModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ; 
+	skos:prefLabel "Science-based model" ;
+	skos:scopeNote "Models that are grounded in specific science rather than being demonstrative or made up" ;
+	skos:related :DataBasedModel . 
+	
+:DataBasedModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ; 
+	skos:prefLabel "Data-based model" ;
+	skos:scopeNote "Models that are grounded in data such as measurement or observation." ;
+	skos:related :ScienceBasedModel .
+	
+:DemonstrationModel a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ; 
+	skos:prefLabel "Data-based model" ;
+	skos:scopeNote "Models that demonstrating an effect of process in an idealized form." ;
+	skos:related :ScienceBasedModel .
+
+
+### Immersive 
+
+:ImmersiveTech a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Immersive technologies"@en ; 
+	skos:altLabel "XR"@en .
+
+:AugmentedReality a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Augmented Reality"@en ; 
+	skos:altLabel "AR"@en ; 
+	skos:broader :ImmersiveTech . 
+	
+:VirtualReality a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Virtual Reality"@en ; 
+	skos:altLabel "VR"@en ; 
+	skos:broader :ImmersiveTech . 
+	
+:MixedReality a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Mixed Reality"@en ; 
+	skos:broader :ImmersiveTech .
+	
+:VirtualFieldTrip a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Virtual field trip"@en ;
+	skos:broader :ImmersiveTech . 
+	
+:VirtualExhibition a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Virtual exhibition"@en ;
+	skos:altLabel "Virtual museum"@en; 
+	skos:broader :ImmersiveTech . 
+	
+:VirtualExperimentation a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Virtual experimentation"@en ;
+	skos:broader :ImmersiveTech .
+
+### MultiMedia
+
+:MultiMedia a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Multimedia technology"@en .
+
+:DigitalStory a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Digital story telling"@en ; 
+	skos:broader :MultiMedia . 
+	
+:DigitalPhotography a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Digital Photography"@en ; 
+	skos:broader :MultiMedia . 
+	
+:Hypermedia a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Educational hypermedia"@en ; 
+	skos:broader :MultiMedia . 
+	
+:PodCast a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Podcast"@en ; 
+	skos:broader :Multimedia, :SocialMedia . 
+	
+:VideoCast a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Video cast"@en ; 
+	skos:altLabel "vlog"@en ; 
+	skos:broader :Multimedia, :SocialMedia . 
+
+
+### Mobile phones and padlets
+
+:MobileLearning a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Mobile technology"@en .
+	
+:MobileGame a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Mobile game"@en ; 
+	skos:broader :MobileLearning ;
+	skos:related :Game , :MixedReality.
+
+### SocialMedia
+
+:SocialMedia a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Socialmedia technology"@en .
+	
+:LearningCommunity a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Online learning community"@en ; 
+	skos:broader :SocialMedia . 
+	
+:Wiki a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Wiki"@en ; 
+	skos:broader :SocialMedia .
+
+### e-learning, computer-based assessment
+
+:eLearning a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "E-Learning"@en .
+
+
+:LMS a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Learning Management System"@en ; 
+	skos:broader :eLearning . 
+	
+:CBA a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Computer-based assessment"@en ; 
+	skos:altLabel "Computer-based testing"@en .
+	
+:CAI a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Computer-aided instruction"@en ; 
+	skos:altLabel "Computer-based instruction"@en .
+
+### Programming
+
+:Programming a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Computer programming"@en ; 
+	skos:altLabel "Coding" .
+	
+### Knowledge technologies
+
+:KnowledgeTech a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Knowledge technologies"@en .
+
+:ConceptMapping a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Concept mapping"@en ; 
+	skos:broader :KnowledgeTech . 
+	
+
+### Research Software, Modelling, data science
+
+:eResearch a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "e-Research"@en ; 
+	skos:altLabel "Cyber-research"@en .
+	
+:GIS a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Geographic Information System"@en ; 
+	skos:altLabel "GIS"@en ; 
+	skos:broader :eResearch . 
+	
+:DataScienceTool a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Data science software"@en ; 
+	skos:broader :eResearch . 
+	
+:StatisticsTool a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Statistics software"@en ; 
+	skos:broader :eResearch . 
+	
+:DigitalArchive a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Digital archive"@en ; 
+	skos:broader :eResearch .
+	
+### AI and knowledge technologies, semantic web, machine learning, robotics
+
+:AI a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Artificial Intelligence"@en ; 
+	skos:altLabel "AI"@en .
+	
+:AIED a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "AI in Education"@en ; 
+	skos:altLabel "AIED"@en ; 
+	skos:broader :AI .
+	
+
+### Sensors, Drones, IoT
+
+:OutDoorsTech a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Outdoors technology use"@en .
+:Drones a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:broader :OutDoorsTech . 
+	
+:FieldSensors a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Field sensors"@en ; 
+	skos:broader :OutDoorsTech ; 
+	skos:broader :SensingAndRecording .
+	
+:SensingAndRecording a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Sensing and recording"@en ; 
+	skos:altLabel "IoT"@en .
+	
+:DataLogging a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Data logging"@en ; 
+	skos:broader :SensingAndRecording .
+	
+:GPS a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "GPS"@en ; 
+	skos:broader :SensingAndRecording .
+	

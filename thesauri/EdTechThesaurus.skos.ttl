@@ -86,7 +86,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	
 :SageModeler a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "SageModeler" ;
+	skos:prefLabel "Sage Modeler" ;
 	skos:broader :SysDyn .
 	
 :ClimateModel a skos:Concept ; 
@@ -156,7 +156,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :VirtualExhibition a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Virtual exhibition"@en ;
-	skos:altLabel "Virtual museum"@en; 
+	skos:altLabel "Virtual museum"@en ; 
+	skos:altLabel "Virtual gallery" ;
 	skos:broader :ImmersiveTech . 
 	
 :VirtualExperimentation a skos:Concept ; 

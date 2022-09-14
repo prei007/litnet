@@ -21,6 +21,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :ArtElicitation a skos:Concept ;
 	skos:inScheme :PedagogyThesaurus ;
 	skos:prefLabel "Art elicitation" ; 
+	skos:definition "Visual methods, such as drawings, produced by respondents to express their understanding." ;
 	skos:broader :ArtEducationStrategy, :MeasurementMethod .
 
 :ClimateScienceEducation a skos:Concept ;
@@ -29,7 +30,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	
 :CommunityProject a skos:Concept ; 
 	skos:inScheme :PedagogyThesaurus ;
-    skos:prefLabel "Designing/implementing a community project"@en ; 
+  skos:prefLabel "Community project"@en ; 
 	skos:broader :ProjectBasedLearning ;
 	skos:related :SchoolProject. 
 	

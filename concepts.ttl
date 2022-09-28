@@ -27,7 +27,6 @@ semsur:ResearchTopic rdf:type owl:Class ;
 	rdfs:label "resesarch topic"@en ; 
 	rdfs:comment "A topic of debate in a scientific disourse community." ;
 	rdfs:subClassOf owl:Thing.
-	
 
 semsur:Problem rdf:type owl:Class ; 
 	rdfs:label "research problem"@en ; 
@@ -195,6 +194,7 @@ schema:typicalAgeRange a rdf:Property ;
 # The concept schemes are mainly codes. Categories only where necessary. 
 # Some of the codes should be moved to their own name space. For instance, for ed tech. 
 # Only specific ones should stay in the default namespace. 
+# All skos schemes have been moved to separate files. 
 
 # Educational levels
 # goes with predicate :educationalLevel. 
@@ -217,7 +217,6 @@ schema:typicalAgeRange a rdf:Property ;
 # predicate is :modelDesign 
 
 
-	
 
 #################################
 # Concepts: Behavioural theories

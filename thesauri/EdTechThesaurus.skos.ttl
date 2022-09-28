@@ -21,6 +21,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Educational game"@en ; 
 	skos:altLabel "Serious game"@en ; 
+	skos:scopeNote "Refers to computer or digital games, not to board games etc."@en ;
 	skos:related :MobileGame ;
 	skos:broader :GamesAndSimulations . 
 	
@@ -33,7 +34,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer simulation"@en ;
 	skos:altLabel "Computer model"@en ; 
-	skos:note "The preferred term is ComputerModel" ; 
+	skos:note "The preferred term is ComputerModel. The two are pretty much synonymous, but sometimes the model may be seen as part of a simulation, where the simulation might also include a graphics engine, or physcial parts, such as a flight simulation. " ; 
 	skos:broader :GamesAndSimulations . 
 	
 :StrategyGame a skos:Concept ; 
@@ -49,6 +50,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :ComputerModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Computer model"@en ;
+	skos:altLabel "Computer simulation"@en ;
 	skos:broader :GamesAndSimulations .
 	
 :ABM a skos:Concept ;
@@ -60,6 +62,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :NetLogoModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "NetLogo" ;
+	skos:definition "A model written in the programming language NetLogo."@en ;
 	skos:broader :ABM . 
 	
 :SysDyn a skos:Concept ;
@@ -82,45 +85,51 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :StellaModel a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Stella" ;
+	skos:definition "A model authored with the Stella software."@en ;
 	skos:broader :SysDyn . 
 	
 :SageModeler a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Sage Modeler" ;
+	skos:definition "A model authored with the SageModeler software."@en ;
 	skos:broader :SysDyn .
 	
 :ClimateModel a skos:Concept ; 
  skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Climate change model"@en ;
-	skos:scopeNote "Scientific models of climate change." ;
+	skos:definition "Scientific computational models of climate change." ;
 	skos:broader :ComputerModel . 
 	
 :Scratch a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Scratch programming" ;
+	skos:prefLabel "Scratch program"@en ;
+	skos:definition "A program authored with the Scratch software."@en ;
 	skos:broader :ComputerModel .
 	
 :EDGCM a skos:Concept ;
 	skos:inScheme :EdTechThesaurus ;
-	skos:prefLabel "Educational Global Climate Model" ;
+	skos:prefLabel "Educational Global Climate Model"@en ;
 	skos:broader :ClimateModel . 
 	
 :ScienceBasedModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ; 
-	skos:prefLabel "Science-based model" ;
-	skos:scopeNote "Models that are grounded in specific science rather than being demonstrative or made up" ;
+	skos:prefLabel "Science-based model"@en ;
+	skos:definition "Models that are grounded in specific science rather than being demonstrative or made up" ;
+	skos:example "A particular climate model; a model of something explained by the science behind it. A counter example is a typical Schelling model, demonstrating the principle but not any particular real neighbourhood." ;
 	skos:related :DataBasedModel . 
 	
 :DataBasedModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ; 
-	skos:prefLabel "Data-based model" ;
-	skos:scopeNote "Models that are grounded in data such as measurement or observation." ;
+	skos:prefLabel "Data-based model"@en ;
+	skos:definition "Models that are grounded in data such as measurement or observation." ;
+	skos:note "The difference to ScienceBasedModel is mostly academic. Are there models just of data, other than statistical models, which are out of scope?" ; 
 	skos:related :ScienceBasedModel .
 	
 :DemonstrationModel a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ; 
-	skos:prefLabel "Data-based model" ;
+	skos:prefLabel "Data-based model"@en ;
 	skos:scopeNote "Models that demonstrating an effect of process in an idealized form." ;
+	skos:example "Schellings model; many predator-prey models. "
 	skos:related :ScienceBasedModel .
 
 

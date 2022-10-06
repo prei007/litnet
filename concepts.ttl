@@ -1,6 +1,6 @@
-########################################
+##############################
 # SKOS concepts 					   #
-########################################
+##############################
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>

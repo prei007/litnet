@@ -23,7 +23,9 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 # Step 2: Link them to other resources (refs, approaches...) with schema:about.
 	
 :ChrisDede a schema:Person, foaf:Person ;
-	rdfs:label "Chris Dede"  . 
+	rdfs:label "Christopher_Dede"  ;
+	dc:creator "Dede, Chris" ; # This is needed to link to author information. 
+	foaf:depiction "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Christopher_Dede_LISE2008_lecture.jpg/300px-Christopher_Dede_LISE2008_lecture.jpg"^^xsd:anyURI . 
 
 :AmandaDickes a schema:Person, foaf:Person ;
 	rdfs:label "Amanda Dickes" . 

@@ -1,0 +1,36 @@
+---
+title: "graphviz-code"
+author: "Peter Reimann"
+date: '2022-10-03'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{graphviz}
+digraph {
+size="7.5 , 11.0" ;
+  
+  Problem -> Approach [label="addressedBy"] ;
+  Approach -> Requirement [label="fulfilsRequirement"] ;
+  KnowledgeBase -> Approach [label="informs"] ;
+  Approach -> Development [label="guides"] ;
+  Approach -> Evaluation [label="testedBy"] ;
+  Approach -> Publication [label="documentedIn"] ;
+Development -> LearningDesign [label="output"] ;
+    LearningDesign -> Context  [label="partOf"] ;
+    Context -> LearningEnvironment [label="partOf"] ;
+    Usage -> LearningEnvironment [label="partOf"] ;
+    TechnicalObject -> LearningEnvironment ; 
+  Development -> TechnicalObject [label="output"] ;
+  KnowledgeBase -> FoundationalTheory [label="includes"] ;
+  KnowledgeBase -> ResearchStrategies [label="includes"] ;
+  KnowledgeBase -> DesignStrategies [label="includes"] ;
+  Evaluation -> KnowledgeBase [label = "advances"] ;
+  TechnicalDesignFeature -> TechnicalObject [label="materializedIn"] ;
+  LearningDesignFeature -> LearningDesign [label="materializedIn"] ;
+}
+```

@@ -2,6 +2,7 @@
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX etro: <http://coolfutures.net/rdf/2022/etro#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -94,7 +95,7 @@ PREFIX schema: <http://schema.org/>
 	:documentedIn :Dickes2019 ; 
 	dc:description "The first point is the combination of VR with ABM: ... we present a possible pathway for meaningfully blending immersive virtual environments with agent-based computational modeling tools by grounding EcoMOD’s design framework in a conception of the scientific process that makes explicit the material and representational nature of science (Dickes et al 2019, p. 2184)."  ; 
 	:respondsTo :IIVR_Problem_7 ; 
-	:hasDesignFeature :EcoMOD ;
+	:hasSolution :EcoMOD ;
 	:advances :SimulationApproach_3 ;
 	:hasPositiveAspect "combines immersive learning with ABM modelling " ;
 	:hasChallenge "limited freedom to students for construcing models" ;
@@ -102,14 +103,14 @@ PREFIX schema: <http://schema.org/>
 	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI . 
 	
 :Approach_Immersive_VR_3 a :ResearchApproach ;
-	dc:description "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
+	dc:description "How did transformative modeling activities contribute to students conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
 	:respondsTo :IIVR_Problem_7 ; 
 	semsur:hasEvaluation :Evaluation_Dickes2019 . 
 	
 :Evaluation_Dickes2019 a deo:Evaluation ;
 	:documentedIn :Dickes2019 .
 
-:EcoMOD a schema:LearningResource ; 
+:EcoMOD a schema:LearningResource , :LearningEnvironment ; 
 	rdfs:label "EcoMOD curriculum and tools"@en ;
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
@@ -117,19 +118,40 @@ PREFIX schema: <http://schema.org/>
 	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
 	schema:hasPart :EcoMOD_VR_Part, :EcoMOD_NetLogo_Part.
 	
-:EcoMOD_VR_Part a schema:LearningResource ; 
+	
+:EcoMOD_VR_Part a schema:LearningResource , :TechnicalObject ; 
 	rdfs:label "EcoMOD VR component"@en ;
+	:implements :DF_VR1  ;
+	:technology :VirtualReality ; 
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  edtech:VirtualReality ; 
 	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
 	
-:EcoMOD_NetLogo_Part a schema:LearningResource ; 
+:DF_VR1 a :TechnicalDesignFeature ; 
+	  rdfs:label "D2.5 immersion"@en ;
+	  dc:description "D2.5 view no special glasses or devices needed." ; 
+	  skos:broadMatch :VirtualReality ;
+	  :hasDesignPrinciple :DesignPrinciple01 . 
+	  
+:DesignPrinciple01 a :DesignPrinciple ; 
+  rdfs:label "Combining VR with Agent-Based Modeling"@en ; 
+  dc:description "Description of this design principle".
+	
+:EcoMOD_NetLogo_Part a schema:LearningResource, :TechnicalObject ; 
 	rdfs:label "EcoMOD NetLogo component"@en ;
+	:implements :DF_Mod1  ;
+	:technology :NetLogoModel ;
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  edtech:NetLogo ; 
 	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+	
+:DF_Mod1 a :TechnicalDesignFeature ; 
+	  rdfs:label "Integrate NetLogo"@en ;
+	  dc:description "Integrate the NetLogo modelling tool." ; 
+	  skos:exactMatch :NetLogoModel ;
+	  :hasDesignPrinciple :DesignPrinciple01 . 
 	
 ######  Dede et al 2017
 # ExoCept

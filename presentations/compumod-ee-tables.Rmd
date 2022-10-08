@@ -109,7 +109,6 @@ The result of the coding in one table:
 
 ```{r include=FALSE}
 query = 'SELECT ?work ?p ?o
- 
 WHERE {
   ?work a dc:BibliographicResource.
   ?o a skos:Concept . 

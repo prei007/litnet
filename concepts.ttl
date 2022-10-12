@@ -1,7 +1,3 @@
-##############################
-# SKOS concepts 					   #
-##############################
-
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -87,22 +83,22 @@ semsur:TechnologicalProblem rdf:type owl:Class ;
 
 #### approach related properties
 
-semsur:hasPositiveAspects a rdf:Property . 
+semsur:hasPositiveAspects a  owl:DatatypeProperty. 
 
-:hasNewAspect a rdf:Property ;
+:hasNewAspect a  owl:DatatypeProperty ;
 	rdfs:subPropertyOf semsur:hasPositiveAspects . 
 	
-semsur:hasLimitation a rdf:Property . 
+semsur:hasLimitation a owl:DatatypeProperty . 
 
-semsur:hasChallenge a rdf:Property . 
+semsur:hasChallenge a owl:ObjectProperty . 
 
-semsur:hasImplementation a rdf:Property . 
+semsur:hasImplementation a owl:ObjectProperty . 
 
-:hasApplication a rdf:Property . 
+:hasApplication a owl:ObjectProperty . 
 
-:respondsTo a rdf:Property . 
+:respondsTo a owl:ObjectProperty . 
 
-:hasDesignFeature a rdf:Property . 
+:hasDesignFeature a owl:ObjectProperty . 
 
 
 
@@ -112,13 +108,16 @@ semsur:hasImplementation a rdf:Property .
 # to link to information that is relevant to the literature review. 
 	
 	
-:dateAdded a rdf:Property ; 
+:dateAdded a owl:DatatypeProperty ; 
 	rdfs:comment "The calendar date the reference was added as yyyy-mm-dd." .
 
-:annotation a rdf:Property ; 
+:annotation a owl:ObjectProperty ; 
 	rdfs:comment "Object property linking to an annotation." .
 	
-:category a rdf:Property ; 
+:text_annotation a owl:DatatypeProperty ; 
+	rdfs:comment "Points to a literal or string." .
+	
+:category a owl:ObjectProperty ; 
 	rdfs:comment "Object property linking to a category or classification." .
 	
 	
@@ -126,63 +125,73 @@ semsur:hasImplementation a rdf:Property .
 # classification/categorisation. Note that they subtype on :category.
 
 	
-:learningDomain rdfs:subPropertyOf :category ; 
+:learningDomain a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a description of the learning domain".
 
-:educationalLevel rdfs:subPropertyOf :category ;
+:educationalLevel a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :category ;
 	rdfs:label "Education level"@en ; 
 	rdfs:commment "linking to education level" . 
 
 	
-:science rdfs:subPropertyOf :category ; 
+:science a owl:ObjectProperty ;  
+	rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a description of the science domain".
 	
-:technology rdfs:subPropertyOf :category ; 
+:technology a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the technology used for teaching".
 	
-:modelDesign rdfs:subPropertyOf :category ; 
+:modelDesign a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of simulation model design  in terms of ODD+D framework".
 
-:outcome rdfs:subPropertyOf :category ; 
+:outcome a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the learning outcome area".
 
-:pedagogy rdfs:subPropertyOf :category ; 
+:pedagogy a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :category ; 
 	rdfs:comment "predicate linking to a descriptor of the pedagogical strategy".
 	
-:learningTime rdfs:subPropertyOf :category ; 
+:researchMethod a owl:ObjectProperty ;
+	rdfs:subPropertyOf :category ; 
+	rdfs:comment "predicate linking to a descriptor of the research method used".
+	
+:learningTime a owl:DatatypeProperty ; 
 	rdfs:comment "a literal with the time in minutes or bigger units".
 	
-:effectiveness rdfs:subPropertyOf :category ; 
+:effectiveness a owl:DatatypeProperty ;
 	rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention".
 	
-:researchMethod rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a descriptor of the research method used".
+
 	
 # Miscalleneous
 	
-:authorKeywords a rdf:Property ; 
+:authorKeywords a owl:DatatypeProperty ; 
 	rdfs:comment "Data property for author-provided".
-	
-:indexKeywords a rdf:Property ; 
+
+:indexKeywords a owl:DatatypeProperty ; 
 	rdfs:comment "Data property for keywords other than provided by author".
 	
 	
 ### Properties from schema.org
 # Note: to be replaced by schema:LearningResource properties. 
 
-schema:educationalLevel a rdf:Property ;
+schema:educationalLevel a owl:DatatypeProperty ; 
 	rdfs:comment "The level in terms of progression through an educational or training context.".
 	
-schema:educationalUse a rdf:Property ;
+schema:educationalUse a owl:DatatypeProperty ; 
 	rdfs:comment "String with the purpose of the work in the context of education".
 	
-schema:educationalAlignment a rdf:Property ;
+schema:educationalAlignment a owl:ObjectProperty ; 
 	rdfs:comment "predicate linking to a schema:AlignmentObject".
 	
-schema:timeRequired a rdf:Property ;
+schema:timeRequired a owl:DatatypeProperty  ;
 	rdfs:comment "a string with a schema:Duration specification, ex. PT30M".
 	
-schema:typicalAgeRange a rdf:Property ;
+schema:typicalAgeRange a owl:DatatypeProperty  ;
 	rdfs:comment "string ex. 7-9, 18+".
 	
 
@@ -199,7 +208,15 @@ schema:typicalAgeRange a rdf:Property ;
 # Educational levels
 # goes with predicate :educationalLevel. 
 
+#################################################
+# Concepts : Assessment and measurement methods
+#################################################
 
+# as we don't  have a method focus, something simple will do. 
+
+:AssessmentMethod a skos:Concept .
+
+:MeasurementMethod a skos:Concept . 
 	
 #################################
 # Concepts: Relevant science areas
@@ -253,12 +270,4 @@ schema:typicalAgeRange a rdf:Property ;
 # Concepts: Research methods
 #################################
 
-#################################################
-# Concepts : Assessment and measurement methods
-#################################################
 
-# as we don't  have a method focus, something simple will do. 
-
-:AssessmentMethod a skos:Concept .
-
-:MeasurementMethod a skos:Concept . 

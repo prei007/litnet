@@ -74,7 +74,7 @@ edtech:modelDesign rdf:type owl:ObjectProperty ;
                    rdfs:comment "predicate linking to a descriptor of simulation model design  in terms of ODD+D framework" .
 
 
-###  http://coolfutures.net/rdf/2021/edtech#outcome
+### a http://coolfutures.net/rdf/2021/edtech#outcome
 edtech:outcome rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf edtech:category ;
                rdfs:comment "predicate linking to a descriptor of the learning outcome area" .

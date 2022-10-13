@@ -1,273 +1,304 @@
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
-PREFIX dc: <http://purl.org/dc/terms/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX bibo: <http://purl.org/ontology/bibo/>
-PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
-PREFIX semsur: <http://purl.org/SemSur/>
-PREFIX deo: <http://purl.org/spar/deo/>
-PREFIX schema: <http://schema.org/> 
+@prefix : <http://coolfutures.net/rdf/2021/edtech#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix lrmi: <http://purl.org/dcx/lrmi-terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix edtech: <http://coolfutures.net/rdf/2021/edtech#> .
+@prefix schema: <http://schema.org/> .
+@prefix semsur: <http://purl.org/SemSur/> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology ;
+   owl:imports <http://purl.org/spar/pso/2015-07-03> ;
+   <http://purl.org/dc/elements/1.1/creator> "Peter Reimann"^^rdfs:Literal ;
+   <http://purl.org/dc/elements/1.1/date> "13 October 2022"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/description> "A core ontology bridging the research and the design aspects of the learning technologies field."^^rdfs:Literal ;
+   <http://purl.org/dc/elements/1.1/rights> "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."^^rdfs:Literal ;
+   <http://purl.org/dc/elements/1.1/title> "LETRO, the LEarning Technology Research Ontology"^^rdfs:Literal ;
+   owl:versionInfo "0.1"^^xsd:string
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#commment
+rdfs:commment rdf:type owl:AnnotationProperty .
 
 
-#################################
-# Classes and Predicates
-#################################
+#################################################################
+#    Object Properties
+#################################################################
 
-#### Classes for approaches
-
-semsur:ResearchTopic rdf:type owl:Class ; 
-	rdfs:label "resesarch topic"@en ; 
-	rdfs:comment "A topic of debate in a scientific disourse community." ;
-	rdfs:subClassOf owl:Thing.
-
-semsur:Problem rdf:type owl:Class ; 
-	rdfs:label "research problem"@en ; 
-	rdfs:comment "The problem addressed. Synonym: research question." ;
-	rdfs:subClassOf owl:Thing ;
-	owl:equivalentClass deo:ProblemStatement. 
-	
-semsur:TechnologicalProblem rdf:type owl:Class ; 
-	rdfs:label "technological problem"@en ; 
-	rdfs:comment "Existing technology not powerful enough, not reliable." ;
-	rdfs:subClassOf semsur:Problem .
-	
-:MethodologicalProblem rdf:type owl:Class ; 
-	rdfs:label "methodological problem"@en ; 
-	rdfs:comment "Problem with the general methodological approach or a particular method." ;
-	rdfs:subClassOf semsur:Problem .
-	
-:EmpiricalProblem rdf:type owl:Class ; 
-	rdfs:label "empirical problem"@en ; 
-	rdfs:comment "General lack of evidence or lack of decisive evidence." ;
-	rdfs:subClassOf semsur:Problem .
-	
-:TheoreticalProblem rdf:type owl:Class ; 
-	rdfs:label "theoretical problem"@en ; 
-	rdfs:comment "Missing explanation or conflicting explanations." ;
-	rdfs:subClassOf semsur:Problem .
-	
-:PedagogicalProblem rdf:type owl:Class ; 
-	rdfs:label "pedagogical problem"@en ; 
-	rdfs:comment "Lack of knowledge how to teach something, make it learnable efficiently." ;
-	rdfs:subClassOf semsur:Problem .
-
-:ResearchApproach rdf:type owl:Class ; 
-	rdfs:label "research approach"@en ; 
-	rdfs:comment "The plans and procedures for a research topic to solve a particular research problem." ; 
-	rdfs:subClassOf semsur:Approach .
-	
-:DesignApproach rdf:type owl:Class ; 
-	rdfs:label "design approach"@en ; 
-	rdfs:comment "The problem is addressed through a design." ; 
-	rdfs:subClassOf semsur:Approach . 
-	
-:DesignFeature rdf:type owl:Class ; 
-	rdfs:label "design feature"@en ; 
-	rdfs:comment "Design features make up a design approach." ; 
-	rdfs:subClassOf owl:Thing. 
+###  http://coolfutures.net/rdf/2021/edtech#annotation
+edtech:annotation rdf:type owl:ObjectProperty ;
+                  rdfs:comment "Object property linking to an annotation." .
 
 
-:Implementation rdf:type owl:Class ; 
-	rdfs:label "implementation"@en ; 
-	rdfs:comment "The realisation of a research approach as a computer implementation." ; 
-	rdfs:subClassOf owl:Thing . 
-
-:Application rdf:type owl:Class ; 
-	rdfs:label "practical application"@en ; 
-	rdfs:comment "The application of a research approach in practice, such as in schools." ; 
-	rdfs:subClassOf owl:Thing . 
-
-#### approach related properties
-
-semsur:hasPositiveAspects a  owl:DatatypeProperty. 
-
-:hasNewAspect a  owl:DatatypeProperty ;
-	rdfs:subPropertyOf semsur:hasPositiveAspects . 
-	
-semsur:hasLimitation a owl:DatatypeProperty . 
-
-semsur:hasChallenge a owl:ObjectProperty . 
-
-semsur:hasImplementation a owl:ObjectProperty . 
-
-:hasApplication a owl:ObjectProperty . 
-
-:respondsTo a owl:ObjectProperty . 
-
-:hasDesignFeature a owl:ObjectProperty . 
+###  http://coolfutures.net/rdf/2021/edtech#category
+edtech:category rdf:type owl:ObjectProperty ;
+                rdfs:comment "Object property linking to a category or classification." .
 
 
-
-#### Other Properties
-
-# Most of the predicates are from dcterms and bibo, but additional ones are needed
-# to link to information that is relevant to the literature review. 
-	
-	
-:dateAdded a owl:DatatypeProperty ; 
-	rdfs:comment "The calendar date the reference was added as yyyy-mm-dd." .
-
-:annotation a owl:ObjectProperty ; 
-	rdfs:comment "Object property linking to an annotation." .
-	
-:text_annotation a owl:DatatypeProperty ; 
-	rdfs:comment "Points to a literal or string." .
-	
-:category a owl:ObjectProperty ; 
-	rdfs:comment "Object property linking to a category or classification." .
-	
-	
-# The following predicates are deemed useful for 
-# classification/categorisation. Note that they subtype on :category.
-
-	
-:learningDomain a owl:ObjectProperty ; 
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a description of the learning domain".
-
-:educationalLevel a owl:ObjectProperty ; 
-	rdfs:subPropertyOf :category ;
-	rdfs:label "Education level"@en ; 
-	rdfs:commment "linking to education level" . 
-
-	
-:science a owl:ObjectProperty ;  
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a description of the science domain".
-	
-:technology a owl:ObjectProperty ; 
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a descriptor of the technology used for teaching".
-	
-:modelDesign a owl:ObjectProperty ; 
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a descriptor of simulation model design  in terms of ODD+D framework".
-
-:outcome a owl:ObjectProperty ; 
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a descriptor of the learning outcome area".
-
-:pedagogy a owl:ObjectProperty ; 
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a descriptor of the pedagogical strategy".
-	
-:researchMethod a owl:ObjectProperty ;
-	rdfs:subPropertyOf :category ; 
-	rdfs:comment "predicate linking to a descriptor of the research method used".
-	
-:learningTime a owl:DatatypeProperty ; 
-	rdfs:comment "a literal with the time in minutes or bigger units".
-	
-:effectiveness a owl:DatatypeProperty ;
-	rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention".
-	
-
-	
-# Miscalleneous
-	
-:authorKeywords a owl:DatatypeProperty ; 
-	rdfs:comment "Data property for author-provided".
-
-:indexKeywords a owl:DatatypeProperty ; 
-	rdfs:comment "Data property for keywords other than provided by author".
-	
-	
-### Properties from schema.org
-# Note: to be replaced by schema:LearningResource properties. 
-
-schema:educationalLevel a owl:DatatypeProperty ; 
-	rdfs:comment "The level in terms of progression through an educational or training context.".
-	
-schema:educationalUse a owl:DatatypeProperty ; 
-	rdfs:comment "String with the purpose of the work in the context of education".
-	
-schema:educationalAlignment a owl:ObjectProperty ; 
-	rdfs:comment "predicate linking to a schema:AlignmentObject".
-	
-schema:timeRequired a owl:DatatypeProperty  ;
-	rdfs:comment "a string with a schema:Duration specification, ex. PT30M".
-	
-schema:typicalAgeRange a owl:DatatypeProperty  ;
-	rdfs:comment "string ex. 7-9, 18+".
-	
+###  http://coolfutures.net/rdf/2021/edtech#educationalLevel
+edtech:educationalLevel rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf edtech:category ;
+                        rdfs:commment "linking to education level" ;
+                        rdfs:label "Education level"@en .
 
 
-#################################
-# Concept schemes
-#################################
-
-# The concept schemes are mainly codes. Categories only where necessary. 
-# Some of the codes should be moved to their own name space. For instance, for ed tech. 
-# Only specific ones should stay in the default namespace. 
-# All skos schemes have been moved to separate files. 
-
-# Educational levels
-# goes with predicate :educationalLevel. 
-
-#################################################
-# Concepts : Assessment and measurement methods
-#################################################
-
-# as we don't  have a method focus, something simple will do. 
-
-:AssessmentMethod a skos:Concept .
-
-:MeasurementMethod a skos:Concept . 
-	
-#################################
-# Concepts: Relevant science areas
-#################################
-
-# Using Australian Bureau of Statistics ANZSRC2020
-# goes with predicate :science
-
-	
-	
-#################################
-# Concepts: Social-Environmental Systems
-#################################
-
-# predicate is :modelDesign 
+###  http://coolfutures.net/rdf/2021/edtech#hasApplication
+edtech:hasApplication rdf:type owl:ObjectProperty .
 
 
-
-#################################
-# Concepts: Behavioural theories
-#################################
-
-# predicate is :modelDesign 
+###  http://coolfutures.net/rdf/2021/edtech#hasDesignFeature
+edtech:hasDesignFeature rdf:type owl:ObjectProperty .
 
 
-#################################
-# Concepts: Educational technologies
-#################################
-
-# Predicate: :technology
-
-
-	
-#################################
-# Concepts: Pedagogies
-#################################
-
-# currently our own terms, inductively from terms used in the literature. 
-
-# Predicate: :pedagogy
-	
-#################################
-# Concepts: Outcomes
-#################################
-
-# predicate: :outcomes
+###  http://coolfutures.net/rdf/2021/edtech#learningDomain
+edtech:learningDomain rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf edtech:category ;
+                      rdfs:comment "predicate linking to a description of the learning domain" .
 
 
-	
-#################################
-# Concepts: Research methods
-#################################
+###  http://coolfutures.net/rdf/2021/edtech#modelDesign
+edtech:modelDesign rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf edtech:category ;
+                   rdfs:comment "predicate linking to a descriptor of simulation model design  in terms of ODD+D framework" .
 
 
+###  http://coolfutures.net/rdf/2021/edtech#outcome
+edtech:outcome rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf edtech:category ;
+               rdfs:comment "predicate linking to a descriptor of the learning outcome area" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#pedagogy
+edtech:pedagogy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf edtech:category ;
+                rdfs:comment "predicate linking to a descriptor of the pedagogical strategy" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#researchMethod
+edtech:researchMethod rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf edtech:category ;
+                      rdfs:comment "predicate linking to a descriptor of the research method used" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#respondsTo
+edtech:respondsTo rdf:type owl:ObjectProperty .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#science
+edtech:science rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf edtech:category ;
+               rdfs:comment "predicate linking to a description of the science domain" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#technology
+edtech:technology rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf edtech:category ;
+                  rdfs:comment "predicate linking to a descriptor of the technology used for teaching" .
+
+
+###  http://purl.org/SemSur/hasChallenge
+semsur:hasChallenge rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/SemSur/hasImplementation
+semsur:hasImplementation rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/educationalAlignment
+schema:educationalAlignment rdf:type owl:ObjectProperty ;
+                            rdfs:comment "predicate linking to a schema:AlignmentObject" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://coolfutures.net/rdf/2021/edtech#authorKeywords
+edtech:authorKeywords rdf:type owl:DatatypeProperty ;
+                      rdfs:comment "Data property for author-provided" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#dateAdded
+edtech:dateAdded rdf:type owl:DatatypeProperty ;
+                 rdfs:comment "The calendar date the reference was added as yyyy-mm-dd." .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#effectiveness
+edtech:effectiveness rdf:type owl:DatatypeProperty ;
+                     rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#hasNewAspect
+edtech:hasNewAspect rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf semsur:hasPositiveAspects .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#indexKeywords
+edtech:indexKeywords rdf:type owl:DatatypeProperty ;
+                     rdfs:comment "Data property for keywords other than provided by author" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#learningTime
+edtech:learningTime rdf:type owl:DatatypeProperty ;
+                    rdfs:comment "a literal with the time in minutes or bigger units" .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#text_annotation
+edtech:text_annotation rdf:type owl:DatatypeProperty ;
+                       rdfs:comment "Points to a literal or string." .
+
+
+###  http://purl.org/SemSur/hasLimitation
+semsur:hasLimitation rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/SemSur/hasPositiveAspects
+semsur:hasPositiveAspects rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/educationalLevel
+schema:educationalLevel rdf:type owl:DatatypeProperty ;
+                        rdfs:comment "The level in terms of progression through an educational or training context." .
+
+
+###  http://schema.org/educationalUse
+schema:educationalUse rdf:type owl:DatatypeProperty ;
+                      rdfs:comment "String with the purpose of the work in the context of education" .
+
+
+###  http://schema.org/timeRequired
+schema:timeRequired rdf:type owl:DatatypeProperty ;
+                    rdfs:comment "a string with a schema:Duration specification, ex. PT30M" .
+
+
+###  http://schema.org/typicalAgeRange
+schema:typicalAgeRange rdf:type owl:DatatypeProperty ;
+                       rdfs:comment "string ex. 7-9, 18+" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://coolfutures.net/rdf/2021/edtech#Application
+edtech:Application rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing ;
+                   rdfs:comment "The application of a research approach in practice, such as in schools." ;
+                   rdfs:label "practical application"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#DesignApproach
+edtech:DesignApproach rdf:type owl:Class ;
+                      rdfs:subClassOf semsur:Approach ;
+                      rdfs:comment "The problem is addressed through a design." ;
+                      rdfs:label "design approach"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#DesignFeature
+edtech:DesignFeature rdf:type owl:Class ;
+                     rdfs:subClassOf owl:Thing ;
+                     rdfs:comment "Design features make up a design approach." ;
+                     rdfs:label "design feature"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#EmpiricalProblem
+edtech:EmpiricalProblem rdf:type owl:Class ;
+                        rdfs:subClassOf semsur:Problem ;
+                        rdfs:comment "General lack of evidence or lack of decisive evidence." ;
+                        rdfs:label "empirical problem"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#Implementation
+edtech:Implementation rdf:type owl:Class ;
+                      rdfs:subClassOf owl:Thing ;
+                      rdfs:comment "The realisation of a research approach as a computer implementation." ;
+                      rdfs:label "implementation"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#MethodologicalProblem
+edtech:MethodologicalProblem rdf:type owl:Class ;
+                             rdfs:subClassOf semsur:Problem ;
+                             rdfs:comment "Problem with the general methodological approach or a particular method." ;
+                             rdfs:label "methodological problem"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#PedagogicalProblem
+edtech:PedagogicalProblem rdf:type owl:Class ;
+                          rdfs:subClassOf semsur:Problem ;
+                          rdfs:comment "Lack of knowledge how to teach something, make it learnable efficiently." ;
+                          rdfs:label "pedagogical problem"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#ResearchApproach
+edtech:ResearchApproach rdf:type owl:Class ;
+                        rdfs:subClassOf semsur:Approach ;
+                        rdfs:comment "The plans and procedures for a research topic to solve a particular research problem." ;
+                        rdfs:label "research approach"@en .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#TheoreticalProblem
+edtech:TheoreticalProblem rdf:type owl:Class ;
+                          rdfs:subClassOf semsur:Problem ;
+                          rdfs:comment "Missing explanation or conflicting explanations." ;
+                          rdfs:label "theoretical problem"@en .
+
+
+###  http://purl.org/SemSur/Approach
+semsur:Approach rdf:type owl:Class .
+
+
+###  http://purl.org/SemSur/Problem
+semsur:Problem rdf:type owl:Class ;
+               owl:equivalentClass deo:ProblemStatement ;
+               rdfs:subClassOf owl:Thing ;
+               rdfs:comment "The problem addressed. Synonym: research question." ;
+               rdfs:label "research problem"@en .
+
+
+###  http://purl.org/SemSur/ResearchTopic
+semsur:ResearchTopic rdf:type owl:Class ;
+                     rdfs:subClassOf owl:Thing ;
+                     rdfs:comment "A topic of debate in a scientific disourse community." ;
+                     rdfs:label "resesarch topic"@en .
+
+
+###  http://purl.org/SemSur/TechnologicalProblem
+semsur:TechnologicalProblem rdf:type owl:Class ;
+                            rdfs:subClassOf semsur:Problem ;
+                            rdfs:comment "Existing technology not powerful enough, not reliable." ;
+                            rdfs:label "technological problem"@en .
+
+
+###  http://purl.org/spar/deo/ProblemStatement
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://coolfutures.net/rdf/2021/edtech#AssessmentMethod
+edtech:AssessmentMethod rdf:type owl:NamedIndividual ,
+                                 skos:Concept .
+
+
+###  http://coolfutures.net/rdf/2021/edtech#MeasurementMethod
+edtech:MeasurementMethod rdf:type owl:NamedIndividual ,
+                                  skos:Concept .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

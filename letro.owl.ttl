@@ -55,6 +55,10 @@ letro:educationalLevel rdf:type owl:ObjectProperty ;
                        rdfs:label "Education level"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#followsDesignMethod
+letro:followsDesignMethod rdf:type owl:ObjectProperty .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#hasApplication
 letro:hasApplication rdf:type owl:ObjectProperty .
 
@@ -65,6 +69,24 @@ letro:hasChallenge rdf:type owl:ObjectProperty .
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasDesignFeature
 letro:hasDesignFeature rdf:type owl:ObjectProperty .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasDesignModel
+letro:hasDesignModel rdf:type owl:ObjectProperty .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasDesignPrinciple
+letro:hasDesignPrinciple rdf:type owl:ObjectProperty .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasDesignProcess
+letro:hasDesignProcess rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain letro:DesignProject .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasDesignTheory
+letro:hasDesignTheory rdf:type owl:ObjectProperty .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasEvaluation
@@ -80,6 +102,11 @@ letro:hasImplementation rdf:type owl:ObjectProperty .
 letro:hasSolution rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#identifiesRequirement
+letro:identifiesRequirement rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#isContinuationOf
@@ -99,6 +126,16 @@ letro:learningDomain rdf:type owl:ObjectProperty ;
 letro:modelDesign rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf letro:category ;
                   rdfs:comment "predicate linking to a descriptor of simulation model design  in terms of ODD+D framework" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#motivated_by
+letro:motivated_by rdf:type owl:ObjectProperty ;
+                   owl:inverseOf letro:motivates ;
+                   rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#motivates
+letro:motivates rdf:type owl:ObjectProperty .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#outcome
@@ -216,8 +253,7 @@ letro:hasLimitations rdf:type owl:DatatypeProperty ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasMotivation
 letro:hasMotivation rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf letro:hasChallenges ;
-                    rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+                    rdfs:subPropertyOf letro:hasChallenges .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasNewAspect
@@ -288,14 +324,24 @@ letro:Approach rdf:type owl:Class ;
                rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#CommunicationTheory
+letro:CommunicationTheory rdf:type owl:Class ;
+                          rdfs:subClassOf letro:DescriptiveExplanatoryKnowledgebase .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Conjecture
 letro:Conjecture rdf:type owl:Class .
 
 
-###  http://www.learn-web.com/rdf/2022/letro#DescriptiveExplanatoryKnowledgbase
-letro:DescriptiveExplanatoryKnowledgbase rdf:type owl:Class ;
-                                         rdfs:subClassOf letro:Knowledgebase ;
-                                         rdfs:label "Descriptive/Explanatory knowledgebase"@en .
+###  http://www.learn-web.com/rdf/2022/letro#CurriculumModels
+letro:CurriculumModels rdf:type owl:Class ;
+                       rdfs:subClassOf letro:AppliedKnowledgebase .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DescriptiveExplanatoryKnowledgebase
+letro:DescriptiveExplanatoryKnowledgebase rdf:type owl:Class ;
+                                          rdfs:subClassOf letro:Knowledgebase ;
+                                          rdfs:label "Descriptive/Explanatory knowledgebase"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignApproach
@@ -310,6 +356,11 @@ letro:DesignConjecture rdf:type owl:Class ;
                        rdfs:subClassOf letro:Conjecture ;
                        <http://purl.org/dc/elements/1.1/description> "A claim or hypothesis about what a design or design feature will do."@en ;
                        rdfs:label "Design conjecture"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignEntities
+letro:DesignEntities rdf:type owl:Class ;
+                     rdfs:subClassOf letro:AppliedKnowledgebase .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignFeature
@@ -350,6 +401,7 @@ letro:DesignProject rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignTheory
 letro:DesignTheory rdf:type owl:Class ;
+                   rdfs:subClassOf letro:AppliedKnowledgebase ;
                    rdfs:label "Design theory"@en .
 
 
@@ -399,6 +451,11 @@ letro:Implementation rdf:type owl:Class ;
                      rdfs:label "implementation"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#InteractionTheory
+letro:InteractionTheory rdf:type owl:Class ;
+                        rdfs:subClassOf letro:DescriptiveExplanatoryKnowledgebase .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Knowledgebase
 letro:Knowledgebase rdf:type owl:Class .
 
@@ -412,6 +469,11 @@ letro:LearningDesign rdf:type owl:Class ;
 letro:LearningEnvironment rdf:type owl:Class ;
                           rdfs:subClassOf letro:DesignInstatiation ;
                           rdfs:comment "Components of a LE will often be learning resources, which should be described with https://schema.org/LearningResource"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#LearningTheory
+letro:LearningTheory rdf:type owl:Class ;
+                     rdfs:subClassOf letro:DescriptiveExplanatoryKnowledgebase .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#Limitation

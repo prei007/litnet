@@ -10,6 +10,7 @@
 @prefix lrmi: <http://purl.org/dcx/lrmi-terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix letro: <http://www.learn-web.com/rdf/2022/letro#> .
 @prefix edtech: <http://coolfutures.net/rdf/2021/edtech#> .
 @prefix schema: <http://schema.org/> .
@@ -28,14 +29,6 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/SemSur/hasChallenge
-:hasChallenge rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/SemSur/hasImplementation
-:hasImplementation rdf:type owl:ObjectProperty .
-
-
 ###  http://schema.org/educationalAlignment
 schema:educationalAlignment rdf:type owl:ObjectProperty ;
                             rdfs:comment "predicate linking to a schema:AlignmentObject" .
@@ -51,6 +44,11 @@ letro:category rdf:type owl:ObjectProperty ;
                rdfs:comment "Object property linking to a category or classification." .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#documentedIn
+letro:documentedIn rdf:type owl:ObjectProperty ;
+                   <http://purl.org/dc/elements/1.1/description> "URI or text" .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#educationalLevel
 letro:educationalLevel rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf letro:category ;
@@ -61,14 +59,34 @@ letro:educationalLevel rdf:type owl:ObjectProperty ;
 letro:hasApplication rdf:type owl:ObjectProperty .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#hasChallenge
+letro:hasChallenge rdf:type owl:ObjectProperty .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#hasDesignFeature
 letro:hasDesignFeature rdf:type owl:ObjectProperty .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasEvaluation
+letro:hasEvaluation rdf:type owl:ObjectProperty ;
+                    rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasImplementation
+letro:hasImplementation rdf:type owl:ObjectProperty .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasSolution
+letro:hasSolution rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#isContinuationOf
 letro:isContinuationOf rdf:type owl:ObjectProperty ,
                                 owl:TransitiveProperty ;
-                       rdfs:label "is continuation of"@en .
+                       rdfs:label "is continuation of"@en ;
+                       rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#learningDomain
@@ -120,14 +138,6 @@ letro:technology rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://purl.org/SemSur/hasLimitation
-:hasLimitation rdf:type owl:DatatypeProperty .
-
-
-###  http://purl.org/SemSur/hasPositiveAspects
-:hasPositiveAspects rdf:type owl:DatatypeProperty .
-
 
 ###  http://schema.org/applicationCategory
 schema:applicationCategory rdf:type owl:DatatypeProperty ;
@@ -194,9 +204,35 @@ letro:effectiveness rdf:type owl:DatatypeProperty ;
                     rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention" .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#hasChallenges
+letro:hasChallenges rdf:type owl:DatatypeProperty ;
+                    rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasLimitations
+letro:hasLimitations rdf:type owl:DatatypeProperty ;
+                     rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasMotivation
+letro:hasMotivation rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf letro:hasChallenges ;
+                    rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#hasNewAspect
 letro:hasNewAspect rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf :hasPositiveAspects .
+                   rdfs:subPropertyOf letro:hasPositiveAspects .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasPositiveAspects
+letro:hasPositiveAspects rdf:type owl:DatatypeProperty ;
+                         rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasResults
+letro:hasResults rdf:type owl:DatatypeProperty ;
+                 rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#indexKeywords
@@ -211,7 +247,7 @@ letro:learningTime rdf:type owl:DatatypeProperty ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#problemContext
 letro:problemContext rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :Problem ;
+                     rdfs:domain letro:Problem ;
                      rdfs:comment "Text or URL with link to a document describing elements of the problem context, such as domain, stakeholders, time or space constraints, etc."@en .
 
 
@@ -224,29 +260,15 @@ letro:text_annotation rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://purl.org/SemSur/Problem
-:Problem rdf:type owl:Class ;
-               owl:equivalentClass deo:ProblemStatement ;
-               rdfs:subClassOf owl:Thing ;
-               rdfs:comment "The problem addressed. Synonym: research question." ;
-               rdfs:label "Problem"@en .
-
-
-###  http://purl.org/SemSur/ResearchTopic
-:ResearchTopic rdf:type owl:Class ;
-                     rdfs:subClassOf owl:Thing ;
-                     rdfs:comment "A topic of debate in a scientific disourse community." ;
-                     rdfs:label "resesarch topic"@en .
-
-
-###  http://purl.org/SemSur/TechnologicalProblem
-:TechnologicalProblem rdf:type owl:Class ;
-                            rdfs:subClassOf :Problem ;
-                            rdfs:comment "Existing technology not powerful enough, not reliable." ;
-                            rdfs:label "technological problem"@en .
-
-
 ###  http://purl.org/spar/deo/ProblemStatement
+deo:ProblemStatement owl:equivalentClass letro:Problem .
+
+
+###  http://purl.org/spar/fabio/Work
+fabio:Work rdf:type owl:Class ;
+           <http://purl.org/dc/elements/1.1/description> "A subclass of FRBR work, restricted to works that are published or potentially publishable, and that contain or are referred to by bibliographic references, or entities used to define bibliographic references. FaBiO works, and their expressions and manifestations, are primarily textual publications such as books, magazines, newspapers and journals, and items of their content. However, they also include datasets, computer algorithms, experimental protocols, formal specifications and vocabularies, legal records, governmental papers, technical and commercial reports and similar publications, and also bibliographies, reference lists, library catalogues and similar collections. For this reason, fabio:Work is not an equivalent class to frbr:ScholarlyWork. An example of a fabio:Work is your latest research paper. https://sparontologies.github.io/fabio/current/fabio.html#d4e6036"@en ;
+           rdfs:label "Work product"@en .
+
 
 ###  http://www.learn-web.com/rdf/2022/letro#Application
 letro:Application rdf:type owl:Class ;
@@ -255,12 +277,25 @@ letro:Application rdf:type owl:Class ;
                   rdfs:label "practical application"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#AppliedKnowledgebase
+letro:AppliedKnowledgebase rdf:type owl:Class ;
+                           rdfs:subClassOf letro:Knowledgebase ;
+                           rdfs:label "Applied knowledgebase"@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Approach
-letro:Approach rdf:type owl:Class .
+letro:Approach rdf:type owl:Class ;
+               rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
 
 
-###  http://www.learn-web.com/rdf/2022/letro#Design
-letro:Design rdf:type owl:Class .
+###  http://www.learn-web.com/rdf/2022/letro#Conjecture
+letro:Conjecture rdf:type owl:Class .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DescriptiveExplanatoryKnowledgbase
+letro:DescriptiveExplanatoryKnowledgbase rdf:type owl:Class ;
+                                         rdfs:subClassOf letro:Knowledgebase ;
+                                         rdfs:label "Descriptive/Explanatory knowledgebase"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignApproach
@@ -268,6 +303,13 @@ letro:DesignApproach rdf:type owl:Class ;
                      rdfs:subClassOf letro:Approach ;
                      rdfs:comment "A particular design can be seen as an instance of a design approach. The design approach represents what is common to a set of similar designs: variations of the approach." ;
                      rdfs:label "design approach"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignConjecture
+letro:DesignConjecture rdf:type owl:Class ;
+                       rdfs:subClassOf letro:Conjecture ;
+                       <http://purl.org/dc/elements/1.1/description> "A claim or hypothesis about what a design or design feature will do."@en ;
+                       rdfs:label "Design conjecture"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignFeature
@@ -281,14 +323,39 @@ letro:DesignFeature rdf:type owl:Class ;
 letro:DesignInstatiation rdf:type owl:Class .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#DesignMethod
+letro:DesignMethod rdf:type owl:Class ;
+                   rdfs:label "Design method"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignModel
+letro:DesignModel rdf:type owl:Class ;
+                  rdfs:label "Design model"@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#DesignPrinciple
 letro:DesignPrinciple rdf:type owl:Class ;
                       rdfs:label "Design principle"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#DesignProcess
+letro:DesignProcess rdf:type owl:Class ;
+                    rdfs:label "Design process"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignProject
+letro:DesignProject rdf:type owl:Class ;
+                    rdfs:label "Design project"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignTheory
+letro:DesignTheory rdf:type owl:Class ;
+                   rdfs:label "Design theory"@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#EmpiricalProblem
 letro:EmpiricalProblem rdf:type owl:Class ;
-                       rdfs:subClassOf :Problem ;
+                       rdfs:subClassOf letro:Problem ;
                        rdfs:comment "General lack of evidence or lack of decisive evidence." ;
                        rdfs:label "empirical problem"@en .
 
@@ -299,6 +366,32 @@ letro:EvaluationCriterion rdf:type owl:Class ;
                           rdfs:label "Evaluation criterion"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#EvaluationMethod
+letro:EvaluationMethod rdf:type owl:Class ;
+                       rdfs:subClassOf letro:ResearchMethod ;
+                       rdfs:label "Evaluation method"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#EvaluationMetric
+letro:EvaluationMetric rdf:type owl:Class ;
+                       rdfs:label "Evaluation metric"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#EvaluationResult
+letro:EvaluationResult rdf:type owl:Class ;
+                       rdfs:label "Evaluation result"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#EvaluationScenario
+letro:EvaluationScenario rdf:type owl:Class ;
+                         rdfs:label "Evaluation scenario"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#Hypothesis
+letro:Hypothesis rdf:type owl:Class ;
+                 rdfs:subClassOf letro:Conjecture .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Implementation
 letro:Implementation rdf:type owl:Class ;
                      rdfs:subClassOf owl:Thing ;
@@ -306,9 +399,13 @@ letro:Implementation rdf:type owl:Class ;
                      rdfs:label "implementation"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#Knowledgebase
+letro:Knowledgebase rdf:type owl:Class .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#LearningDesign
 letro:LearningDesign rdf:type owl:Class ;
-                     rdfs:subClassOf letro:Design .
+                     rdfs:subClassOf letro:DesignModel .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#LearningEnvironment
@@ -325,16 +422,23 @@ letro:Limitation rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#MethodologicalProblem
 letro:MethodologicalProblem rdf:type owl:Class ;
-                            rdfs:subClassOf :Problem ;
+                            rdfs:subClassOf letro:Problem ;
                             rdfs:comment "Problem with the general methodological approach or a particular method." ;
                             rdfs:label "methodological problem"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#PedagogicalProblem
 letro:PedagogicalProblem rdf:type owl:Class ;
-                         rdfs:subClassOf :Problem ;
+                         rdfs:subClassOf letro:Problem ;
                          rdfs:comment "Lack of knowledge how to teach something, make it learnable efficiently." ;
                          rdfs:label "pedagogical problem"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#Problem
+letro:Problem rdf:type owl:Class ;
+              rdfs:subClassOf owl:Thing ;
+              rdfs:comment "The problem addressed. Synonym: research question." ;
+              rdfs:label "Problem"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#ProblemContext
@@ -355,9 +459,28 @@ letro:ResearchApproach rdf:type owl:Class ;
                        rdfs:label "research approach"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#ResearchMethod
+letro:ResearchMethod rdf:type owl:Class ;
+                     rdfs:label "Research method"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#ResearchTopic
+letro:ResearchTopic rdf:type owl:Class ;
+                    rdfs:subClassOf owl:Thing ;
+                    rdfs:comment "A topic of debate in a scientific disourse community." ;
+                    rdfs:label "resesarch topic"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#TechnologicalProblem
+letro:TechnologicalProblem rdf:type owl:Class ;
+                           rdfs:subClassOf letro:Problem ;
+                           rdfs:comment "Existing technology not powerful enough, not reliable." ;
+                           rdfs:label "technological problem"@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#TechnologyDesign
 letro:TechnologyDesign rdf:type owl:Class ;
-                       rdfs:subClassOf letro:Design .
+                       rdfs:subClassOf letro:DesignModel .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#TechnologyObject
@@ -368,7 +491,7 @@ letro:TechnologyObject rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#TheoreticalProblem
 letro:TheoreticalProblem rdf:type owl:Class ;
-                         rdfs:subClassOf :Problem ;
+                         rdfs:subClassOf letro:Problem ;
                          rdfs:comment "Missing explanation or conflicting explanations." ;
                          rdfs:label "theoretical problem"@en .
 

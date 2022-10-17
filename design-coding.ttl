@@ -14,12 +14,119 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 PREFIX semsur: <http://purl.org/SemSur/>
 PREFIX deo: <http://purl.org/spar/deo/>
 PREFIX schema: <http://schema.org/> 
+PREFIX fabio: <http://purl.org/spar/fabio/> 
+PREFIX doco: <http://purl.org/spar/doco/> 
+PREFIX caliper: <http://purl.imsglobal.org/caliper/>
 
 	
 #######  From Dickes et al, 2019. 
-# EcoMOD
 
 :Dickes2019 a dc:BibliographicResource, fabio:Work .
+
+:DesignProject_EcoMOD a letro:DesignProject ; 
+	letro:documentedIn :Dickes2019 ;
+	letro:motivated_by :IIVR_Problem_7 ; 
+	letro:hasEvaluation :Evaluation_ecoMOD ;
+	letro:isContinuationOf :SimulationApproach_3 ;
+	letro:hasDesignProcess :DesignProcess_EcoMOD ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+
+:IIVR_Problem_7 a deo:ProblemStatement, letro:Problem ; 
+	dc:description "No research on integration of virtual reality and ABM such that the epistemic practices of ecosystem scientists are made visible to young learner" ; 
+	letro:hasProblemContext :ProblemContext_EcoMOD ; 
+	 letro:motivates :DesignProject_EcoMOD. 
+	 
+:ProblemContext_EcoMOD a letro:ProblemContext ; 
+	dc:description "STEM Education in the USA. Science standards in the USA. Primary schools. Scientific practices of computational modeling in the Ecology. The challenges involved in integrating such practices into typical school curriculum." . 
+
+:Approach_Immersive_VR_2 a letro:DesignTheory ; 
+	dc:description "QUOTE: The first point is the combination of VR with ABM: ... we present a possible pathway for meaningfully blending immersive virtual environments with agent-based computational modeling tools by grounding EcoMOD’s design framework in a conception of the scientific process that makes explicit the material and representational nature of science (Dickes et al 2019, p. 2184)."  ; 
+	letro:hasPositiveAspect "combines immersive learning with ABM modelling " ;
+	letro:makesDesignClaim "Transformative modeling activities lead to deeper conceptual understanding. " ; 
+	letro:hasChallenge "limited freedom to students for construcing models"  . 
+	
+	
+### The elements of the design and/or the learning environment. 
+# There are no design artifacts accessible for the components
+# of the learning environment, so the components are indexed 
+# under the LE. 
+
+:EcoMOD a schema:LearningResource, letro:LearningEnvironment ; 
+	rdfs:label "EcoMOD curriculum and tools"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  "Curriculum materials" ; 
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
+	schema:hasPart :EcoMOD_VR, :EcoMOD_NetLogo, :EcoMOD_CausalMap .
+	
+:EcoMOD_VR a schema:LearningResource, letro:TechnologyObject, caliper:SoftwareApplication ; 
+	rdfs:label "VR component"@en ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  :VirtualReality .
+	
+:EcoMOD_NetLogo a schema:LearningResource , letro:TechnologyObject, caliper:SoftwareApplication ; 
+	rdfs:label "NetLogo component"@en ;
+	dc:description "A simplified version of the NetLogo shell." ;
+	schema:screenshot [a doco:figure ; dc:source :Dickes2019 ; 
+		fabio:pageNumber "2190"; fabio:figureNumber "4"] ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  :NetLogo .
+	
+:NetLogo a schema:SoftwareApplication ;
+	schema:applicationCategory :SimulationShell ;
+	schema:downloadUrl "https://ccl.northwestern.edu/netlogo/download.shtml"^^xsd:anyURI  .
+	
+:EcoMOD_CausalMap a schema:LearningResource  ; 
+	rdfs:label "Causal mapping activity"@en ;
+	dc:description "This activity uses a physical whiteboard or such. " ;
+	schema:teaches :Ecology, :SystemsThinking ;
+	schema:educationalLevel :MiddleSchools ; 
+	schema:learningResourceType  :CausalMapping .
+	
+:EcoMOD_POV a schema:LearningResource , schema:SoftWareApplication, letro:TechnologyObject ;
+	rdfs:label "Point of view tool"@en ; 
+	dc:description "A view of the virtual world from a particular agents perspective." ;
+	schema:applicationSuite :EcoMOD_VR ;
+	schema:screenshot [a doco:figure ; dc:source :Dickes2019 ;
+		 fabio:pageNumber "2189"; fabio:figureNumber "3"] .
+	
+#### Design models
+
+:DesignProcess_EcoMOD a letro:DesignProcess ; 
+	letro:hasDesignTheory :Approach_Immersive_VR_2 ; 
+	letro:hasIteration DesignIteration_EcoMOD_1 . 
+	# For sequence use (:iteration1 :iteration2 :iteration3 ...)
+
+:DesignIteration_EcoMOD_1 a letro:DesignIteration ; 
+	letro:hasDesignModel :DesignModel_EcoMOD . 
+
+:DesignModel_EcoMOD a letro:LearningDesignModel ; 
+	# A LearningActivity is a set or sequence of events. 
+	letro:hasImplementation :EcoMOD ; 
+	letro:hasLearningActivity [ a caliper:ToolUseEvent ; 
+									caliper:action :used ;
+									caliper:object :EcoMOD_VR ,
+							  [ a caliper:ToolUseEvent ; 
+									caliper:action :used ;
+									caliper:object :EcoMOD_NetLogo ;
+									caliper:generated "a NetLogo model" ] , 
+							  [ a caliper:ToolUseEvent ; 
+									caliper:action :used ;
+									caliper:object :EcoMOD_CausalMap ;
+									caliper:generated "a causal map" ] . 
+
+
+
+### The evaluation 
+
+:Evaluation_ecoMOD a deo:Evaluation ;
+	letro:evaluationQuestion "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (Dickes, 2019, p. 2186)  " ; 
+	:documentedIn :Dickes2019 .
+	
+### Background stuff
+
 
 :EpistemicPractice_Theory a letro:LearningTheory ;
 	rdfs:label "theory of epistemic practice"@en ; 
@@ -29,51 +136,3 @@ PREFIX schema: <http://schema.org/>
 	rdfs:label "learning from multiple representations"@en ; 
 	dc:description "graphical representation, textual representation.".
 
-:IIVR_Problem_7 a deo:ProblemStatement, letro:Problem ; 
-	dc:description "No research on integration of virtual reality and ABM such that the epistemic practices of ecosystem scientists are made visible to young learner" ; 
-	 letro:motivates :DesignProject_EcoMOD. 
-	
-:DesignProject_EcoMOD a letro:DesignProject ; 
-	letro:documentedIn :Dickes2019 ;
-	letro:hasDesignTheory :Approach_Immersive_VR_2 . 
-
-:Approach_Immersive_VR_2 a letro:DesignTheory ; 
-	dc:description "The first point is the combination of VR with ABM: ... we present a possible pathway for meaningfully blending immersive virtual environments with agent-based computational modeling tools by grounding EcoMOD’s design framework in a conception of the scientific process that makes explicit the material and representational nature of science (Dickes et al 2019, p. 2184)."  ; 
-	letro:motivated_by :IIVR_Problem_7 ; 
-	letro:hasLearningEnvironment :EcoMOD ;
-	letro:isContinuationOf :SimulationApproach_3 ;
-	letro:hasPositiveAspect "combines immersive learning with ABM modelling " ;
-	letro:hasChallenge "limited freedom to students for construcing models" ;
-	letro:hasEvaluation :Dickes_2019 ;
-	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI . 
-	
-:Approach_Immersive_VR_3 a letro:ResearchApproach ;
-	dc:description "How did transformative modeling activities contribute to students’ conceptual understanding of the underlying causal mechanisms within the ecosystem? (p. 2186) . Transformative modelling consists in the translation/integration of multiple modelling forms "  ; 
-	letro:motivatedBy :IIVR_Problem_7 ; 
-	letro:hasEvaluation :Evaluation_Dickes2019 . 
-	
-:Evaluation_Dickes2019 a deo:Evaluation ;
-	:documentedIn :Dickes2019 .
-
-:EcoMOD a schema:LearningResource ; 
-	rdfs:label "EcoMOD curriculum and tools"@en ;
-	schema:teaches :Ecology, :SystemsThinking ;
-	schema:educationalLevel :MiddleSchools ; 
-	schema:learningResourceType  "Curriculum materials" ; 
-	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
-	schema:hasPart :EcoMOD_VR_Part, :EcoMOD_NetLogo_Part.
-	
-:EcoMOD_VR_Part a schema:LearningResource ; 
-	rdfs:label "EcoMOD VR component"@en ;
-	schema:teaches :Ecology, :SystemsThinking ;
-	schema:educationalLevel :MiddleSchools ; 
-	schema:learningResourceType  edtech:VirtualReality ; 
-	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
-	
-:EcoMOD_NetLogo_Part a schema:LearningResource ; 
-	rdfs:label "EcoMOD NetLogo component"@en ;
-	schema:teaches :Ecology, :SystemsThinking ;
-	schema:educationalLevel :MiddleSchools ; 
-	schema:learningResourceType  edtech:NetLogo ; 
-	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
-	

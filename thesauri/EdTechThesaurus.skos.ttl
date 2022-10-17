@@ -16,7 +16,27 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:prefLabel "Games and simulations"@en ; 
 	skos:related :ComputerModel. 
 	
-
+:AuthoringEnvironment a skos:Concept ; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Authoring environment"@en .
+	
+:ProgrammingEnvironment a skos:Concept; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Programming environment"@en ; 
+	skos:broader :AuthoringEnvironment. 
+	
+:SimulationShell a skos:Concept; 
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "Simulation shell"@en ;
+	skos:altLabel "Modeling shell" ;
+	skos:broader :AuthoringEnvironment. 
+	
+:NetLogo  a skos:Concept ;
+	skos:inScheme :EdTechThesaurus ;
+	skos:prefLabel "NetLogo"@en ;
+	skos:related :ABM ;
+	skos:broader :SimulationShell .
+	
 :Game a skos:Concept ; 
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "Educational game"@en ; 
@@ -63,6 +83,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:inScheme :EdTechThesaurus ;
 	skos:prefLabel "NetLogo" ;
 	skos:definition "A model written in the programming language NetLogo."@en ;
+	skos:scopeNote "Not to be confused with the NetLogo simulation shell itself."
 	skos:broader :ABM . 
 	
 :SysDyn a skos:Concept ;

@@ -14,6 +14,7 @@
 @prefix letro: <http://www.learn-web.com/rdf/2022/letro#> .
 @prefix edtech: <http://coolfutures.net/rdf/2021/edtech#> .
 @prefix schema: <http://schema.org/> .
+@prefix caliper: <http://purl.imsglobal.org/caliper/> .
 @base <http://www.learn-web.com/rdf/2022/letro#> .
 
 <http://www.learn-web.com/rdf/2022/letro#> rdf:type owl:Ontology ;
@@ -82,7 +83,7 @@ letro:hasDesignPrinciple rdf:type owl:ObjectProperty .
 ###  http://www.learn-web.com/rdf/2022/letro#hasDesignProcess
 letro:hasDesignProcess rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf owl:topObjectProperty ;
-                       rdfs:domain letro:DesignProject .
+                       rdfs:domain letro:DesignResearchProject .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasDesignTheory
@@ -96,6 +97,23 @@ letro:hasEvaluation rdf:type owl:ObjectProperty ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasImplementation
 letro:hasImplementation rdf:type owl:ObjectProperty .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasIteration
+letro:hasIteration rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain letro:DesignProcess ;
+                   rdfs:range letro:DesignIteration .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasLearningActivity
+letro:hasLearningActivity rdf:type owl:ObjectProperty ;
+                          rdfs:domain letro:DesignModel .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasProblemContext
+letro:hasProblemContext rdf:type owl:ObjectProperty ;
+                        <http://purl.org/dc/elements/1.1/description> "A Problem may be part of a ProblemContext and a ProblemStatement may refer to a ProblemContext."@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasSolution
@@ -241,6 +259,10 @@ letro:effectiveness rdf:type owl:DatatypeProperty ;
                     rdfs:comment "predicate linking to a descriptor of the effectiveness of the pedagoty or intervention" .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#evaluationQuestion
+letro:evaluationQuestion rdf:type owl:DatatypeProperty .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#hasChallenges
 letro:hasChallenges rdf:type owl:DatatypeProperty ;
                     rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
@@ -281,6 +303,10 @@ letro:learningTime rdf:type owl:DatatypeProperty ;
                    rdfs:comment "a literal with the time in minutes or bigger units" .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#makesDesignClaim
+letro:makesDesignClaim rdf:type owl:DatatypeProperty .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#problemContext
 letro:problemContext rdf:type owl:DatatypeProperty ;
                      rdfs:domain letro:Problem ;
@@ -296,6 +322,11 @@ letro:text_annotation rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://purl.imsglobal.org/caliper/SoftwareApplication
+caliper:SoftwareApplication rdf:type owl:Class ;
+                            rdfs:subClassOf letro:TechnologyObject .
+
+
 ###  http://purl.org/spar/deo/ProblemStatement
 deo:ProblemStatement owl:equivalentClass letro:Problem .
 
@@ -304,6 +335,11 @@ deo:ProblemStatement owl:equivalentClass letro:Problem .
 fabio:Work rdf:type owl:Class ;
            <http://purl.org/dc/elements/1.1/description> "A subclass of FRBR work, restricted to works that are published or potentially publishable, and that contain or are referred to by bibliographic references, or entities used to define bibliographic references. FaBiO works, and their expressions and manifestations, are primarily textual publications such as books, magazines, newspapers and journals, and items of their content. However, they also include datasets, computer algorithms, experimental protocols, formal specifications and vocabularies, legal records, governmental papers, technical and commercial reports and similar publications, and also bibliographies, reference lists, library catalogues and similar collections. For this reason, fabio:Work is not an equivalent class to frbr:ScholarlyWork. An example of a fabio:Work is your latest research paper. https://sparontologies.github.io/fabio/current/fabio.html#d4e6036"@en ;
            rdfs:label "Work product"@en .
+
+
+###  http://schema.org/LearningResource
+schema:LearningResource rdf:type owl:Class ;
+                        rdfs:subClassOf letro:DesignInstatiation .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#Application
@@ -374,6 +410,12 @@ letro:DesignFeature rdf:type owl:Class ;
 letro:DesignInstatiation rdf:type owl:Class .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#DesignIteration
+letro:DesignIteration rdf:type owl:Class ;
+                      <http://purl.org/dc/elements/1.1/description> "A design process has minimally one, but often multiple iterations. Each iteration produces a DesignModel."@en ;
+                      rdfs:label "Design iteration"@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#DesignMethod
 letro:DesignMethod rdf:type owl:Class ;
                    rdfs:label "Design method"@en .
@@ -394,9 +436,9 @@ letro:DesignProcess rdf:type owl:Class ;
                     rdfs:label "Design process"@en .
 
 
-###  http://www.learn-web.com/rdf/2022/letro#DesignProject
-letro:DesignProject rdf:type owl:Class ;
-                    rdfs:label "Design project"@en .
+###  http://www.learn-web.com/rdf/2022/letro#DesignResearchProject
+letro:DesignResearchProject rdf:type owl:Class ;
+                            rdfs:label "Design research project"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignTheory
@@ -498,9 +540,15 @@ letro:PedagogicalProblem rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#Problem
 letro:Problem rdf:type owl:Class ;
-              rdfs:subClassOf owl:Thing ;
+              rdfs:subClassOf letro:ProblemClass ;
               rdfs:comment "The problem addressed. Synonym: research question." ;
               rdfs:label "Problem"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#ProblemClass
+letro:ProblemClass rdf:type owl:Class ;
+                   <http://purl.org/dc/elements/1.1/description> "A more abstract characterization than a specific problem, combining what is common to a number of problems"@en ;
+                   rdfs:label "Problem class"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#ProblemContext

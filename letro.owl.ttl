@@ -7,6 +7,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lrmi: <http://purl.org/dcx/lrmi-terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -18,7 +19,8 @@
 @base <http://www.learn-web.com/rdf/2022/letro#> .
 
 <http://www.learn-web.com/rdf/2022/letro#> rdf:type owl:Ontology ;
-                                            owl:imports <http://purl.org/spar/pso/2015-07-03> ;
+                                            owl:imports <http://purl.org/spar/pso/2015-07-03> ,
+                                                        <http://www.w3.org/2004/02/skos/core> ;
                                             <http://purl.org/dc/elements/1.1/creator> "Peter Reimann"^^rdfs:Literal ;
                                             <http://purl.org/dc/elements/1.1/date> "13 October 2022"^^xsd:string ;
                                             <http://purl.org/dc/elements/1.1/description> "A core ontology bridging the research and the design aspects of the learning technologies field."^^rdfs:Literal ;
@@ -43,6 +45,11 @@ letro:annotation rdf:type owl:ObjectProperty ;
 ###  http://www.learn-web.com/rdf/2022/letro#category
 letro:category rdf:type owl:ObjectProperty ;
                rdfs:comment "Object property linking to a category or classification." .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#codifiedAs
+letro:codifiedAs rdf:type owl:ObjectProperty ;
+                 <http://purl.org/dc/elements/1.1/description> "Values come from the Class CodificationFormat."@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#documentedIn
@@ -108,7 +115,7 @@ letro:hasIteration rdf:type owl:ObjectProperty ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasLearningActivity
 letro:hasLearningActivity rdf:type owl:ObjectProperty ;
-                          rdfs:domain letro:DesignModel .
+                          rdfs:domain letro:DesignRepresentation .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasProblemContext
@@ -360,6 +367,11 @@ letro:Approach rdf:type owl:Class ;
                rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#CodificationFormat
+letro:CodificationFormat rdf:type owl:Class ;
+                         <http://purl.org/dc/elements/1.1/description> "A property of knoweldge objects. E.g., design principles can be represented in a table."@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#CommunicationTheory
 letro:CommunicationTheory rdf:type owl:Class ;
                           rdfs:subClassOf letro:DescriptiveExplanatoryKnowledgebase .
@@ -421,11 +433,6 @@ letro:DesignMethod rdf:type owl:Class ;
                    rdfs:label "Design method"@en .
 
 
-###  http://www.learn-web.com/rdf/2022/letro#DesignModel
-letro:DesignModel rdf:type owl:Class ;
-                  rdfs:label "Design model"@en .
-
-
 ###  http://www.learn-web.com/rdf/2022/letro#DesignPrinciple
 letro:DesignPrinciple rdf:type owl:Class ;
                       rdfs:label "Design principle"@en .
@@ -434,6 +441,11 @@ letro:DesignPrinciple rdf:type owl:Class ;
 ###  http://www.learn-web.com/rdf/2022/letro#DesignProcess
 letro:DesignProcess rdf:type owl:Class ;
                     rdfs:label "Design process"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignRepresentation
+letro:DesignRepresentation rdf:type owl:Class ;
+                           rdfs:label "Design model"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignResearchProject
@@ -481,6 +493,16 @@ letro:EvaluationScenario rdf:type owl:Class ;
                          rdfs:label "Evaluation scenario"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#Formalized
+letro:Formalized rdf:type owl:Class ;
+                 rdfs:subClassOf letro:CodificationFormat .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#GraphicalVisual
+letro:GraphicalVisual rdf:type owl:Class ;
+                      rdfs:subClassOf letro:CodificationFormat .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Hypothesis
 letro:Hypothesis rdf:type owl:Class ;
                  rdfs:subClassOf letro:Conjecture .
@@ -504,7 +526,7 @@ letro:Knowledgebase rdf:type owl:Class .
 
 ###  http://www.learn-web.com/rdf/2022/letro#LearningDesign
 letro:LearningDesign rdf:type owl:Class ;
-                     rdfs:subClassOf letro:DesignModel .
+                     rdfs:subClassOf letro:DesignRepresentation .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#LearningEnvironment
@@ -581,6 +603,16 @@ letro:ResearchTopic rdf:type owl:Class ;
                     rdfs:label "resesarch topic"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#StructuredTabular
+letro:StructuredTabular rdf:type owl:Class ;
+                        rdfs:subClassOf letro:CodificationFormat .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#StructuredTextBased
+letro:StructuredTextBased rdf:type owl:Class ;
+                          rdfs:subClassOf letro:CodificationFormat .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#TechnologicalProblem
 letro:TechnologicalProblem rdf:type owl:Class ;
                            rdfs:subClassOf letro:Problem ;
@@ -590,7 +622,7 @@ letro:TechnologicalProblem rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#TechnologyDesign
 letro:TechnologyDesign rdf:type owl:Class ;
-                       rdfs:subClassOf letro:DesignModel .
+                       rdfs:subClassOf letro:DesignRepresentation .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#TechnologyObject
@@ -604,6 +636,11 @@ letro:TheoreticalProblem rdf:type owl:Class ;
                          rdfs:subClassOf letro:Problem ;
                          rdfs:comment "Missing explanation or conflicting explanations." ;
                          rdfs:label "theoretical problem"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#Unstructured
+letro:Unstructured rdf:type owl:Class ;
+                   rdfs:subClassOf letro:CodificationFormat .
 
 
 #################################################################

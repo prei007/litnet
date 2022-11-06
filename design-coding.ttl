@@ -17,6 +17,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX fabio: <http://purl.org/spar/fabio/> 
 PREFIX doco: <http://purl.org/spar/doco/> 
 PREFIX caliper: <http://purl.imsglobal.org/caliper/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
 
 	
 #######  From Dickes et al, 2019. 
@@ -96,7 +97,7 @@ PREFIX caliper: <http://purl.imsglobal.org/caliper/>
 
 :DesignProcess_EcoMOD a letro:DesignProcess ; 
 	letro:hasDesignTheory :Approach_Immersive_VR_2 ; 
-	letro:hasIteration DesignIteration_EcoMOD_1 . 
+	letro:hasIteration :DesignIteration_EcoMOD_1 . 
 	# For sequence use (:iteration1 :iteration2 :iteration3 ...)
 
 :DesignIteration_EcoMOD_1 a letro:DesignIteration ; 
@@ -107,7 +108,7 @@ PREFIX caliper: <http://purl.imsglobal.org/caliper/>
 	letro:hasImplementation :EcoMOD ; 
 	letro:hasLearningActivity [ a caliper:ToolUseEvent ; 
 									caliper:action :used ;
-									caliper:object :EcoMOD_VR ,
+									caliper:object :EcoMOD_VR ] ,
 							  [ a caliper:ToolUseEvent ; 
 									caliper:action :used ;
 									caliper:object :EcoMOD_NetLogo ;

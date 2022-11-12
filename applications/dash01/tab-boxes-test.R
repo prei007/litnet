@@ -1,18 +1,52 @@
 # Tab boxes
 
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+library(allegRo)
+library(urltools)
+
+# Functions 
+
+stripOffNS <- function(df) {
+  df <- lapply(df, function(x) {gsub(">", "", x)})
+  df <- lapply(df, function(x) {gsub("<", "", x)})
+  df
+}
+
+
+# Set up connection: 
+
+url = "http://learn-web.com"
+user = "anonymous"
+password = ""
+service = service(url, user, password, testConnection = TRUE)
+
+# connect to compumod repo. 
+
+cat = catalog(service, "coolfutures")
+rep = repository(cat, "compumod")
+addNameSpace(repo = rep, prefix= "lrmi", nsURI = "http://purl.org/dcx/lrmi-terms/")
+addNameSpace(repo = rep, prefix= "arg", nsURI = "http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#")
+
+
 
 body <- dashboardBody(
   fluidRow(
     tabBox(
-      title = "First tabBox",
+      title = "Dickes2019 ",
       # The id lets us use input$tabset1 on the server to find the current tab
       id = "tabset1", height = "500px",
-      tabPanel("Tab1", "Donec in efficitur massa, vel lobortis est. Etiam vitae gravida nibh. Aliquam erat volutpat. Fusce feugiat velit suscipit rhoncus congue. Proin faucibus, leo a condimentum venenatis, est nulla sodales lorem, nec ultrices est nulla vitae metus. Duis porttitor convallis dui, egestas mattis enim vestibulum et. Ut aliquam lobortis porta. Aliquam eu ipsum eget turpis pharetra vehicula ac vitae ex. Cras vitae neque laoreet, interdum augue sed, vulputate tellus. Pellentesque vehicula rutrum odio sit amet aliquam."),
-      tabPanel("Tab2", "Suspendisse et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor.")
+      tabPanel("Bibliography", tableOutput('bibTable')),
+      tabPanel("Pedagogy", h3("Suspendisse"), "et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor."), 
+      tabPanel("Design", htmlOutput('bibText')),
+      tabPanel("Research", "Suspendisse et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor."),
+      tabPanel("Evaluation", "Suspendisse et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor."),
     ),
     tabBox(
-      side = "right", height = "250px",
-      selected = "Tab3",
+      title = "Second Study",
+      height = "500px",
+      selected = "Tab1",
       tabPanel("Tab1", "Tab content 1"),
       tabPanel("Tab2", "Tab content 2"),
       tabPanel("Tab3", "Note that when side=right, the tab order is reversed.")
@@ -38,6 +72,38 @@ shinyApp(
     body
   ),
   server = function(input, output) {
+    # The first tab
+    output$bibTable <- renderTable({
+      query = 'select ?title ?date ?doi 
+                  {?id a dc:BibliographicResource ; 
+                   dc:title ?title; 
+                               dc:date ?date; 
+                  			dc:identifier ?doi.
+                  FILTER (?id IN (:Dickes2019)) .} '
+      dfout <- evalQuery(rep,
+                         query = query, returnType = "dataframe",
+                         cleanUp = TRUE, limit = 1000)
+      dfout <- dfout[["return"]]
+      dfout
+    })
+    # Table to text 
+    output$bibText <- renderText({
+      query = 'select ?title ?date ?doi 
+                  {?id a dc:BibliographicResource ; 
+                   dc:title ?title; 
+                               dc:date ?date; 
+                  			dc:identifier ?doi.
+                  FILTER (?id IN (:Dickes2019)) .} '
+      dfout <- evalQuery(rep,
+                         query = query, returnType = "dataframe",
+                         cleanUp = TRUE, limit = 1000)
+      dfout <- dfout[["return"]]
+      paste0("<p>", "<strong>", "Title: ", "</strong>", dfout[[1:1]], "</p>" , 
+               "<p>", "<strong>", "Year: ", "</strong>", dfout[[2:2]], "</p>", 
+               "<p>", "<strong>", "DOI: ", "</strong>" , dfout[[3:3]], "</p>"
+               )
+        })
+    
     # The currently selected tab from the first box
     output$tabset1Selected <- renderText({
       input$tabset1

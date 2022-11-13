@@ -66,25 +66,33 @@ body <- dashboardBody(
     tabItem(
       tabName = "studyInfo",
       fluidRow(
+        selectInput(
+          inputId = "firstWork", 
+          label = "Select first study",
+          choices = c("Dickes2019", "Dickes2016", "option3")),
+        selectInput(
+          inputId = "secondWork", 
+          label = "Select second study",
+          choices = c("option1", "Dickes2016", "option3")),
         tabBox(
-          title = "Dickes2019 ",
+          title = textOutput("firstStudy"),
           # The id lets us use input$tabset1 on the server to find the current tab
           id = "tabset1",
           height = "500px",
-          tabPanel("Bibliography", tableOutput('bibTable')),
+          tabPanel("Bibliography", htmlOutput('bibText')),
           tabPanel(
             "Pedagogy",
             h3("Suspendisse"),
-            "et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor."
+            "et ornare sapien, non fringilla ligula. ."
           ),
-          tabPanel("Design", htmlOutput('bibText')),
+          tabPanel("Design", "design goes here"),
           tabPanel(
             "Research",
-            "Suspendisse et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor."
+            "Suspendisse et ornare sapien, non fringilla ligula. ."
           ),
           tabPanel(
             "Evaluation",
-            "Suspendisse et ornare sapien, non fringilla ligula. Pellentesque at nisl vel felis fringilla faucibus. Donec sollicitudin vehicula fringilla. Duis aliquam congue risus, ut molestie nunc dapibus eget. Proin dignissim euismod sem, id ornare velit. Donec at mi id metus sagittis accumsan a in libero. Sed quis dui tortor."
+            "Suspendisse et ornare sapien, ."
           ),
         ),
         tabBox(
@@ -96,43 +104,28 @@ body <- dashboardBody(
           tabPanel("Tab3", "Note that when side=right, the tab order is reversed.")
         )
       )),
-      (tabItem(tabName = "Statistics", 
-               h2("Statistics Tab")))
-    ))
-
-
+    (tabItem(tabName = "Statistics", 
+             h2("Statistics Tab")))
+  ))
 
 #### compose the app 
 
 shinyApp(
   ui = dashboardPage(
-    dashboardHeader(title = "tabBoxes"),
+    dashboardHeader(title = "Study information"),
     sidebar,
     body
   ),
   server = function(input, output) {
+    output$firstStudy <- reactive({ input$firstWork })
     # The first tab
-    output$bibTable <- renderTable({
-      query = 'select ?title ?date ?doi 
-                  {?id a dc:BibliographicResource ; 
-                   dc:title ?title; 
-                               dc:date ?date; 
-                  			dc:identifier ?doi.
-                  FILTER (?id IN (:Dickes2019)) .} '
-      dfout <- evalQuery(rep,
-                         query = query, returnType = "dataframe",
-                         cleanUp = TRUE, limit = 1000)
-      dfout <- dfout[["return"]]
-      dfout
-    })
-    # Table to text 
     output$bibText <- renderText({
-      query = 'select ?title ?date ?doi 
+      query = paste0('select ?title ?date ?doi 
                   {?id a dc:BibliographicResource ; 
                    dc:title ?title; 
                                dc:date ?date; 
                   			dc:identifier ?doi.
-                  FILTER (?id IN (:Dickes2019)) .} '
+                  FILTER (?id IN (:', input$firstWork, ')).} LIMIT 1')
       dfout <- evalQuery(rep,
                          query = query, returnType = "dataframe",
                          cleanUp = TRUE, limit = 1000)
@@ -142,5 +135,4 @@ shinyApp(
                "<p>", "<strong>", "DOI: ", "</strong>" , dfout[[3:3]], "</p>"
                )
         })
-  }
-)
+  })

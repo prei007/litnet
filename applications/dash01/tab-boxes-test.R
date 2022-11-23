@@ -183,7 +183,6 @@ shinyApp(
                          query = query, returnType = "dataframe",
                          cleanUp = TRUE, limit = 1000)
       dfout <- stripOffNS(dfout[["return"]])
- #     dfout[[1]] <- fragment(dfout[[1]])
       paste0("<p>", "<strong>", "Problem(s) addressed: ", "</strong> </p>" , 
              "<p>" , paste0(unique(dfout[[1]]), collapse = ', '), "</p>")
     })

@@ -329,11 +329,6 @@ letro:text_annotation rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://purl.imsglobal.org/caliper/SoftwareApplication
-caliper:SoftwareApplication rdf:type owl:Class ;
-                            rdfs:subClassOf letro:TechnologyObject .
-
-
 ###  http://purl.org/spar/deo/ProblemStatement
 deo:ProblemStatement owl:equivalentClass letro:Problem .
 
@@ -347,6 +342,11 @@ fabio:Work rdf:type owl:Class ;
 ###  http://schema.org/LearningResource
 schema:LearningResource rdf:type owl:Class ;
                         rdfs:subClassOf letro:DesignInstatiation .
+
+
+###  http://schema.org/SoftwareApplication
+schema:SoftwareApplication rdf:type owl:Class ;
+                           rdfs:subClassOf letro:TechnologyObject .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#Application
@@ -531,7 +531,7 @@ letro:LearningDesign rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#LearningEnvironment
 letro:LearningEnvironment rdf:type owl:Class ;
-                          rdfs:subClassOf letro:DesignInstatiation ;
+                          rdfs:subClassOf schema:LearningResource ;
                           rdfs:comment "Components of a LE will often be learning resources, which should be described with https://schema.org/LearningResource"@en .
 
 
@@ -569,6 +569,7 @@ letro:Problem rdf:type owl:Class ;
 
 ###  http://www.learn-web.com/rdf/2022/letro#ProblemClass
 letro:ProblemClass rdf:type owl:Class ;
+                   rdfs:subClassOf deo:ProblemStatement ;
                    <http://purl.org/dc/elements/1.1/description> "A more abstract characterization than a specific problem, combining what is common to a number of problems"@en ;
                    rdfs:label "Problem class"@en .
 

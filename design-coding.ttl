@@ -32,7 +32,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 	letro:hasDesignProcess :DesignProcess_EcoMOD ;
 	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
 
-:IIVR_Problem_7 a deo:ProblemStatement, letro:Problem ; 
+:IIVR_Problem_7 a deo:ProblemStatement ; 
 	dc:description "No research on integration of virtual reality and ABM such that the epistemic practices of ecosystem scientists are made visible to young learner" ; 
 	letro:hasProblemContext :ProblemContext_EcoMOD ; 
 	 letro:motivates :DesignProject_EcoMOD. 
@@ -52,7 +52,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 # of the learning environment, so the components are indexed 
 # under the LE. 
 
-:EcoMOD a schema:LearningResource, letro:LearningEnvironment ; 
+:EcoMOD a letro:LearningEnvironment ; 
 	rdfs:label "EcoMOD curriculum and tools"@en ;
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
@@ -60,13 +60,13 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI ;
 	schema:hasPart :EcoMOD_VR, :EcoMOD_NetLogo, :EcoMOD_CausalMap .
 	
-:EcoMOD_VR a schema:LearningResource, letro:TechnologyObject, caliper:SoftwareApplication ; 
+:EcoMOD_VR a schema:SoftwareApplication ; 
 	rdfs:label "VR component"@en ;
 	schema:teaches :Ecology, :SystemsThinking ;
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  :VirtualReality .
 	
-:EcoMOD_NetLogo a schema:LearningResource , letro:TechnologyObject, caliper:SoftwareApplication ; 
+:EcoMOD_NetLogo a schema:SoftwareApplication ; 
 	rdfs:label "NetLogo component"@en ;
 	dc:description "A simplified version of the NetLogo shell." ;
 	schema:screenshot [a doco:figure ; dc:source :Dickes2019 ; 
@@ -86,7 +86,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  :CausalMapping .
 	
-:EcoMOD_POV a schema:LearningResource , schema:SoftWareApplication, letro:TechnologyObject ;
+:EcoMOD_POV a schema:SoftWareApplication ;
 	rdfs:label "Point of view tool"@en ; 
 	dc:description "A view of the virtual world from a particular agents perspective." ;
 	schema:applicationSuite :EcoMOD_VR ;

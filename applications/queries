@@ -42,3 +42,5 @@ select  ?ImplementationComponent ?Type ?Label ?Description {
   OPTIONAL {?ImplementationComponent dc:description ?Description} 
              FILTER (?Work IN (:Dickes2019))
   }
+  
+  ## just a test

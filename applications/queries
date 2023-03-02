@@ -1,0 +1,46 @@
+Queries
+
+Pedagogy tab: 
+
+select ?Science ?Domain ?Outcome ?Level ?Pedagogy
+{
+                  ?id a dc:BibliographicResource . 
+                  OPTIONAL {?id edtech:science ?Science}  
+                  OPTIONAL {?id edtech:learningDomain ?Domain} 
+                  OPTIONAL {?id edtech:outcome ?Outcome } 
+                  OPTIONAL {?id edtech:educationalLevel ?Level} 
+                  OPTIONAL {?id edtech:pedagogy ?Pedagogy }
+                  FILTER (?id IN (:Dickes2019))
+}
+
+Design tab: 
+
+Problem name and description: 
+
+select  ?ProblemDescription
+            { ?Project a letro:DesignProject ; 
+                 letro:documentedIn ?work; 
+                 letro:motivated_by ?Problem . 
+             ?Problem a letro:Problem ;  
+                      dc:description ?ProblemDescription . 
+             FILTER (?work IN (:Dickes2019))
+           }
+           
+Implementation components: 
+
+select  ?ImplementationComponent ?Type ?Label ?Description {
+  ?Project a letro:DesignProject ; 
+             letro:documentedIn ?Work ; 
+             letro:hasDesignProcess ?DProc .
+  ?DProc letro:hasIteration ?Iteration .      
+  ?Iteration letro:hasDesignModel  ?DMod . 
+  ?DMod letro:hasImplementation ?Implementation .
+  ?Implementation a letro:LearningEnvironment ; 
+              schema:hasPart ?ImplementationComponent . 
+  ?ImplementationComponent a ?Type . 
+  OPTIONAL {?ImplementationComponent rdfs:label ?Label} 
+  OPTIONAL {?ImplementationComponent dc:description ?Description} 
+             FILTER (?Work IN (:Dickes2019))
+  }
+  
+  ## just a test

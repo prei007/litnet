@@ -2,8 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-.hmtl
-*.hmtl
+.html
+*.html
 .pptx
 *.pptx
 .jpeg
+.png
+*.png

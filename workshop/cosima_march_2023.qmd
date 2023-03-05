@@ -1,0 +1,64 @@
+---
+title: "Cosima_March_2023"
+format: html
+editor: visual
+---
+
+Materials for a workshop on semantic literature reviews: Producing a knowledge graph on the basis of an analysis of the literature.
+
+## Motivation
+
+Why knowledge graphs instead of text?
+
+-   The same reasons that hold for separating data from presentation: One and the same data can be used to generate a multitude of 'presentations'.
+-   For the additional reason that, since KGs are a kind of knowledge technology, we get features such as definition of meaning and automated reasoning.
+    -   This can for example be used to automate the coding and to perform quality checks.
+
+    -   Fundamentally, data can become interoperable: computer programs 'understand' what they mean and can process them according to their meaning.
+
+## The References
+
+The references come from searches, such as on Scopus, and we assume that they get exported as a CSV file or in a bibliographic format such as RIS.
+
+I recommend Zotero as the reference manager because it uses RDF as the format for storing references. (Also, it is free, mature, and powerful.) But it does not matter which file format or refernece manager as long as one can get RDF as ouput.
+
+In our case we start from a RDF file (in Turtle format) that encodes references in Dublin Core. This is not sufficient for bioliographic nuances, but sufficient for our purposes. The nuances can stay in a reference manager such as Zotero or Endnote.
+
+This is what a reference in this format looks like:
+
+    PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+    PREFIX dc: <http://purl.org/dc/terms/>
+
+    :HmeloSilver2015
+      dc:title "Using Representational Tools to Learn about Complex Systems: A Tale of Two Classrooms" ;
+      dc:type "journalArticle" ;
+      dc:creator "Hmelo-Silver, Cindy E.", "Liu, Lei", "Gray, Steven", "Jordan, Rebecca" ;
+      dc:date "2015" ;
+      :dateAdded "2021-11-20" ;
+      dc:identifier "DOI 10.1002/tea.21187" .
+
+Using [RDF Grapher](https://www.ldf.fi/service/rdf-grapher), we can render this fragment into a graph (in the formal sense):
+
+![A rdf graph](images/rdf_graph_1.png)
+
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

@@ -2,8 +2,8 @@
 title: 'Research synthesis: Use of computer simulations for environmental education'
 author: "Peter Reimann & Peter Freebody"
 output:
-  pdf_document: default
   html_notebook: default
+  pdf_document: default
 editor_options:
   markdown:
     wrap: 72
@@ -177,6 +177,7 @@ wTab$code <- fragment(wTab$code)
 
 
 ```{r warning=FALSE, include=FALSE}
+wTab <- as_tibble(wTab)
 wTabWide <- wTab %>%
   pivot_wider(names_from = category, values_from = code)
 ```

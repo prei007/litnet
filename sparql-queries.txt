@@ -751,7 +751,6 @@ WHERE
    UNION
    {?work :indexKeywords ?index .
      FILTER (CONTAINS(?index,"tafe")).}
-
 }
 
 INSERT {?work lrmi:educationalLevel :TeacherTraining}

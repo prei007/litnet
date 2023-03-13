@@ -8,29 +8,49 @@ Materials for a workshop on semantic literature reviews: Producing a knowledge g
 
 ## Motivation
 
-Why knowledge graphs instead of text?
+Why create a knowledge graph in addition to text as output from a literature review?
 
--   The same reasons that hold for separating data from presentation: One and the same data can be used to generate a multitude of 'presentations'.
--   For the additional reason that, since KGs are a kind of knowledge technology, we get features such as definition of meaning and automated reasoning.
+-   The same reasons that hold for separating data from presentation: One and the same data can be used to generate a multitude of 'presentation' formats.
+    -   An additional benefit is that while 'the paper' might be subject to copyright laws, the data can be freely shared and re-used. 
+-   For the additional reason that, since KGs are a knowledge technology, we get features such as definition of meaning and automated reasoning.
     -   This can for example be used to automate the coding and to perform quality checks.
+    -   Fundamentally, data can become interoperable: computer programs 'understand' what the data mean and can process them according to their meaning.
+    
+![One source for multiple uses](images/one-source-many-forms.jpg)
 
-    -   Fundamentally, data can become interoperable: computer programs 'understand' what they mean and can process them according to their meaning.
+> Question: Can this be useful for you individually? Can this be useful for a research project or a research organisation? What about a research conference? 
 
-## The References
+### Workshop overview
+
+
+In this workshop, we will be building two kinds of "presentations" from a database with (thematically coded) references: 
+
+1. The tables and graphics for a systematic literature review publication;
+2. An interactive web application. 
+
+The complete **review workflow** has these components:
+
+![Systematic Lit Review workflow](images/LitReviewWorkflow.jpg)
+
+
+## Step 1: Storing the reference corpus in the RDF format
 
 The references come from searches, such as on Scopus, and we assume that they get exported as a CSV file or in a bibliographic format such as RIS.
 
-I recommend Zotero as the reference manager because it uses RDF as the format for storing references. (Also, it is free, mature, and powerful.) But it does not matter which file format or refernece manager as long as one can get RDF as ouput.
+I recommend [Zotero](https://www.zotero.org/) as the reference manager because it uses RDF as the format for storing references. Also, it is free, mature, and powerful. But it does not matter which file format or reference manager you use as long as one can get RDF as output.
 
-In our case we start from a RDF file (in Turtle format) that encodes references in Dublin Core. This is not sufficient for bioliographic nuances, but sufficient for our purposes. The nuances can stay in a reference manager such as Zotero or Endnote.
+In our case we start from a RDF file (in so-called [Turtle](https://en.wikipedia.org/wiki/Turtle_(syntax))
+format) that encodes references in Dublin Core (DC). This is not sufficient for bioliographic nuances, but sufficient for our purposes. The nuances can stay in a reference manager such as Zotero or Endnote.
 
-This is what a reference in this format looks like:
+*Note:* Zotero uses XML as the serialization format for RDF, not Turtle. To transform data to different serialization formats, use a converter such as [EasyRDF](https://www.easyrdf.org/converter). 
+
+This is what a reference in DC/Turtle format looks like:
 
     PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
     PREFIX dc: <http://purl.org/dc/terms/>
 
     :HmeloSilver2015
-      dc:title "Using Representational Tools to Learn about Complex Systems: A Tale of Two Classrooms" ;
+      dc:title "Using Representational Tools to Learn about Complex Systems:A Tale of Two Classrooms" ;
       dc:type "journalArticle" ;
       dc:creator "Hmelo-Silver, Cindy E.", "Liu, Lei", "Gray, Steven", "Jordan, Rebecca" ;
       dc:date "2015" ;
@@ -39,26 +59,360 @@ This is what a reference in this format looks like:
 
 Using [RDF Grapher](https://www.ldf.fi/service/rdf-grapher), we can render this fragment into a graph (in the formal sense):
 
-![A rdf graph](images/rdf_graph_1.png)
+![A rdf graph for a reference](images/HmeloSilver2015Graph.png)
+Comparing the written Turtle statements with the graph helps to understand the Turtle notation: 
+
+* Start with the **subject**: `:Hmelo-Silver2015` 
+* Add a **predicate** and an **object**: `dc:title <The paper title> ;` ending with colon; add additional predicate/value pairs in this manner. 
+* Use a comma to separate multiple values (objects) for the same predicate:
+  `dc:creator "Hmelo-Silver, Cindy E.", "Liu, Lei" ;`
+* End a series of statements about the same subject with a full stop: `.`
 
 
-## Quarto
+The `dc:` prefix indicates that the predicate, such as `dc:creator`, stems from the 
+[Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+standard; this is a very established standard for meta-data on media assets. Using standard vocabularies such as DC is essential for exchanging information on the Internet. 
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+The references for the demonstration are stored in the file `data/compumod_references_dc.ttl`.
+The content should be pretty straightforward, other than those pesky namespace prefixes. 
 
-## Running Code
+![RDF namespaces](images/NameSpaces.jpg)
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+### Loading the references into a database
 
-```{r}
-1 + 1
+Let's head over to the [AllegroGraph server](http://learn-web.com/#/catalogs/courses) and upload our references. 
+
+The query for listing all authors:
+
+```
+SELECT DISTINCT ?author WHERE 
+ {?ref dcterms:creator ?author}
+```
+You can use this database for yourself, but only in READ mode (i.e, browsing and querying). For WRITE mode access, you'd need to contact [me](mailto:peter.reimann@sydney.edu.au). 
+
+
+## Step 2: Coding and annotating
+
+Besides the  biases in the search and selection phase, a research synthesis can also be subject to bias during the qualitative coding of studies. Therefore, it is important to make the coding process reliable and if possible re-producible. Another concern--and the one addressed here--is re-use of coding schemes. Such schemes are knowledge! 
+
+Enter [SKOS, the Simple Knowledge Organization System](https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System). SKOS is used to describe the elements of the relations between elememnts of classification systems, such as thesauri. 
+
+![The place of SKOS](images/SKOS-high-level.jpg)
+### Creating a thesaurus or a coding scheme
+
+Let's look at an example for a controlled vocabulary--a thesaurus--for learning outcomes. 
+
+```
+Outcomes
+    KnowledgeOutcomes
+	     ClimateScienceKnowledge
+       Awareness
+      (…)
+    CompetenceOutcomes
+      DecisionCompetence
+      (..)
+    (…)
 ```
 
-You can add options to executable code like this
+Using the SKOS notation, we can model this system like so:
 
-```{r}
-#| echo: false
-2 * 2
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX ex: <http://example.org/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+ex:ClimateScienceKnowledge rdf:type skos:Concept.
+ex:ClimateScienceKnowledge skos:broader ex:KnowledgeOutcomes.  
+ex:Awareness rdf:type skos:Concept. 
+ex:Awareness skos:inScheme ex:OutcomesThesaurus.  
+ex:Awareness skos:broader ex:KnowledgeOutcomes. 
+(...)
+```
+Key are the `skos:broader` and `skos:narrower` predicates for expressing hierarchical relations. 
+
+You will note that SKOS is written in RDF format, Turtle in this case. Hence, SKOS descriptions form a graph: 
+
+![Learning outcomes thesaurus](images/SKOS-learning-outcomes.jpg)
+SKOS has additional language elements for desribing concepts and their relations: 
+
+```
+:KnowledgeOutcomes a skos:Concept ; 
+	skos:inScheme :OutcomesThesaurus ; 
+	skos:prefLabel "Knowledge outcomes"@en ; 
+	skos:definition "Including awareness, perceptions, content knowledge, skills knowledge, sociopolitical         knowledge, and issue-speciﬁc understandings" ;
+	skos:broader :Outcomes . 
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+The full learning outcomes thesaurus can be found in `thesauri/OutcomesThesaurus.skos.ttl`. 
+
+### Applying codes to references
+
+Everything in RDF is a statement about a resource--two things and a relation--and, hence, thematic coding just means adding statements. For instance, about learning outcomes: 
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX ex: <http://example.org/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# The SKOS declarations:
+ex:ClimateScienceKnowledge rdf:type skos:Concept.
+ex:ClimateScienceKnowledge skos:broader ex:KnowledgeOutcomes.  
+ex:Awareness rdf:type skos:Concept. 
+ex:Awareness skos:inScheme ex:OutcomesThesaurus.  
+ex:Awareness skos:broader ex:KnowledgeOutcomes. 
+
+# The study:
+ex:Dickes2019 a dc:JournalArticle . 
+ex:Dickes2019 dc:title "Scaffolding" .
+ex:Dickes2019 dc:date "2019" .
+ex:Dickes2019 dc:creator "Amanda Dickes" .
+ex:Dickes2019 dc:creator "Amy Kamarainen" .
+ex:Dickes2019 dc:identifier "DOI:10.1111/bjet.12806" .
+ex:Dickes2019 dc:subject ex:EcoMOD . 
+ex:EcoMOD a ex:ScienceCurriculum . 
+
+# The study's learning outcome:
+ex:Dickes2019 ex:outcome ex:Awareness . 
+
+```
+
+![](images/Dickes2019-learning-outcome.jpg)
+In our example literature review, we apply additional thematic codes, all organised with SKOS, such as: 
+
+* Technologies (EdTechThesaurus.skos.ttl)
+* Education level (EducationLevel.skos.ttl)
+* Research methods (MethodsThesaurus.skos.ttl)
+* Learning outcomes (OutcomesThesaurus.skos.ttl)
+* Pedagogies (PedagogyThesaurus.skos.ttl)
+* Science domain (ScienceThesaurus.skos.ttl)
+
+The coded references can be found at `data/compumod_coded.ttl`. 
+
+My general advise is to re-use existing taxonomies and only where those don't exist create your own on. Talk to your librarian! In education, a great resource for taxonomies is the [ERIC thesaurus](https://eric.ed.gov/?ti=all). The ERIC Thesaurus contains a total of 11,875 terms. There are 4,578 descriptors and 7,165 synonyms. It is written in (a variant of) SKOS and can be downloaded [here](https://eric.ed.gov/?download). For this example, the Education levels are taken from ERIC. 
+
+
+## Step 3: Using the coded references on a graph database
+
+Once we have the references with the thematic codes available and stored in a graph database, we can do useful analysis on them. If the database is accessible freely then that information--the service, actually--will be avaibable to anybody with web browser. 
+
+The full database is accessible at `http://learn-web.com/#/catalogs/coolfutures/repositories/compumod`
+
+### A typical query
+
+The query language [SPARQL](https://en.wikipedia.org/wiki/SPARQL) is using the Turtle RDF notation to retrieve information from one or more knowledge graphs. 
+
+```
+SELECT ?title ?year ?dateAdded
+    { ?work dc:title ?title . 
+    ?work dc:date ?year .
+     OPTIONAL {?work :dateAdded ?dateAdded .} 
+    }
+ORDER BY ?work
+```
+
+### Browsing results
+
+Everything is hyperlinked! 
+
+
+### Querying DBpedia
+
+A fun way to play with SPARQL is [DBpedia](https://www.dbpedia.org/), the RDF version of Wikipedia. One can access [SPARQL endpoints](https://www.dbpedia.org/resources/sparql/) and submit queries such as this one: 
+
+```
+Retrieve Soccer players who were born in a country with more than 10 million inhabitants, who played as goalkeeper for a club that has a stadium with more than 30,000 seats, and whose club country is/was different from their birth country. 
+```
+
+> Pause a moment to think about how you would do this using Wikipedia. 
+
+This is the query on DBpedia: 
+
+```
+SELECT distinct ?soccerplayer ?countryOfBirth ?team ?countryOfTeam ?stadiumcapacity
+{ 
+?soccerplayer a dbo:SoccerPlayer ;
+   dbo:position|dbp:position <http://dbpedia.org/resource/Goalkeeper_(association_football)> ;
+   dbo:birthPlace/dbo:country* ?countryOfBirth ;
+   #dbo:number 13 ;
+   dbo:team ?team .
+   ?team dbo:capacity ?stadiumcapacity ; dbo:ground ?countryOfTeam . 
+   ?countryOfBirth a dbo:Country ; dbo:populationTotal ?population .
+   ?countryOfTeam a dbo:Country .
+FILTER (?countryOfTeam != ?countryOfBirth)
+FILTER (?stadiumcapacity > 30000)
+FILTER (?population > 10000000)
+} order by ?soccerplayer
+```
+
+See [here](https://dbpedia.org/snorql/?query=SELECT+distinct+%3Fsoccerplayer+%3FcountryOfBirth+%3Fteam+%3FcountryOfTeam+%3Fstadiumcapacity%0D%0A{+%0D%0A%3Fsoccerplayer+a+dbo%3ASoccerPlayer+%3B%0D%0A+++dbo%3Aposition|dbp%3Aposition+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FGoalkeeper_%28association_football%29%3E+%3B%0D%0A+++dbo%3AbirthPlace%2Fdbo%3Acountry*+%3FcountryOfBirth+%3B%0D%0A+++%23dbo%3Anumber+13+%3B%0D%0A+++dbo%3Ateam+%3Fteam+.%0D%0A+++%3Fteam+dbo%3Acapacity+%3Fstadiumcapacity+%3B+dbo%3Aground+%3FcountryOfTeam+.+%0D%0A+++%3FcountryOfBirth+a+dbo%3ACountry+%3B+dbo%3ApopulationTotal+%3Fpopulation+.%0D%0A+++%3FcountryOfTeam+a+dbo%3ACountry+.%0D%0AFILTER+%28%3FcountryOfTeam+!%3D+%3FcountryOfBirth%29%0D%0AFILTER+%28%3Fstadiumcapacity+%3E+30000%29%0D%0AFILTER+%28%3Fpopulation+%3E+10000000%29%0D%0A}+order+by+%3Fsoccerplayer) for the results. 
+
+
+### Path traversal 
+Path queries are amazingly powerful and useful. 
+
+```
+# Walk down the SKOS hierarchand find all works which are 
+# equal to or narrower than the KnowledgeOutcomes concept. 
+# The `*` does path traversal. 
+
+select  ?work ?concept2
+{
+    :KnowledgeOutcomes skos:narrower* ?concept2.
+    ?work :outcome ?concept2.
+}
+```
+
+### Aggregation queries
+
+
+```
+## Number of publications by year in DESCending order
+
+SELECT ?year (COUNT(?year) AS ?yearTotal)
+        WHERE
+	{ 
+    ?work dc:date ?year .
+    }
+GROUP BY ?year 
+ORDER BY DESC(?year)
+```
+
+### Modification  queries (Automated coding)
+
+```
+# Find keywords that indicate tertiary level education 
+# and INSERT a new statement with the predicate :educationalLEVEL 
+# AND with the object :TertiaryLevel. 
+
+INSERT {?work :educationalLevel :TertiaryLevel}
+WHERE
+{
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"college")).}
+    UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"university")).}
+     UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"tertiary")).}
+   UNION
+   {?work :indexKeywords ?index .
+     FILTER (CONTAINS(?index,"tafe")).}
+}
+```
+
+## Step 4: Producing tables and graphs in a reproducible manner
+
+So far, we did access the database through a web interface. That means, so far we covered only the use case where a human queries and/or browses the content. The second main use case is where a software program accesses the database:
+
+![Technology Stack](images/tech-stack.jpg)
+
+This requires to use a programming language, such as JavaScript or Python. My examples are written in R. 
+Details will need to be left to a 'advanced' workshop where the topic of program access will be covered in more detail.
+
+A rather obvious value that a database should provide is to allow us to quickly reflect changes in the data in reports and presentations. The file `compumod-ee-report` contains the code for doing just that. It is also a demonstration for data-based writing, where the report itself is created with 'live' data embedded. 
+
+The key technology used here is [RMarkdown](https://rmarkdown.rstudio.com/)--the writing technology--and the R package AllegRo, which allows us to connect from R to the AllegroGraph server. (One can user less specialised packages, such as `httr`, to connect to any kind of server via the Internet.). The principle is simple:
+
+* Send a query from an R client to the server
+* Process the data frame returned from the query further in R. 
+
+
+
+### Interactive applications
+In addition to dynamic documents, we can also create interactive applications. The key technology for this is [R Shiny](https://shiny.rstudio.com/). Also an advanced topic. 
+
+An example for a Shiny application can be found in the folder `applications/compumod-app`, which can be run within RStudio or accessed [on the web](http://learn-web.com:3838/compumod/). This web app also contains a demonstration for a deeper kind of semantic analysis, one that models the argumentative relations between studies. 
+
+
+## Beyond attributes and values: Modelling deeper semantic relations
+
+### Adding annotations
+
+Annotations can be added simply as text:
+
+```
+:ThisStudy :annotation "Any text here..." . 
+```
+
+Or as graph structure: 
+
+```
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+
+
+:Alves2021 a dc:BibliographicResource ;
+	:technology :eResearch, :GIS ;
+	:pedagogy :ModelSimulation ; 
+  :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
+		anno:body "This paper is a combination of scientific research and learning design..."] .
+```
+
+The example reveals an important feature of RDF: `blank nodes`; they don't need a name. 
+
+![Annotation as a blank node structure](images/annotation-graph.jpeg)
+
+
+
+### Modelling a design reserarch project
+
+Relevant files: design-coding.ttl, ontologies/letro.owl.ttl
+
+This is work in progress. I suggest an ontology--the Learning Technology Research Ontology (LETRO)--for describing knowledge created in learning technology research projects, grounded in design science. Its purpose is broader than academic publishing: a tool for managing knowledge on the level of a single project and across projects, i.e., on the level of a research discipline. 
+The motivation is that (learning) design knowledge is difficult to capture in print publications. 
+
+#### Positioning the LETRO ontology
+
+![](images/LETRO-1.jpg)
+
+#### Top level concepts in LETRO
+
+![](images/LETRO-2.jpg)
+
+#### Design Research Project
+
+The definition for a particular design project can be found in the
+file `design-coding.ttl`. 
+
+```
+:DesignProject_EcoMOD a letro:DesignProject ; 
+	letro:documentedIn :Dickes2019 ;
+	letro:motivated_by :IIVR_Problem_7 ; 
+	letro:hasEvaluation :Evaluation_ecoMOD ;
+	letro:isContinuationOf :SimulationApproach_3 ;
+	letro:hasDesignProcess :DesignProcess_EcoMOD ;
+	schema:contentUrl "https://ecolearn.gse.harvard.edu/projects/ecomod"^^xsd:anyURI .
+```
+
+These components are best explored by following the links on the [database](http://learn-web.com/#/catalogs/perei/repositories/letro/node/%3Chttp://coolfutures.net/rdf/2021/edtech%23DesignProject_EcoMOD%3E). 
+
+A graphical view of the design project elements: 
+
+![](images/LETRO-Gruff.jpg)
+
+
+The concepts and relations used for describing a design research project are defined in a (at this stage 
+only rudimentary) formal ontology that can be found in the file `ontologies/letro.owl.ttl`. This ontololgy is best viewed (and authored) with specialised applications such as [Protége](https://protege.stanford.edu/). 
+
+
+## Closing 
+
+Why create a knowledge graphs in addition to text?
+
+-   The same reasons that hold for separating data from presentation: One and the same data can be used to generate a multitude of 'presentation' formats.
+    -   An additional benefit is that while 'the paper' might be subject to copyright laws, the data can be freely shared and re-used. 
+-   For the additional reason that, since KGs are a knowledge technology, we get features such as definition of meaning and automated reasoning.
+    -   This can for example be used to automate the coding and to perform quality checks.
+    -   Fundamentally, data can become interoperable: computer programs 'understand' what the data mean and can process them according to their meaning.
+    
+![One source for multiple uses](images/one-source-many-forms.jpg)
+
+
+
+

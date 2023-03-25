@@ -1,0 +1,48 @@
+##########
+# Modelling citations with CiTO
+##########
+
+
+PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fabio: <http://purl.org/spar/fabio/> 
+PREFIX doco: <http://purl.org/spar/doco/> 
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX cito: <http://purl.org/spar/cito/> 
+
+# Note that most object properties, such as :citesAsEvidence, are sub-properties 
+# of :cites. For a quantitative network analysis one would treat the 
+# top-level property as the tie. 
+
+
+
+# We start with Dickes et al. (2019)
+
+:Dickes2019 a dc:BibliographicResource ; 
+  dc:title "Scaffolding ecosystems science practice by blending immersive environments and computational modeling" ;
+  dc:type "journalArticle" ;
+  dc:creator "Dickes, Amanda C.", "Kamarainen, Amy", "Metcalf, Shari J.", "Gün‐Yildiz, Semiha", "Brennan, Karen", "Grotzer, Tina", "Dede, Chris" ;
+  dc:date "2019" ;
+  dc:identifier "DOI 10.1111/bjet.12806" .
+  
+# Some citations from Dickes2019, first paragraph of introduction section: 
+
+:Dickes2019 cito:cites :Hakkarainen2009, :Ross2010 , :Sengupta2018 ; 
+	cito:sharesAuthorWith :Sengupta2018 . 
+	
+
+# Some citations from Dickes2019, second paragraph of introduction section: 
+	
+:Dickes2019 cito:citesAsEvidence :Dickes2016 , :Goldstone2008 , :Shenn2011 , :Shen2014 ; 
+	cito:sharesAuthorWith :Dickes2016 ;
+	cito:cites :Shen2007 . 
+	
+
+# All citations from Dickes2019 discussion section: 	 
+
+:Dickes2019 cito:cites :Lehrer2006 , :Manz2015 , :Sengupta2013 ; 
+	cito:supports :Shen2011, :Dickes2016 , :Shen2007 ;
+	cito:cites :Lehrer2010 , Lehrer2006 . 
+
+

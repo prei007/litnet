@@ -43,6 +43,6 @@ PREFIX cito: <http://purl.org/spar/cito/>
 
 :Dickes2019 cito:cites :Lehrer2006 , :Manz2015 , :Sengupta2013 ; 
 	cito:supports :Shen2011, :Dickes2016 , :Shen2007 ;
-	cito:cites :Lehrer2010 , Lehrer2006 . 
+	cito:cites :Lehrer2010 , :Lehrer2006 . 
 
 

@@ -1,0 +1,30 @@
+# doco queries
+
+# The sentence sequence in one paragraph
+
+prefix : <http://www.sparontologies.net/example/> 
+prefix doco: <http://purl.org/spar/doco/> 
+prefix deo: <http://purl.org/spar/deo/> 
+prefix po: <http://www.essepuntato.it/2008/12/pattern#> 
+prefix dcterms: <http://purl.org/dc/terms/> 
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix co: <http://purl.org/co/> 
+prefix c4o: <http://purl.org/spar/c4o> 
+prefix cito: <http://purl.org/spar/cito/> 
+prefix oa: <http://www.w3.org/ns/oa#> 
+
+Select DISTINCT ?para ?sentence ?content 
+WHERE 
+	{?para a doco:Paragraph .
+     ?sentence a doco:Sentence . 
+     ?para co:firstItem ?first . 
+ 	 ?first co:nextItem* ?next . 
+     ?next co:itemContent ?sentence . 
+     ?para po:contains ?sentence .
+     ?sentence c4o:hasContent ?content .
+      }
+
+# All sentences in all paragraphs
+# This will be a nested query, with the outer query finding the
+# sequence of paragraphs and the inner query finding the sentences. 
+

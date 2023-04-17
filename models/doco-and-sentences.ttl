@@ -41,8 +41,8 @@ prefix oa: <http://www.w3.org/ns/oa#>
                     co:nextItem [
                         co:itemContent :section-conclusions ] ] ] ] ] .
 
-# Note that, in this example, the composition in paragraphs
-# has been defined only for this section.
+# First Section
+
 :section-introduction a doco:Section , deo:Introduction ;
     po:containsAsHeader :section-introduction-title ;
     po:contains
@@ -64,29 +64,25 @@ prefix oa: <http://www.w3.org/ns/oa#>
 :section-introduction-title a doco:SectionTitle ;
     c4o:hasContent "Introduction" .
 
-# Note that, in this example, the composition in sentences
-# has been defined only for this paragraph.
+# Intro section Paragraph 1
+
 :paragraph-1 a doco:Paragraph ;
     po:contains
-        :sentence-1 ,
-        :sentence-2 ,
-        :sentence-3 ,
-        :sentence-4 ,
-        :sentence-5 ,
-        :sentence-6 ,
-        :sentence-7 ;
+        :sentence-p1-1 ,
+        :sentence-p1-2 ,
+        :sentence-p1-3 ,
+        :sentence-p1-4 ,
+        :sentence-p1-5 ;
     co:firstItem [
-        co:itemContent :sentence-1 ;
+        co:itemContent :sentence-p1-1 ;
         co:nextItem [
-            co:itemContent :sentence-2 ;
+            co:itemContent :sentence-p1-2 ;
             co:nextItem [
-                co:itemContent :sentence-3 ;
+                co:itemContent :sentence-p1-3 ;
                 co:nextItem [
-                    co:itemContent :sentence-4 ;
+                    co:itemContent :sentence-p1-4 ;
                     co:nextItem [
-                        co:itemContent :sentence-5 ;
-                        co:nextItem [
-                            co:itemContent :sentence-6 ] ] ] ] ] ] .
+                        co:itemContent :sentence-p1-5  ] ] ] ] ] .
                             
 # The first sentence, extended with creation info and versions. 
 # The version sequence is modelled with co. 
@@ -94,23 +90,23 @@ prefix oa: <http://www.w3.org/ns/oa#>
 # :sentence dcterms:hasVersion _:version1. 
 
 
-:sentence-1 a doco:Sentence ; 
+:sentence-p1-1 a doco:Sentence ; 
 	c4o:hasContent "One of the most important criteria for the evaluation of a scientific contribution is the coherent organisation of the textual narrative that describes it, most often published as a scientific article or book." ;
 	dcterms:creator "PR" ; 
 	dcterms:date "2021-11-10" ;
 	dcterms:hasVersion 
-		:sentence-1-version-1 , 
-		:sentence-1-version-2 , 
-		:sentence-1-version-3; 
+		:sentence-p1-1_v1 , 
+		:sentence-1-1_v2 , 
+		:sentence-1-1_v3; 
 	co:firstItem [
-		co:itemContent :sentence-1-version-1 ; 
+		co:itemContent :sentence-p1-1_v1 ; 
 		co:nextItem [
-			co:itemContent :sentence-1-version-2 ;
+			co:itemContent :sentence-p1-1_v2 ;
 			co:nextItem [
-				co:itemContent :sentence-1-version-3] ] ] .
+				co:itemContent :sentence-p1-1_v3] ] ] .
 				
-:sentence-1-version-1 a doco:Sentence ; 
-	c4o:hasContent "I am a previous version of sentence-1" ; 
+:sentence-p1-1_v1 a doco:Sentence ; 
+	c4o:hasContent "I am a previous version of sentence 1" ; 
 	dcterms:creator "PR" ; 
 	dcterms:date "2021-11-14" . 
 	
@@ -127,7 +123,7 @@ _:anno a oa:Annotation ;
         
 # A sentence with a reference 
 
-:sentence-2 a doco:Sentence ;
+:sentence-p1-2 a doco:Sentence ;
     c4o:hasContent "For instance, a recent report by Beck [3] explains the requirements for an XML vocabulary of scientific journals to be acceptable for inclusion in PubMed Central.";
     po:contains :reference-to-3 .
 
@@ -154,14 +150,79 @@ _:anno a oa:Annotation ;
 :bibliographic-reference-3 a deo:BibliographicReference ;
     c4o:hasContent "[3]	Beck, J. (2010). Report from the Field: PubMed Central, an XML-based Archive of Life Sciences Journal Articles. In Proceedings of the International Symposium on XML for the Long Haul: Issues in the Long-term Preservation of XML. OA at http://dx.doi.org/10.4242/BalisageVol6.Beck01." .
         
-# 3rd sentence
+# More p1 sentences
 
-:sentence-3 a doco:Sentence ;
+:sentence-p1-3 a doco:Sentence ;
     c4o:hasContent "Contrary to popular belief, Lorem Ipsum is not simply random text." . 
     
-:sentence-4 a doco:Sentence ;
+:sentence-p1-4 a doco:Sentence ;
     c4o:hasContent "It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old." . 
     
-:sentence-5 a doco:Sentence ;
+:sentence-p1-5 a doco:Sentence ;
     c4o:hasContent "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source." . 
     
+# Intro section Paragraph 2
+
+:paragraph-2 a doco:Paragraph ;
+    po:contains
+        :sentence-p2-1 ,
+        :sentence-p2-2 ,
+        :sentence-p2-3 ;
+    co:firstItem [
+        co:itemContent :sentence-p2-1 ;
+        co:nextItem [
+            co:itemContent :sentence-p2-2 ;
+            co:nextItem [
+                co:itemContent :sentence-p2-3 ] ] ] . 
+                
+:sentence-p2-1 a doco:Sentence ;
+    c4o:hasContent "Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC." . 
+    
+:sentence-p2-2 a doco:Sentence ;
+    c4o:hasContent "This book is a treatise on the theory of ethics, very popular during the Renaissance." . 
+    
+:sentence-p2-3 a doco:Sentence ;
+    c4o:hasContent "The first line of Lorem Ipsum, Lorem ipsum dolor sit amet., comes from a line in section 1-10-32." .
+    
+    
+# Second Section
+
+:section-related-work a doco:Section ;
+    po:containsAsHeader :section-related-work-title ;
+    po:contains
+        :sec2para1 ,
+        :sec2para2 ,
+        :sec2para3 ;
+    co:firstItem [
+        co:itemContent :section-related-work-title ;
+        co:nextItem [
+            co:itemContent :sec2para1 ;
+            co:nextItem [
+                co:itemContent :sec2para2 ;
+                co:nextItem [
+                    co:itemContent :sec2para3 ] ] ] ] .
+
+:section-related-work-title a doco:SectionTitle ;
+    c4o:hasContent "Related work" .
+    
+:sec2para1 a doco:Paragraph ;
+    po:contains
+        :sec2para1s1 ,
+        :sec2para1s2 ,
+        :sec2para2s3;
+    co:firstItem [
+        co:itemContent :sec2para1s1 ;
+        co:nextItem [
+            co:itemContent :sec2para1s2 ;
+            co:nextItem [
+                co:itemContent :sec2para1s3] ] ] . 
+                
+:sec2para1s1 a doco:Sentence ; 
+	c4o:hasContent "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested."
+	
+
+:sec2para1s2 a doco:Sentence ; 
+	c4o:hasContent "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+	
+:sec2para1s3 a doco:Sentence ; 
+	c4o:hasContent "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters  ."

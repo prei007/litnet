@@ -27,7 +27,7 @@ prefix oa: <http://www.w3.org/ns/oa#>
     po:contains
         :section-introduction ,
         :section-related-work ,
-        :section-document-components ,
+        :section-components ,
         :section-adoption ,
         :section-conclusions ;
     co:firstItem [
@@ -61,7 +61,7 @@ prefix oa: <http://www.w3.org/ns/oa#>
                     co:nextItem [
                         co:itemContent :paragraph-4 ] ] ] ] ] .
 
-:section-introduction-title a doco:SectionTitle ;
+:section-introduction-title a doco:SectionTitle, doco:Paragraph   ;
     c4o:hasContent "Introduction" .
 
 # Intro section Paragraph 1
@@ -218,11 +218,10 @@ _:anno a oa:Annotation ;
                 co:itemContent :sec2para1s3] ] ] . 
                 
 :sec2para1s1 a doco:Sentence ; 
-	c4o:hasContent "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested."
+	c4o:hasContent "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested." .
 	
-
 :sec2para1s2 a doco:Sentence ; 
-	c4o:hasContent "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+	c4o:hasContent "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." .
 	
 :sec2para1s3 a doco:Sentence ; 
-	c4o:hasContent "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters  ."
+	c4o:hasContent "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters ." .

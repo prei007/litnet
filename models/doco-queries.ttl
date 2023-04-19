@@ -23,8 +23,76 @@ WHERE
      ?para po:contains ?sentence .
      ?sentence c4o:hasContent ?content .
       }
+      
+
 
 # All sentences in all paragraphs
 # This will be a nested query, with the outer query finding the
 # sequence of paragraphs and the inner query finding the sentences. 
 
+
+prefix : <http://www.sparontologies.net/example/> 
+prefix doco: <http://purl.org/spar/doco/> 
+prefix deo: <http://purl.org/spar/deo/> 
+prefix po: <http://www.essepuntato.it/2008/12/pattern#> 
+prefix dcterms: <http://purl.org/dc/terms/> 
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix co: <http://purl.org/co/> 
+prefix c4o: <http://purl.org/spar/c4o> 
+prefix cito: <http://purl.org/spar/cito/> 
+prefix oa: <http://www.w3.org/ns/oa#> 
+
+
+    SELECT ?section WHERE 
+    { 
+    :body-matter co:firstItem ?FirstItem .
+    ?FirstItem co:itemContent ?FirstSection . 
+    ?FirstSection a doco:Section .
+    ?FirstItem co:nextItem* ?NextSection .
+    ?NextSection co:itemContent ?section .
+ }
+ 
+prefix : <http://www.sparontologies.net/example/> 
+prefix doco: <http://purl.org/spar/doco/> 
+prefix deo: <http://purl.org/spar/deo/> 
+prefix po: <http://www.essepuntato.it/2008/12/pattern#> 
+prefix dcterms: <http://purl.org/dc/terms/> 
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix co: <http://purl.org/co/> 
+prefix c4o: <http://purl.org/spar/c4o> 
+prefix cito: <http://purl.org/spar/cito/> 
+prefix oa: <http://www.w3.org/ns/oa#> 
+
+prefix : <http://www.sparontologies.net/example/> 
+prefix doco: <http://purl.org/spar/doco/> 
+prefix deo: <http://purl.org/spar/deo/> 
+prefix po: <http://www.essepuntato.it/2008/12/pattern#> 
+prefix dcterms: <http://purl.org/dc/terms/> 
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix co: <http://purl.org/co/> 
+prefix c4o: <http://purl.org/spar/c4o> 
+prefix cito: <http://purl.org/spar/cito/> 
+prefix oa: <http://www.w3.org/ns/oa#> 
+
+SELECT ?section ?para ?sentence ?content 
+WHERE 
+{
+  {  
+  SELECT ?section WHERE 
+    { 
+    :body-matter co:firstItem ?FirstItem .
+    ?FirstItem co:itemContent ?FirstSection . 
+    ?FirstSection a doco:Section .
+    ?FirstItem co:nextItem* ?NextSection .
+    ?NextSection co:itemContent ?section .}
+  }
+  
+  {
+   SELECT ?para WHERE
+      {?section co:firstItem ?FirstParaItem . 
+       ?FirstParaItem co:itemContent ?FirstPara . 
+        ?FirstPara a doco:SectionParagraph .
+       ?FirstParaItem co:nextItem* ?NextParaItem . 
+       ?NextParaItem co:itemContent ?para . }  
+  }
+  }

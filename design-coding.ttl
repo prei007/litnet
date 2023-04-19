@@ -86,7 +86,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 	schema:educationalLevel :MiddleSchools ; 
 	schema:learningResourceType  :CausalMapping .
 	
-:EcoMOD_POV a schema:SoftWareApplication ;
+:EcoMOD_POV a schema:SoftwareApplication ;
 	rdfs:label "Point of view tool"@en ; 
 	dc:description "A view of the virtual world from a particular agents perspective." ;
 	schema:applicationSuite :EcoMOD_VR ;

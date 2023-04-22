@@ -71,12 +71,17 @@ letro:followsDesignMethod rdf:type owl:ObjectProperty .
 letro:hasApplication rdf:type owl:ObjectProperty .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#hasAssessment
+letro:hasAssessment rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf letro:hasDesignElement .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#hasChallenge
 letro:hasChallenge rdf:type owl:ObjectProperty .
 
 
-###  http://www.learn-web.com/rdf/2022/letro#hasDesignFeature
-letro:hasDesignFeature rdf:type owl:ObjectProperty .
+###  http://www.learn-web.com/rdf/2022/letro#hasDesignElement
+letro:hasDesignElement rdf:type owl:ObjectProperty .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasDesignModel
@@ -118,15 +123,36 @@ letro:hasLearningActivity rdf:type owl:ObjectProperty ;
                           rdfs:domain letro:DesignRepresentation .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#hasLearningTask
+letro:hasLearningTask rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf letro:hasDesignElement .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#hasProblemContext
 letro:hasProblemContext rdf:type owl:ObjectProperty ;
                         <http://purl.org/dc/elements/1.1/description> "A Problem may be part of a ProblemContext and a ProblemStatement may refer to a ProblemContext."@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasProceduralInfo
+letro:hasProceduralInfo rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf letro:hasDesignElement ;
+                        rdfs:comment "Should be restricted to ProceduralInfoElements, but let's leave it open for the time being." .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasSequence
+letro:hasSequence rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf letro:hasDesignElement .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasSolution
 letro:hasSolution rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:seeAlso "Fathalla, S., Vahdati, S., Auer, S., & Lange, C. (2018). SemSur: A core ontology for the semantic representation of research findings. Procedia Computer Science, 137, 151–162. https://doi.org/10.1016/j.procs.2018.09.015" .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#hasSupportInfo
+letro:hasSupportInfo rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf letro:hasDesignElement .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#identifiesRequirement
@@ -377,6 +403,11 @@ letro:CommunicationTheory rdf:type owl:Class ;
                           rdfs:subClassOf letro:DescriptiveExplanatoryKnowledgebase .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#CompletionTask
+letro:CompletionTask rdf:type owl:Class ;
+                     rdfs:subClassOf letro:LearningTask .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Conjecture
 letro:Conjecture rdf:type owl:Class .
 
@@ -406,16 +437,16 @@ letro:DesignConjecture rdf:type owl:Class ;
                        rdfs:label "Design conjecture"@en .
 
 
-###  http://www.learn-web.com/rdf/2022/letro#DesignEntities
-letro:DesignEntities rdf:type owl:Class ;
-                     rdfs:subClassOf letro:AppliedKnowledgebase .
-
-
-###  http://www.learn-web.com/rdf/2022/letro#DesignFeature
-letro:DesignFeature rdf:type owl:Class ;
+###  http://www.learn-web.com/rdf/2022/letro#DesignElement
+letro:DesignElement rdf:type owl:Class ;
                     rdfs:subClassOf owl:Thing ;
                     rdfs:comment "Design features make up a design approach." ;
                     rdfs:label "design feature"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DesignEntities
+letro:DesignEntities rdf:type owl:Class ;
+                     rdfs:subClassOf letro:AppliedKnowledgebase .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#DesignInstatiation
@@ -457,6 +488,12 @@ letro:DesignResearchProject rdf:type owl:Class ;
 letro:DesignTheory rdf:type owl:Class ;
                    rdfs:subClassOf letro:AppliedKnowledgebase ;
                    rdfs:label "Design theory"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#DomainModel
+letro:DomainModel rdf:type owl:Class ;
+                  rdfs:subClassOf letro:LearningSupport ;
+                  <http://purl.org/dc/elements/1.1/description> "Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#EmpiricalProblem
@@ -508,6 +545,11 @@ letro:Hypothesis rdf:type owl:Class ;
                  rdfs:subClassOf letro:Conjecture .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#ImitationTask
+letro:ImitationTask rdf:type owl:Class ;
+                    rdfs:subClassOf letro:LearningTask .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#Implementation
 letro:Implementation rdf:type owl:Class ;
                      rdfs:subClassOf owl:Thing ;
@@ -535,6 +577,28 @@ letro:LearningEnvironment rdf:type owl:Class ;
                           rdfs:comment "Components of a LE will often be learning resources, which should be described with https://schema.org/LearningResource"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#LearningSupport
+letro:LearningSupport rdf:type owl:Class ;
+                      rdfs:subClassOf letro:DesignElement ;
+                      <http://purl.org/dc/elements/1.1/description> "Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."@en ;
+                      rdfs:label "Support Information Element"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#LearningTask
+letro:LearningTask rdf:type owl:Class ;
+                   rdfs:subClassOf letro:DesignElement ;
+                   <http://purl.org/dc/elements/1.1/description> "Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#LearningTaskClass
+letro:LearningTaskClass rdf:type owl:Class ;
+                        rdfs:subClassOf letro:DesignElement ;
+                        <http://purl.org/dc/elements/1.1/description> """Is a sequence of instances of LearningTasks. The turtle syntax could go like so: 
+:TaskClassx :members ( :t1 :t2 :t3 ) .
+
+Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."""@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#LearningTheory
 letro:LearningTheory rdf:type owl:Class ;
                      rdfs:subClassOf letro:DescriptiveExplanatoryKnowledgebase .
@@ -553,11 +617,22 @@ letro:MethodologicalProblem rdf:type owl:Class ;
                             rdfs:label "methodological problem"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#NonspecificGoal
+letro:NonspecificGoal rdf:type owl:Class ;
+                      rdfs:subClassOf letro:LearningTask .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#PedagogicalProblem
 letro:PedagogicalProblem rdf:type owl:Class ;
                          rdfs:subClassOf letro:Problem ;
                          rdfs:comment "Lack of knowledge how to teach something, make it learnable efficiently." ;
                          rdfs:label "pedagogical problem"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#PerformanceAssessment
+letro:PerformanceAssessment rdf:type owl:Class ;
+                            rdfs:subClassOf letro:DesignElement ;
+                            <http://purl.org/dc/elements/1.1/description> "Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#Problem
@@ -579,6 +654,19 @@ letro:ProblemContext rdf:type owl:Class ;
                      <http://purl.org/dc/elements/1.1/description> "Describing elements of the problem context, such as domain, stakeholders, time or space constraints, etc."@en ;
                      rdfs:comment "There is also a data property problemContext that one can use rather than this class." ;
                      rdfs:label "Problem context"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#ProblemSolvingTask
+letro:ProblemSolvingTask rdf:type owl:Class ;
+                         rdfs:subClassOf letro:LearningTask ;
+                         <http://purl.org/dc/elements/1.1/description> "Given a goal and initial state, find the solution. What in 4C/ID is called a conventional task."@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#ProceduralSupport
+letro:ProceduralSupport rdf:type owl:Class ;
+                        rdfs:subClassOf letro:DesignElement ;
+                        <http://purl.org/dc/elements/1.1/description> "Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."@en ;
+                        rdfs:label "Procedural Information Element"@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#Requirement
@@ -604,6 +692,17 @@ letro:ResearchTopic rdf:type owl:Class ;
                     rdfs:label "resesarch topic"@en .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#ReverseTask
+letro:ReverseTask rdf:type owl:Class ;
+                  rdfs:subClassOf letro:LearningTask .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#SAP
+letro:SAP rdf:type owl:Class ;
+          rdfs:subClassOf letro:LearningSupport ;
+          rdfs:label "Systematic Approach to Problem Solving. Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge."@en .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#StructuredTabular
 letro:StructuredTabular rdf:type owl:Class ;
                         rdfs:subClassOf letro:CodificationFormat .
@@ -612,6 +711,17 @@ letro:StructuredTabular rdf:type owl:Class ;
 ###  http://www.learn-web.com/rdf/2022/letro#StructuredTextBased
 letro:StructuredTextBased rdf:type owl:Class ;
                           rdfs:subClassOf letro:CodificationFormat .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#TaskSequence
+letro:TaskSequence rdf:type owl:Class ;
+                   rdfs:subClassOf letro:DesignElement ;
+                   <http://purl.org/dc/elements/1.1/description> """Definition as per 4C/ID. Merriënboer, J. J. G. V., & Kirschner, P. (2018). Ten steps to complex learning. A systematic approach to four-component instructional design (3rd ed.). Routledge.
+
+Either a sequence of learning tasks or of learning task classes.
+
+The turtle syntax could go like so: 
+:TaskSequence_x :members ( :t1 :t2 :t3 ) ."""@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#TechnologicalProblem
@@ -642,6 +752,12 @@ letro:TheoreticalProblem rdf:type owl:Class ;
 ###  http://www.learn-web.com/rdf/2022/letro#Unstructured
 letro:Unstructured rdf:type owl:Class ;
                    rdfs:subClassOf letro:CodificationFormat .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#WorkedExample
+letro:WorkedExample rdf:type owl:Class ;
+                    rdfs:subClassOf letro:LearningTask ;
+                    <http://purl.org/dc/elements/1.1/description> "A worked-out example has all the information (Given, Goals, Solution) specified."@en .
 
 
 #################################################################

@@ -37,6 +37,11 @@ schema:educationalAlignment rdf:type owl:ObjectProperty ;
                             rdfs:comment "predicate linking to a schema:AlignmentObject" .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#advances
+letro:advances rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf letro:isContinuationOf .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#annotation
 letro:annotation rdf:type owl:ObjectProperty ;
                  rdfs:comment "Object property linking to an annotation." .
@@ -108,7 +113,10 @@ letro:hasEvaluation rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasImplementation
-letro:hasImplementation rdf:type owl:ObjectProperty .
+letro:hasImplementation rdf:type owl:ObjectProperty ;
+                        rdfs:domain letro:DesignElement ;
+                        rdfs:range letro:Implementation ;
+                        <http://purl.org/dc/elements/1.1/description> "A design model of design feature can have one or more implementations in form of a non-design artefact. For instance, a software implementation."@en .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#hasIteration
@@ -449,6 +457,12 @@ letro:DesignEntities rdf:type owl:Class ;
                      rdfs:subClassOf letro:AppliedKnowledgebase .
 
 
+###  http://www.learn-web.com/rdf/2022/letro#DesignExperiment
+letro:DesignExperiment rdf:type owl:Class ;
+                       rdfs:subClassOf letro:EvaluationMethod ;
+                       rdfs:isDefinedBy <http://www.hozo.jp/owl/EXPOApr19.xml/ExperimentalDesignStrategy> .
+
+
 ###  http://www.learn-web.com/rdf/2022/letro#DesignInstatiation
 letro:DesignInstatiation rdf:type owl:Class .
 
@@ -528,6 +542,15 @@ letro:EvaluationResult rdf:type owl:Class ;
 ###  http://www.learn-web.com/rdf/2022/letro#EvaluationScenario
 letro:EvaluationScenario rdf:type owl:Class ;
                          rdfs:label "Evaluation scenario"@en .
+
+
+###  http://www.learn-web.com/rdf/2022/letro#EvaluationStudy
+letro:EvaluationStudy rdf:type owl:Class ;
+                      rdfs:comment """Any specialisation of this should take into account the EXPO ontology. 
+http://www.hozo.jp/owl/EXPOApr19.xml/
+Soldatova, L. N., & King, R. D. (2006). An ontology of scientific experiments. Journal of the Royal Society Interface, 3(11), 795–803. https://doi.org/10.1098/rsif.2006.0134"""@en ;
+                      rdfs:seeAlso <http://salt.semanticauthoring.org/ontologies/sro#Evaluation> ,
+                                   letro:EvaluationMethod .
 
 
 ###  http://www.learn-web.com/rdf/2022/letro#Formalized

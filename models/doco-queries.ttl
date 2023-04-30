@@ -96,3 +96,10 @@ WHERE
        ?NextParaItem co:itemContent ?para . }  
   }
   }
+  
+  
+SELECT DISTINCT ?paper ?person 
+WHERE 
+{ ?paper exterm:title ?title ; 
+         exterm:creator [ co:item [ co:index ?position co:itemContent ?author ] ] }
+ORDER BY ?title ?position

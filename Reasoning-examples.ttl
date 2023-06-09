@@ -1,0 +1,15 @@
+## Some examples of reasoning with RDFS
+
+PREFIX : <http://example.net/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+:freelancesTo rdfs:subPropertyOf :contractsTo . 
+:indirectlyContractsTo rdfs:subPropertyOf :contractsTo . 
+:isEmployedBy rdfs:subPropertyOf :worksFor . 
+:contractsTo rdfs:subPropertyOf :worksFor . 
+
+# instances
+
+:Goldman :isEmployedBy :TheFirm . 
+:Spence :freeLancesFor :TheFirm . 
+:Long :indirectlyContractsTo :TheFirm . 

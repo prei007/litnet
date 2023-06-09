@@ -1,0 +1,627 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology"
+     xml:base="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:GoalsOntology="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology">
+        <rdfs:comment></rdfs:comment>
+        <rdfs:isDefinedBy>Sridhar Chimalakonda</rdfs:isDefinedBy>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalCompetencyLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalCompetencyLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalKnowledgeLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalKnowledgeLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalPriorityLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalPriorityLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalProgress -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalProgress">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasAudience -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasAudience">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasBehaviour -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasBehaviour"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCondition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCriterion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCriterion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasEvaluation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPrerequisites -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPrerequisites">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPriorKnowledge -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPriorKnowledge"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#isAchievedByProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#isAchievedByProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#nextGoal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#nextGoal">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#previousGoal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#previousGoal">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#refersToContext -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#refersToContext"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#runsInEnvironment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#runsInEnvironment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#usesContent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#usesContent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#description"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalDeadline -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalDeadline">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#metadata -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#metadata"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Abstract -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Abstract">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ActObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ActObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Animation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Animation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContinuousContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Answer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Answer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Audio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Audio">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContinuousContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Cases -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Cases">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Cognitive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Cognitive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Conclusion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Conclusion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentFragment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentFragment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentType">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentUnit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentUnit">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContinuousContentFragment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContinuousContentFragment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentFragment"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#DiscreteContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentType"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Demo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Demo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Description -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Description">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#DiscreteContentFragment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#DiscreteContentFragment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Example -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Example">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Exercise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Exercise">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Explanation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Explanation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Facts -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Facts">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Graphics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Graphics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#DiscreteContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Image -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Image">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#DiscreteContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#InstructionObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#InstructionObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Introduction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Introduction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Models -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Models">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Narrative -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Narrative">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#PlayObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#PlayObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Question -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Question">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Reference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Reference">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Remark -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Remark">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Rules -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Rules">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#SceneObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#SceneObject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Summary -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Summary">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ExtendedType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Text -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Text">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#DiscreteContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Theories -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Theories">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#CoreType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Video -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Video">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContinuousContentFragment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#hasContentFragment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#hasContentFragment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentObject"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal1">
+        <GoalsOntology:goalKnowledgeLevel rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Abstract"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Cognitive"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Conclusion"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Introduction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Narrative"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Summary"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Supporting"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ActObject"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#InstructionObject"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#PlayObject"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#SceneObject"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Animation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Audio"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Video"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Answer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Demo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Description"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Example"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Exercise"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Explanation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Question"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Reference"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Remark"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Cases"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Facts"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Models"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Rules"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Theories"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentFragment"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentObject"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#ContentType"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#LearningObject"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Graphics"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Image"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology#Text"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->

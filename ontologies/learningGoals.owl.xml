@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#"
+     xml:base="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology">
+        <rdfs:comment></rdfs:comment>
+        <rdfs:isDefinedBy>Sridhar Chimalakonda</rdfs:isDefinedBy>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalCompetencyLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalCompetencyLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalKnowledgeLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalKnowledgeLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ConceptualKnowledge"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#FacutalKnowledge"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#MetaCognitiveKnowledge"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ProceduralKnowledge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalPriorityLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalPriorityLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalPriority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalProgress -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalProgress">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalProgress"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasAudience -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasAudience">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasBehaviour -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasBehaviour"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCondition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCriterion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasCriterion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasEvaluation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPrerequisites -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPrerequisites">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPriorKnowledge -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#hasPriorKnowledge"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#isAchievedByProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#isAchievedByProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#nextGoal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#nextGoal">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#previousGoal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#previousGoal">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#refersToContext -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#refersToContext"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#runsInEnvironment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#runsInEnvironment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#usesContent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#usesContent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#description"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalDeadline -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#goalDeadline">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#metadata -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#metadata">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ABCD -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ABCD">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalClassification"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#BloomTaxonomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ActLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ActLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Analyze -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Analyze">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Apply -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Apply">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Audience -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Audience">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ABCD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Behaviour -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Behaviour">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ABCD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#BloomTaxonomy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#BloomTaxonomy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalClassification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#BloomTaxonomy"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ConceptualKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ConceptualKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Condition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Condition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ABCD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Create -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Create">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Degree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Degree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ABCD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Evaluate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Evaluate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#FacutalKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#FacutalKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalClassification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalClassification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalCompetency -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalCompetency">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalPriority -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalPriority">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalProgress -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalProgress">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#InstructionLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#InstructionLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#BloomTaxonomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#LearningGoal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#MetaCognitiveKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#MetaCognitiveKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#PlayLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#PlayLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ProceduralKnowledge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ProceduralKnowledge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#KnowledgeDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Remember -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Remember">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#SceneLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#SceneLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Understand -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Understand">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#CognitiveProcessDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ActLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#InstructionLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#PlayLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#SceneLevel"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Analyze"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Apply"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Create"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Evaluate"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Remember"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Understand"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Audience"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Behaviour"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Condition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#Degree"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ConceptualKnowledge"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#FacutalKnowledge"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#MetaCognitiveKnowledge"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#ProceduralKnowledge"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalClassification"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalCompetency"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalGranularity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalPriority"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology#GoalProgress"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->

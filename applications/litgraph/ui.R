@@ -108,6 +108,16 @@ cito_scheme <<-
     "usesMethodIn"
   )
 
+# Annotation motivation 
+# https://www.w3.org/TR/annotation-vocab/#named-individuals
+oa_scheme <<- 
+  c("commenting", 
+    "assessing", 
+    "classifying",
+    "describing",
+    "linking",
+    "questioning")
+
 # namespaces 
 defaultNS <<- "http://www.example.net/"
 citoNS <<- "http://purl.org/spar/cito/"
@@ -115,8 +125,9 @@ dcNS <<- "http://purl.org/dc/terms/"
 rdfNS <<- "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 rdsNS <<- "http://www.w3.org/2000/01/rdf-schema#"
 foafNS <<- "http://xmlns.com/foaf/0.1/"
+oaNS <<- "http://www.w3.org/ns/oa#"
 
-ns_list <<- c(defaultNS, citoNS, dcNS, rdfNS, rdsNS, foafNS)
+ns_list <<- c(defaultNS, citoNS, dcNS, rdfNS, rdsNS, foafNS, oaNS)
 
 
 
@@ -158,6 +169,14 @@ template_tabs <- tabsetPanel(
                       placeholder = "e.g. :Hendrix1985"),
            actionButton("saveCitationButton", "Save new"), 
            actionButton("updateCitationButton", "Update")
+  ),
+  tabPanel("Annotation", 
+           textInput ("annoTarget", "Annotated paper ID:", value ="", 
+                      placeholder = "e.g. :Hendrix1985"),
+           textAreaInput("annoBody", "Annotation body:", value = ""),
+           selectInput("annoType", "Motivation:", oa_scheme, selected = "commenting") ,
+           actionButton("saveCitationButton", "Save new"), 
+           actionButton("updateCitationButton", "Update")
   )
 )
 
@@ -166,7 +185,8 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       selectInput("template", "Node template:", 
-                  choices = c("Login", "Publication", "Author", "Citation")
+                  choices = c("Login", "Publication", "Author",
+                              "Citation", "Annotation")
       ),
       template_tabs
     ),

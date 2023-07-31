@@ -109,24 +109,24 @@ server <- function(input, output, session) {
     if (node_exists(input$citationID) == "false") {
       # ID for all statements in this scheme
       subjectURL <- paste0("<", defaultNS, input$citationID, ">")
-      updateTextInput(session, "citationID", value = NA)
+      updateTextInput(session, "citationID", value = random_name())
       # rdf type
       predURL <- paste0("<", rdfNS, "type", ">" )
       objectURL <- paste0("<", citoNS, "Citation", ">" )
       addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
-      # citing entity
+      # citing entity (not a literal!)
       predURL <- paste0("<", citoNS, "hasCitingEntity", ">" )
       objectURL <- paste0("<", defaultNS, input$citingEntity, ">" )
       addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       updateTextInput(session, "citingEntity", value = NA)
-      # citation type
+      # citation type (not a literal!)
       predURL <- paste0("<", citoNS, "hasCitationCharacterization", ">" )
-      objectURL <- paste0('"',  input$citoType, '"')
+      objectURL <- paste0("<",  citoNS, input$citoType, ">")
       addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       updateTextInput(session, "citoType", value = NA)
-      # cited entity
+      # cited entity (not a literal!)
       predURL <- paste0("<", citoNS, "hasCitedEntity", ">" )
-      objectURL <- paste0('"',  input$citedEntity, '"')
+      objectURL <- paste0("<",  defaultNS, input$citedEntity, ">")
       addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       updateTextInput(session, "citedEntity", value = NA)
       # Notify user and save 

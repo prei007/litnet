@@ -118,9 +118,6 @@ oa_scheme <<-
     "linking",
     "questioning")
 
-
-
-
 # Create the tabset 
 template_tabs <- tabsetPanel(
   id = "templates",
@@ -152,6 +149,7 @@ template_tabs <- tabsetPanel(
            actionButton("updateAuthorButton", "Update") 
   ),
   tabPanel("Citation", 
+           textInput("citationID", "ID:", value = random_name()),
            textInput("citingEntity", "Citing paper ID:", value = "", 
                      placeholder = "e.g :Lemmon2000"), 
            selectInput("citoType", "Citation type:", cito_scheme) ,

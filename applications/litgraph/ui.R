@@ -149,22 +149,23 @@ template_tabs <- tabsetPanel(
            actionButton("updateAuthorButton", "Update") 
   ),
   tabPanel("Citation", 
-           textInput("citationID", "ID:", value = random_name()),
+           textInput("citationID", "ID:", value = random_name('CITE-')),
            textInput("citingEntity", "Citing paper ID:", value = "", 
-                     placeholder = "e.g :Lemmon2000"), 
+                     placeholder = "e.g Lemmon2000"), 
            selectInput("citoType", "Citation type:", cito_scheme) ,
            textInput ("citedEntity", "Cited paper ID:", value ="", 
-                      placeholder = "e.g. :Hendrix1985"),
+                      placeholder = "e.g. Hendrix1985"),
            actionButton("saveCitationButton", "Save new"), 
            actionButton("updateCitationButton", "Update")
   ),
   tabPanel("Annotation", 
+           textInput("annoID", "ID:", value = random_name('ANNO-')),
            textInput ("annoTarget", "Annotated paper ID:", value ="", 
-                      placeholder = "e.g. :Hendrix1985"),
+                      placeholder = "e.g. Hendrix1985"),
            textAreaInput("annoBody", "Annotation body:", value = ""),
-           selectInput("annoType", "Motivation:", oa_scheme, selected = "commenting") ,
-           actionButton("saveCitationButton", "Save new"), 
-           actionButton("updateCitationButton", "Update")
+           selectInput("annoMotivation", "Motivation:", oa_scheme, selected = "commenting") ,
+           actionButton("saveAnnotationButton", "Save new"), 
+           actionButton("updateAnnotationButton", "Update")
   )
 )
 

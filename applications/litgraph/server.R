@@ -92,6 +92,13 @@ server <- function(input, output, session) {
       objectURL <- paste0('"',  input$pubIdentifier, '"')
       addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       updateTextInput(session, "pubIdentifier", value = NA)
+      # add user and time
+      predURL <- paste0("<", defaultNS, "addedBy", ">" )
+      objectURL <- paste0("<", defaultNS, userName, ">")
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      predURL <- paste0("<", defaultNS, "addedDate", ">" )
+      objectURL <- paste0('"',  Sys.Date(), '"')
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       
       # Notify user and save 
       showNotification("Your input is saved.")
@@ -109,7 +116,7 @@ server <- function(input, output, session) {
     if (node_exists(input$citationID) == "false") {
       # ID for all statements in this scheme
       subjectURL <- paste0("<", defaultNS, input$citationID, ">")
-      updateTextInput(session, "citationID", value = random_name())
+      updateTextInput(session, "citationID", value = random_name('CITE-'))
       # rdf type
       predURL <- paste0("<", rdfNS, "type", ">" )
       objectURL <- paste0("<", citoNS, "Citation", ">" )
@@ -129,6 +136,55 @@ server <- function(input, output, session) {
       objectURL <- paste0("<",  defaultNS, input$citedEntity, ">")
       addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       updateTextInput(session, "citedEntity", value = NA)
+      # add user (as object) and time
+      predURL <- paste0("<", defaultNS, "addedBy", ">" )
+      objectURL <- paste0("<", defaultNS, userName, ">")
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      predURL <- paste0("<", defaultNS, "addedDate", ">" )
+      objectURL <- paste0('"',  Sys.Date(), '"')
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      # Notify user and save 
+      showNotification("Your input is saved.")
+      click("showMapButton")
+    } else {
+      alert("This element already exists. Click 'Update' instead, or rename and save.")
+    }
+  })
+  
+  # -------------------------------
+  # Push a free annotation citation 
+  # -------------------------------
+  observeEvent(input$saveAnnotationButton, {
+    if (node_exists(input$annoID) == "false") {
+      # ID for all statements in this scheme
+      subjectURL <- paste0("<", defaultNS, input$annoID, ">")
+      updateTextInput(session, "annoID", value = random_name('ANNO-'))
+      # rdf type
+      predURL <- paste0("<", rdfNS, "type", ">" )
+      objectURL <- paste0("<", oaNS, "Annotation", ">" )
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      # annotation target (not a literal)
+      predURL <- paste0("<", oaNS, "hasTarget", ">" )
+      objectURL <- paste0("<", defaultNS, input$annoTarget, ">" )
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      updateTextInput(session, "annoTarget", value = NA)
+      # annotation body (literal)
+      predURL <- paste0("<", oaNS, "hasBody", ">" )
+      objectURL <- paste0('"', input$annoBody, '"')
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      updateTextInput(session, "annoBody", value = NA)
+      # annotation motivation
+      predURL <- paste0("<", oaNS, "motivatedBy", ">" )
+      objectURL <- paste0("<",  oaNS, input$annoMotivation, ">")
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      updateTextInput(session, "annoMotivation", value = NA)
+      # add user (as object) and time
+      predURL <- paste0("<", defaultNS, "addedBy", ">" )
+      objectURL <- paste0("<", defaultNS, userName, ">")
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      predURL <- paste0("<", defaultNS, "addedDate", ">" )
+      objectURL <- paste0('"',  Sys.time(), '"')
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       # Notify user and save 
       showNotification("Your input is saved.")
       click("showMapButton")

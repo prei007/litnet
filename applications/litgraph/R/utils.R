@@ -18,10 +18,10 @@ stripOffNS <- function(df) {
   df
 }
 
-random_name <- function() {
+random_name <- function(prefix) {
   v1 <- paste(sample(letters, 6), collapse = "")
   v2 <- floor(runif(1, min = 100, max = 999))
-  paste0(v1, v2)
+  paste0(prefix, v1, v2)
 }
 
 # return last element in list with URI paths as elements

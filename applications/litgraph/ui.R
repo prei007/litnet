@@ -118,16 +118,6 @@ oa_scheme <<-
     "linking",
     "questioning")
 
-# namespaces 
-defaultNS <<- "http://www.example.net/"
-citoNS <<- "http://purl.org/spar/cito/"
-dcNS <<- "http://purl.org/dc/terms/"
-rdfNS <<- "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-rdsNS <<- "http://www.w3.org/2000/01/rdf-schema#"
-foafNS <<- "http://xmlns.com/foaf/0.1/"
-oaNS <<- "http://www.w3.org/ns/oa#"
-
-ns_list <<- c(defaultNS, citoNS, dcNS, rdfNS, rdsNS, foafNS, oaNS)
 
 
 
@@ -144,11 +134,11 @@ template_tabs <- tabsetPanel(
   tabPanel("Publication",
            textInput("pubID", "Publication ID:", value = "",
                      placeholder = "<FirstAuthor><year>, e.g. Doe2012"),
-           textAreaInput("pubAuthor", "Contributors:", value = "" ,
+           textInput("pubAuthor", "Contributors:", value = "" ,
                          placeholder = "Author(s)' ID separated by comma"),
            textAreaInput ("pubTitle", "Title:", value =""),
            textInput ("pubYear", "Year:", value =""),
-           textInput("pubCite", "Citation:", value="",
+           textInput("pubIdentifier", "DOI:", value="",
                      placeholder = "DOI or ISBN"),
            actionButton("savePubButton", "Save new"),
            actionButton("updatePubButton", "Update") 
@@ -191,13 +181,12 @@ ui <- fluidPage(
       template_tabs
     ),
     mainPanel(
-      p("placeholder")
-      # # show user name
-      # textOutput("userName"),
-      # # show a map with the plan from the database.
-      # p(" "),
-      # actionButton("showMapButton",  "show map view "),
-      # p(" "),
+      # show user name
+      textOutput("userName"),
+     # show the graph.
+      p(" "),
+      actionButton("showMapButton",  "show map view "),
+      p(" "),
       # visNetworkOutput("Map", width = "1000px", height = "600px")
     )
   )

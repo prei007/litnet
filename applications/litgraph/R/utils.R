@@ -219,14 +219,17 @@ do_network <- function(dfout) {
 
   
   # Edges: 
+ 
   edges <- data.frame(from = dfout[[1]], 
                       to = dfout[[3]], 
                       label = dfout[[2]])
-  
-  # an ID for edges 
+  # an ID for edges that gets returned in current_edge_id upon mouse selection.
   edges$id <- 1:nrow(edges)
+  print(edges)  # development only
+
 
   # Display graph, and a table with node details dependent on mouse click: 
+  # https://rdrr.io/cran/visNetwork/man/visEvents.html
   
   visNetwork(nodes, edges, height = "1500px", width = "1500px") %>% 
     visNodes(shape = "box") %>%
@@ -241,11 +244,7 @@ do_network <- function(dfout) {
    visEvents(selectEdge = "function(edges) {
         Shiny.setInputValue('current_edge_id', edges);
       ;}")
-  # visEvents(select = "function(data) {
-  #       Shiny.onInputChange('current_edges_selection', data.edges);
-  #     ;}")
-  
-  # https://rdrr.io/cran/visNetwork/man/visEvents.html
+
 
 }
 
@@ -326,7 +325,28 @@ render_plan_node <- function(node) {
 
 # display info on the selected node in a panel
 render_network_edge <- function(edge) {
-  cat("\n", "render_network_edge():" , " edge: ", as.character(edge), "\n")
+  # cat("\n", "render_network_edge():" , " edge: ", as.character(edge), "\n")
+  if (length(edge) == 1) {
+    this_edge <- edges[unlist(edge),]
+    print(this_edge) # development only
+    # find the cito object
+    query <- paste0(
+      'SELECT ?s  WHERE 
+      { ?s a cito:Citation ;
+      cito:hasCitingEntity :' , this_edge$from, ' ;' ,
+      'cito:hasCitationCharacterization cito:', this_edge$label, ' ;' ,
+      'cito:hasCitedEntity :', this_edge$to, ' .}'
+      )
+    print(query) # development only
+    dfout <- evalQuery(rep,
+                       query = query, returnType = "dataframe",
+                       cleanUp = TRUE, limit = 1)
+    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+    dfout[[1]] <- last_URI_element(dfout[[1]])
+    print(dfout)
+    dfout
+    
+  }
 }
 
 fillPublicationTemplate <-function(node, node_df) {
@@ -381,10 +401,7 @@ update_repo <- function(node) {
     validate("No information on this selection in database.")
   }
 }
-
-
   
-}
 
 
 

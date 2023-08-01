@@ -197,8 +197,28 @@ server <- function(input, output, session) {
   # Show map/network
   # -------------------------------
   observeEvent(input$showMapButton, {
-      showNotification("The database does not contain (sufficient) information.", 
-                       type = "warning") 
+    query = paste0( 
+      'CONSTRUCT  {?s ?p ?o} WHERE {
+      ?citation a cito:Citation ;
+  	  cito:hasCitingEntity ?s ;
+      cito:hasCitationCharacterization ?p ; 
+      cito:hasCitedEntity ?o. 
+      }' 
+    )
+    graphDF <- fetch_plan_sparql(query)
+    if (graphDF[1] != "query failed" & length(graphDF) > 1) { 
+      # render map
+      output$Map <- renderVisNetwork(do_network(graphDF))
+    } else {
+      showNotification("The plan does not contain (sufficient) information.", 
+                       type = "warning") }
+  })
+  
+  # Show information for selected node in panel. 
+  # The value for this query comes from visNetwork . 
+  
+  observeEvent(input$current_node_id$node, {
+    render_plan_node(input$current_node_id$node)
   })
 }
 

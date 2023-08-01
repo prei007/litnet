@@ -202,7 +202,7 @@ do_network <- function(dfout) {
   # dfout has three columns: s, p, o. 
   
   # Nodes is a  list combining s and o nodes. 
-  nodes1 <- c(dfout$s, dfout$o)
+  nodes1 <- c(dfout[[1]], dfout[[3]])
   nodes <- list()
   nodes[1] <- list(unique(nodes1))
   # add labels
@@ -216,15 +216,15 @@ do_network <- function(dfout) {
   # dataframe returned from the function. In other words, a Join 
   # based on id. 
   
-  node_types <- data.frame(get_all_node_types())
-  colnames(node_types) <- c("id", "type")
-  for (n in 1:length(nodes$id)) {
-    for (t in 1:length(node_types$id)) {
-      if (nodes$id[n] == node_types$id[t]) {
-        nodes$group[[n]] <- node_types$type[t]
-      }
-    }
-  }
+  # node_types <- data.frame(get_all_node_types())
+  # colnames(node_types) <- c("id", "type")
+  # for (n in 1:length(nodes$id)) {
+  #   for (t in 1:length(node_types$id)) {
+  #     if (nodes$id[n] == node_types$id[t]) {
+  #       nodes$group[[n]] <- node_types$type[t]
+  #     }
+  #   }
+  # }
 
   
   # Edges: 
@@ -233,43 +233,39 @@ do_network <- function(dfout) {
                       label = dfout[[2]])
   ## Add a column for edge width and make followsAfter links look wider 
   ## https://www.r-bloggers.com/2022/07/how-to-do-conditional-mutate-in-r/
- edges <-  edges %>%
-    mutate(width = case_when(label == "followsAfter" ~ 3, 
-                             label == "responseTo"  ~ 1))
+ # edges <-  edges %>%
+ #    mutate(width = case_when(label == "followsAfter" ~ 3, 
+ #                             label == "responseTo"  ~ 1))
   
   
   # Display graph, and a table with node details dependent on mouse click: 
   
   visNetwork(nodes, edges, height = "1500px", width = "1500px") %>% 
-    # visNodes(shape = "box", 
-    #          color = list(background = "lightblue", 
-    #                       border = "darkblue",
-    #                       highlight = "yellow")) %>%
     visNodes(shape = "box") %>%
     visEdges(arrows = "to") %>%
     visInteraction(hideEdgesOnDrag = TRUE)  %>%
     visOptions(highlightNearest = FALSE, nodesIdSelection = TRUE) %>%
-    # colouring of nodes by group name (i.e., node type)
-    visGroups(groupname = "ConceptMapAction", 
-              color = list(background = "lightgreen", 
-                           border = "black",
-                           highlight = "red")) %>% 
-    visGroups(groupname = "Question", 
-              color = list(background = "lightblue", 
-                           border = "black",
-                           highlight = "red")) %>% 
-    visGroups(groupname = "AnswerTutee", 
-              color = list(background = "yellow", 
-                           border = "black",
-                           highlight = "red")) %>% 
-    visGroups(groupname = "LearningActivity", 
-              color = list(background = "orange", 
-                           border = "black",
-                           highlight = "red")) %>% 
-    visGroups(groupname = "ActionTutee", 
-              color = list(background = "lightgrey", 
-                           border = "black",
-                           highlight = "red")) %>% 
+    # # colouring of nodes by group name (i.e., node type)
+    # visGroups(groupname = "ConceptMapAction", 
+    #           color = list(background = "lightgreen", 
+    #                        border = "black",
+    #                        highlight = "red")) %>% 
+    # visGroups(groupname = "Question", 
+    #           color = list(background = "lightblue", 
+    #                        border = "black",
+    #                        highlight = "red")) %>% 
+    # visGroups(groupname = "AnswerTutee", 
+    #           color = list(background = "yellow", 
+    #                        border = "black",
+    #                        highlight = "red")) %>% 
+    # visGroups(groupname = "LearningActivity", 
+    #           color = list(background = "orange", 
+    #                        border = "black",
+    #                        highlight = "red")) %>% 
+    # visGroups(groupname = "ActionTutee", 
+    #           color = list(background = "lightgrey", 
+    #                        border = "black",
+    #                        highlight = "red")) %>% 
     visLayout(randomSeed = 123) %>%
     visPhysics(solver = "forceAtlas2Based") %>%
     visEvents(selectNode = "function(nodes) {

@@ -6,53 +6,6 @@ library(shinyjs)
 library(visNetwork)
 library(allegRo)
 
-# setup the schemes and their properties.
-# These will be needed to define fields in the UI. 
-# Access: 
-# names(arg_schemes) returns the scheme names
-# the first list:
-# arg_schemes[[1]] or arg_schemes$Analogy_Inference
-#The first element of the first list:
-# arg_schemes[[1]][1]
-
-# Each group of fields should correspond to a node in the
-# graph. Which means cito should be reified. What about the 
-# simple codes? They likely should go into SKOS concept schemes. 
-# This is really to be thought about: Which object propoerties should 
-# be reified, which are just atttributes? 
-
-# Reication has definite advantages and the graphing 
-# basis can be constructed with Construct Queries. 
-
-# The interface wfor this app is probably best developed in a mixed 
-# mode, hardcoding the 'tabs' but programming the fields. 
-
-# field_scheme <<- 
-#   list(
-#     bib_fields = 
-#       c("ID", 
-#         "Title", 
-#         "Creator", 
-#         "Date", 
-#         "bibliographicCitation"),
-#     author_fields = 
-#       c("ID", 
-#         "family_name",
-#         "first_name",
-#         "middle_name"),
-#     cito_fields =
-#       c("ID", 
-#         "hasCitingEntity",
-#         "hasCitationCharacterization",
-#         "hasCitedEntity",
-#         ),
-#     project_fields =
-#       c("ID", 
-#         "projectName", 
-#         "etc", 
-#         "etc2")
-#   )
-
 # CiTO ontology
 # https://sparontologies.github.io/cito/current/cito.html
 
@@ -186,7 +139,7 @@ ui <- fluidPage(
       p(" "),
       actionButton("showMapButton",  "show map view "),
       p(" "),
-      # visNetworkOutput("Map", width = "1000px", height = "600px")
+      visNetworkOutput("Map", width = "1000px", height = "600px")
     )
   )
   

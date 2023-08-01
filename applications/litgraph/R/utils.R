@@ -102,11 +102,7 @@ reset_all_input <- function() {
 # Check if a node exists on server
 # Returns "true" or "false"
 node_exists <- function(node) {
-  query <- paste0(
-    'ASK { GRAPH :', 
-                userName, 
-    ' {:', node, ' ?p ?o}}'
-    )
+  query <- paste0('ASK {:', node, ' ?p ?o }')
   evalQuery(rep,
           query = query, returnType = "list",
           limit = 1)
@@ -180,8 +176,7 @@ fetch_plan_sparql <- function(query) {
 fetch_plan_node <- function(node) {
   if (node_exists(node) == "true") {
         query <- paste0(
-          'SELECT ?p ?o  WHERE {GRAPH :', userName, 
-          ' {:', node, '?p ?o}}')
+          'SELECT ?p ?o  WHERE {:', node, ' ?p ?o}')
         dfout <- evalQuery(rep,
                            query = query, returnType = "dataframe",
                            cleanUp = TRUE, limit = 2000)
@@ -190,10 +185,7 @@ fetch_plan_node <- function(node) {
           dfout[[2]] <- last_URI_element_1(dfout[[2]], ns_list) 
           dfout
   } else {
-    showNotification("The plan does not contain (sufficient) information about this element.", 
-                     type = "error")
     alert("Selected element does not exist yet on the server. Please create it.")
-    validate("The plan does not contain sufficient information about this element.")
   }
 }
 
@@ -276,9 +268,13 @@ do_network <- function(dfout) {
 
 # Function finds the node type(s) for a node
 get_node_type <- function(node) {
+  # cat("\n", "get_node_type(node):" , " node: ", as.character(node), "\n")
   if (node_exists(node) == "true") {
-    query <- paste0('SELECT ?type WHERE {GRAPH :', userName, 
-                    ' { :', node, ' a ?type. }}' )
+    query <- paste0(
+      'SELECT ?type WHERE { :', 
+      node, 
+      ' a ?type }' 
+      )
     dfout <- evalQuery(rep,
                        query = query, returnType = "dataframe",
                        cleanUp = TRUE, limit = 2000)
@@ -325,6 +321,7 @@ get_all_node_types <- function() {
 # display info on the selected node in a panel
 render_plan_node <- function(node) {
   # First, find the panel 
+  # cat("\n", "render_plan_node(node):" , " node: ", as.character(node), "\n")
   node_type <- get_node_type(node)
   # Note that this assumes only one type is being returned. That needs fixing:
   # if there are multiple types, the rest of this function should 
@@ -332,32 +329,21 @@ render_plan_node <- function(node) {
   # node_type[1] is just a fix for the moment, to make sure things don't break. 
   node_type <- node_type[1]
   # open the panel corresponding to the node's type
-  if(node_type %in% c("Question", "AnswerTutee", "ActionTutee",
-                      "LearningActivity", "ConceptMapAction")) {
-    updateTabsetPanel(inputId = "templates", selected = node_type)
-    updateSelectInput(inputId = "template", selected = node_type)
+  if (node_type %in% c("JournalArticle", "ResearchPaper", "Book", 
+                      "BookChapter")) {
+    updateTabsetPanel(inputId = "templates", selected = "Publication")
+    updateSelectInput(inputId = "template", selected = "Publication")
     reset_all_input()
+    node_df <-  fetch_plan_node(node)
+    fillPublicationTemplate(node, node_df)
   } else {
     alert("No type information on this node in the database.")
   }
-  # add node content to the panel
-  node_df <-  fetch_plan_node(node)
-  if (node_type == "Question") {
-    fillQuestionTemplate(node, node_df)
-  } else if (node_type == "AnswerTutee") {
-    fillAnswerTemplate(node, node_df)
-  } else if (node_type == "LearningActivity") {
-    fillActivityTemplate(node, node_df)
-  } else if (node_type == "ActionTutee") {
-    fillActionTemplate(node, node_df)
-  } else {
-    fillPatternTemplate(node, node_df)
-  }
 }
 
-fillQuestionTemplate <-function(node, node_df) {
+fillPublicationTemplate <-function(node, node_df) {
   # ID corresponds to node
-  updateTextInput(inputId = "questionID", value = node) 
+  updateTextInput(inputId = "pubID", value = node) 
   # df has two columns: predicates (fields) and objects (field values)
   fields <- node_df[[1]]
   fvalues <- node_df[[2]]
@@ -366,119 +352,21 @@ fillQuestionTemplate <-function(node, node_df) {
   # double-quoted strings to the repo. 
   # Note that the loop in this form works also for the case that a field is empty.
   for (i in 1:length(fields)) {
-    if (fields[i] == "text") {
-      updateTextAreaInput(inputId = "questionText", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "responseTo") {
-      updateTextInput(inputId = "questionResponseTo", value = fvalues[i])
-    } else if (fields[i] == "followsAfter") {
-      updateTextInput(inputId = "questionFollowsAfter", value = fvalues[i])
-    } else if (fields[i] == "image") {
-      updateTextInput(inputId = "questionImage", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "video") {
-      updateTextInput(inputId = "questionVideo", value = gsub('"', '', fvalues[i]))
+    if (fields[i] == "title") {
+      updateTextAreaInput(inputId = "pubTitle", value = gsub('"', '', fvalues[i]))
+    } else if (fields[i] == "creator") {
+      updateTextInput(inputId = "pubAuthor", value = fvalues[i])
+    } else if (fields[i] == "created") {
+      updateTextInput(inputId = "pubYear", value = gsub('"', '', fvalues[i]))
+    } else if (fields[i] == "identifier") {
+      updateTextInput(inputId = "pubIdentifier", value = gsub('"', '', fvalues[i]))
     } else {
       next
     }
   }
 }
 
-fillAnswerTemplate <-function(node, node_df) {
-  updateTextInput(inputId = "answerID", value = node) 
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "text") {
-      updateTextAreaInput(inputId = "answerText", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "responseTo") {
-      updateTextInput(inputId = "answerQuestionID", value = fvalues[i])
-    } else if (fields[i] == "isCorrect") {
-      updateTextInput(inputId = "correctness", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "alertMessage") {
-      updateTextInput(inputId = "alertMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "highGuidance") {
-      updateTextAreaInput(inputId = "highGuidanceMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "lowGuidance") {
-      updateTextAreaInput(inputId = "lowGuidanceMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "correctionMessage") {
-      updateTextAreaInput(inputId = "correctionMsg", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
 
-fillActivityTemplate <-function(node, node_df) {
-  updateTextInput(inputId = "activityID", value = node) 
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "text") {
-      updateTextAreaInput(inputId = "activityDescription", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "responseTo") {
-      updateTextInput(inputId = "activityResponseTo", value = fvalues[i])
-    } else if (fields[i] == "followsAfter") {
-      updateTextInput(inputId = "activityFollowsAfter", value = fvalues[i])
-    } else if (fields[i] == "image") {
-      updateTextInput(inputId = "activityImage", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "video") {
-      updateTextInput(inputId = "activityVideo", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
-
-fillActionTemplate <-function(node, node_df) {
-  updateTextInput(inputId = "actionID", value = node) 
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "text") {
-      updateTextAreaInput(inputId = "actionDescription", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "responseTo") {
-      updateTextInput(inputId = "actionActivityID", value = fvalues[i])
-    } else if (fields[i] == "isCorrect") {
-      updateTextInput(inputId = "actionCorrectness", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "alertMessage") {
-      updateTextInput(inputId = "actionAlertMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "highGuidance") {
-      updateTextAreaInput(inputId = "actionHighGuidanceMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "lowGuidance") {
-      updateTextAreaInput(inputId = "actionLowGuidanceMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "correctionMessage") {
-      updateTextAreaInput(inputId = "actionCorrectionMsg", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
-
-fillPatternTemplate <-function(node, node_df) {
-  updateTextInput(inputId = "patternID", value = node) 
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "cmapSubject") {
-      updateTextInput(inputId = "cmapSubject", value = fvalues[i])
-    } else if (fields[i] == "cmapPredicate") {
-      updateTextInput(inputId = "cmapPredicate", value = fvalues[i])
-    } else if (fields[i] == "cmapObject") {
-      updateTextInput(inputId = "cmapObject", value = fvalues[i])
-    } else if (fields[i] == "isCorrect") {
-      updateTextInput(inputId = "patternCorrectness", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "alertMessage") {
-      updateTextInput(inputId = "patternAlertMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "highGuidance") {
-      updateTextAreaInput(inputId = "patternHighGuidanceMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "lowGuidance") {
-      updateTextAreaInput(inputId = "patternLowGuidanceMsg", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "correctionMessage") {
-      updateTextAreaInput(inputId = "patternCorrectionMsg", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
 
 update_repo <- function(node) {
   # delete node's statements in the repo:

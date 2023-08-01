@@ -6,6 +6,10 @@ library(shinyjs)
 library(visNetwork)
 library(allegRo)
 
+library(dplyr)
+library(shiny)
+library(DT)
+
 # CiTO ontology
 # https://sparontologies.github.io/cito/current/cito.html
 
@@ -140,6 +144,7 @@ ui <- fluidPage(
       actionButton("showMapButton",  "show map view "),
       p(" "),
       visNetworkOutput("Map", width = "1000px", height = "600px")
+ #    DTOutput('tbl')
     )
   )
   

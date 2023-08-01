@@ -11,7 +11,7 @@ server <- function(input, output, session) {
   foafNS <- "http://xmlns.com/foaf/0.1/"
   oaNS <- "http://www.w3.org/ns/oa#"
   
-  ns_list <- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS)
+  ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS)
   
   # -------------------------------
   # Manage hidden panels in the tabset panel
@@ -208,7 +208,8 @@ server <- function(input, output, session) {
     graphDF <- fetch_plan_sparql(query)
     if (graphDF[1] != "query failed" & length(graphDF) > 1) { 
       # render map
-      output$Map <- renderVisNetwork(do_network(graphDF))
+     output$Map <- renderVisNetwork(do_network(graphDF))
+    #  output$Map <- renderVisNetwork(do_network_2(graphDF))
     } else {
       showNotification("The plan does not contain (sufficient) information.", 
                        type = "warning") }
@@ -220,6 +221,26 @@ server <- function(input, output, session) {
   observeEvent(input$current_node_id$node, {
     render_plan_node(input$current_node_id$node)
   })
+
+  observeEvent(input$current_edge_id$node, {
+    cat("\n", "an edge is clicked", "\n")
+    render_network_edge(input$current_edge_id$edge)
+  })
+  
+  # reactive context and output to console
+  # observe({
+  #   print(input$current_nodes_selection)
+  #   print(input$current_edges_selection)
+  # })
+
+
+  ## render data table restricted to selected nodes
+
+  # output$tbl <- renderDT(
+  #   edge %>%
+  #     filter(id %in% input$current_edges_selection),
+  #   options = list(lengthChange = FALSE)
+  # )
 }
 
 server

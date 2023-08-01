@@ -225,13 +225,7 @@ do_network <- function(dfout) {
   
   # an ID for edges 
   edges$id <- 1:nrow(edges)
-  ## Add a column for edge width and make followsAfter links look wider 
-  ## https://www.r-bloggers.com/2022/07/how-to-do-conditional-mutate-in-r/
- # edges <-  edges %>%
- #    mutate(width = case_when(label == "followsAfter" ~ 3, 
- #                             label == "responseTo"  ~ 1))
-  
-  
+
   # Display graph, and a table with node details dependent on mouse click: 
   
   visNetwork(nodes, edges, height = "1500px", width = "1500px") %>% 
@@ -239,27 +233,6 @@ do_network <- function(dfout) {
     visEdges(arrows = "to") %>%
     visInteraction(hideEdgesOnDrag = TRUE)  %>%
     visOptions(highlightNearest = FALSE, nodesIdSelection = TRUE) %>%
-    # # colouring of nodes by group name (i.e., node type)
-    # visGroups(groupname = "ConceptMapAction", 
-    #           color = list(background = "lightgreen", 
-    #                        border = "black",
-    #                        highlight = "red")) %>% 
-    # visGroups(groupname = "Question", 
-    #           color = list(background = "lightblue", 
-    #                        border = "black",
-    #                        highlight = "red")) %>% 
-    # visGroups(groupname = "AnswerTutee", 
-    #           color = list(background = "yellow", 
-    #                        border = "black",
-    #                        highlight = "red")) %>% 
-    # visGroups(groupname = "LearningActivity", 
-    #           color = list(background = "orange", 
-    #                        border = "black",
-    #                        highlight = "red")) %>% 
-    # visGroups(groupname = "ActionTutee", 
-    #           color = list(background = "lightgrey", 
-    #                        border = "black",
-    #                        highlight = "red")) %>% 
     visLayout(randomSeed = 123) %>%
     visPhysics(solver = "forceAtlas2Based") %>%
     visEvents(selectNode = "function(nodes) {
@@ -409,50 +382,7 @@ update_repo <- function(node) {
   }
 }
 
-# ---------- 
-# Testing
 
-
-do_network_2 <- function(dfout) {
-  # nodes
-  
-  nodes1 <- c(dfout[[1]], dfout[[3]])
-  nodes <- list()
-  nodes[1] <- list(unique(nodes1))
-  # add labels
-  nodes[2] <- nodes[1]
-  # name columns so that visNetwork understands. 
-  nodes <- data.frame(nodes)
-  colnames(nodes) = c("id", "label")
-  
-  # Edges: 
-  edges <- data.frame(from = dfout[[1]], 
-                      to = dfout[[3]], 
-                      label = dfout[[2]])
-  
-  # an ID for edges 
-  edge$id <- 1:nrow(edge)
-  ## Add a column for edge width and make followsAfter links look wider 
-  ## https://www.r-bloggers.com/2022/07/how-to-do-conditional-mutate-in-r/
-  # edges <-  edges %>%
-  #    mutate(width = case_when(label == "followsAfter" ~ 3, 
-  #                             label == "responseTo"  ~ 1))
-  
-  
-  # Display graph, and a table with node details dependent on mouse click: 
-  
-  visNetwork(nodes, edges, height = "1500px", width = "1500px") %>% 
-    visNodes(shape = "box") %>%
-    visEdges(arrows = "to") %>%
-    visInteraction(hideEdgesOnDrag = TRUE)  %>%
-    visOptions(highlightNearest = FALSE, nodesIdSelection = TRUE) %>%
-    visLayout(randomSeed = 123) %>%
-    visPhysics(solver = "forceAtlas2Based") %>%
-    #Use visEvents to turn set input$current_node_selection to list of selected nodes
-    visEvents(select = "function(data) {
-                Shiny.onInputChange('current_nodes_selection', data.nodes);
-                Shiny.onInputChange('current_edges_selection', data.edges);
-                ;}")
   
 }
 

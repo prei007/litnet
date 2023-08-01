@@ -223,24 +223,9 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$current_edge_id$node, {
-    cat("\n", "an edge is clicked", "\n")
     render_network_edge(input$current_edge_id$edge)
   })
   
-  # reactive context and output to console
-  # observe({
-  #   print(input$current_nodes_selection)
-  #   print(input$current_edges_selection)
-  # })
-
-
-  ## render data table restricted to selected nodes
-
-  # output$tbl <- renderDT(
-  #   edge %>%
-  #     filter(id %in% input$current_edges_selection),
-  #   options = list(lengthChange = FALSE)
-  # )
 }
 
 server

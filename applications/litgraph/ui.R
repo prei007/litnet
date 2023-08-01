@@ -6,9 +6,9 @@ library(shinyjs)
 library(visNetwork)
 library(allegRo)
 
-library(dplyr)
-library(shiny)
-library(DT)
+# library(dplyr)
+# library(shiny)
+# library(DT)
 
 # CiTO ontology
 # https://sparontologies.github.io/cito/current/cito.html

@@ -216,11 +216,10 @@ do_network <- function(dfout) {
   #     }
   #   }
   # }
-
   
   # Edges: 
  
-  edges <- data.frame(from = dfout[[1]], 
+  edges <<- data.frame(from = dfout[[1]], 
                       to = dfout[[3]], 
                       label = dfout[[2]])
   # an ID for edges that gets returned in current_edge_id upon mouse selection.
@@ -325,10 +324,10 @@ render_plan_node <- function(node) {
 
 # display info on the selected node in a panel
 render_network_edge <- function(edge) {
-  # cat("\n", "render_network_edge():" , " edge: ", as.character(edge), "\n")
+ # cat("\n", "render_network_edge():" , " edge: ", as.character(edge), "\n")
   if (length(edge) == 1) {
     this_edge <- edges[unlist(edge),]
-  #  print(this_edge) # development only
+   # print(this_edge) # development only
     # find the cito object
     query <- paste0(
       'SELECT ?s  WHERE 
@@ -337,7 +336,7 @@ render_network_edge <- function(edge) {
       'cito:hasCitationCharacterization cito:', this_edge$label, ' ;' ,
       'cito:hasCitedEntity :', this_edge$to, ' .}'
       )
-   # print(query) # development only
+  #  print(query) # development only
     dfout <- evalQuery(rep,
                        query = query, returnType = "dataframe",
                        cleanUp = TRUE, limit = 1)

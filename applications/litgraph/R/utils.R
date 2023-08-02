@@ -225,7 +225,7 @@ do_network <- function(dfout) {
                       label = dfout[[2]])
   # an ID for edges that gets returned in current_edge_id upon mouse selection.
   edges$id <- 1:nrow(edges)
-  print(edges)  # development only
+  # print(edges)  # development only
 
 
   # Display graph, and a table with node details dependent on mouse click: 
@@ -315,7 +315,7 @@ render_plan_node <- function(node) {
                       "BookChapter")) {
     updateTabsetPanel(inputId = "templates", selected = "Publication")
     updateSelectInput(inputId = "template", selected = "Publication")
-    reset_all_input()
+    # reset_all_input()
     node_df <-  fetch_plan_node(node)
     fillPublicationTemplate(node, node_df)
   } else {
@@ -328,7 +328,7 @@ render_network_edge <- function(edge) {
   # cat("\n", "render_network_edge():" , " edge: ", as.character(edge), "\n")
   if (length(edge) == 1) {
     this_edge <- edges[unlist(edge),]
-    print(this_edge) # development only
+  #  print(this_edge) # development only
     # find the cito object
     query <- paste0(
       'SELECT ?s  WHERE 
@@ -337,15 +337,19 @@ render_network_edge <- function(edge) {
       'cito:hasCitationCharacterization cito:', this_edge$label, ' ;' ,
       'cito:hasCitedEntity :', this_edge$to, ' .}'
       )
-    print(query) # development only
+   # print(query) # development only
     dfout <- evalQuery(rep,
                        query = query, returnType = "dataframe",
                        cleanUp = TRUE, limit = 1)
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
     dfout[[1]] <- last_URI_element(dfout[[1]])
-    print(dfout)
-    dfout
-    
+  # print(dfout) # development only
+    # next retrieve the scheme and render it in input fields. 
+    updateTabsetPanel(inputId = "templates", selected = "Citation")
+    updateSelectInput(inputId = "template", selected = "Citation")
+    # reset_all_input()
+    node_df <-  fetch_plan_node(dfout)
+    fillCitationTemplate(dfout, node_df)
   }
 }
 
@@ -355,10 +359,6 @@ fillPublicationTemplate <-function(node, node_df) {
   # df has two columns: predicates (fields) and objects (field values)
   fields <- node_df[[1]]
   fvalues <- node_df[[2]]
-  # Loop over fields and fill panel with hits. 
-  # gsub() is needed on fields with literals because we can't save 
-  # double-quoted strings to the repo. 
-  # Note that the loop in this form works also for the case that a field is empty.
   for (i in 1:length(fields)) {
     if (fields[i] == "title") {
       updateTextAreaInput(inputId = "pubTitle", value = gsub('"', '', fvalues[i]))
@@ -372,6 +372,26 @@ fillPublicationTemplate <-function(node, node_df) {
       next
     }
   }
+}
+
+fillCitationTemplate <- function(node, node_df) {
+  # ID corresponds to node
+  updateTextInput(inputId = "citationID", value = as.character(node)) 
+  # df has two columns: predicates (fields) and objects (field values)
+  fields <- node_df[[1]]
+  fvalues <- node_df[[2]]
+  for (i in 1:length(fields)) {
+    if (fields[i] == "hasCitingEntity") {
+      updateTextInput(inputId = "citingEntity", value = fvalues[i])
+    } else if (fields[i] == "hasCitationCharacterization") {
+      updateTextInput(inputId = "citoType", value = fvalues[i])
+    } else if (fields[i] == "hasCitedEntity") {
+      updateTextInput(inputId = "citedEntity", value = fvalues[i])
+    } else {
+      next
+    }
+  }
+  
 }
 
 

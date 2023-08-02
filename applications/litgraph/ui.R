@@ -12,6 +12,7 @@ library(allegRo)
 
 # CiTO ontology
 # https://sparontologies.github.io/cito/current/cito.html
+# This should eventually be read from the ontology, along with definitions etc. 
 
 cito_scheme <<- 
   c("agreesWith",

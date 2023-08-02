@@ -1,0 +1,102 @@
+# Cito reified with blank nodes 
+
+prefix : <http://www.learn-web.com/litgraph/> 
+prefix doco: <http://purl.org/spar/doco/> 
+prefix deo: <http://purl.org/spar/deo/> 
+prefix po: <http://www.essepuntato.it/2008/12/pattern#> 
+prefix dc: <http://purl.org/dc/terms/> 
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix co: <http://purl.org/co/> 
+prefix c4o: <http://purl.org/spar/c4o> 
+prefix cito: <http://purl.org/spar/cito/> 
+prefix oa: <http://www.w3.org/ns/oa#> 
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+:Freud1920 a fabio:JournalArticle ; 
+    dc:creator :Freud_S ;
+    fabio:title "Der Fall Anna S." ;
+    dc:created "1920" ;
+    dc:identifier "ISBN 1445-6780598" ;
+    :addedBy "Admin" ;
+    :addedDate "02Aug2023" . 
+
+:Freud_S a foaf:Person ;
+    foaf:givenName "Sigmund" ;
+    foaf:familyName "Freud" . 
+    
+
+:Jung1921 a fabio:JournalArticle ; 
+    dc:creator :Jung_CG ;
+    fabio:title "Das kollektive Unbewusste" ;
+    dc:created "1921" ;
+    dc:identifier "ISBN 1445-6780515" ;
+    :addedBy "Admin" ;
+    :addedDate "02Aug2023" . 
+    
+:Jung_CG a foaf:Person ;
+    foaf:givenName "Carl-Gustav" ;
+    foaf:familyName "Jung" . 
+    
+:Adler1922 a fabio:JournalArticle ; 
+    dc:creator :Adler_A ;
+    fabio:title "Overcompensation today and tomorrow" ;
+    dc:created "1922" ;
+    dc:identifier "ISBN 1445-6780520" ;
+    :addedBy "Admin" ;
+    :addedDate "02Aug2023" . 
+    
+:Adler_A  a foaf:Person ;
+    foaf:givenName "Alfred" ;
+    foaf:familyName "Adler" . 
+    
+:CITE-seed01 a cito:Citation ;
+  cito:hasCitingEntity :Jung1921 ;
+  cito:hasCitationCharacterization cito:extends ;
+  cito:hasCitedEntity :Freud1920 ;
+    :addedBy "Admin" ;
+    :addedDate "02Aug2023" . 
+  
+:CITE-seed02 a cito:Citation ;
+  cito:hasCitingEntity :Adler1922 ;
+  cito:hasCitationCharacterization cito:critiques ;
+  cito:hasCitedEntity :Jung1921 ;
+  :addedBy "Admin" ;
+  :addedDate "02Aug2023" . 
+  
+:CITE-seed03 a cito:Citation ;
+  cito:hasCitingEntity :Adler1922 ;
+  cito:hasCitationCharacterization cito:derides ;
+  cito:hasCitedEntity :Jung1921 ;
+  :addedBy "Admin" ;
+  :addedDate "02Aug2023" . 
+  
+:CITE-seed04 a cito:Citation ;
+  cito:hasCitingEntity :Adler1922 ;
+  cito:hasCitationCharacterization cito:disputes ;
+  cito:hasCitedEntity :Freud1920 ;
+  :addedBy "Admin" ;
+  :addedDate "02Aug2023" . 
+  
+:CITE-seed05 a cito:Citation ;
+  cito:hasCitingEntity :Jung1921 ;
+  cito:hasCitationCharacterization cito:confirms ;
+  cito:hasCitedEntity :Freud1920 ;
+  :addedBy "Admin" ;
+  :addedDate "02Aug2023" . 
+  
+:ANNO-seed01 a oa:Annotation ; 
+    oa:target :Freud1900 ;
+    oa:motivation oa:commenting ;
+    oa:body "Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Nec enim, dum metuit, iustus est, et certe, si metuere destiterit, non erit; Beatus autem esse in maximarum rerum timore nemo potest. Cur post Tarentum ad Archytam? At enim hic etiam dolore. " ;
+  :addedBy "Admin" ;
+  :addedDate "02Aug2023" . 
+  
+  :ANNO-seed02 a oa:Annotation ; 
+    oa:target :CITE-seed05 ;
+    oa:motivation oa:commenting ;
+    oa:body "Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Nec enim, dum metuit, iustus est, et certe, si metuere destiterit, non erit; Beatus autem esse in maximarum rerum timore nemo potest. Cur post Tarentum ad Archytam? At enim hic etiam dolore. " ;
+  :addedBy "Admin" ;
+  :addedDate "02Aug2023" . 
+  
+
+  

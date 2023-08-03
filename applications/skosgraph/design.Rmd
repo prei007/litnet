@@ -5,6 +5,41 @@ date: "2023-08-03"
 output: html_document
 ---
 
+# General idea
+
+The app reads from a database or file one or more Skos concept schemes and offers those for coding and for expressing relations. There are two kinds of schemes:
+
+* Nouns: Those that have classification codes, and that take a literal or code as value. Or more precisely relations data properties (relations beween resources and values). (e.g., age groups). They appear in object positions. 
+* Verbs: they are relations between resources. (e.g., cito relations). They appear in predicate positions.
+
+The user input is oriented on triples, informed by skos concepts. 
+
+
+### Load the schemes into the app
+
+Fetch the skos concepts ordered by scheme and store in a dataframe with two columns: 
+
+```{sparql}
+SELECT ?scheme ?concept {?scheme a skos:ConceptScheme . 
+                    ?concept skos:inScheme ?scheme}
+ORDER BY ?scheme 
+```
+
+We need to think conceptually about the hierarchical structure next. 
+
+###
+Ask for a scheme selection with `selectInput("Scheme", "Input category:", choices = skos_schemes)` and then feed the scheme concepts into a selectInput for SPO. We may want to offer, in addtion, a free text field for predicate and object. 
+
+```{shiny}
+selectInput("Scheme", "Input category:", choices = c("skos_scheme A", "skos_scheme B")),
+updateTextInput() for P,O
+textInput("Subject", "Subject:"),
+selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
+textInput("Object", "Object:"),actionButton("SubmitButton", "Submit")
+```
+
+# Preparations
+
 ## Transform cito cites props into skos
 
 Load the cito ontology and run this query:
@@ -31,3 +66,4 @@ WHERE {
 ```
 
 Then download in suitable format and use as thesaurus.
+

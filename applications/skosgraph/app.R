@@ -5,6 +5,7 @@ library(shinyjs)
 library(visNetwork)
 library(allegRo)
 
+skos_schemes <- c("CitoScheme")
 
 
 
@@ -15,7 +16,13 @@ ui <- fluidPage(
                sidebarPanel(
                  textInput("userName", "User Name:"), 
                  passwordInput("pwd", "Password:"),
-                 actionButton("loginButton", "Submit")
+                 actionButton("loginButton", "Submit"),
+                 p(" "),
+                 selectInput("Scheme", "Input category:", choices = c("skos_scheme A", "skos_scheme B")),
+                 textInput("Subject", "Subject:"),
+                 selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
+                 textInput("Object", "Object:"),
+                 actionButton("SubmitButton", "Submit")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 

@@ -1,0 +1,33 @@
+---
+title: "skosgraph design"
+author: "Peter Reimann"
+date: "2023-08-03"
+output: html_document
+---
+
+## Transform cito cites props into skos
+
+Load the cito ontology and run this query:
+
+```{sparql}
+# Create skos entries for CITO cite subproperties
+CONSTRUCT {
+   :CitoScheme rdf:type skos:ConceptScheme .
+    cito:cites rdf:type skos:Concept . 
+  ?cat rdf:type skos:Concept ;
+       skos:broader cito:cites ;
+       skos:prefLabel ?label ;
+       skos:inScheme :CitoScheme; 
+       skos:definition ?comment ;
+       skos:example ?desc .
+  
+  }
+WHERE {
+  ?cat rdfs:subPropertyOf cito:cites ;
+       rdfs:label ?label ;
+       dc:description ?desc ; 
+       rdfs:comment ?comment . 
+  }
+```
+
+Then download in suitable format and use as thesaurus.

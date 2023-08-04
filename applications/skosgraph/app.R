@@ -4,8 +4,23 @@ library(shiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
+library(shinytreeview)
 
-skos_schemes <- c("CitoScheme")
+
+# https://rdrr.io/github/dreamRs/shinytreeview/
+
+
+l1 <- c("QualitativeMethod", "QualitativeMethod", "QualitativeMethod" ,
+        "QuantitativeMethod", "QuantitativeMethod", "QuantitativeMethod",
+        "QuantitativeMethod", "QuantitativeMethod")
+l2 <- c("ObservationMethod", "InterviewMethod", "CaseStudyMethod",
+        "PerformanceAnalyis", "SurveyMethod", "InferentialStatistics",
+        "InferentialStatistics", "InferentialStatistics")
+l3 <- c("NA","NA","NA",
+        "NA" ,"NA", "NA",
+        "T-Test", "ANOVA")
+
+schemes <- data.frame(l1, l2, l3)
 
 
 ui <- fluidPage(
@@ -17,11 +32,22 @@ ui <- fluidPage(
                  passwordInput("pwd", "Password:"),
                  actionButton("loginButton", "Submit"),
                  p(" "),
-                 selectInput("Schemes", "Input category:", choices = NULL),
+                 # selectInput("Schemes", "Input category:", choices = NULL),
                  # textInput("Subject", "Subject:"),
                  # selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
                  # textInput("Object", "Object:"),
-                 actionButton("SubmitButton", "Submit")
+                 # actionButton("SubmitButton", "Submit")
+                 treeviewInput(
+                   inputId = "tree",
+                   label = "Choose a category:",
+                   choices = make_tree(
+                     schemes, c("l1", "l2", "l3")
+                   ),
+                   multiple = FALSE,
+                   prevent_unselect = TRUE,
+                   width = "100%"
+                 ),
+                 verbatimTextOutput(outputId = "result")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 
@@ -93,11 +119,15 @@ server <- function(input, output, session) {
     showNotification("You are logged in")
     
     #  fetch the name of the skos themes in the database
-    cat_schemes <- fetch_cat_schemes()
-    updateSelectInput(session, "Schemes", choices = cat_schemes)
+    # cat_schemes <- fetch_cat_schemes()
+    # updateSelectInput(session, "Schemes", choices = cat_schemes)
  
   })
   
+  # treeview
+  output$result <- renderPrint({
+    input$tree
+  })
 }
 
 # Run the application 

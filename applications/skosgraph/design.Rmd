@@ -14,30 +14,6 @@ The app reads from a database or file one or more Skos concept schemes and offer
 
 The user input is oriented on triples, informed by skos concepts. 
 
-
-### Load the schemes into the app
-
-Fetch the skos concepts ordered by scheme and store in a dataframe with two columns: 
-
-```{sparql}
-SELECT ?scheme ?concept {?scheme a skos:ConceptScheme . 
-                    ?concept skos:inScheme ?scheme}
-ORDER BY ?scheme 
-```
-
-We need to think conceptually about the hierarchical structure next. 
-
-###
-Ask for a scheme selection with `selectInput("Scheme", "Input category:", choices = skos_schemes)` and then feed the scheme concepts into a selectInput for SPO. We may want to offer, in addtion, a free text field for predicate and object. 
-
-```{shiny}
-selectInput("Scheme", "Input category:", choices = c("skos_scheme A", "skos_scheme B")),
-updateTextInput() for P,O
-textInput("Subject", "Subject:"),
-selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
-textInput("Object", "Object:"),actionButton("SubmitButton", "Submit")
-```
-
 # Preparations
 
 ## Transform cito cites props into skos
@@ -65,5 +41,136 @@ WHERE {
   }
 ```
 
-Then download in suitable format and use as thesaurus.
+Then download in suitable format and use as thesaurus. 
+
+Each thesaurus should get its own namespace!
+
+The thesauri need to use ConceptScheme and topLevel and for convenience a property `skos:depth`: 
+
+```{RDFS}
+skos:depth rdfs:subPropertyOf skos:note ;
+  rdfs:label "depth" ;
+  rdfs:range skos:ConceptScheme ; 
+  rdfs:comment "Depth of a skos hierarchy as integer/string. For app developers convenience." .
+```
+
+
+# Queries
+
+Using as example a simple methods thesaurus: `MethodsThesaurus.skos.ttl`. 
+
+### Which thesauri are in the database?
+
+```{sparql}
+SELECT ?scheme WHERE {
+     ?scheme a skos:ConceptScheme . 
+}
+```
+
+
+### What is the depth of the thesaurus?
+
+```{sparql}
+SELECT ?d { ?scheme a skos:ConceptScheme ; 
+                      skos:depth ?d }
+```
+e.g., "3". 
+
+### What are the top level concepts? 
+
+```{sparql}
+SELECT ?c1 WHERE {
+  ?scheme a skos:ConceptScheme . 
+  ?scheme skos:hasTopConcept ?c1 . 
+  }
+ORDER BY ?c1
+```
+
+Yields:
+
+```
+MixedMethods 
+QualitativeMethod 
+QuantivativeMethod 
+ResearchMethod
+```
+
+### Show all levels for one top concept
+
+```{sparql}
+SELECT ?c1 WHERE {
+  ?c1 skos:broader+ rm:QualitativeMethod
+  }
+```
+
+Yields: 
+
+```
+ClinicalInterview 
+CaseStudyMethod 
+InterviewMethod 
+DocumentAnalysis 
+ObservationMethod 
+```
+
+### Show second level concepts for one top level concept
+
+```{sparql}
+SELECT ?c2  WHERE {
+  ?c2 skos:broader rm:QualitativeMethod
+  }
+```
+
+```
+ObservationMethod 
+DocumentAnalysis 
+InterviewMethod 
+CaseStudyMethod 
+```
+
+### Is there a deeper level? 
+
+```{sparql}
+ASK WHERE {
+  ?c2 skos:broader/skos:broader/skos:broader rm:QualitativeMethod
+  }
+```
+
+returns false. 
+
+
+
+# App level
+
+In the app, we need to drill down the concept hierarchy to find lowest level concepts. 
+
+
+
+### Load the schemes into the app
+
+Fetch the skos concepts ordered by scheme and store in a dataframe with two columns: 
+
+```{sparql}
+SELECT ?scheme ?concept {?scheme a skos:ConceptScheme . 
+                    ?concept skos:inScheme ?scheme}
+ORDER BY ?scheme 
+```
+
+We need to think conceptually about the hierarchical structure next. 
+
+Ask for a scheme selection with `selectInput("Scheme", "Input category:", choices = skos_schemes)` and then feed the scheme concepts into a selectInput for SPO. We may want to offer, in addtion, a free text field for predicate and object. 
+
+```{shiny}
+selectInput("Scheme", "Input category:", choices = c("skos_scheme A", "skos_scheme B")),
+updateTextInput() for P,O
+textInput("Subject", "Subject:"),
+selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
+textInput("Object", "Object:"),actionButton("SubmitButton", "Submit")
+```
+
+The better approach is likely to go with a completely programmed UI for this part, so that, for instance, input categories can be displayed in flexible form. For instance, when a skos hierarchy has 3 levels, it would need 3 input fields to drill down to the lowest level. 
+
+
+
+
 

@@ -8,7 +8,6 @@ library(allegRo)
 skos_schemes <- c("CitoScheme")
 
 
-
 ui <- fluidPage(
   useShinyjs(), 
   titlePanel("LitGraph"), 
@@ -18,10 +17,10 @@ ui <- fluidPage(
                  passwordInput("pwd", "Password:"),
                  actionButton("loginButton", "Submit"),
                  p(" "),
-                 selectInput("Scheme", "Input category:", choices = c("skos_scheme A", "skos_scheme B")),
-                 textInput("Subject", "Subject:"),
-                 selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
-                 textInput("Object", "Object:"),
+                 selectInput("Schemes", "Input category:", choices = NULL),
+                 # textInput("Subject", "Subject:"),
+                 # selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
+                 # textInput("Object", "Object:"),
                  actionButton("SubmitButton", "Submit")
                ),
                mainPanel(
@@ -43,8 +42,62 @@ ui <- fluidPage(
 
 
 # Define server logic required to draw a histogram
-server <- function(input, output) {
-
+server <- function(input, output, session) {
+  
+  defaultNS <- "http://www.learn-web.com/litgraph/"
+  citoNS <- "http://purl.org/spar/cito/"
+  fabioNS <- "http://purl.org/spar/fabio/"
+  dcNS <- "http://purl.org/dc/terms/"
+  rdfNS <- "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdsNS <- "http://www.w3.org/2000/01/rdf-schema#"
+  foafNS <- "http://xmlns.com/foaf/0.1/"
+  oaNS <- "http://www.w3.org/ns/oa#"
+  skosNS <- "http://www.w3.org/2004/02/skos/core#"
+  
+  ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+  
+  
+  # -------------------------------
+  # Login and database connection
+  # -------------------------------
+  observeEvent(input$loginButton, {
+    # Configure AG connection
+    # Using assign() from base R to make variables known outside this reactive context. 
+    assign("url", "http://learn-web.com/", envir = globalenv())
+    assign("userName", input$userName, envir = globalenv())
+    assign("service", service(url, input$userName, input$pwd, testConnection = FALSE),
+           envir = globalenv())
+    assign("cat", catalog(service, "perei"), envir = globalenv())
+    assign("userList", paste0("User", 1:10), envir = globalenv())
+    
+    if (userName %in% c("perei", "yucui")) {
+      assign("rep", repository(cat, "skosgraph"), envir = globalenv())
+    }  else if (exists('userName') & userName %in% userList) {
+      assign("rep", repository(cat, "skosgraph"), envir = globalenv())
+    } else {
+      # still needed: a  way to destroy globalenv vars
+      alert("Error: repository could not be allocated. Please log in again.")
+      validate("Missing or wrong username.")
+    }
+    validate(need(input$pwd, "Provide a password" ))
+    # add namespaces because they are "private" to the logged in user! 
+    addNameSpace(repo = rep, prefix = "", nsURI = defaultNS)
+    addNameSpace(repo = rep, prefix = "cito", nsURI = citoNS)
+    addNameSpace(repo = rep, prefix = "foaf", nsURI = foafNS)
+    addNameSpace(repo = rep, prefix = "oa", nsURI = oaNS)
+    addNameSpace(repo = rep, prefix = "fabio", nsURI =  fabioNS)
+    addNameSpace(repo = rep, prefix = "skos", nsURI =  skosNS)
+    
+    # Reset pwd field
+    updateTextInput(session, "pwd", value = NA)
+    showNotification("You are logged in")
+    
+    #  fetch the name of the skos themes in the database
+    cat_schemes <- fetch_cat_schemes()
+    updateSelectInput(session, "Schemes", choices = cat_schemes)
+ 
+  })
+  
 }
 
 # Run the application 

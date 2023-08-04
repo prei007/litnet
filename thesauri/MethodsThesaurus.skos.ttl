@@ -2,27 +2,56 @@
 # Concepts: Research methods
 #################################
 
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+prefix : <http://learn-web.com/2023/resmethod/>
+prefix rm: <http://learn-web.com/2023/resmethod/>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix ex: <http://www.example.net/>
+
+skos:depth rdfs:subPropertyOf skos:note ;
+  rdfs:label "depth" ;
+  rdfs:range skos:ConceptScheme ; 
+  rdfs:comment "Depth of a skos hierarchy as integer/string. For app developers convenience." .
 
 :MethodsThesaurus a skos:ConceptScheme ; 
 	dc:title "Research methods thesaurus " ;
-	skos:hasTopConcept :ResearchMethod .
+	dc:creator "Peter Reimann" ;
+	skos:hasTopConcept :ResearchMethod, :QualitativeMethod, :QuantivativeMethod, :MixedMethods ;
+	skos:depth "3" ; 
+	skos:note "Three levels. Pretty much adhoc" .
+	
+# ######## Test only
+	
+ex:TestThesaurus a skos:ConceptScheme ; 
+	dc:title "Test only " ;
+	dc:creator "Peter Reimann" ;
+	skos:hasTopConcept ex:TestConcept ;
+	skos:depth "1" ; 
+	skos:note "Just a test" .
+	
+:TestConcept a skos:Concept ;
+	skos:inScheme ex:TestThesaurus . 
+	
+# ######## Test only ends
 
 :ResearchMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus . 
 	
 :MixedMethods a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ; 
-	skos:prefLabel "Mixed methods"@en ;
-	skos:broader :ResearchMethod . 
+	skos:prefLabel "Mixed methods"@en .
 	
 :QualitativeMethod a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ; 
 	skos:prefLabel "Qualitative analysis"@en ;
-	skos:scopeNote "A broad class of analysis such as analysing responses for patterns and themes." ;
-	skos:broader :ResearchMethod . 
+	skos:scopeNote "A broad class of analysis such as analysing responses for patterns and themes." .
+	
+:QuantitativeMethod a skos:Concept ; 
+	skos:inScheme :MethodsThesaurus ; 
+	skos:prefLabel "Quantitative analysis"@en ;
+	skos:scopeNote "A broad class of analysis such as analysing differences between means." .
 	
 :ReviewMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ;
@@ -44,18 +73,17 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:prefLabel "Synthesis method"@en ; 
 	skos:broader :ReviewMethod .
 	
-	
 :ObservationMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Observational method"@en ; 
-	skos:broader :ResearchMethod .
+	skos:broader :QualitativeMethod .
 	
 :PerformanceAnalysis a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Performance analysis"@en ; 
 	skos:altLabel "Logfile analysis"@en ; 
 	skos:definition "Performance gets captured digitally and analysed in terms of success criteria etc.Syn  Logfile analysis" ;
-	skos:broader :ResearchMethod .
+	skos:broader :QuantitativeMethod .
 	
 :DocumentAnalysis a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
@@ -68,12 +96,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Survey"@en ;
     skos:note "Questionnaire etc." ; 
-	skos:broader :ResearchMethod .
+	skos:broader :QuantitativeMethod .
 	
 :InterviewMethod  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Interview"@en ;
-	skos:broader :ResearchMethod .
+	skos:broader :QualitativeMethod .
 	
 :ClinicalInterview a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
@@ -88,12 +116,12 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :CaseStudyMethod  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Case study"@en ;
-	skos:broader :ResearchMethod .
+	skos:broader :QualitativeMethod .
 	
 :ExperimentalMethod  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Experimental study"@en ;
-	skos:broader :ResearchMethod .
+	skos:broader :QuantivativeMethod.
 	
 :QuasiExperiment  a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;
@@ -113,7 +141,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 :InferentialStatistics a skos:Concept ;
 	skos:inScheme :MethodsThesaurus ;
 	skos:prefLabel "Inferential statistical testing."@en ;
-	skos:broader :ResearchMethod .
+	skos:broader :QuantitativeMethod .
 	
 :UnspecificMethod a skos:Concept ; 
 	skos:inScheme :MethodsThesaurus ;

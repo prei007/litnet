@@ -26,6 +26,7 @@ random_name <- function(prefix) {
 
 # return last element in list with URI paths as elements
 last_URI_element <- function(l1) {
+  print(l1)
   l2 <- strsplit(l1, "/+")
   # replace with last component of the url
   l2 <- sapply(l2, function(x)
@@ -37,6 +38,7 @@ last_URI_element <- function(l1) {
   l2
   
 }
+
 
 # version for object column. 
 last_URI_element_1 <- function(l1, ns_list) {
@@ -394,7 +396,6 @@ fillCitationTemplate <- function(node, node_df) {
 }
 
 
-
 update_repo <- function(node) {
   # delete node's statements in the repo:
   planID <- paste0('<', defaultNS, node, '>') 
@@ -418,6 +419,30 @@ update_repo <- function(node) {
   } else {
     alert("No information on this selection in database.")
     validate("No information on this selection in database.")
+  }
+}
+
+# category schemes 
+
+fetch_cat_schemes <- function() {
+ # cat("\n", "*******fetch_cat_schemes()",  "\n")
+  query <- paste0('SELECT ?scheme WHERE {
+     ?scheme a skos:ConceptScheme . 
+}')
+  
+  dfout <- evalQuery(rep,
+                     query = query, returnType = "dataframe",
+                     cleanUp = TRUE, limit = 100)
+ 
+   
+  if (dfout[1] != "query failed" & length(dfout) > 1) {
+    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+#    print(dfout) #dev
+    schemes <- as.character(last_URI_element(dfout[[1]]))
+#    print(schemes) # dev 
+    schemes
+  } else {
+    alert("The database does not contain (sufficient) information .")
   }
 }
   

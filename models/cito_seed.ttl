@@ -12,7 +12,7 @@ prefix cito: <http://purl.org/spar/cito/>
 prefix oa: <http://www.w3.org/ns/oa#> 
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 
-:Freud1920 a fabio:JournalArticle ; 
+:Freud1920 a fabio:ScholarlyWork; 
     dc:creator :Freud_S ;
     fabio:title "Der Fall Anna S." ;
     dc:created "1920" ;
@@ -25,7 +25,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     foaf:familyName "Freud" . 
     
 
-:Jung1921 a fabio:JournalArticle ; 
+:Jung1921 a fabio:ScholarlyWork ; 
     dc:creator :Jung_CG ;
     fabio:title "Das kollektive Unbewusste" ;
     dc:created "1921" ;
@@ -37,7 +37,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     foaf:givenName "Carl-Gustav" ;
     foaf:familyName "Jung" . 
     
-:Adler1922 a fabio:JournalArticle ; 
+:Adler1922 a fabio:ScholarlyWork ; 
     dc:creator :Adler_A ;
     fabio:title "Overcompensation today and tomorrow" ;
     dc:created "1922" ;

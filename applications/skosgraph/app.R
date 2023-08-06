@@ -57,12 +57,13 @@ ui <- fluidPage(
                  passwordInput("pwd", "Password:"),
                  actionButton("loginButton", "Submit"),
                  p(" "),
-                 selectInput("schemes", "Select an aspect:", choices = NULL),
-                 textInput("subjectInput", "Subject:"),
-                 selectInput("predicateInput", "Predicate:", choices = c("A", "B", "C")),
-                 NestedMenuOutput("methodmenu", height = "auto"),
+                 selectInput("scheme", "Select an aspect:", choices = NULL),
+                 uiOutput("statementInput"),
+                # textInput("subjectInput", "Subject:"),
+                # selectInput("predicateInput", "Predicate:", choices = c("A", "B", "C")),
+                # NestedMenuOutput("methodmenu", height = "auto"),
+                # textInput("objectInput", "Object:"),
                  verbatimTextOutput(outputId = "methodSelection"),
-                 textInput("objectInput", "Object:"),
                  actionButton("SubmitButton", "Submit")
                ),
                mainPanel(
@@ -97,6 +98,28 @@ server <- function(input, output, session) {
   skosNS <- "http://www.w3.org/2004/02/skos/core#"
   
   ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+  
+  scheme_name <- reactive(input$scheme)
+  
+  output$statementInput <- renderUI({
+    # I think we need something to wrap this into tags here. 
+    textInput("subjectInput", "Subject:")
+    selectInput("predicateInput", "Predicate:", choices = list(scheme_name))
+  #  NestedMenuOutput("methodmenu", height = "auto")
+   textInput("objectInput", "Object:")
+  })
+  
+  # treeview
+  
+  # output[["methodmenu"]] <- renderNestedMenu({
+  #   NestedMenu(
+  #     "researchMethod", items = resmethods
+  #   )
+  # })
+  # 
+  # output[["methodSelection"]] <- renderPrint({
+  #   input[["methodmenu"]]
+  # })
   
   
   # -------------------------------
@@ -136,21 +159,13 @@ server <- function(input, output, session) {
     
     #  fetch the name of the skos themes in the database
     cat_schemes <- fetch_cat_schemes()
-    updateSelectInput(session, "schemes", choices = cat_schemes)
+    updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })
   
-  # treeview
   
-  output[["methodmenu"]] <- renderNestedMenu({
-    NestedMenu(
-      "researchMethod", items = resmethods
-    )
-  })
   
-  output[["methodSelection"]] <- renderPrint({
-    input[["methodmenu"]]
-  })
+
 
 }
 

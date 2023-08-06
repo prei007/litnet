@@ -138,11 +138,39 @@ ASK WHERE {
 
 returns false. 
 
+### Namespace of a concept scheme
+
+```{sparql}
+SELECT ?scheme ?ns WHERE {
+     ?scheme a skos:ConceptScheme . 
+     ?scheme skos:hasNameSpace ?ns . 
+  FILTER (?scheme IN (rm:MethodsThesaurus)) }
+```
+
+### Thesaurus for a predicate
+
+```{sparql}
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+SELECT ?pred ?prop WHERE {
+     ?pred a rdf:Property . 
+     ?pred litrev:hasThesaurus ?prop . 
+  FILTER (?pred IN (litrev:researchApproach)) }
+```
 
 
 # App level
 
-In the app, we need to drill down the concept hierarchy to find lowest level concepts. 
+The app input logic is structured around the predicates: 
+
+1. User decides on an aspect and <selects> a predicate, such as `researchApproach`. The predicate input field needs to be observed. 
+2. App <looks up> what is needed for subject and object fields: kinds of fillers and their namespaces
+3. App <places> the necessary nestedMenus into the interface (or, for flat cases, updates the selectInput choice list(s))
+4. User specifies statement and presses <submit>
+5. App <checks> and provides where needed additional info (in a text box under the inputfields)
+6. If checks okay, app <pushes> statement to server and <updates> graph and related displays. 
+
+
+
 
 
 

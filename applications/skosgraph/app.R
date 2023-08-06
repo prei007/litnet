@@ -4,23 +4,48 @@ library(shiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
-library(shinytreeview)
+library(NestedMenu)
 
-
-# https://rdrr.io/github/dreamRs/shinytreeview/
-
-
-l1 <- c("QualitativeMethod", "QualitativeMethod", "QualitativeMethod" ,
-        "QuantitativeMethod", "QuantitativeMethod", "QuantitativeMethod",
-        "QuantitativeMethod", "QuantitativeMethod")
-l2 <- c("ObservationMethod", "InterviewMethod", "CaseStudyMethod",
-        "PerformanceAnalyis", "SurveyMethod", "InferentialStatistics",
-        "InferentialStatistics", "InferentialStatistics")
-l3 <- c("NA","NA","NA",
-        "NA" ,"NA", "NA",
-        "T-Test", "ANOVA")
-
-schemes <- data.frame(l1, l2, l3)
+resmethods <- list(
+  quantitative = list(
+    name = "Quantitative",
+    items = list(
+      survey = list(
+        name = "Survey",
+        items = list(
+          s1 = list(name = "S1"),
+          s2 = list(name = "S2")
+        )
+      ),
+      experiment = list(
+        name = "Experiment",
+        items = list(
+          quasi = list(name = "Quasiexperiment"),
+          scdr = list(name = "SCDR")
+        )
+      ),
+      quant_other = list(name = "Other_quantitative")
+    )
+  ),
+  qualitative = list(
+    name = "Qualitative",
+    items = list(
+      interview = list(
+        name = "Interview",
+        items = list(
+          focusgroup = list(
+            name = "Focusgroup"
+          ))),
+      observation = list(
+        name = "Observation",
+        items = list(
+          field = list(name = "FieldObseration"),
+          video = list(name = "VideoObservation")
+        )
+      )
+    )
+  )
+)
 
 
 ui <- fluidPage(
@@ -32,22 +57,13 @@ ui <- fluidPage(
                  passwordInput("pwd", "Password:"),
                  actionButton("loginButton", "Submit"),
                  p(" "),
-                 # selectInput("Schemes", "Input category:", choices = NULL),
-                 # textInput("Subject", "Subject:"),
-                 # selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
-                 # textInput("Object", "Object:"),
-                 # actionButton("SubmitButton", "Submit")
-                 treeviewInput(
-                   inputId = "tree",
-                   label = "Choose a category:",
-                   choices = make_tree(
-                     schemes, c("l1", "l2", "l3")
-                   ),
-                   multiple = FALSE,
-                   prevent_unselect = TRUE,
-                   width = "100%"
-                 ),
-                 verbatimTextOutput(outputId = "result")
+                 selectInput("schemes", "Select an aspect:", choices = NULL),
+                 textInput("subjectInput", "Subject:"),
+                 selectInput("predicateInput", "Predicate:", choices = c("A", "B", "C")),
+                 NestedMenuOutput("methodmenu", height = "auto"),
+                 verbatimTextOutput(outputId = "methodSelection"),
+                 textInput("objectInput", "Object:"),
+                 actionButton("SubmitButton", "Submit")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 
@@ -119,15 +135,23 @@ server <- function(input, output, session) {
     showNotification("You are logged in")
     
     #  fetch the name of the skos themes in the database
-    # cat_schemes <- fetch_cat_schemes()
-    # updateSelectInput(session, "Schemes", choices = cat_schemes)
+    cat_schemes <- fetch_cat_schemes()
+    updateSelectInput(session, "schemes", choices = cat_schemes)
  
   })
   
   # treeview
-  output$result <- renderPrint({
-    input$tree
+  
+  output[["methodmenu"]] <- renderNestedMenu({
+    NestedMenu(
+      "researchMethod", items = resmethods
+    )
   })
+  
+  output[["methodSelection"]] <- renderPrint({
+    input[["methodmenu"]]
+  })
+
 }
 
 # Run the application 

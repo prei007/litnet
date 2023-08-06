@@ -8,20 +8,38 @@ prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix ex: <http://www.example.net/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+prefix fabio: <http://purl.org/spar/fabio/> 
+
+# ----------------------- 
+#  predicates etc
+# ----------------------- 
+
+litrev:researchApproach a rdf:Property ; 
+  rdfs:label "Research approach" ; 
+  rdfs:comment "Studies employ/follow one or more research approaches, with usually one primary one." ;
+  litrev:hasThesaurus rm:MethodsThesaurus ; 
+  litrev:domain fabio:ScholarlyWork . 
+
 
 skos:depth rdfs:subPropertyOf skos:note ;
   rdfs:label "depth" ;
-  rdfs:range skos:ConceptScheme ; 
+  rdfs:domain skos:ConceptScheme ; 
   rdfs:comment "Depth of a skos hierarchy as integer/string. For app developers convenience." .
+  
+skos:hasNameSpace rdfs:subPropertyOf skos:note ;
+  rdfs:label "Name space" ;
+  rdfs:domain skos:ConceptScheme ; 
+  rdfs:comment "The name space for a ConceptScheme." .
+  
 
-:MethodsThesaurus a skos:ConceptScheme ; 
-	dc:title "Research methods thesaurus " ;
-	dc:creator "Peter Reimann" ;
-	skos:hasTopConcept :ResearchMethod, :QualitativeMethod, :QuantivativeMethod, :MixedMethods ;
-	skos:depth "3" ; 
-	skos:note "Three levels. Pretty much adhoc" .
-	
+
+# ----------------------- 
+# SKOS
+# -----------------------
+
 # ######## Test only
 	
 ex:TestThesaurus a skos:ConceptScheme ; 
@@ -35,6 +53,15 @@ ex:TestThesaurus a skos:ConceptScheme ;
 	skos:inScheme ex:TestThesaurus . 
 	
 # ######## Test only ends
+
+
+:MethodsThesaurus a skos:ConceptScheme ; 
+	dc:title "Research methods thesaurus " ;
+	dc:creator "Peter Reimann" ;
+	skos:hasTopConcept :ResearchMethod, :QualitativeMethod, :QuantivativeMethod, :MixedMethods ;
+	skos:depth "3" ; 
+	skos:hasNameSpace "http://learn-web.com/2023/resmethod/" ; 
+	skos:note "Three levels. Pretty much adhoc" .
 
 :ResearchMethod a skos:Concept ;
 	skos:inScheme :MethodsThesaurus . 

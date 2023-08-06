@@ -1,71 +1,40 @@
 library(NestedMenu)
 library(shiny)
 
-cities <- list(
-  europe = list(
-    name = "Europe",
+resmethods <- list(
+  quantitative = list(
+    name = "Quantitative",
     items = list(
-      france = list(
-        name = "France",
-        icon = "fa-cheese",
+      survey = list(
+        name = "Survey",
         items = list(
-          paris = list(name = "Paris"),
-          lyon = list(name = "Lyon")
+          s1 = list(name = "S1"),
+          s2 = list(name = "S2")
         )
       ),
-      italy = list(
-        name = "Italy",
-        icon = "fa-pizza-slice",
+      experiment = list(
+        name = "Experiment",
         items = list(
-          roma = list(name = "Roma"),
-          milano = list(name = "Milano")
+          quasi = list(name = "Quasiexperiment"),
+          scdr = list(name = "SCDR")
         )
       )
     )
   ),
-  america = list(
-    name = "America",
+  qualitative = list(
+    name = "Qualitative",
     items = list(
-      namerica = list(
-        name = "North America",
+      interview = list(
+        name = "Interview",
         items = list(
-          usa = list(
-            name = "USA",
-            icon = "fa-flag-usa",
-            items = list(
-              chicago = list(name = "Chicago"),
-              newyork = list(name = "New York")
-            )
-          ),
-          canada = list(
-            name = "Canada",
-            icon = "fa-canadian-maple-leaf",
-            items = list(
-              ottawa = list(name = "Ottawa"),
-              toronto = list(name = "Toronto")
-            )
-          )
-        )
-      ),
-      samerica = list(
-        name = "South America",
+          focusgroup = list(
+            name = "Focusgroup"
+          ))),
+      observation = list(
+        name = "Observation",
         items = list(
-          brazil = list(
-            name = "Brazil",
-            icon = "fa-lemon",
-            items = list(
-              brasilia = list(name = "Brasilia"),
-              saopolo = list(name = "Sao Polo")
-            )
-          ),
-          mexico = list(
-            name = "Mexico",
-            icon = "fa-hat-cowboy",
-            items = list(
-              mexicocity = list(name = "Mexico City"),
-              tijuana = list(name = "Tijuana")
-            )
-          )
+          field = list(name = "FieldObseration"),
+          video = list(name = "VideoObservation")
         )
       )
     )
@@ -83,7 +52,7 @@ server <- function(input, output, session){
   
   output[["menu"]] <- renderNestedMenu({
     NestedMenu(
-      "Cities", items = cities
+      "researchmethod", items = resmethods
     )
   })
   

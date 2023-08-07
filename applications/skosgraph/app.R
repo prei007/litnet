@@ -58,12 +58,12 @@ ui <- fluidPage(
                  actionButton("loginButton", "Submit"),
                  p(" "),
                  selectInput("scheme", "Select an aspect:", choices = NULL),
-                 uiOutput("statementInput"),
-                # textInput("subjectInput", "Subject:"),
-                # selectInput("predicateInput", "Predicate:", choices = c("A", "B", "C")),
+                 textInput("subjectInput", "Subject:"),
+                 selectInput("predicateInput", "Predicate:", choices = NULL),
                 # NestedMenuOutput("methodmenu", height = "auto"),
-                # textInput("objectInput", "Object:"),
-                 verbatimTextOutput(outputId = "methodSelection"),
+                 uiOutput("statementInput"),
+                # verbatimTextOutput(outputId = "methodSelection"),
+                 textInput("objectInput", "Object:"),
                  actionButton("SubmitButton", "Submit")
                ),
                mainPanel(
@@ -99,27 +99,24 @@ server <- function(input, output, session) {
   
   ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
   
-  scheme_name <- reactive(input$scheme)
+ # scheme_name <- reactive(input$scheme)
   
   output$statementInput <- renderUI({
-    # I think we need something to wrap this into tags here. 
-    textInput("subjectInput", "Subject:")
-    selectInput("predicateInput", "Predicate:", choices = list(scheme_name))
-  #  NestedMenuOutput("methodmenu", height = "auto")
-   textInput("objectInput", "Object:")
-  })
+   tagList(
+  #  textInput("subjectInput", "Subject:")
+   # selectInput("predicateInput", "Predicate:", choices = list(scheme_name))
+    NestedMenuOutput("methodmenu", height = "auto"), 
+    verbatimTextOutput("methodSelected"))
+    })
   
-  # treeview
   
-  # output[["methodmenu"]] <- renderNestedMenu({
-  #   NestedMenu(
-  #     "researchMethod", items = resmethods
-  #   )
-  # })
-  # 
-  # output[["methodSelection"]] <- renderPrint({
-  #   input[["methodmenu"]]
-  # })
+  
+  output[["methodmenu"]] <- renderNestedMenu({
+    NestedMenu("researchMethod", items = resmethods)
+    })
+  
+  output[["methodSelected"]] <- renderPrint({ input[["methodmenu"]] }) 
+  
   
   
   # -------------------------------
@@ -162,11 +159,6 @@ server <- function(input, output, session) {
     updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })
-  
-  
-  
-
-
 }
 
 # Run the application 

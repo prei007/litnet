@@ -60,9 +60,9 @@ ui <- fluidPage(
                  selectInput("scheme", "Select an aspect:", choices = NULL),
                  textInput("subjectInput", "Subject:"),
                  selectInput("predicateInput", "Predicate:", choices = NULL),
-                # NestedMenuOutput("methodmenu", height = "auto"),
-                 uiOutput("statementInput"),
-                # verbatimTextOutput(outputId = "methodSelection"),
+                 # placeholder for dynamically created menu button:
+                 uiOutput("predicateMenu"),
+                # Further with rendering input elements:
                  textInput("objectInput", "Object:"),
                  actionButton("SubmitButton", "Submit")
                ),
@@ -99,24 +99,23 @@ server <- function(input, output, session) {
   
   ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
   
- # scheme_name <- reactive(input$scheme)
-  
-  output$statementInput <- renderUI({
-   tagList(
-  #  textInput("subjectInput", "Subject:")
-   # selectInput("predicateInput", "Predicate:", choices = list(scheme_name))
-    NestedMenuOutput("methodmenu", height = "auto"), 
-    verbatimTextOutput("methodSelected"))
-    })
-  
-  
-  
-  output[["methodmenu"]] <- renderNestedMenu({
-    NestedMenu("researchMethod", items = resmethods)
-    })
-  
-  output[["methodSelected"]] <- renderPrint({ input[["methodmenu"]] }) 
-  
+# scheme_name <- reactive(input$scheme)
+  observeEvent(input$scheme, {
+    # update predicate field. 
+    if (input$scheme != "") {
+      updateSelectInput(session, "predicateInput", choices = fill_predicate_input_slot(input$scheme))
+    }
+    # Place a nested menu close to predicate input for hierachical options. 
+    # This is done creating the menu button dynamically (in the end). 
+    #
+    # output$statementInput <- renderUI({
+    #   tagList(
+    #     NestedMenuOutput("predicateMenu", height = "auto"))
+    # })
+    # output[["predicateMenu"]] <- renderNestedMenu({
+    #   NestedMenu("researchMethod", items = resmethods)
+    # })
+  })
   
   
   # -------------------------------

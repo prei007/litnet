@@ -447,5 +447,31 @@ fetch_cat_schemes <- function() {
 }
   
 
+# Predicate slots
+fill_predicate_input_slot <- function(scheme) {
+  # Version 1: The scheme flattened
+  # returns one column of predicates
+  query <- paste0('PREFIX lo: <http://learn-web.com/2023/LearningOutcome/>
+    SELECT ?cat {
+      ?scheme a skos:ConceptScheme . 
+      ?cat skos:inScheme ?scheme . 
+      FILTER (?scheme IN (lo:', scheme, ')) } ORDER BY ?cat' 
+  )
+  dfout <- evalQuery(rep,
+                     query = query, returnType = "dataframe",
+                     cleanUp = TRUE, limit = 100)
+  
+  
+  if (dfout[1] != "query failed" & length(dfout) > 1) {
+    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+    #    print(dfout) #dev
+    categories <- as.character(last_URI_element(dfout[[1]]))
+    #    print(schemes) # dev 
+    categories
+  } else {
+    alert("The database does not contain (sufficient) information .")
+  }
+}
+
 
 

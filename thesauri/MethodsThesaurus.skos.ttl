@@ -40,20 +40,6 @@ skos:hasNameSpace rdfs:subPropertyOf skos:note ;
 # SKOS
 # -----------------------
 
-# ######## Test only
-	
-ex:TestThesaurus a skos:ConceptScheme ; 
-	dc:title "Test only " ;
-	dc:creator "Peter Reimann" ;
-	skos:hasTopConcept ex:TestConcept ;
-	skos:depth "1" ; 
-	skos:note "Just a test" .
-	
-:TestConcept a skos:Concept ;
-	skos:inScheme ex:TestThesaurus . 
-	
-# ######## Test only ends
-
 
 :MethodsThesaurus a skos:ConceptScheme ; 
 	dc:title "Research methods thesaurus " ;

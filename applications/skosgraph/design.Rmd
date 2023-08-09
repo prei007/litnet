@@ -16,7 +16,49 @@ The user input is oriented on triples, informed by skos concepts.
 
 # Preparations
 
-## Transform cito cites props into skos
+## Namespaces
+
+* Each thesaurus has its own namespace so that concepts with the same name can co-exist. 
+* The base namespace is litrev, but this is not for instances but mainly for meta-information. 
+* In the litrev namespace there must be a description where to find information about the thesauri. Currently I do this as meta-data on the predicate description:
+
+```
+litrev:learningOutcome a rdf:Property ; 
+  rdfs:label "Learning outcome" ; 
+  rdfs:comment "Learning outcomes." ;
+  litrev:hasThesaurus lo:OutcomesThesaurus ; 
+  litrev:domain fabio:ScholarlyWork .
+```
+
+Based on this, one can make a connection with descriptions of a thesaurus, which consists mainly of SKOS statements, with a bit of additional information:
+
+```
+lo:OutcomesThesaurus a skos:ConceptScheme ; 
+	dc:title "Learning outcomes thesaurus " ;
+	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
+	skos:depth "3" ;
+	skos:hasPrefix "lo:" ;
+	skos:hasNameSpace "http://learn-web.com/2023/LearningOutcome/" ;
+	skos:hasTopConcept :Outcomes .
+```
+
+The connection can be made with queries like this one: 
+
+```{sparql}
+PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+SELECT ?scheme ?prefix ?ns WHERE {
+  ?predicate a rdf:Property . 
+  ?predicate litrev:hasThesaurus ?scheme . 
+  ?scheme a skos:ConceptScheme ; 
+            skos:hasPrefix ?prefix ;
+            skos:hasNameSpace ?ns . 
+  }
+```
+This way, the thesauri can stay in their individual namespace, which does not have to be known to the app beforehand. 
+
+* Instances (bib references etc can live in any namespace, like ones for the literature review project/study.)
+
+## Transform cito cites properties into skos
 
 Load the cito ontology and run this query:
 
@@ -156,6 +198,8 @@ SELECT ?pred ?prop WHERE {
      ?pred litrev:hasThesaurus ?prop . 
   FILTER (?pred IN (litrev:researchApproach)) }
 ```
+
+
 
 
 # App level

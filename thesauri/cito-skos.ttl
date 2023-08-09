@@ -1,19 +1,28 @@
 prefix cito: <http://purl.org/spar/cito/>
+prefix lg: <http://www.learn-web.com/litgraph/>
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
-prefix err: <http://www.w3.org/2005/xqt-errors#>
-prefix fn: <http://www.w3.org/2005/xpath-functions#>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
-prefix fti: <http://franz.com/ns/allegrograph/2.2/textindex/>
-prefix keyword: <http://franz.com/ns/keyword#>
-prefix nd: <http://franz.com/ns/allegrograph/5.0/geo/nd#>
-prefix ndfn: <http://franz.com/ns/allegrograph/5.0/geo/nd/fn#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix xs: <http://www.w3.org/2001/XMLSchema#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+# Local definitions
+
+lg:CitoScheme a skos:ConceptScheme ; 
+	dc:title "CiTo citation ontology " ;
+	skos:hasTopConcept cito:cites ;
+	skos:depth "1" ; 
+	skos:hasNameSpace "http://purl.org/spar/cito/" ; 
+	skos:note "This is for verbs" .
+
+
+# generic CiTo
+
 cito:agreesWith skos:example "Example: We share Galileo's opinion: the Earth moves [X]."@en ; 
   skos:definition "The citing entity agrees with statements, ideas or conclusions presented in the cited entity."@en ; 
   skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 

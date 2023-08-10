@@ -13,22 +13,11 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 
-  
-# Predicates
-
-litrev:learningOutcome a rdf:Property ; 
-  dc:creator "Peter Reimann" ;
-  rdfs:label "Learning outcome" ; 
-  rdfs:comment "Learning outcomes." ;
-  litrev:hasThesaurus lo:OutcomesThesaurus ; 
-  litrev:domain fabio:ScholarlyWork .
-  
-# SKOS
-
-:OutcomesThesaurus a skos:ConceptScheme ; 
+lo:OutcomesThesaurus a skos:ConceptScheme ; 
 	dc:title "Learning outcomes thesaurus " ;
 	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
 	skos:depth "3" ;
+	skos:hasPrefix "lo:" ;
 	skos:hasNameSpace "http://learn-web.com/2023/LearningOutcome/" ;
 	skos:hasTopConcept :Outcomes .
 

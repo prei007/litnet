@@ -148,13 +148,19 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep, prefix = "oa", nsURI = oaNS)
     addNameSpace(repo = rep, prefix = "fabio", nsURI =  fabioNS)
     addNameSpace(repo = rep, prefix = "skos", nsURI =  skosNS)
+    addNameSpace(repo = rep, prefix = "litrev", nsURI =  "http://www.learn-web.com/2023/litrev/")
+    # namespaces for thesauri. Should be automatised later 
+    addNameSpace(repo = rep, prefix = "rm", nsURI =  "http://learn-web.com/2023/resmethod/")
+    addNameSpace(repo = rep, prefix = "lo", nsURI =  "http://learn-web.com/2023/LearningOutcome/")
+    
     
     # Reset pwd field
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
-    #  fetch the name of the skos themes in the database
-    cat_schemes <- fetch_cat_schemes()
+    #  fetch schemes and add to menu for selection
+    cat_schemes <- fetch_one_column('SELECT ?scheme WHERE { ?scheme a skos:ConceptScheme }')
+   # add_thesaurus_namespace()  #to be implemented
     updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })

@@ -1,0 +1,59 @@
+PREFIX : <http://www.learn-web.com/2023/litrev/> 
+PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+PREFIX lo: <http://learn-web.com/2023/LearningOutcome/> 
+PREFIX rm: <http://learn-web.com/2023/resmethod/>
+PREFIX dc: <http://purl.org/dc/terms/> 
+PREFIX oa: <http://www.w3.org/ns/oa#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX xml: <http://www.w3.org/XML/1998/namespace> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX cito: <http://purl.org/spar/cito/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX fabio: <http://purl.org/spar/fabio/> 
+
+# ----------------------- 
+#  Domain properties
+# ----------------------- 
+
+litrev:learningOutcome a rdf:Property ; 
+  rdfs:label "Learning outcome" ; 
+  rdfs:comment "Learning outcomes." ;
+  litrev:hasThesaurus lo:OutcomesThesaurus ; 
+  litrev:domain fabio:ScholarlyWork .
+  
+
+litrev:researchApproach a rdf:Property ; 
+  rdfs:label "Research approach" ; 
+  rdfs:comment "Studies employ/follow one or more research approaches, with usually one primary one." ;
+  litrev:hasThesaurus rm:MethodsThesaurus ; 
+  litrev:domain fabio:ScholarlyWork . 
+  
+  
+
+# ----------------------- 
+# SKOS extensions
+# -----------------------
+
+skos:depth rdfs:subPropertyOf skos:note ;
+  dc:creator "Peter Reimann" ;
+  rdfs:label "depth" ;
+  rdfs:domain skos:ConceptScheme ; 
+  rdfs:comment "Depth of a skos hierarchy as integer/string. For app developers convenience." .
+  
+skos:hasNameSpace rdfs:subPropertyOf skos:note ;
+  dc:creator "Peter Reimann" ;
+  rdfs:label "Name space" ;
+  rdfs:domain skos:ConceptScheme ; 
+  rdfs:comment "The name space for a ConceptScheme." .
+  
+skos:hasPrefix rdfs:subPropertyOf skos:note ;
+  dc:creator "Peter Reimann" ;
+  rdfs:label "Prefix" ;
+  rdfs:domain skos:ConceptScheme ; 
+  rdfs:comment "The prefix for the name space of a ConceptScheme." .
+  
+
+

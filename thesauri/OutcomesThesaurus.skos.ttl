@@ -2,13 +2,23 @@
 # Concepts: Outcomes
 #################################
 
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX : <http://learn-web.com/2023/LearningOutcome/>
+PREFIX lo: <http://learn-web.com/2023/LearningOutcome/>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-:OutcomesThesaurus a skos:ConceptScheme ; 
+
+lo:OutcomesThesaurus a skos:ConceptScheme ; 
 	dc:title "Learning outcomes thesaurus " ;
 	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
+	skos:depth "3" ;
+	skos:hasPrefix "lo:" ;
+	skos:hasNameSpace "http://learn-web.com/2023/LearningOutcome/" ;
 	skos:hasTopConcept :Outcomes .
 
 :Outcomes a skos:Concept ; 

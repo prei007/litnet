@@ -422,30 +422,80 @@ update_repo <- function(node) {
   }
 }
 
-# category schemes 
+# query processing template
 
-fetch_cat_schemes <- function() {
- # cat("\n", "*******fetch_cat_schemes()",  "\n")
-  query <- paste0('SELECT ?scheme WHERE {
-     ?scheme a skos:ConceptScheme . 
-}')
+fetch_one_column <- function(query) {
+#  cat("\n", "****fetch_one_column() query: ", "\n")
+#  print(query)
   
-  dfout <- evalQuery(rep,
-                     query = query, returnType = "dataframe",
-                     cleanUp = TRUE, limit = 100)
- 
-   
+  dfout <- evalQuery(
+    rep,
+    query = query,
+    returnType = "dataframe",
+    cleanUp = TRUE,
+    limit = 100
+  )
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
-#    print(dfout) #dev
-    schemes <- as.character(last_URI_element(dfout[[1]]))
-#    print(schemes) # dev 
-    schemes
+    #    print(dfout) #dev
+    as.character(last_URI_element(dfout[[1]]))
   } else {
     alert("The database does not contain (sufficient) information .")
   }
 }
-  
+
+# add name spaces for thesauri 
+# for some odd reason not working yet, problem is in the addStatement() part. 
+add_thesaurus_namespace <- function() {
+  query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+    SELECT ?scheme ?prefix ?ns WHERE {
+      ?predicate a rdf:Property . 
+      ?predicate litrev:hasThesaurus ?scheme . 
+      ?scheme a skos:ConceptScheme ; 
+      skos:hasPrefix ?prefix ;
+      skos:hasNameSpace ?ns . 
+    }'
+    
+  # The query will return a 3-column dataframe
+  dfout <- evalQuery(rep,
+                     query = query, returnType = "dataframe",
+                     cleanUp = TRUE, limit = 50)
+  if (dfout[1] != "query failed" & length(dfout) > 1) {
+    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+    dfout[[1]] <- last_URI_element(dfout[[1]])
+    dfout[[2]] <- last_URI_element(dfout[[2]])
+  } else {
+    showNotification("The plan does not contain (sufficient) information about this element.", 
+                     type = "error")
+  }
+#  cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
+#  print(dfout) # dev
+  assign("tdfout", dfout, envir = globalenv()) # dev
+  # create namespaces 
+  for (i in 1:length(dfout[[1]])) {
+   rprefix <- sub(":", "", dfout[["prefix"]][i])
+   cat("\n", "****add_thesaurus_namespace() adding prefix: ", rprefix, "\n")
+   rns <- dfout[["ns"]][i]
+   cat("\n", "****add_thesaurus_namespace() adding ns: ", rns, "\n")
+   addNameSpace(rep, rprefix, rns)
+  }
+}
+
+# fill Predicate slot dependent on scheme selected
+fill_predicate_input_slot <- function(scheme) {
+  # Version 1: The scheme flattened
+  prefix <- ""
+  if (scheme == "OutcomesThesaurus") {
+    prefix <- "lo:"
+  } else if (scheme == "MethodsThesaurus") {
+    prefix <- "rm:"
+  } else {
+    prefix <- ":"
+  }
+  query <- paste0('SELECT ?cat {?cat skos:inScheme ', prefix, scheme, '}')
+  cats <- fetch_one_column(query)
+  cats
+}
 
 
 

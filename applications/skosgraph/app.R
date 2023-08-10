@@ -4,9 +4,7 @@ library(shiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
-
-skos_schemes <- c("CitoScheme")
-
+# library(NestedMenu)
 
 ui <- fluidPage(
   useShinyjs(), 
@@ -17,10 +15,13 @@ ui <- fluidPage(
                  passwordInput("pwd", "Password:"),
                  actionButton("loginButton", "Submit"),
                  p(" "),
-                 selectInput("Schemes", "Input category:", choices = NULL),
-                 # textInput("Subject", "Subject:"),
-                 # selectInput("Predicate", "Predicate", choices = c("A", "B", "C")),
-                 # textInput("Object", "Object:"),
+                 selectInput("scheme", "Select an aspect:", choices = NULL),
+                 textInput("subjectInput", "Subject:"),
+                 selectInput("predicateInput", "Predicate:", choices = NULL),
+                 # placeholder for dynamically created menu button:
+                 uiOutput("predicateMenu"),
+                # Further with rendering input elements:
+                 textInput("objectInput", "Object:"),
                  actionButton("SubmitButton", "Submit")
                ),
                mainPanel(
@@ -29,7 +30,7 @@ ui <- fluidPage(
                                       # show user name
                                       actionButton("showMapButton",  "show map view "),
                                       p(" Network here "),
-                                      # visNetworkOutput("Map", width = "1000px", height = "600px")
+                                      visNetworkOutput("Map", width = "1000px", height = "600px")
                                       #    DTOutput('tbl')
                              ),
                              tabPanel("Table", 
@@ -55,6 +56,24 @@ server <- function(input, output, session) {
   skosNS <- "http://www.w3.org/2004/02/skos/core#"
   
   ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+  
+# scheme_name <- reactive(input$scheme)
+  observeEvent(input$scheme, {
+    # update predicate field. 
+    if (input$scheme != "") {
+      updateSelectInput(session, "predicateInput", choices = fill_predicate_input_slot(input$scheme))
+    }
+    # Place a nested menu close to predicate input for hierachical options. 
+    # This is done creating the menu button dynamically (in the end). 
+    #
+    # output$statementInput <- renderUI({
+    #   tagList(
+    #     NestedMenuOutput("predicateMenu", height = "auto"))
+    # })
+    # output[["predicateMenu"]] <- renderNestedMenu({
+    #   NestedMenu("researchMethod", items = resmethods)
+    # })
+  })
   
   
   # -------------------------------
@@ -87,16 +106,51 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep, prefix = "oa", nsURI = oaNS)
     addNameSpace(repo = rep, prefix = "fabio", nsURI =  fabioNS)
     addNameSpace(repo = rep, prefix = "skos", nsURI =  skosNS)
+    addNameSpace(repo = rep, prefix = "litrev", nsURI =  "http://www.learn-web.com/2023/litrev/")
+    # namespaces for thesauri. Should be automatised later 
+    addNameSpace(repo = rep, prefix = "rm", nsURI =  "http://learn-web.com/2023/resmethod/")
+    addNameSpace(repo = rep, prefix = "lo", nsURI =  "http://learn-web.com/2023/LearningOutcome/")
+    
     
     # Reset pwd field
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
-    #  fetch the name of the skos themes in the database
-    cat_schemes <- fetch_cat_schemes()
-    updateSelectInput(session, "Schemes", choices = cat_schemes)
+    #  fetch schemes and add to menu for selection
+    cat_schemes <- fetch_one_column('SELECT ?scheme WHERE { ?scheme a skos:ConceptScheme }')
+   # add_thesaurus_namespace()  #to be implemented
+    updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })
+  
+  # -------------------------------
+  # Show map/network
+  # -------------------------------
+  observeEvent(input$showMapButton, {
+    query = 'SELECT ?s ?p ?o {
+         ?s a fabio:ScholarlyWork . 
+         ?s ?p ?o . 
+         FILTER (!(?p IN (:addedDate, :addedBy))) }' 
+    graphDF <- fetch_plan_sparql(query)
+    if (graphDF[1] != "query failed" & length(graphDF) > 1) { 
+      # render map
+      output$Map <- renderVisNetwork(do_network(graphDF))
+      #  output$Map <- renderVisNetwork(do_network_2(graphDF))
+    } else {
+      showNotification("The plan does not contain (sufficient) information.", 
+                       type = "warning") }
+  })
+  
+  # Show information for selected node in panel. 
+  # The value for this query comes from visNetwork . 
+  
+  # observeEvent(input$current_node_id$node, {
+  #   render_plan_node(input$current_node_id$node)
+  # })
+  # 
+  # observeEvent(input$current_edge_id$node, {
+  #   render_network_edge(input$current_edge_id$edge)
+  # })
   
 }
 

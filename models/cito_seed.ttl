@@ -1,13 +1,13 @@
 # Cito reified with blank nodes 
 
 prefix : <http://www.learn-web.com/litgraph/> 
+PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+PREFIX lo: <http://learn-web.com/2023/LearningOutcome/>
+prefix rm: <http://learn-web.com/2023/resmethod/>
 prefix doco: <http://purl.org/spar/doco/> 
 prefix deo: <http://purl.org/spar/deo/> 
-prefix po: <http://www.essepuntato.it/2008/12/pattern#> 
 prefix dc: <http://purl.org/dc/terms/> 
 prefix fabio: <http://purl.org/spar/fabio/> 
-prefix co: <http://purl.org/co/> 
-prefix c4o: <http://purl.org/spar/c4o> 
 prefix cito: <http://purl.org/spar/cito/> 
 prefix oa: <http://www.w3.org/ns/oa#> 
 prefix foaf: <http://xmlns.com/foaf/0.1/>
@@ -17,6 +17,8 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     fabio:title "Der Fall Anna S." ;
     dc:created "1920" ;
     dc:identifier "ISBN 1445-6780598" ;
+    litrev:researchApproach rm:QualitativeMethod ; 
+    litrev:learningOutcome lo:KnowledgeOutcomes ;
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
 
@@ -30,6 +32,8 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     fabio:title "Das kollektive Unbewusste" ;
     dc:created "1921" ;
     dc:identifier "ISBN 1445-6780515" ;
+    litrev:researchApproach rm:MixedMethods ; 
+    litrev:learningOutcome lo:SystemsThinking ;
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
     

@@ -4,49 +4,7 @@ library(shiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
-library(NestedMenu)
-
-resmethods <- list(
-  quantitative = list(
-    name = "Quantitative",
-    items = list(
-      survey = list(
-        name = "Survey",
-        items = list(
-          s1 = list(name = "S1"),
-          s2 = list(name = "S2")
-        )
-      ),
-      experiment = list(
-        name = "Experiment",
-        items = list(
-          quasi = list(name = "Quasiexperiment"),
-          scdr = list(name = "SCDR")
-        )
-      ),
-      quant_other = list(name = "Other_quantitative")
-    )
-  ),
-  qualitative = list(
-    name = "Qualitative",
-    items = list(
-      interview = list(
-        name = "Interview",
-        items = list(
-          focusgroup = list(
-            name = "Focusgroup"
-          ))),
-      observation = list(
-        name = "Observation",
-        items = list(
-          field = list(name = "FieldObseration"),
-          video = list(name = "VideoObservation")
-        )
-      )
-    )
-  )
-)
-
+# library(NestedMenu)
 
 ui <- fluidPage(
   useShinyjs(), 
@@ -72,7 +30,7 @@ ui <- fluidPage(
                                       # show user name
                                       actionButton("showMapButton",  "show map view "),
                                       p(" Network here "),
-                                      # visNetworkOutput("Map", width = "1000px", height = "600px")
+                                      visNetworkOutput("Map", width = "1000px", height = "600px")
                                       #    DTOutput('tbl')
                              ),
                              tabPanel("Table", 
@@ -164,6 +122,36 @@ server <- function(input, output, session) {
     updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })
+  
+  # -------------------------------
+  # Show map/network
+  # -------------------------------
+  observeEvent(input$showMapButton, {
+    query = 'SELECT ?s ?p ?o {
+         ?s a fabio:ScholarlyWork . 
+         ?s ?p ?o . 
+         FILTER (!(?p IN (:addedDate, :addedBy))) }' 
+    graphDF <- fetch_plan_sparql(query)
+    if (graphDF[1] != "query failed" & length(graphDF) > 1) { 
+      # render map
+      output$Map <- renderVisNetwork(do_network(graphDF))
+      #  output$Map <- renderVisNetwork(do_network_2(graphDF))
+    } else {
+      showNotification("The plan does not contain (sufficient) information.", 
+                       type = "warning") }
+  })
+  
+  # Show information for selected node in panel. 
+  # The value for this query comes from visNetwork . 
+  
+  # observeEvent(input$current_node_id$node, {
+  #   render_plan_node(input$current_node_id$node)
+  # })
+  # 
+  # observeEvent(input$current_edge_id$node, {
+  #   render_network_edge(input$current_edge_id$edge)
+  # })
+  
 }
 
 # Run the application 

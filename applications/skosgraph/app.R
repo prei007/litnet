@@ -16,10 +16,13 @@ ui <- fluidPage(
                  actionButton("loginButton", "Submit"),
                  p(" "),
                  selectInput("scheme", "Select an aspect:", choices = NULL),
-                 textInput("subjectInput", "Subject:"),
+                 selectizeInput("subjectInput", "Subject:", multiple = FALSE, 
+                                  choices = NULL, 
+                                options = list(create = TRUE)),
+                 #textInput("subjectInput", "Subject:"),
                  selectInput("predicateInput", "Predicate:", choices = NULL),
                  # placeholder for dynamically created menu button:
-                 uiOutput("predicateMenu"),
+                 # uiOutput("predicateMenu"),
                 # Further with rendering input elements:
                  textInput("objectInput", "Object:"),
                  actionButton("SubmitButton", "Submit")
@@ -73,6 +76,14 @@ server <- function(input, output, session) {
     # output[["predicateMenu"]] <- renderNestedMenu({
     #   NestedMenu("researchMethod", items = resmethods)
     # })
+  })
+  
+  # When a predicate is selected, update the subjectInput: 
+  observeEvent(input$predicateInput, {
+    if (input$predicateInput != "") {
+      updateSelectizeInput(session, "subjectInput", choices = update_subject_input(input$predicateInput), 
+                           options = list(create = TRUE))
+    }
   })
   
   
@@ -130,7 +141,7 @@ server <- function(input, output, session) {
     query = 'SELECT ?s ?p ?o {
          ?s a fabio:ScholarlyWork . 
          ?s ?p ?o . 
-         FILTER (!(?p IN (:addedDate, :addedBy))) }' 
+         FILTER (!(?p IN (:addedDate, :addedBy, rdf:type))) }' 
     graphDF <- fetch_plan_sparql(query)
     if (graphDF[1] != "query failed" & length(graphDF) > 1) { 
       # render map

@@ -497,5 +497,13 @@ fill_predicate_input_slot <- function(scheme) {
   cats
 }
 
+update_subject_input <- function(predicate) {
+  # simple logic for getting started
+  query <- 'SELECT ?ref {?ref a fabio:ScholarlyWork }'
+  preds <- fetch_one_column(query)
+  preds
+  
+}
+
 
 

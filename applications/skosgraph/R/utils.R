@@ -482,23 +482,67 @@ add_thesaurus_namespace <- function() {
   }
 }
 
-# fill Predicate slot dependent on scheme selected
-fill_predicate_input_slot <- function(scheme) {
-  # Version 1: The scheme flattened
-  # We need the prefix for scheme
+lookup_prefix <- function(scheme) {
   this_index <- which(sapply(thesauri_df[["scheme"]], function(x) scheme %in% x))
-  cat("\n", "****fill_predicate_input_slot this_index :", "\n", this_index)  #dev
-  prefix <- thesauri_df[["prefix"]][[this_index]]
+  thesauri_df[["prefix"]][[this_index]]
+}
+
+lookup_namespace <- function(scheme) {
+  this_index <- which(sapply(thesauri_df[["scheme"]], function(x) scheme %in% x))
+  thesauri_df[["ns"]][[this_index]]
+}
+
+find_scheme_from_predicate <- function(predicate) {
+    query <- paste0(
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
+      'SELECT ?scheme WHERE { litrev:',
+      predicate, ' litrev:hasThesaurus ?scheme  }'
+    )
+    scheme <- fetch_one_column(query)
+    scheme
+}
+
+
+
+fill_predicate_input_slot <- function(scheme) {
+  # find predicate for scheme
+  prefix <- lookup_prefix(scheme)
+  query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+  SELECT ?pred  WHERE {
+  ?pred litrev:hasThesaurus ', 
+  prefix, scheme, 
+  ' }')
+  preds <- fetch_one_column(query)
+ # cat("\n", "****fill_predicate_input_slot - preds: :", preds, "\n")  #dev
+  preds
+}
+
+# fill object slot dependent on predicate selected
+fill_object_input_slot <- function(predicate) {
+#  cat("\n", "****fill_object_input_slot - predicate:", predicate, "\n")  #dev
+  # Version 1: The scheme flattened
+  # Find scheme for predicate
+ query <- paste0(
+   'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
+   'SELECT ?scheme WHERE { litrev:',
+   predicate, ' litrev:hasThesaurus ?scheme  }'
+ )
+# cat("\n", "****fill_object_input_slot - 1st query:", "\n", query)  #dev
+ scheme <- fetch_one_column(query)
+ prefix <- lookup_prefix(scheme)
   # Then we can retrieve the categories 
+  
   query <- paste0('SELECT ?cat {?cat skos:inScheme ', prefix, scheme, '}')
+# cat("\n", "****fill_object_input_slot - 2nd query:", "\n", query)  #dev
   cats <- fetch_one_column(query)
   cats
 }
 
-update_subject_input <- function(predicate) {
+fill_subject_input_slot <- function(predicate) {
   # simple logic for getting started
   query <- 'SELECT ?ref {?ref a fabio:ScholarlyWork }'
   preds <- fetch_one_column(query)
+#  cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
   preds
   
 }

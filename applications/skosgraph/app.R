@@ -23,9 +23,10 @@ ui <- fluidPage(
                  selectInput("predicateInput", "Predicate:", choices = NULL),
                  # placeholder for dynamically created menu button:
                  # uiOutput("predicateMenu"),
-                # Further with rendering input elements:
-                 textInput("objectInput", "Object:"),
-                 actionButton("SubmitButton", "Submit")
+                 selectizeInput("objectInput", "Object:", multiple = FALSE, 
+                                choices = NULL, 
+                                options = list(create = TRUE)),
+                 actionButton("submitButton", "Submit")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 
@@ -48,6 +49,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   defaultNS <- "http://www.learn-web.com/litgraph/"
+  modelNS <- "http://www-learnweb.com/2023/litrev/"
   citoNS <- "http://purl.org/spar/cito/"
   fabioNS <- "http://purl.org/spar/fabio/"
   dcNS <- "http://purl.org/dc/terms/"
@@ -80,14 +82,34 @@ server <- function(input, output, session) {
   # When a predicate is selected, update the subjectInput: 
   observeEvent(input$predicateInput, {
     if (input$predicateInput != "") {
-      updateSelectizeInput(session, "subjectInput", choices = update_subject_input(input$predicateInput), 
+      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$predicateInput), 
+                           options = list(create = TRUE))
+      updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$predicateInput), 
                            options = list(create = TRUE))
     }
   })
   
   # The same for the objectInput: 
-    # TBD 
+ 
   
+  # -------------------------------
+  # Push a statement 
+  # -------------------------------
+  
+  observeEvent(input$submitButton, {
+  
+    subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
+    predURL <- paste0("<", modelNS, input$predicateInput, ">")
+    objectScheme <- find_scheme_from_predicate(input$predicateInput)
+    objectNS <- lookup_namespace(objectScheme)
+    objectURL <- paste0("<", objectNS, input$objectInput, ">")
+    addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      
+      # Notify user and save 
+      showNotification("Your input is saved.")
+      click("showMapButton")
+    
+  })
   
   # -------------------------------
   # Login and database connection

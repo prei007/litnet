@@ -49,6 +49,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   defaultNS <- "http://www.learn-web.com/litgraph/"
+  modelNS <- "http://www-learnweb.com/2023/litrev/"
   citoNS <- "http://purl.org/spar/cito/"
   fabioNS <- "http://purl.org/spar/fabio/"
   dcNS <- "http://purl.org/dc/terms/"
@@ -96,26 +97,18 @@ server <- function(input, output, session) {
   # -------------------------------
   
   observeEvent(input$submitButton, {
-    if (node_exists(input$pubID) == "false") {
-      # ID for all statements in this scheme
-      subjectURL <- paste0("<", defaultNS, input$pubID, ">")
-      updateTextInput(session, "pubID", value = NA)
-      # rdf type
-      predURL <- paste0("<", rdfNS, "type", ">" )
-      objectURL <- paste0("<", fabioNS, "JournalArticle", ">" )
-      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
-      # author (currently one only)
-      predURL <- paste0("<", dcNS, "creator", ">" )
-      objectURL <- paste0("<", defaultNS, input$pubAuthor, ">" )
-      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
-      updateTextInput(session, "pubAuthor", value = NA)
+  
+    subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
+    predURL <- paste0("<", modelNS, input$predicateInput, ">")
+    objectScheme <- find_scheme_from_predicate(input$predicateInput)
+    objectNS <- lookup_namespace(objectScheme)
+    objectURL <- paste0("<", objectNS, input$objectInput, ">")
+    addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       
       # Notify user and save 
       showNotification("Your input is saved.")
       click("showMapButton")
-    } else {
-      alert("This element already exists. Click 'Update' instead.")
-    }
+    
   })
   
   # -------------------------------

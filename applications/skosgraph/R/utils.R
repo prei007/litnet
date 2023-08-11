@@ -488,9 +488,21 @@ lookup_prefix <- function(scheme) {
 }
 
 lookup_namespace <- function(scheme) {
-  this_index <- which(sapply(thesauri_df[["ns"]], function(x) scheme %in% x))
+  this_index <- which(sapply(thesauri_df[["scheme"]], function(x) scheme %in% x))
   thesauri_df[["ns"]][[this_index]]
 }
+
+find_scheme_from_predicate <- function(predicate) {
+    query <- paste0(
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
+      'SELECT ?scheme WHERE { litrev:',
+      predicate, ' litrev:hasThesaurus ?scheme  }'
+    )
+    scheme <- fetch_one_column(query)
+    scheme
+}
+
+
 
 fill_predicate_input_slot <- function(scheme) {
   # find predicate for scheme

@@ -419,6 +419,7 @@ find_scheme_from_predicate <- function(predicate) {
 
 
 fill_predicate_input_slot <- function(scheme) {
+cat("\n", "****fill_predicate_input_slot - scheme: :", scheme, "\n")  #dev
   # find predicate for scheme
   prefix <- lookup_prefix(scheme)
   query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
@@ -427,7 +428,7 @@ fill_predicate_input_slot <- function(scheme) {
   prefix, scheme, 
   ' }')
   preds <- fetch_one_column(query)
- # cat("\n", "****fill_predicate_input_slot - preds: :", preds, "\n")  #dev
+ cat("\n", "****fill_predicate_input_slot - preds: :", preds, "\n")  #dev
   preds
 }
 

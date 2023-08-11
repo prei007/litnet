@@ -22,15 +22,20 @@ litrev:learningOutcome a rdf:Property ;
   rdfs:label "Learning outcome" ; 
   rdfs:comment "Learning outcomes." ;
   litrev:hasThesaurus lo:OutcomesThesaurus ; 
-  litrev:domain fabio:ScholarlyWork .
+  rdfs:domain fabio:ScholarlyWork .
   
 
 litrev:researchApproach a rdf:Property ; 
   rdfs:label "Research approach" ; 
   rdfs:comment "Studies employ/follow one or more research approaches, with usually one primary one." ;
   litrev:hasThesaurus rm:MethodsThesaurus ; 
-  litrev:domain fabio:ScholarlyWork . 
+  rdfs:domain fabio:ScholarlyWork . 
   
+litrev:cites a rdf:Property ; 
+  rdfs:label "Citations" ; 
+  rdfs:comment "Based on the CiTo Ontology." ;
+  litrev:hasThesaurus cito:CitationThesaurus ;
+  rdfs:domain fabio:ScholarlyWork . 
   
 
 # ----------------------- 

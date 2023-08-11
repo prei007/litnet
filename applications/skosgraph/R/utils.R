@@ -77,28 +77,7 @@ last_URI_element_1 <- function(l1, ns_list) {
   unlist(l3, recursive = FALSE)
 }
 
-# set all input fields to empty
-# Called when the user switches a tab.  
-reset_all_input <- function() {
-  textFields <- c("questionID", "questionResponseTo", "questionFollowsAfter", "questionImage",
-                  "questionVideo", "answerID", "answerQuestionID", "alertMsg", "activityID", 
-                  "activityResponseTo", "activityFollowsAfter", "activityImage", "activityVideo",
-                  "actionID", "actionActivityID", "actionAlertMsg", "patternID", "cmapSubject",
-                  "cmapObject", "cmapPredicate", "patternAlertMsg")
-  textAreaFields <- c("questionText", "answerText", "lowGuidanceMsg", 
-                      "highGuidanceMsg", "correctionMsg", "activityDescription", 
-                      "actionDescription", "actionLowGuidanceMsg", "actionHighGuidanceMsg", 
-                      "actionCorrectionMsg", "patternLowGuidanceMsg", "patternHighGuidanceMsg",
-                      "patternCorrectionMsg")
-  
-  for (i in textFields) {
-  updateTextInput(session = getDefaultReactiveDomain(), inputId = i, value = NA)
-  }
-  
-  for (j in textAreaFields) {
-    updateTextAreaInput(session = getDefaultReactiveDomain(), inputId = j, value = NA)
-  }
-}
+
 
 # Check if a node exists on server
 # Returns "true" or "false"
@@ -109,30 +88,7 @@ node_exists <- function(node) {
           limit = 1)
 }
 
-# setup graph if it does not exist already
-# needs to handle the case that there are no  named graphs in repo initially. 
-provide_tutor_graph <- function(user){
-  # fetch current graphs 
-  query <- 'select distinct ?g { graph ?g { ?s ?p ?o } }'
-  dfout <- evalQuery(rep,
-                        query = query, returnType = "list",
-                        cleanUp = TRUE, limit = 100)
-  if (dfout[1] != "query failed" & length(dfout) > 1) {
-    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
-    dfout[[1]] <- last_URI_element(dfout[[1]])
-    # more here based on existing grpahs
-    # check if user has a graph already
-    if (user %in% as.list(dfout[[1]])) {
-      # do nothing 
-    } else {
-      # create seed graph for user
-    }
-  } else {
-    # create seed graph for user 
-  }
-    
-  
-}
+
 
 
 # update the view with the plan table
@@ -352,48 +308,6 @@ render_network_edge <- function(edge) {
     fillCitationTemplate(dfout, node_df)
   }
 }
-
-fillPublicationTemplate <-function(node, node_df) {
-  # ID corresponds to node
-  updateTextInput(inputId = "pubID", value = node) 
-  # df has two columns: predicates (fields) and objects (field values)
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "title") {
-      updateTextAreaInput(inputId = "pubTitle", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "creator") {
-      updateTextInput(inputId = "pubAuthor", value = fvalues[i])
-    } else if (fields[i] == "created") {
-      updateTextInput(inputId = "pubYear", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "identifier") {
-      updateTextInput(inputId = "pubIdentifier", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
-
-fillCitationTemplate <- function(node, node_df) {
-  # ID corresponds to node
-  updateTextInput(inputId = "citationID", value = as.character(node)) 
-  # df has two columns: predicates (fields) and objects (field values)
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "hasCitingEntity") {
-      updateTextInput(inputId = "citingEntity", value = fvalues[i])
-    } else if (fields[i] == "hasCitationCharacterization") {
-      updateTextInput(inputId = "citoType", value = fvalues[i])
-    } else if (fields[i] == "hasCitedEntity") {
-      updateTextInput(inputId = "citedEntity", value = fvalues[i])
-    } else {
-      next
-    }
-  }
-  
-}
-
 
 update_repo <- function(node) {
   # delete node's statements in the repo:

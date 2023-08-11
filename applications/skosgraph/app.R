@@ -45,7 +45,6 @@ ui <- fluidPage(
   )
 
 
-# Define server logic required to draw a histogram
 server <- function(input, output, session) {
   
   defaultNS <- "http://www.learn-web.com/litgraph/"
@@ -119,8 +118,8 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep, prefix = "skos", nsURI =  skosNS)
     addNameSpace(repo = rep, prefix = "litrev", nsURI =  "http://www.learn-web.com/2023/litrev/")
     # namespaces for thesauri. Should be automatised later 
-    addNameSpace(repo = rep, prefix = "rm", nsURI =  "http://learn-web.com/2023/resmethod/")
-    addNameSpace(repo = rep, prefix = "lo", nsURI =  "http://learn-web.com/2023/LearningOutcome/")
+   # addNameSpace(repo = rep, prefix = "rm", nsURI =  "http://learn-web.com/2023/resmethod/")
+   # addNameSpace(repo = rep, prefix = "lo", nsURI =  "http://learn-web.com/2023/LearningOutcome/")
     
     
     # Reset pwd field
@@ -129,7 +128,7 @@ server <- function(input, output, session) {
     
     #  fetch schemes and add to menu for selection
     cat_schemes <- fetch_one_column('SELECT ?scheme WHERE { ?scheme a skos:ConceptScheme }')
-   # add_thesaurus_namespace()  #to be implemented
+    add_thesaurus_namespace()  #to be implemented
     updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })

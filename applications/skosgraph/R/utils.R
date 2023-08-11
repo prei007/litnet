@@ -26,7 +26,6 @@ random_name <- function(prefix) {
 
 # return last element in list with URI paths as elements
 last_URI_element <- function(l1) {
-  print(l1)
   l2 <- strsplit(l1, "/+")
   # replace with last component of the url
   l2 <- sapply(l2, function(x)
@@ -464,20 +463,22 @@ add_thesaurus_namespace <- function() {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
     dfout[[1]] <- last_URI_element(dfout[[1]])
     dfout[[2]] <- last_URI_element(dfout[[2]])
+    # leave the 3rd column untouched! 
   } else {
     showNotification("The plan does not contain (sufficient) information about this element.", 
                      type = "error")
   }
-#  cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
-#  print(dfout) # dev
-  assign("tdfout", dfout, envir = globalenv()) # dev
+ cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
+ print(dfout) # dev
+  assign("thesauri_df", dfout, envir = globalenv()) # dev
   # create namespaces 
   for (i in 1:length(dfout[[1]])) {
    rprefix <- sub(":", "", dfout[["prefix"]][i])
    cat("\n", "****add_thesaurus_namespace() adding prefix: ", rprefix, "\n")
    rns <- dfout[["ns"]][i]
    cat("\n", "****add_thesaurus_namespace() adding ns: ", rns, "\n")
-   addNameSpace(rep, rprefix, rns)
+  # addNameSpace(rep, rprefix, rns)
+   addNameSpace(rep, "test", "httpL//test.net/")  # dev
   }
 }
 

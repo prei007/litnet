@@ -23,9 +23,10 @@ ui <- fluidPage(
                  selectInput("predicateInput", "Predicate:", choices = NULL),
                  # placeholder for dynamically created menu button:
                  # uiOutput("predicateMenu"),
-                # Further with rendering input elements:
-                 textInput("objectInput", "Object:"),
-                 actionButton("SubmitButton", "Submit")
+                 selectizeInput("objectInput", "Object:", multiple = FALSE, 
+                                choices = NULL, 
+                                options = list(create = TRUE)),
+                 actionButton("submitButton", "Submit")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 
@@ -80,14 +81,42 @@ server <- function(input, output, session) {
   # When a predicate is selected, update the subjectInput: 
   observeEvent(input$predicateInput, {
     if (input$predicateInput != "") {
-      updateSelectizeInput(session, "subjectInput", choices = update_subject_input(input$predicateInput), 
+      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$predicateInput), 
+                           options = list(create = TRUE))
+      updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$predicateInput), 
                            options = list(create = TRUE))
     }
   })
   
   # The same for the objectInput: 
-    # TBD 
+ 
   
+  # -------------------------------
+  # Push a statement 
+  # -------------------------------
+  
+  observeEvent(input$submitButton, {
+    if (node_exists(input$pubID) == "false") {
+      # ID for all statements in this scheme
+      subjectURL <- paste0("<", defaultNS, input$pubID, ">")
+      updateTextInput(session, "pubID", value = NA)
+      # rdf type
+      predURL <- paste0("<", rdfNS, "type", ">" )
+      objectURL <- paste0("<", fabioNS, "JournalArticle", ">" )
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      # author (currently one only)
+      predURL <- paste0("<", dcNS, "creator", ">" )
+      objectURL <- paste0("<", defaultNS, input$pubAuthor, ">" )
+      addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      updateTextInput(session, "pubAuthor", value = NA)
+      
+      # Notify user and save 
+      showNotification("Your input is saved.")
+      click("showMapButton")
+    } else {
+      alert("This element already exists. Click 'Update' instead.")
+    }
+  })
   
   # -------------------------------
   # Login and database connection

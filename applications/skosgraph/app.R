@@ -89,26 +89,22 @@ server <- function(input, output, session) {
     }
   })
   
-  # The same for the objectInput: 
  
-  
   # -------------------------------
   # Push a statement 
   # -------------------------------
   
   observeEvent(input$submitButton, {
-  
     subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
     predURL <- paste0("<", modelNS, input$predicateInput, ">")
-    objectScheme <- find_scheme_from_predicate(input$predicateInput)
-    objectNS <- lookup_namespace(objectScheme)
+       objectScheme <- find_scheme_from_predicate(input$predicateInput)
+       objectNS <- lookup_namespace(objectScheme)
     objectURL <- paste0("<", objectNS, input$objectInput, ">")
     addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
       
       # Notify user and save 
       showNotification("Your input is saved.")
       click("showMapButton")
-    
   })
   
   # -------------------------------

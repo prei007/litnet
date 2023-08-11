@@ -454,31 +454,30 @@ add_thesaurus_namespace <- function() {
       skos:hasPrefix ?prefix ;
       skos:hasNameSpace ?ns . 
     }'
-    
-  # The query will return a 3-column dataframe
+  # The query will return a 3-column dataframe: name, prefix, ns
   dfout <- evalQuery(rep,
                      query = query, returnType = "dataframe",
                      cleanUp = TRUE, limit = 50)
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+    # leave the 3rd column of dfout untouched because we need the url! 
     dfout[[1]] <- last_URI_element(dfout[[1]])
     dfout[[2]] <- last_URI_element(dfout[[2]])
-    # leave the 3rd column untouched! 
+    # remove double quotes from prefix and ns column
+    dfout[[2]] <- gsub("\"", "", dfout[[2]], fixed = TRUE)
+    dfout[[3]] <- gsub("\"", "", dfout[[3]], fixed = TRUE)
   } else {
     showNotification("The plan does not contain (sufficient) information about this element.", 
                      type = "error")
   }
 # cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
 #  print(dfout) # dev
-#  assign("thesauri_df", dfout, envir = globalenv()) # dev
-  # create namespaces 
-  for (i in 1:length(dfout[[1]])) {
+ assign("thesauri_df", dfout, envir = globalenv()) # keep this information in glob env
+  
+  # add namespaces to server
+  for (i in 1:length(dfout[["scheme"]])) {
    this_prefix <- sub(":", "", dfout[["prefix"]][i]) #remove the colon
-   this_prefix <- gsub("\"", "", this_prefix, fixed = TRUE) #remove double quote
- #  cat("\n", "****add_thesaurus_namespace() prefix: ", this_prefix, "\n")
    this_ns <- dfout[["ns"]][i]
-   this_ns <- gsub("\"", "", this_ns, fixed = TRUE) #remove double quote
- #  cat("\n", "****add_thesaurus_namespace() ns: ", this_ns, "\n")
    addNameSpace(rep, this_prefix, this_ns)
   }
 }
@@ -486,14 +485,11 @@ add_thesaurus_namespace <- function() {
 # fill Predicate slot dependent on scheme selected
 fill_predicate_input_slot <- function(scheme) {
   # Version 1: The scheme flattened
-  prefix <- ""
-  if (scheme == "OutcomesThesaurus") {
-    prefix <- "lo:"
-  } else if (scheme == "MethodsThesaurus") {
-    prefix <- "rm:"
-  } else {
-    prefix <- ":"
-  }
+  # We need the prefix for scheme
+  this_index <- which(sapply(thesauri_df[["scheme"]], function(x) scheme %in% x))
+  cat("\n", "****fill_predicate_input_slot this_index :", "\n", this_index)  #dev
+  prefix <- thesauri_df[["prefix"]][[this_index]]
+  # Then we can retrieve the categories 
   query <- paste0('SELECT ?cat {?cat skos:inScheme ', prefix, scheme, '}')
   cats <- fetch_one_column(query)
   cats

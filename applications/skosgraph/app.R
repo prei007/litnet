@@ -85,6 +85,9 @@ server <- function(input, output, session) {
     }
   })
   
+  # The same for the objectInput: 
+    # TBD 
+  
   
   # -------------------------------
   # Login and database connection
@@ -119,14 +122,13 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep, prefix = "litrev", nsURI =  "http://www.learn-web.com/2023/litrev/")
 
     
-    
     # Reset pwd field
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
     #  fetch schemes and add to menu for selection
     cat_schemes <- fetch_one_column('SELECT ?scheme WHERE { ?scheme a skos:ConceptScheme }')
-    add_thesaurus_namespace()  #to be implemented
+    add_thesaurus_namespace() 
     updateSelectInput(session, "scheme", choices = cat_schemes)
  
   })

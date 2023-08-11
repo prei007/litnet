@@ -1,4 +1,6 @@
+prefix : <http://purl.org/spar/cito/>
 prefix cito: <http://purl.org/spar/cito/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix lg: <http://www.learn-web.com/litgraph/>
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
@@ -11,174 +13,169 @@ prefix xs: <http://www.w3.org/2001/XMLSchema#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-# Local definitions
+# Scheme descritpion
 
-lg:CitoScheme a skos:ConceptScheme ; 
-	dc:title "CiTo citation ontology " ;
+:CitationThesaurus a skos:ConceptScheme ; 
+	dc:title "The CiTo citation ontology " ;
 	skos:hasTopConcept cito:cites ;
 	skos:depth "1" ; 
 	skos:hasNameSpace "http://purl.org/spar/cito/" ; 
-	skos:note "This is for verbs" .
+	skos:hasPrefix "cito:" . 
 
 
 # generic CiTo
 
+cito:cites rdf:type skos:Concept . 
+
 cito:agreesWith skos:example "Example: We share Galileo's opinion: the Earth moves [X]."@en ; 
   skos:definition "The citing entity agrees with statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "agrees with"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsAuthority skos:example "Example: Newton asserted that we are like dwarfs standing on the shoulders of giants [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as one that provides an authoritative description or definition of the subject under discussion."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as authority"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsDataSource skos:example "Example: Italy has more than ten thousand kilometers of shoreline: see [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as source of data."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as data source"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsEvidence skos:example "Example: We found an unquestionable demonstration of our hypothesis in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as source of factual evidence for statements it contains."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as evidence"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsMetadataDocument skos:example "Example: Basic bibliographic, entity and project metadata relating to this article, recorded in a structured machine-readable form, is available as an additional file [X] accompanying this paper."@en ; 
   skos:definition "The citing entity cites the cited entity as being the container of metadata describing the citing entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as metadata document"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsPotentialSolution skos:example "Example: This risk could be avoided using the approach shown in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as providing or containing a possible solution to the issues being discussed."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as potential solution"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsRecommendedReading skos:example "Example: To our knowledge, [X] is the best source of exercises about UML, making it a valuable proposal for beginners."@en ; 
   skos:definition "The citing entity cites the cited entity as an item of recommended reading.  This property can be used, for example, to describe references in a lecture reading list, where the cited references are relevant to the general topic of the lecture, but might not be individually cited within the text of the lecture.  Similarly, it could be used to describe items in a 'Suggested further reading' list at the end of a book chapter."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as recommended reading"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsRelated skos:example "Example: An analysis similar to what we proposed here is presented in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as one that is related."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as related"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesAsSourceDocument skos:example "Example: Several sections of this work are based on our literature review of the topic published as journal article [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as being the entity from which the citing entity is derived, or about which the citing entity contains metadata."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as source document"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:citesForInformation skos:example "Example: The grammar of Pascal was introduced in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as a source of information on the subject under discussion."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites for information"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:compiles skos:example "Note: This property has been imported from the CiTO4Data ontology, usage of which has been deprecated."@en ; 
   skos:definition "The citing entity is used to create or compile the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "compiles"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept ; 
   skos:example "Example: This book gathers interviews with academic researchers of several disciplines [X]."@en . 
 cito:confirms skos:example "Example: Our findings are similar to those published in [X]."@en ; 
   skos:definition "The citing entity confirms facts, ideas or statements presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "confirms"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:containsAssertionFrom skos:example "Example: We think that to stand on the top of giants [X] is a valuable principle to follow for our own research."@en ; 
   skos:definition "The citing entity contains a statement of fact or a logical assertion (or a collection of such facts and/or assertions) originally present in the cited entity.   This object property is designed to be used to relate a separate abstract, summary or nanopublication to the cited entity upon which it is based."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "contains assertion from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:corrects skos:example "Example: The result published in [X] is partially wrong, the correct result is 42."@en ; 
   skos:definition "The citing entity corrects statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "corrects"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:credits skos:example "Example: Galileo was the first to observe Jupiter's satellites [X]."@en ; 
   skos:definition "The citing entity acknowledges contributions made by the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "credits"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:critiques skos:example "Example: The ideas presented in [X] are badly substantantiated."@en ; 
   skos:definition "The citing entity critiques statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "critiques"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:derides skos:example "Example: The ideas published in [X] are incredibly stupid."@en ; 
   skos:definition "The citing entity express derision for the cited entity, or for ideas or conclusions contained within it."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "derides"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:describes skos:example "Example: Galileo's book [X] is a dialog among three scientists about Copernicus' eliocentric theory."@en ; 
   skos:definition "The citing entity describes the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "describes"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:disagreesWith skos:example "Example: We do not share Galileo's opinion [X]: the Earth does not move."@en ; 
   skos:definition "The citing entity disagrees with statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "disagrees with"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:discusses skos:example "Example: We now examine if Galileo is right when he writes [X] that the Earth moves."@en ; 
   skos:definition "The citing entity discusses statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "discusses"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:disputes skos:example "Example: We doubt that Galileo is right when he writes [X] that the Earth moves."@en ; 
   skos:definition "The citing entity disputes statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "disputes"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:documents skos:example "Example: Herein we report in detail the complete set of ontological rules defined in the Overlapping Ontology [X]."@en ; 
   skos:definition "The citing entity documents information about the cited entity." ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "documents"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:extends skos:example "Example: We add to Galileo's findings concerning the Earth [X] that also the Moon moves."@en ; 
   skos:definition "The citing entity extends facts, ideas or understandings presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "extends"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:includesExcerptFrom skos:example "Example: In her work, the author states that even though most Human Information Behaviour researchers are familiar with the literature related to their studies, it is not uncommon for investigators to fail to see the benefits they may gain from previous mistakes [X]."@en ; 
   skos:definition "The citing entity includes one or more excerpts from the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "includes excerpt from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept ; 
-  skos:example """An excerpt is more general than a quotation. It is generally used to indicate a re-published extract from a book, instruction manual, film, radio programme, etc, that need not be what someone said.  For example:
-
-Oxford 01865
-Oxshott 01372
-Oxted 01883
-Oxton 01578
-
-is an excerpt from the UK Dialling Codes section of the Oxford Telephone Directory."""@en . 
+  skos:example """An excerpt is more general than a quotation. It is generally used to indicate a re-published extract from a book, instruction manual, film, radio programme, etc, that need not be what someone said."""@en . 
 cito:includesQuotationFrom skos:example "Example: As Newton wrote in [X]: \"We are like dwarfs standing on the shoulders of giants\"."@en ; 
   skos:definition "The citing entity includes one or more quotations from the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "includes quotation from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept ; 
@@ -187,105 +184,105 @@ cito:includesQuotationFrom skos:example "Example: As Newton wrote in [X]: \"We a
 On June 4th 1940, Winston Churchill made a speech on the radio that has since become famous, that included the words: \" . . . we shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields and in the streets, we shall fight in the hills; we shall never surrender . . .\""""@en . 
 cito:linksTo skos:example "Example: The BioSharing registry (https://biosharing.org) can be of use as it describes the standards in detail, including versions where applicable."@en ; 
   skos:definition "The citing entity provides a link, in the form of an HTTP Uniform Resource Locator (URL), to the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "links to"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:obtainsBackgroundFrom skos:example "Example: There is a need for more observational studies and studies using narrative causation to describe the potential contribution of information in problem-solving and decision-making [X]; our work addresses these needs."@en ; 
   skos:definition "The citing entity obtains background information from the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "obtains background from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:obtainsSupportFrom skos:example "Example: Our ideas were also shared by Doe et al. [X]."@en ; 
   skos:definition "The citing entity obtains intellectual or factual support from the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "obtains support from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:parodies skos:example "Example: We act as giants on the shoulders of dwarfs [X]!"@en ; 
   skos:definition "The citing entity imitates the characteristic style or content of the cited entity for comic effect, usually without explicit citation."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "parodies"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:plagiarizes skos:example "Example: The conclusion of our dissertation can be summarised by the following motto, we created specifically for this purpose: we are like dwarfs standing on the shoulders of giants."@en ; 
   skos:definition "A property indicating that the author of the citing entity plagiarizes the cited entity, by including textual or other elements from the cited entity without formal acknowledgement of their source.  The citing entity thus contains no explicit citation of the cited entity, according to the norms of scholarly practice, but cites it implicitly."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "plagiarizes"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:qualifies skos:example "Example: Galileo's masterpiece 'Dialogo sopra i due massimi sistemi del mondo' [X] is formally a dialog and substantially a scientific pamphlet."@en ; 
   skos:definition "The citing entity qualifies or places conditions or restrictions upon statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "qualifies"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:refutes skos:example "Example: We do not think that all their arguments in favour of their own and against the other strategies are equally convincing [X]."@en ; 
   skos:definition "The citing entity refutes statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "refutes"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:repliesTo skos:example "Example: We will not investigate the issues of the approach proposed in [X] here, but rather we introduce yet another alternative."@en ; 
   skos:definition "The citing entity replies to statements, ideas or criticisms presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "replies to"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:retracts skos:example "Example: We wrote that the Earth moves in [X]; we now retire such statement."@en ; 
   skos:definition "The citing entity constitutes a formal retraction of the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "retracts"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:reviews skos:example "Example: This paper discusses Toulmin's methodology in modelling argumentation [X], focussing on highlighting advantages and drawbacks of the application of such a methodology in the Social Web."@en ; 
   skos:definition "The citing entity reviews statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "reviews"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:ridicules skos:example "Example: Galileo said that the Earth \"moves\" [X]; really? And where is it going?"@en ; 
   skos:definition "The citing entity ridicules the cited entity or aspects of its contents."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "ridicules"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:speculatesOn skos:example "Example: We believe that if Galileo believed that Earth goes around the Sun [X], he also should believe that Moon goes around Earth."@en ; 
   skos:definition "The citing entity speculates on something within or related to the cited entity, without firm evidence."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "speculates on"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:supports skos:example "Example: We support Galileo's statement [X], that Earth moves."@en ; 
   skos:definition "The citing entity provides intellectual or factual support for statements, ideas or conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "supports"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:updates skos:example "Example: Earth moves, said Galileo [X]; in addition, we can say now it moves very fast."@en ; 
   skos:definition "The citing entity updates statements, ideas, hypotheses or understanding presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "updates"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:usesConclusionsFrom skos:example "Example: Building upon Galileo's findings [X], we discovered that all the planets move."@en ; 
   skos:definition "The citing entity describes work that uses conclusions presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "uses conclusions from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:usesDataFrom skos:example "Example: Using the information collected from our recent study [X], we can estimate that there are tens of millions of HTML forms with potentially useful deep-web content."@en ; 
   skos:definition "The citing entity describes work that uses data presented in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "uses data from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
 cito:usesMethodIn skos:example "Example: We follow [X] in using design patterns for testing."@en ; 
   skos:definition "The citing entity describes work that uses a method detailed in the cited entity."@en ; 
-  skos:inScheme <http://www.learn-web.com/litgraph/CitoScheme> ; 
+  skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "uses method in"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
-cito:cites rdf:type skos:Concept . 
-<http://www.learn-web.com/litgraph/CitoScheme> rdf:type skos:ConceptScheme . 
+
+

@@ -468,17 +468,18 @@ add_thesaurus_namespace <- function() {
     showNotification("The plan does not contain (sufficient) information about this element.", 
                      type = "error")
   }
- cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
- print(dfout) # dev
-  assign("thesauri_df", dfout, envir = globalenv()) # dev
+# cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
+#  print(dfout) # dev
+#  assign("thesauri_df", dfout, envir = globalenv()) # dev
   # create namespaces 
   for (i in 1:length(dfout[[1]])) {
-   rprefix <- sub(":", "", dfout[["prefix"]][i])
-   cat("\n", "****add_thesaurus_namespace() adding prefix: ", rprefix, "\n")
-   rns <- dfout[["ns"]][i]
-   cat("\n", "****add_thesaurus_namespace() adding ns: ", rns, "\n")
-  # addNameSpace(rep, rprefix, rns)
-   addNameSpace(rep, "test", "httpL//test.net/")  # dev
+   this_prefix <- sub(":", "", dfout[["prefix"]][i]) #remove the colon
+   this_prefix <- gsub("\"", "", this_prefix, fixed = TRUE) #remove double quote
+ #  cat("\n", "****add_thesaurus_namespace() prefix: ", this_prefix, "\n")
+   this_ns <- dfout[["ns"]][i]
+   this_ns <- gsub("\"", "", this_ns, fixed = TRUE) #remove double quote
+ #  cat("\n", "****add_thesaurus_namespace() ns: ", this_ns, "\n")
+   addNameSpace(rep, this_prefix, this_ns)
   }
 }
 

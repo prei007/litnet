@@ -351,7 +351,10 @@ fetch_one_column <- function(query) {
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
     #    print(dfout) #dev
-    as.character(last_URI_element(dfout[[1]]))
+    #  as.character(last_URI_element(dfout[[1]]))
+    this_val <- last_URI_element(dfout[[1]])
+    gsub("\"", "", this_val, fixed = TRUE)
+ 
   } else {
     alert("The database does not contain (sufficient) information .")
   }
@@ -406,6 +409,17 @@ lookup_namespace <- function(scheme) {
   thesauri_df[["ns"]][[this_index]]
 }
 
+# is the scheme providing nouns (for objectt slots) or verbs (for predicate slots)
+NorV <- function(prefix, scheme) {
+  query <- paste0(
+    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+         SELECT ?type  WHERE { ', 
+    prefix, scheme, 
+    ' skos:provides ?type . }'
+  )
+  fetch_one_column(query)
+}
+
 find_scheme_from_predicate <- function(predicate) {
     query <- paste0(
       'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
@@ -419,23 +433,37 @@ find_scheme_from_predicate <- function(predicate) {
 
 
 fill_predicate_input_slot <- function(scheme) {
-cat("\n", "****fill_predicate_input_slot - scheme: :", scheme, "\n")  #dev
-  # find predicate for scheme
+  cat("\n", "****fill_predicate_input_slot - scheme: :", scheme, "\n")  #dev
+  
+  # Is the scheme providing verbs or nouns? 
+  # could be done with an ASK but not much difference
   prefix <- lookup_prefix(scheme)
-  query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
-  SELECT ?pred  WHERE {
-  ?pred litrev:hasThesaurus ', 
-  prefix, scheme, 
-  ' }')
-  preds <- fetch_one_column(query)
- cat("\n", "****fill_predicate_input_slot - preds: :", preds, "\n")  #dev
-  preds
+
+  if (NorV(prefix, scheme) == "Nouns") {
+    # If providing nouns, find and return the predicate name
+    query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+      SELECT ?pred  WHERE { ?pred litrev:hasThesaurus ', 
+                    prefix, scheme, ' }')
+    pred <- fetch_one_column(query)
+  } else {
+    # if providing verbs, find and return the scheme verbs
+    query <- paste0(
+      'SELECT ?cat { ?cat skos:inScheme ',
+      prefix, scheme, 
+      ' } ORDER BY ?cat' )
+    pred <- fetch_one_column(query)
+  }
+  cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
+  pred
+  
+ 
 }
 
 # fill object slot dependent on predicate selected
 fill_object_input_slot <- function(predicate) {
-#  cat("\n", "****fill_object_input_slot - predicate:", predicate, "\n")  #dev
+cat("\n", "****fill_object_input_slot - predicate:", predicate, "\n")  #dev
   # Version 1: The scheme flattened
+  # Need to distinguish btw type of predicate: noun or verb, with NorV()
   # Find scheme for predicate
  query <- paste0(
    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 

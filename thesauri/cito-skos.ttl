@@ -13,12 +13,13 @@ prefix xs: <http://www.w3.org/2001/XMLSchema#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-# Scheme descritpion
+# Scheme description
 
 :CitationThesaurus a skos:ConceptScheme ; 
 	dc:title "The CiTo citation ontology " ;
 	skos:hasTopConcept cito:cites ;
 	skos:depth "1" ; 
+	skos:provides "Verbs" ;
 	skos:hasNameSpace "http://purl.org/spar/cito/" ; 
 	skos:hasPrefix "cito:" . 
 

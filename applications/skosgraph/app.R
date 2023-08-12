@@ -146,6 +146,8 @@ server <- function(input, output, session) {
     
     #  fetch schemes and add to menu for selection
     cat_schemes <- fetch_one_column('SELECT ?scheme WHERE { ?scheme a skos:ConceptScheme }')
+    # The above needs to be generalised to included rdf classes as well. 
+    # Schemes are classes and properties in the doman model rather than concept scheme definitions. 
     add_thesaurus_namespace() 
     updateSelectInput(session, "scheme", choices = cat_schemes)
  

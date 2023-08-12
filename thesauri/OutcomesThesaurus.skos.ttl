@@ -18,6 +18,7 @@ lo:OutcomesThesaurus a skos:ConceptScheme ;
 	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
 	skos:depth "3" ;
 	skos:hasPrefix "lo:" ;
+	skos:provides "Nouns" ;
 	skos:hasNameSpace "http://learn-web.com/2023/LearningOutcome/" ;
 	skos:hasTopConcept :Outcomes .
 

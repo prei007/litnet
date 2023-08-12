@@ -23,7 +23,6 @@ litrev:learningOutcome a rdf:Property ;
   rdfs:comment "Learning outcomes." ;
   litrev:hasThesaurus lo:OutcomesThesaurus ; 
   rdfs:domain fabio:ScholarlyWork .
-  
 
 litrev:researchApproach a rdf:Property ; 
   rdfs:label "Research approach" ; 
@@ -31,12 +30,19 @@ litrev:researchApproach a rdf:Property ;
   litrev:hasThesaurus rm:MethodsThesaurus ; 
   rdfs:domain fabio:ScholarlyWork . 
   
+# think of changing cites to a class: 
+# litrev:Citation a rdfs:Class . 
+
 litrev:cites a rdf:Property ; 
   rdfs:label "Citations" ; 
   rdfs:comment "Based on the CiTo Ontology." ;
   litrev:hasThesaurus cito:CitationThesaurus ;
   rdfs:domain fabio:ScholarlyWork . 
   
+litrev:Work a rdfs:Class ; 
+  rdfs:label "Scholarly work"@en . 
+  rdfs:comment "Based on the Fabio ontology." ;
+  litrev:hasThesaurus bib:BiobliographyThesaurus . 
 
 # ----------------------- 
 # SKOS extensions
@@ -59,6 +65,12 @@ skos:hasPrefix rdfs:subPropertyOf skos:note ;
   rdfs:label "Prefix" ;
   rdfs:domain skos:ConceptScheme ; 
   rdfs:comment "The prefix for the name space of a ConceptScheme." .
+  
+skos:provides rdfs:subPropertyOf skos:note ;
+  dc:creator "Peter Reimann" ;
+  rdfs:label "Provides" ;
+  rdfs:domain skos:ConceptScheme ; 
+  rdfs:comment "A concept scheme can provide *Nouns* or *Verbs*." .
   
 
 

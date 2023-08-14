@@ -353,6 +353,7 @@ fetch_one_column <- function(query) {
     #    print(dfout) #dev
     #  as.character(last_URI_element(dfout[[1]]))
     this_val <- last_URI_element(dfout[[1]])
+    # remove the double quote 
     gsub("\"", "", this_val, fixed = TRUE)
  
   } else {
@@ -365,8 +366,6 @@ fetch_one_column <- function(query) {
 add_thesaurus_namespace <- function() {
   query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
     SELECT ?scheme ?prefix ?ns WHERE {
-      ?predicate a rdf:Property . 
-      ?predicate litrev:hasThesaurus ?scheme . 
       ?scheme a skos:ConceptScheme ; 
       skos:hasPrefix ?prefix ;
       skos:hasNameSpace ?ns . 
@@ -409,16 +408,18 @@ lookup_namespace <- function(scheme) {
   thesauri_df[["ns"]][[this_index]]
 }
 
-# is the scheme providing nouns (for objectt slots) or verbs (for predicate slots)
-NorV <- function(prefix, scheme) {
+# is the aspect providing nouns (for object slots) or verbs (for predicate slots)?
+# returns "Nouns" or "Verbs" 
+NorV <- function(aspect) {
   query <- paste0(
     'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
-         SELECT ?type  WHERE { ', 
-    prefix, scheme, 
-    ' skos:provides ?type . }'
+         SELECT ?type  WHERE { litrev:', 
+    aspect, 
+    ' litrev:provides ?type . }'
   )
   fetch_one_column(query)
 }
+
 
 find_scheme_from_predicate <- function(predicate) {
     query <- paste0(
@@ -432,31 +433,28 @@ find_scheme_from_predicate <- function(predicate) {
 
 
 
-fill_predicate_input_slot <- function(scheme) {
-  cat("\n", "****fill_predicate_input_slot - scheme: :", scheme, "\n")  #dev
-  
-  # Is the scheme providing verbs or nouns? 
-  # could be done with an ASK but not much difference
-  prefix <- lookup_prefix(scheme)
+fill_predicate_input_slot <- function(aspect) {
+  cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
 
-  if (NorV(prefix, scheme) == "Nouns") {
-    # If providing nouns, find and return the predicate name
+  if (NorV(aspect) == "Nouns") {
+    # If providing nouns, find the predicate name
+  cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
     query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
-      SELECT ?pred  WHERE { ?pred litrev:hasThesaurus ', 
-                    prefix, scheme, ' }')
+      SELECT ?pred  WHERE { litrev:', aspect, 
+      ' litrev:predicate ?pred }')
     pred <- fetch_one_column(query)
   } else {
     # if providing verbs, find and return the scheme verbs
+  cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
     query <- paste0(
-      'SELECT ?cat { ?cat skos:inScheme ',
-      prefix, scheme, 
-      ' } ORDER BY ?cat' )
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+         SELECT ?verbs  WHERE {
+        litrev:', aspect, ' litrev:hasThesaurus ?scheme . 
+          ?verbs skos:inScheme ?scheme . } ORDER BY ?verbs' )
     pred <- fetch_one_column(query)
   }
   cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
-  pred
-  
- 
+ pred
 }
 
 # fill object slot dependent on predicate selected

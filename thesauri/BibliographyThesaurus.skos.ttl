@@ -2,7 +2,7 @@
 # Concepts: Bibliograpic data
 #################################
 
-PREFIX : <http://learn-web.com/2023/Bibliography>
+PREFIX : <http://learn-web.com/2023/Bibliography/>
 PREFIX bib: <http://learn-web.com/2023/Bibliography/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>
@@ -15,10 +15,8 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 :BibliographyThesaurus a skos:ConceptScheme ; 
 	dc:title "Bibliographic information thesaurus " ;
 	skos:note "A very small subset of Fabio." ; 
-	skos:depth "1" ;
 	skos:hasPrefix "bib:" ;
-	skos:provides "Verbs" ;
-	skos:hasNameSpace "http://learn-web.com/2023/Bibliograpy/" .
+	skos:hasNameSpace "http://learn-web.com/2023/Bibliography/" .
 
 :creator a skos:Concept ; 
 	skos:inScheme :BibliographyThesaurus ; 

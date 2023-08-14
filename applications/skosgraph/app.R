@@ -15,7 +15,7 @@ ui <- fluidPage(
                  passwordInput("pwd", "Password:"),
                  actionButton("loginButton", "Submit"),
                  p(" "),
-                 selectInput("scheme", "Select an aspect:", choices = NULL),
+                 selectInput("aspect", "Select an aspect:", choices = NULL),
                  selectizeInput("subjectInput", "Subject:", multiple = FALSE, 
                                   choices = NULL, 
                                 options = list(create = TRUE)),
@@ -61,52 +61,6 @@ server <- function(input, output, session) {
   
   ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
   
-# scheme_name <- reactive(input$scheme)
-  observeEvent(input$scheme, {
-    # update predicate field. 
-    if (input$scheme != "") {
-      updateSelectInput(session, "predicateInput", choices = fill_predicate_input_slot(input$scheme))
-    }
-    # Place a nested menu close to predicate input for hierachical options. 
-    # This is done creating the menu button dynamically (in the end). 
-    #
-    # output$statementInput <- renderUI({
-    #   tagList(
-    #     NestedMenuOutput("predicateMenu", height = "auto"))
-    # })
-    # output[["predicateMenu"]] <- renderNestedMenu({
-    #   NestedMenu("researchMethod", items = resmethods)
-    # })
-  })
-  
-  # When a predicate is selected, update the subjectInput: 
-  observeEvent(input$predicateInput, {
-    if (input$predicateInput != "") {
-      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$predicateInput), 
-                           options = list(create = TRUE))
-      updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$predicateInput), 
-                           options = list(create = TRUE))
-    }
-  })
-  
- 
-  # -------------------------------
-  # Push a statement 
-  # -------------------------------
-  
-  observeEvent(input$submitButton, {
-    subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
-    predURL <- paste0("<", modelNS, input$predicateInput, ">")
-       objectScheme <- find_scheme_from_predicate(input$predicateInput)
-       objectNS <- lookup_namespace(objectScheme)
-    objectURL <- paste0("<", objectNS, input$objectInput, ">")
-    addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
-      
-      # Notify user and save 
-      showNotification("Your input is saved.")
-      click("showMapButton")
-  })
-  
   # -------------------------------
   # Login and database connection
   # -------------------------------
@@ -138,20 +92,77 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep, prefix = "fabio", nsURI =  fabioNS)
     addNameSpace(repo = rep, prefix = "skos", nsURI =  skosNS)
     addNameSpace(repo = rep, prefix = "litrev", nsURI =  "http://www.learn-web.com/2023/litrev/")
-
+    
     
     # Reset pwd field
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
-    #  fetch schemes and add to menu for selection
-    cat_schemes <- fetch_one_column('SELECT ?scheme WHERE { ?scheme a skos:ConceptScheme }')
+    #  fetch aspects and add to menu for selection
+    aspects <- fetch_one_column('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+            SELECT ?aspect WHERE {
+            ?aspect rdfs:subClassOf litrev:ReviewAspect 
+            }')
     # The above needs to be generalised to included rdf classes as well. 
     # Schemes are classes and properties in the doman model rather than concept scheme definitions. 
     add_thesaurus_namespace() 
-    updateSelectInput(session, "scheme", choices = cat_schemes)
- 
+    updateSelectInput(session, "aspect", choices = aspects)
+    
   })
+  
+  # -------------------------------
+  # Initialize input fields
+  # -------------------------------
+  
+# scheme_name <- reactive(input$scheme)
+  observeEvent(input$aspect, {
+    # update predicate field. 
+    if (input$aspect != "") {
+      updateSelectInput(session, "predicateInput", 
+                        choices = fill_predicate_input_slot(input$aspect),
+                        selected  = NULL)
+    }
+    # Place a nested menu close to predicate input for hierachical options. 
+    # This is done creating the menu button dynamically (in the end). 
+    #
+    # output$statementInput <- renderUI({
+    #   tagList(
+    #     NestedMenuOutput("predicateMenu", height = "auto"))
+    # })
+    # output[["predicateMenu"]] <- renderNestedMenu({
+    #   NestedMenu("researchMethod", items = resmethods)
+    # })
+  })
+  
+  # When a predicate is selected, update the subjectInput: 
+  observeEvent(input$predicateInput, {
+    if (input$predicateInput != "") {
+      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$predicateInput),
+                           options = list(create = TRUE), selected = NULL)
+      # updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$predicateInput),
+      #                      options = list(create = TRUE), selected = NULL)
+    }
+  })
+  
+ 
+  # -------------------------------
+  # Push a statement 
+  # -------------------------------
+  
+  observeEvent(input$submitButton, {
+    subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
+    predURL <- paste0("<", modelNS, input$predicateInput, ">")
+       objectScheme <- find_scheme_from_predicate(input$predicateInput)
+       objectNS <- lookup_namespace(objectScheme)
+    objectURL <- paste0("<", objectNS, input$objectInput, ">")
+    addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
+      
+      # Notify user and save 
+      showNotification("Your input is saved.")
+      click("showMapButton")
+  })
+  
+
   
   # -------------------------------
   # Show map/network

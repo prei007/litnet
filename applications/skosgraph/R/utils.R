@@ -434,18 +434,18 @@ find_scheme_from_predicate <- function(predicate) {
 
 
 fill_predicate_input_slot <- function(aspect) {
-  cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
+ # cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
 
   if (NorV(aspect) == "Nouns") {
     # If providing nouns, find the predicate name
-  cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
+# cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
     query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
       SELECT ?pred  WHERE { litrev:', aspect, 
       ' litrev:predicate ?pred }')
     pred <- fetch_one_column(query)
   } else {
     # if providing verbs, find and return the scheme verbs
-  cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
+# cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
     query <- paste0(
       'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
          SELECT ?verbs  WHERE {
@@ -453,13 +453,39 @@ fill_predicate_input_slot <- function(aspect) {
           ?verbs skos:inScheme ?scheme . } ORDER BY ?verbs' )
     pred <- fetch_one_column(query)
   }
-  cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
+# cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
  pred
+}
+
+fill_subject_input_slot <- function(aspect, predicate) {
+  cat("\n", "****fill_subject_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n")  
+  # fetch existing nodes based on references. This can be none, so we need an ASK first
+  query <- paste0(
+    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+    'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
+#   cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
+  test <- evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
+  cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
+  if (test == "true") {
+    query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+            SELECT ?ref WHERE { litrev:', 
+                    aspect, ' rdfs:domain  ?domain .',
+                    '?ref a ?domain .}')
+    cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
+    preds <- fetch_one_column(query)
+  } else {
+    preds <- NULL
+  }
+  #  cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
+  preds
+
 }
 
 # fill object slot dependent on predicate selected
 fill_object_input_slot <- function(predicate) {
-cat("\n", "****fill_object_input_slot - predicate:", predicate, "\n")  #dev
+cat("\n", "****fill_object_input_slot - predicate argument:", predicate, "\n")  #dev
   # Version 1: The scheme flattened
   # Need to distinguish btw type of predicate: noun or verb, with NorV()
   # Find scheme for predicate
@@ -479,14 +505,7 @@ cat("\n", "****fill_object_input_slot - predicate:", predicate, "\n")  #dev
   cats
 }
 
-fill_subject_input_slot <- function(predicate) {
-  # simple logic for getting started
-  query <- 'SELECT ?ref {?ref a fabio:ScholarlyWork }'
-  preds <- fetch_one_column(query)
-#  cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
-  preds
-  
-}
+
 
 
 

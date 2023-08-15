@@ -137,7 +137,7 @@ server <- function(input, output, session) {
   # When a predicate is selected, update the subjectInput: 
   observeEvent(input$predicateInput, {
     if (input$predicateInput != "") {
-      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$predicateInput),
+      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$aspect, input$predicateInput),
                            options = list(create = TRUE), selected = NULL)
       # updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$predicateInput),
       #                      options = list(create = TRUE), selected = NULL)

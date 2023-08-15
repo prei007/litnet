@@ -2,8 +2,8 @@
 # Concepts: Bibliograpic data
 #################################
 
-PREFIX : <http://learn-web.com/2023/Bibliography/>
-PREFIX bib: <http://learn-web.com/2023/Bibliography/>
+PREFIX : <http://learn-web.com/2023/bibliography/>
+PREFIX bib: <http://learn-web.com/2023/bibliography/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix fabio: <http://purl.org/spar/fabio/> 
@@ -15,29 +15,40 @@ prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 :BibliographyThesaurus a skos:ConceptScheme ; 
 	dc:title "Bibliographic information thesaurus " ;
 	skos:note "A very small subset of Fabio." ; 
-	skos:hasPrefix "bib:" ;
-	skos:hasNameSpace "http://learn-web.com/2023/Bibliography/" .
+	skos:hasPrefix "bib:" ; 
+	skos:hasNameSpace "http://learn-web.com/2023/bibliography/" ;
+	skos:domain litrev:ScholarlyWork ;
+	skos:range rdfs:Literal ; 
+	skos:provides "Verbs" . 
 
 :creator a skos:Concept ; 
 	skos:inScheme :BibliographyThesaurus ; 
 	skos:prefLabel "creator"@en ; 
-	skos:note "Equivalent to dc:creator" . 
+	skos:note "Equivalent to dc:creator" ;
+	rdfs:domain litrev:ScholarlyWork ;   
+	rdfs:range litrev:Author . 
 	
 :title a skos:Concept ; 
 	skos:inScheme :BibliographyThesaurus ; 
 	skos:prefLabel "Title"@en ; 
-	skos:note "Equivalent to dc:title" . 
+	skos:note "Equivalent to dc:title" ; 
+	rdfs:domain litrev:ScholarlyWork ; 
+	rdfs:range rdfs:Literal . 
 	
 :date a skos:Concept ; 
 	skos:inScheme :BibliographyThesaurus ; 
 	skos:prefLabel "Publication date"@en ; 
-	skos:note "Equivalent to dc:date" . 
+	skos:note "Equivalent to dc:date" ;
+	rdfs:domain litrev:ScholarlyWork ; 
+	rdfs:range rdfs:Literal . 
 	
 :identifier a skos:Concept ; 
 	skos:inScheme :BibliographyThesaurus ; 
 	skos:prefLabel "Identifier"@en ; 
 	skos:example "Such as DOI, ISBN." ;
-	skos:note "Equivalent to dc:identifier" . 
+	skos:note "Equivalent to dc:identifier" ;
+	rdfs:domain litrev:ScholarlyWork ; 
+	rdfs:range rdfs:Literal . 
 	
 
 	

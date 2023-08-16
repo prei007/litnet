@@ -1,5 +1,6 @@
 PREFIX : <http://www.learn-web.com/2023/litrev/> 
 PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+PREFIX bib: <http://learn-web.com/2023/bibliography/>
 PREFIX lo: <http://learn-web.com/2023/LearningOutcome/> 
 PREFIX rm: <http://learn-web.com/2023/resmethod/>
 PREFIX dc: <http://purl.org/dc/terms/> 
@@ -15,23 +16,67 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX fabio: <http://purl.org/spar/fabio/> 
 
 # ----------------------- 
-#  Domain properties
+#  Domain properties and classes 
 # ----------------------- 
 
-litrev:learningOutcome a rdf:Property ; 
-  rdfs:label "Learning outcome" ; 
-  rdfs:comment "Learning outcomes." ;
-  litrev:hasThesaurus lo:OutcomesThesaurus ; 
-  litrev:domain fabio:ScholarlyWork .
+litrev:LitReview rdfs:subClassOf rdfs:Resource. 
+
+litrev:ReviewAspect rdfs:subClassOf litrev:LitReview . 
+
+litrev:ScholarlyWork rdfs:subClassOf litrev:ReviewAspect ; 
+  rdfs:label "Scholarly work"@en ; 
+  rdfs:comment "Based on the Fabio ontology." ;
+  litrev:provides "Verbs" ; 
+  rdfs:domain litrev:ScholarlyWork ;
+  litrev:hasThesaurus bib:BibliographyThesaurus . 
+
+  
+litrev:Author rdfs:subClassOf litrev:ReviewAspect ;
+  litrev:provides "Verbs" ; 
+  rdfs:domain litrev:Author ; 
+  litrev:hasThesaurus litrev:AuthorThesaurus . 
+
+litrev:Citation rdfs:subClassOf litrev:ReviewAspect ; 
+  rdfs:label "Citations"@en ; 
+  rdfs:comment "Based on the CiTo Ontology." ;
+  litrev:provides "Verbs" ; 
+  rdfs:domain litrev:ScholarlyWork ;
+  litrev:hasThesaurus cito:CitationThesaurus  . 
+  
+# Noun providers to into object slots and need to specify a predicate  
+litrev:LearningOutcome  rdfs:subClassOf litrev:ReviewAspect ; 
+  litrev:provides "Nouns" ; 
+  litrev:predicate litrev:learningOutcome ;
+  rdfs:domain litrev:ScholarlyWork ; 
+  litrev:hasThesaurus lo:OutcomesThesaurus . 
+
+litrev:ResearchApproach rdfs:subClassOf litrev:ReviewAspect ;
+  litrev:provides "Nouns" ;
+  litrev:predicate litrev:researchApproach ;
+  rdfs:domain litrev:ScholarlyWork ; 
+  litrev:hasThesaurus rm:MethodsThesaurus . 
   
 
-litrev:researchApproach a rdf:Property ; 
-  rdfs:label "Research approach" ; 
+# not sure we need properties.
+
+litrev:learningOutcome a rdfs:Property ; 
+  rdfs:label "Learning outcome"@en ; 
+  rdfs:comment "Learning outcomes." ;
+  rdfs:domain litrev:ScholarlyWork .
+  
+
+litrev:researchApproach a rdfs:Property ; 
+  rdfs:label "Research approach"@en ; 
   rdfs:comment "Studies employ/follow one or more research approaches, with usually one primary one." ;
-  litrev:hasThesaurus rm:MethodsThesaurus ; 
-  litrev:domain fabio:ScholarlyWork . 
+  rdfs:range rdfs:Literal ; 
+  rdfs:domain litrev:ScholarlyWork . 
   
-  
+litrev:cites a rdfs:Property ; 
+  rdfs:label "cites"@en ; 
+  rdfs:comment "Based on the CiTo Ontology." ;
+  rdfs:range cito:CitationThesaurus ; 
+  rdfs:domain litrev:ScholarlyWork . 
+
 
 # ----------------------- 
 # SKOS extensions
@@ -54,6 +99,12 @@ skos:hasPrefix rdfs:subPropertyOf skos:note ;
   rdfs:label "Prefix" ;
   rdfs:domain skos:ConceptScheme ; 
   rdfs:comment "The prefix for the name space of a ConceptScheme." .
+  
+skos:provides rdfs:subPropertyOf skos:note ;
+  dc:creator "Peter Reimann" ;
+  rdfs:label "Provides" ;
+  rdfs:domain skos:ConceptScheme ; 
+  rdfs:comment "A concept scheme can provide *Nouns* or *Verbs*." .
   
 
 

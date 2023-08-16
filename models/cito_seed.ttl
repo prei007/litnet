@@ -1,5 +1,5 @@
 # Cito reified with blank nodes 
-
+PREFIX bib: <http://learn-web.com/2023/bibliography/>
 prefix : <http://www.learn-web.com/litgraph/> 
 PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
 PREFIX lo: <http://learn-web.com/2023/LearningOutcome/>
@@ -12,11 +12,11 @@ prefix cito: <http://purl.org/spar/cito/>
 prefix oa: <http://www.w3.org/ns/oa#> 
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 
-:Freud1920 a fabio:ScholarlyWork; 
-    dc:creator :Freud_S ;
-    fabio:title "Der Fall Anna S." ;
-    dc:created "1920" ;
-    dc:identifier "ISBN 1445-6780598" ;
+:Freud1920 a litrev:ScholarlyWork; 
+    bib:creator :Freud_S ;
+    bib:title "Der Fall Anna S." ;
+    bib:created "1920" ;
+    bib:identifier "ISBN 1445-6780598" ;
     litrev:researchApproach rm:QualitativeMethod ; 
     litrev:learningOutcome lo:KnowledgeOutcomes ;
     :addedBy "Admin" ;
@@ -27,11 +27,11 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     foaf:familyName "Freud" . 
     
 
-:Jung1921 a fabio:ScholarlyWork ; 
-    dc:creator :Jung_CG ;
-    fabio:title "Das kollektive Unbewusste" ;
-    dc:created "1921" ;
-    dc:identifier "ISBN 1445-6780515" ;
+:Jung1921 a litrev:ScholarlyWork ; 
+    bib:creator :Jung_CG ;
+    bib:title "Das kollektive Unbewusste" ;
+    bib:created "1921" ;
+    bib:identifier "ISBN 1445-6780515" ;
     litrev:researchApproach rm:MixedMethods ; 
     litrev:learningOutcome lo:SystemsThinking ;
     :addedBy "Admin" ;
@@ -41,11 +41,11 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     foaf:givenName "Carl-Gustav" ;
     foaf:familyName "Jung" . 
     
-:Adler1922 a fabio:ScholarlyWork ; 
-    dc:creator :Adler_A ;
-    fabio:title "Overcompensation today and tomorrow" ;
-    dc:created "1922" ;
-    dc:identifier "ISBN 1445-6780520" ;
+:Adler1922 a litrev:ScholarlyWork ; 
+    bib:creator :Adler_A ;
+    bib:title "Overcompensation today and tomorrow" ;
+    bib:created "1922" ;
+    bib:identifier "ISBN 1445-6780520" ;
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
     

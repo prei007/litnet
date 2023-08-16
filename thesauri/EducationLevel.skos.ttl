@@ -4,7 +4,7 @@
 
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 :EducationLevel a skos:ConceptScheme ;
 	dc:title "Educational levels thesaurus" ;

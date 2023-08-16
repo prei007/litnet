@@ -77,28 +77,7 @@ last_URI_element_1 <- function(l1, ns_list) {
   unlist(l3, recursive = FALSE)
 }
 
-# set all input fields to empty
-# Called when the user switches a tab.  
-reset_all_input <- function() {
-  textFields <- c("questionID", "questionResponseTo", "questionFollowsAfter", "questionImage",
-                  "questionVideo", "answerID", "answerQuestionID", "alertMsg", "activityID", 
-                  "activityResponseTo", "activityFollowsAfter", "activityImage", "activityVideo",
-                  "actionID", "actionActivityID", "actionAlertMsg", "patternID", "cmapSubject",
-                  "cmapObject", "cmapPredicate", "patternAlertMsg")
-  textAreaFields <- c("questionText", "answerText", "lowGuidanceMsg", 
-                      "highGuidanceMsg", "correctionMsg", "activityDescription", 
-                      "actionDescription", "actionLowGuidanceMsg", "actionHighGuidanceMsg", 
-                      "actionCorrectionMsg", "patternLowGuidanceMsg", "patternHighGuidanceMsg",
-                      "patternCorrectionMsg")
-  
-  for (i in textFields) {
-  updateTextInput(session = getDefaultReactiveDomain(), inputId = i, value = NA)
-  }
-  
-  for (j in textAreaFields) {
-    updateTextAreaInput(session = getDefaultReactiveDomain(), inputId = j, value = NA)
-  }
-}
+
 
 # Check if a node exists on server
 # Returns "true" or "false"
@@ -109,30 +88,7 @@ node_exists <- function(node) {
           limit = 1)
 }
 
-# setup graph if it does not exist already
-# needs to handle the case that there are no  named graphs in repo initially. 
-provide_tutor_graph <- function(user){
-  # fetch current graphs 
-  query <- 'select distinct ?g { graph ?g { ?s ?p ?o } }'
-  dfout <- evalQuery(rep,
-                        query = query, returnType = "list",
-                        cleanUp = TRUE, limit = 100)
-  if (dfout[1] != "query failed" & length(dfout) > 1) {
-    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
-    dfout[[1]] <- last_URI_element(dfout[[1]])
-    # more here based on existing grpahs
-    # check if user has a graph already
-    if (user %in% as.list(dfout[[1]])) {
-      # do nothing 
-    } else {
-      # create seed graph for user
-    }
-  } else {
-    # create seed graph for user 
-  }
-    
-  
-}
+
 
 
 # update the view with the plan table
@@ -353,48 +309,6 @@ render_network_edge <- function(edge) {
   }
 }
 
-fillPublicationTemplate <-function(node, node_df) {
-  # ID corresponds to node
-  updateTextInput(inputId = "pubID", value = node) 
-  # df has two columns: predicates (fields) and objects (field values)
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "title") {
-      updateTextAreaInput(inputId = "pubTitle", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "creator") {
-      updateTextInput(inputId = "pubAuthor", value = fvalues[i])
-    } else if (fields[i] == "created") {
-      updateTextInput(inputId = "pubYear", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "identifier") {
-      updateTextInput(inputId = "pubIdentifier", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
-
-fillCitationTemplate <- function(node, node_df) {
-  # ID corresponds to node
-  updateTextInput(inputId = "citationID", value = as.character(node)) 
-  # df has two columns: predicates (fields) and objects (field values)
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "hasCitingEntity") {
-      updateTextInput(inputId = "citingEntity", value = fvalues[i])
-    } else if (fields[i] == "hasCitationCharacterization") {
-      updateTextInput(inputId = "citoType", value = fvalues[i])
-    } else if (fields[i] == "hasCitedEntity") {
-      updateTextInput(inputId = "citedEntity", value = fvalues[i])
-    } else {
-      next
-    }
-  }
-  
-}
-
-
 update_repo <- function(node) {
   # delete node's statements in the repo:
   planID <- paste0('<', defaultNS, node, '>') 
@@ -437,19 +351,20 @@ fetch_one_column <- function(query) {
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
     #    print(dfout) #dev
-    as.character(last_URI_element(dfout[[1]]))
+    #  as.character(last_URI_element(dfout[[1]]))
+    this_val <- last_URI_element(dfout[[1]])
+    # remove the double quote 
+    gsub("\"", "", this_val, fixed = TRUE)
+ 
   } else {
     alert("The database does not contain (sufficient) information .")
   }
 }
 
 # add name spaces for thesauri 
-# for some odd reason not working yet, problem is in the addStatement() part. 
 add_thesaurus_namespace <- function() {
   query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
     SELECT ?scheme ?prefix ?ns WHERE {
-      ?predicate a rdf:Property . 
-      ?predicate litrev:hasThesaurus ?scheme . 
       ?scheme a skos:ConceptScheme ; 
       skos:hasPrefix ?prefix ;
       skos:hasNameSpace ?ns . 
@@ -492,6 +407,19 @@ lookup_namespace <- function(scheme) {
   thesauri_df[["ns"]][[this_index]]
 }
 
+# is the aspect providing nouns (for object slots) or verbs (for predicate slots)?
+# returns "Nouns" or "Verbs" 
+NorV <- function(aspect) {
+  query <- paste0(
+    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+         SELECT ?type  WHERE { litrev:', 
+    aspect, 
+    ' litrev:provides ?type . }'
+  )
+  fetch_one_column(query)
+}
+
+
 find_scheme_from_predicate <- function(predicate) {
     query <- paste0(
       'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
@@ -504,48 +432,114 @@ find_scheme_from_predicate <- function(predicate) {
 
 
 
-fill_predicate_input_slot <- function(scheme) {
-  # find predicate for scheme
-  prefix <- lookup_prefix(scheme)
-  query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
-  SELECT ?pred  WHERE {
-  ?pred litrev:hasThesaurus ', 
-  prefix, scheme, 
-  ' }')
-  preds <- fetch_one_column(query)
- # cat("\n", "****fill_predicate_input_slot - preds: :", preds, "\n")  #dev
+fill_predicate_input_slot <- function(aspect) {
+ # cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
+
+  if (NorV(aspect) == "Nouns") {
+    # If providing nouns, find the predicate name
+# cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
+    query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+      SELECT ?pred  WHERE { litrev:', aspect, 
+      ' litrev:predicate ?pred }')
+    pred <- fetch_one_column(query)
+  } else {
+    # if providing verbs, find and return the scheme verbs
+# cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
+    query <- paste0(
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+         SELECT ?verbs  WHERE {
+        litrev:', aspect, ' litrev:hasThesaurus ?scheme . 
+          ?verbs skos:inScheme ?scheme . } ORDER BY ?verbs' )
+    pred <- fetch_one_column(query)
+  }
+# cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
+ pred
+}
+
+fill_subject_input_slot <- function(aspect, predicate) {
+#  cat("\n", "****fill_subject_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n")  
+  
+  # fetch existing nodes based on aspect domain. This can be none, so we need  to ASK first
+  # if there are any instances of the scheme existing already. Else we display an empty field. 
+  query <- paste0(
+    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+    'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
+#   cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
+  test <- evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
+#  cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
+  if (test == "true") {
+    query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+            SELECT ?ref WHERE { litrev:', 
+                    aspect, ' rdfs:domain  ?domain .',
+                    '?ref a ?domain .}')
+#    cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
+    preds <- fetch_one_column(query)
+  } else {
+    preds <- NULL
+  }
+  #  cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
   preds
+
 }
 
 # fill object slot dependent on predicate selected
-fill_object_input_slot <- function(predicate) {
-#  cat("\n", "****fill_object_input_slot - predicate:", predicate, "\n")  #dev
-  # Version 1: The scheme flattened
-  # Find scheme for predicate
- query <- paste0(
-   'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
-   'SELECT ?scheme WHERE { litrev:',
-   predicate, ' litrev:hasThesaurus ?scheme  }'
- )
-# cat("\n", "****fill_object_input_slot - 1st query:", "\n", query)  #dev
- scheme <- fetch_one_column(query)
- prefix <- lookup_prefix(scheme)
-  # Then we can retrieve the categories 
-  
-  query <- paste0('SELECT ?cat {?cat skos:inScheme ', prefix, scheme, '}')
-# cat("\n", "****fill_object_input_slot - 2nd query:", "\n", query)  #dev
-  cats <- fetch_one_column(query)
-  cats
+fill_object_input_slot <- function(aspect, predicate) {
+  # We need the scheme and the prefix
+  query <-
+    paste0(
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+      'SELECT ?scheme { litrev:',
+      aspect,
+      ' litrev:hasThesaurus ?scheme }'
+    )
+  scheme <- fetch_one_column(query)
+  prefix <- lookup_prefix(scheme)
+  # Step 1: dependent on the predicate providing verbs or nouns
+  if (NorV(aspect) == "Nouns") {
+    # If the predicate provides VALUES, it's categories are returned
+    # (currently only as a flat list)
+    query <- paste0('SELECT ?cat {?cat skos:inScheme ',
+                    prefix, scheme, '} ORDER BY ?cat')
+    cats <- fetch_one_column(query)
+  } else {
+    # Step 2: Check if the predicate has a range, else use the range from the concept scheme
+    query <- paste0('ASK WHERE { ',
+                    prefix,
+                    predicate,
+                    ' a skos:Concept ;
+                             rdfs:range ?range } ')
+    test <- evalQuery(rep,
+                      query = query,
+                      returnType = "list",
+                      limit = 1)
+    if (test == 'true') {
+      #use predicate range
+      query <- paste0('SELECT ?range  WHERE { ',
+                      prefix,
+                      predicate,
+                      ' a skos:Concept ;
+                             rdfs:range ?range } ')
+      range <- fetch_one_column(query)
+    } else {
+      # use scheme range
+      query <- paste0(
+        'SELECT ?range  WHERE { ',
+        prefix,
+        scheme,
+        ' a skos:ConceptScheme ;
+                             rdfs:range ?range } '
+      )
+      range <- fetch_one_column(query)
+    }
+    # Now we can retrieve the instances of categories
+    # Leaving this to the future. Just an indicator for the input at this stage:
+    cats <- paste(prefix, range)
+  }
 }
 
-fill_subject_input_slot <- function(predicate) {
-  # simple logic for getting started
-  query <- 'SELECT ?ref {?ref a fabio:ScholarlyWork }'
-  preds <- fetch_one_column(query)
-#  cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
-  preds
-  
-}
+
 
 
 

@@ -19,6 +19,7 @@ rm:MethodsThesaurus a skos:ConceptScheme ;
 	dc:creator "Peter Reimann" ;
 	skos:hasTopConcept :ResearchMethod, :QualitativeMethod, :QuantivativeMethod, :MixedMethods ;
 	skos:depth "3" ; 
+	skos:provides "Nouns" ;
 	skos:hasNameSpace "http://learn-web.com/2023/resmethod/" ; 
 	skos:hasPrefix "rm:" ;
 	skos:note "Three levels. Pretty much adhoc" .

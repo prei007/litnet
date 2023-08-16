@@ -16,13 +16,10 @@ ui <- fluidPage(
                  actionButton("loginButton", "Submit"),
                  p(" "),
                  selectInput("aspect", "Select an aspect:", choices = NULL),
+                 selectInput("predicateInput", "Predicate:", choices = NULL),
                  selectizeInput("subjectInput", "Subject:", multiple = FALSE, 
                                   choices = NULL, 
                                 options = list(create = TRUE)),
-                 #textInput("subjectInput", "Subject:"),
-                 selectInput("predicateInput", "Predicate:", choices = NULL),
-                 # placeholder for dynamically created menu button:
-                 # uiOutput("predicateMenu"),
                  selectizeInput("objectInput", "Object:", multiple = FALSE, 
                                 choices = NULL, 
                                 options = list(create = TRUE)),
@@ -139,8 +136,8 @@ server <- function(input, output, session) {
     if (input$predicateInput != "") {
       updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$aspect, input$predicateInput),
                            options = list(create = TRUE), selected = NULL)
-      # updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$predicateInput),
-      #                      options = list(create = TRUE), selected = NULL)
+       updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$aspect, input$predicateInput),
+                         options = list(create = TRUE), selected = NULL)
     }
   })
   

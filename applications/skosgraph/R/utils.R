@@ -362,7 +362,6 @@ fetch_one_column <- function(query) {
 }
 
 # add name spaces for thesauri 
-# for some odd reason not working yet, problem is in the addStatement() part. 
 add_thesaurus_namespace <- function() {
   query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
     SELECT ?scheme ?prefix ?ns WHERE {
@@ -458,8 +457,10 @@ fill_predicate_input_slot <- function(aspect) {
 }
 
 fill_subject_input_slot <- function(aspect, predicate) {
-  cat("\n", "****fill_subject_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n")  
-  # fetch existing nodes based on references. This can be none, so we need an ASK first
+#  cat("\n", "****fill_subject_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n")  
+  
+  # fetch existing nodes based on aspect domain. This can be none, so we need  to ASK first
+  # if there are any instances of the scheme existing already. Else we display an empty field. 
   query <- paste0(
     'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
     'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
@@ -467,13 +468,13 @@ fill_subject_input_slot <- function(aspect, predicate) {
   test <- evalQuery(rep,
             query = query, returnType = "list",
             limit = 1)
-  cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
+#  cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
   if (test == "true") {
     query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
             SELECT ?ref WHERE { litrev:', 
                     aspect, ' rdfs:domain  ?domain .',
                     '?ref a ?domain .}')
-    cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
+#    cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
     preds <- fetch_one_column(query)
   } else {
     preds <- NULL
@@ -484,25 +485,58 @@ fill_subject_input_slot <- function(aspect, predicate) {
 }
 
 # fill object slot dependent on predicate selected
-fill_object_input_slot <- function(predicate) {
-cat("\n", "****fill_object_input_slot - predicate argument:", predicate, "\n")  #dev
-  # Version 1: The scheme flattened
-  # Need to distinguish btw type of predicate: noun or verb, with NorV()
-  # Find scheme for predicate
- query <- paste0(
-   'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
-   'SELECT ?scheme WHERE { litrev:',
-   predicate, ' litrev:hasThesaurus ?scheme  }'
- )
-# cat("\n", "****fill_object_input_slot - 1st query:", "\n", query)  #dev
- scheme <- fetch_one_column(query)
- prefix <- lookup_prefix(scheme)
-  # Then we can retrieve the categories 
-  
-  query <- paste0('SELECT ?cat {?cat skos:inScheme ', prefix, scheme, '}')
-# cat("\n", "****fill_object_input_slot - 2nd query:", "\n", query)  #dev
-  cats <- fetch_one_column(query)
-  cats
+fill_object_input_slot <- function(aspect, predicate) {
+  # We need the scheme and the prefix
+  query <-
+    paste0(
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+      'SELECT ?scheme { litrev:',
+      aspect,
+      ' litrev:hasThesaurus ?scheme }'
+    )
+  scheme <- fetch_one_column(query)
+  prefix <- lookup_prefix(scheme)
+  # Step 1: dependent on the predicate providing verbs or nouns
+  if (NorV(aspect) == "Nouns") {
+    # If the predicate provides VALUES, it's categories are returned
+    # (currently only as a flat list)
+    query <- paste0('SELECT ?cat {?cat skos:inScheme ',
+                    prefix, scheme, '} ORDER BY ?cat')
+    cats <- fetch_one_column(query)
+  } else {
+    # Step 2: Check if the predicate has a range, else use the range from the concept scheme
+    query <- paste0('ASK WHERE { ',
+                    prefix,
+                    predicate,
+                    ' a skos:Concept ;
+                             rdfs:range ?range } ')
+    test <- evalQuery(rep,
+                      query = query,
+                      returnType = "list",
+                      limit = 1)
+    if (test == 'true') {
+      #use predicate range
+      query <- paste0('SELECT ?range  WHERE { ',
+                      prefix,
+                      predicate,
+                      ' a skos:Concept ;
+                             rdfs:range ?range } ')
+      range <- fetch_one_column(query)
+    } else {
+      # use scheme range
+      query <- paste0(
+        'SELECT ?range  WHERE { ',
+        prefix,
+        scheme,
+        ' a skos:ConceptScheme ;
+                             rdfs:range ?range } '
+      )
+      range <- fetch_one_column(query)
+    }
+    # Now we can retrieve the instances of categories
+    # Leaving this to the future. Just an indicator for the input at this stage:
+    cats <- paste(prefix, range)
+  }
 }
 
 

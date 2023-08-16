@@ -420,14 +420,16 @@ NorV <- function(aspect) {
 }
 
 
-find_scheme_from_predicate <- function(predicate) {
-    query <- paste0(
-      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ', 
-      'SELECT ?scheme WHERE { litrev:',
-      predicate, ' litrev:hasThesaurus ?scheme  }'
+find_scheme_from_predicate <- function(aspect) {
+  query <-
+    paste0(
+      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+      'SELECT ?scheme { litrev:',
+      aspect,
+      ' litrev:hasThesaurus ?scheme }'
     )
-    scheme <- fetch_one_column(query)
-    scheme
+  scheme <- fetch_one_column(query)
+  scheme
 }
 
 

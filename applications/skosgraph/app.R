@@ -149,7 +149,7 @@ server <- function(input, output, session) {
   observeEvent(input$submitButton, {
     subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
     predURL <- paste0("<", modelNS, input$predicateInput, ">")
-       objectScheme <- find_scheme_from_predicate(input$predicateInput)
+       objectScheme <- find_scheme_from_predicate(input$aspect)
        objectNS <- lookup_namespace(objectScheme)
     objectURL <- paste0("<", objectNS, input$objectInput, ">")
     addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
@@ -165,8 +165,9 @@ server <- function(input, output, session) {
   # Show map/network
   # -------------------------------
   observeEvent(input$showMapButton, {
-    query = 'SELECT ?s ?p ?o {
-         ?s a fabio:ScholarlyWork . 
+    query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+    SELECT ?s ?p ?o {
+         ?s a litrev:ScholarlyWork . 
          ?s ?p ?o . 
          FILTER (!(?p IN (:addedDate, :addedBy, rdf:type))) }' 
     graphDF <- fetch_plan_sparql(query)

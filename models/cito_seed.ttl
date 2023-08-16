@@ -22,7 +22,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
 
-:Freud_S a foaf:Person ;
+:Freud_S a litrev:Author ;
     foaf:givenName "Sigmund" ;
     foaf:familyName "Freud" . 
     
@@ -37,7 +37,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
     
-:Jung_CG a foaf:Person ;
+:Jung_CG a litrev:Author ;
     foaf:givenName "Carl-Gustav" ;
     foaf:familyName "Jung" . 
     
@@ -49,7 +49,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
     
-:Adler_A  a foaf:Person ;
+:Adler_A  a litrev:Author ;
     foaf:givenName "Alfred" ;
     foaf:familyName "Adler" . 
     

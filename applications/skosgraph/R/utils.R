@@ -466,29 +466,31 @@ fill_subject_input_slot <- function(aspect, predicate) {
   query <- paste0(
     'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
     'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
-#   cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
+cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
   test <- evalQuery(rep,
             query = query, returnType = "list",
             limit = 1)
-#  cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
+cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
   if (test == "true") {
     query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
             SELECT ?ref WHERE { litrev:', 
                     aspect, ' rdfs:domain  ?domain .',
                     '?ref a ?domain .}')
-#    cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
+cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
     preds <- fetch_one_column(query)
   } else {
     preds <- NULL
   }
-  #  cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
+cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
   preds
 
 }
 
 # fill object slot dependent on predicate selected
 fill_object_input_slot <- function(aspect, predicate) {
+  cat("\n", "****fill_object_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n") 
   # We need the scheme and the prefix
+  
   query <-
     paste0(
       'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
@@ -526,11 +528,11 @@ fill_object_input_slot <- function(aspect, predicate) {
       range <- fetch_one_column(query)
     } else {
       # use scheme range
-      query <- paste0(
-        'SELECT ?range  WHERE { ',
-        prefix,
-        scheme,
-        ' a skos:ConceptScheme ;
+      query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+                      'SELECT ?range  WHERE { ',
+                      prefix,
+                      scheme,
+                      ' a skos:ConceptScheme ;
                              rdfs:range ?range } '
       )
       range <- fetch_one_column(query)
@@ -540,7 +542,6 @@ fill_object_input_slot <- function(aspect, predicate) {
     cats <- paste(prefix, range)
   }
 }
-
 
 
 

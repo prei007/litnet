@@ -146,14 +146,33 @@ server <- function(input, output, session) {
   # Push a statement 
   # -------------------------------
   
-  observeEvent(input$submitButton, {
+  observeEvent(input$submitButton, { 
     subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
     predURL <- paste0("<", modelNS, input$predicateInput, ">")
-       objectScheme <- find_scheme_from_predicate(input$aspect)
-       objectNS <- lookup_namespace(objectScheme)
-    objectURL <- paste0("<", objectNS, input$objectInput, ">")
-    addStatement(rep, subj=subjectURL, pred=predURL, obj=objectURL)
-      
+    objectScheme <- find_scheme_from_predicate(input$aspect) # check this. 
+    objectNS <- lookup_namespace(objectScheme)
+    # This is too simple. Does not consider the range. For instance, 
+    # literals versus other. 
+    objectURL <- paste0("<", defaultNS, input$objectInput, ">")
+    addStatement(rep,
+                 subj = subjectURL,
+                 pred = predURL,
+                 obj = objectURL)
+    cat("\n", "pushed to server: ", "\n") # dev 
+    print(c(subjectURL, predURL, objectURL)) # dev 
+    # Add type info 
+    # (Works like so because duplicate statements are surpressed on server)
+    addStatement(
+      rep,
+      subj = subjectURL,
+      pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+      obj = paste0(
+        "<",
+        "http://www.learn-web.com/2023/litrev/",
+        input$aspect,
+        ">"
+      )
+    )
       # Notify user and save 
       showNotification("Your input is saved.")
       click("showMapButton")

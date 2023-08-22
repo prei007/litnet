@@ -29,7 +29,6 @@ litrev:ScholarlyWork rdfs:subClassOf litrev:ReviewAspect ;
   litrev:provides "Verbs" ; 
   rdfs:domain litrev:ScholarlyWork ;
   litrev:hasThesaurus bib:BibliographyThesaurus . 
-
   
 litrev:Author rdfs:subClassOf litrev:ReviewAspect ;
   litrev:provides "Verbs" ; 
@@ -55,27 +54,6 @@ litrev:ResearchApproach rdfs:subClassOf litrev:ReviewAspect ;
   litrev:predicate litrev:researchApproach ;
   rdfs:domain litrev:ScholarlyWork ; 
   litrev:hasThesaurus rm:MethodsThesaurus . 
-  
-
-# not sure we need properties.
-
-litrev:learningOutcome a rdfs:Property ; 
-  rdfs:label "Learning outcome"@en ; 
-  rdfs:comment "Learning outcomes." ;
-  rdfs:domain litrev:ScholarlyWork .
-  
-
-litrev:researchApproach a rdfs:Property ; 
-  rdfs:label "Research approach"@en ; 
-  rdfs:comment "Studies employ/follow one or more research approaches, with usually one primary one." ;
-  rdfs:range rdfs:Literal ; 
-  rdfs:domain litrev:ScholarlyWork . 
-  
-litrev:cites a rdfs:Property ; 
-  rdfs:label "cites"@en ; 
-  rdfs:comment "Based on the CiTo Ontology." ;
-  rdfs:range cito:CitationThesaurus ; 
-  rdfs:domain litrev:ScholarlyWork . 
 
 
 # ----------------------- 
@@ -105,6 +83,30 @@ skos:provides rdfs:subPropertyOf skos:note ;
   rdfs:label "Provides" ;
   rdfs:domain skos:ConceptScheme ; 
   rdfs:comment "A concept scheme can provide *Nouns* or *Verbs*." .
-  
 
+# ----------------------- 
+# SKOS AuthorThesaurus 
+# -----------------------
 
+litrev:AuthorThesaurus a skos:ConceptScheme ; 
+	dc:title "Authors of scholarly works " ;
+	skos:note "A very small subset of foaf" ; 
+	skos:hasPrefix "litrev:" ; 
+	skos:hasNameSpace "http://www.learn-web.com/2023/litrev/" ;
+	rdfs:domain litrev:Author ;
+	rdfs:range rdfs:Literal ; 
+	skos:provides "Verbs" . 
+	
+litrev:givenName a skos:Concept ; 
+	skos:inScheme litrev:AuthorThesaurus ; 
+	skos:prefLabel "Given name"@en ; 
+	skos:exactMatch "http://xmlns.com/foaf/0.1/givenname" ; 
+	skos:note "Equivalent to foaf:givenname" .
+	
+litrev:familyName a skos:Concept ; 
+	skos:inScheme litrev:AuthorThesaurus ; 
+	skos:prefLabel "Family name"@en ; 
+	skos:exactMatch "http://xmlns.com/foaf/0.1/family_name" ; 
+	skos:note "Equivalent to foaf:family_name" .
+	
+	

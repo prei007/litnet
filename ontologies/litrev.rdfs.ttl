@@ -1,5 +1,5 @@
 PREFIX : <http://www.learn-web.com/2023/litrev/> 
-PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
 PREFIX bib: <http://learn-web.com/2023/bibliography/>
 PREFIX lo: <http://learn-web.com/2023/LearningOutcome/> 
 PREFIX rm: <http://learn-web.com/2023/resmethod/>

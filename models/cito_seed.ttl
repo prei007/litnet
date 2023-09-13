@@ -1,9 +1,9 @@
 # Cito reified with blank nodes 
 
 prefix : <http://www.learn-web.com/litgraph/> 
-PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
-PREFIX bib: <http://learn-web.com/2023/bibliography/>
-PREFIX lo: <http://learn-web.com/2023/LearningOutcome/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/> 
+prefix bib: <http://learn-web.com/2023/bibliography/>
+prefix lo: <http://learn-web.com/2023/LearningOutcome/>
 prefix rm: <http://learn-web.com/2023/resmethod/>
 prefix doco: <http://purl.org/spar/doco/> 
 prefix deo: <http://purl.org/spar/deo/> 

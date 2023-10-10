@@ -363,7 +363,7 @@ fetch_one_column <- function(query) {
 
 # add name spaces for thesauri 
 add_thesaurus_namespace <- function() {
-  query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+  query <- 'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> 
     SELECT ?scheme ?prefix ?ns WHERE {
       ?scheme a skos:ConceptScheme ; 
       skos:hasPrefix ?prefix ;
@@ -411,7 +411,7 @@ lookup_namespace <- function(scheme) {
 # returns "Nouns" or "Verbs" 
 NorV <- function(aspect) {
   query <- paste0(
-    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+    'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
          SELECT ?type  WHERE { litrev:', 
     aspect, 
     ' litrev:provides ?type . }'
@@ -423,7 +423,7 @@ NorV <- function(aspect) {
 find_scheme_from_predicate <- function(aspect) {
   query <-
     paste0(
-      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
       'SELECT ?scheme { litrev:',
       aspect,
       ' litrev:hasThesaurus ?scheme }'
@@ -435,20 +435,20 @@ find_scheme_from_predicate <- function(aspect) {
 
 
 fill_predicate_input_slot <- function(aspect) {
- # cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
+# cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
 
   if (NorV(aspect) == "Nouns") {
     # If providing nouns, find the predicate name
 # cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
-    query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+    query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
       SELECT ?pred  WHERE { litrev:', aspect, 
       ' litrev:predicate ?pred }')
     pred <- fetch_one_column(query)
   } else {
     # if providing verbs, find and return the scheme verbs
-# cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
+#cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
     query <- paste0(
-      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
          SELECT ?verbs  WHERE {
         litrev:', aspect, ' litrev:hasThesaurus ?scheme . 
           ?verbs skos:inScheme ?scheme . } ORDER BY ?verbs' )
@@ -464,7 +464,7 @@ fill_subject_input_slot <- function(aspect, predicate) {
   # fetch existing nodes based on aspect domain. This can be none, so we need  to ASK first
   # if there are any instances of the scheme existing already. Else we display an empty field. 
   query <- paste0(
-    'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+    'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
     'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
 cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
   test <- evalQuery(rep,
@@ -472,7 +472,7 @@ cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n")
             limit = 1)
 cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
   if (test == "true") {
-    query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+    query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/> 
             SELECT ?ref WHERE { litrev:', 
                     aspect, ' rdfs:domain  ?domain .',
                     '?ref a ?domain .}')
@@ -493,7 +493,7 @@ fill_object_input_slot <- function(aspect, predicate) {
   
   query <-
     paste0(
-      'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
       'SELECT ?scheme { litrev:',
       aspect,
       ' litrev:hasThesaurus ?scheme }'
@@ -528,7 +528,7 @@ fill_object_input_slot <- function(aspect, predicate) {
       range <- fetch_one_column(query)
     } else {
       # use scheme range
-      query <- paste0('PREFIX litrev: <http://www-learnweb.com/2023/litrev/> ',
+      query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
                       'SELECT ?range  WHERE { ',
                       prefix,
                       scheme,

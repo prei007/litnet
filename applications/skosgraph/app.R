@@ -95,8 +95,8 @@ server <- function(input, output, session) {
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
-    #  fetch aspects and add to menu for selection
-    aspects <- fetch_one_column('PREFIX litrev: <http://www-learnweb.com/2023/litrev/>
+    #  First action in interface: fetch aspects and add to menu for selection
+    aspects <- fetch_one_column('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
             SELECT ?aspect WHERE {
             ?aspect rdfs:subClassOf litrev:ReviewAspect 
             }')
@@ -110,6 +110,8 @@ server <- function(input, output, session) {
   # -------------------------------
   # Initialize input fields
   # -------------------------------
+  
+  # This is the second action: Fill the predicate input field. 
   
 # scheme_name <- reactive(input$scheme)
   observeEvent(input$aspect, {
@@ -184,7 +186,7 @@ server <- function(input, output, session) {
   # Show map/network
   # -------------------------------
   observeEvent(input$showMapButton, {
-    query <- 'PREFIX litrev: <http://www-learnweb.com/2023/litrev/> 
+    query <- 'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> 
     SELECT ?s ?p ?o {
          ?s a litrev:ScholarlyWork . 
          ?s ?p ?o . 

@@ -14,7 +14,7 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix fabio: <http://purl.org/spar/fabio/> 
 
 
-rm:MethodsThesaurus a skos:ConceptScheme ; 
+:MethodsThesaurus a skos:ConceptScheme ; 
 	dc:title "Research methods thesaurus " ;
 	dc:creator "Peter Reimann" ;
 	skos:hasTopConcept :ResearchMethod, :QualitativeMethod, :QuantivativeMethod, :MixedMethods ;

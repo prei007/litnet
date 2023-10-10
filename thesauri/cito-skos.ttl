@@ -36,36 +36,42 @@ cito:agreesWith skos:example "Example: We share Galileo's opinion: the Earth mov
   skos:prefLabel "agrees with"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsAuthority skos:example "Example: Newton asserted that we are like dwarfs standing on the shoulders of giants [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as one that provides an authoritative description or definition of the subject under discussion."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as authority"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsDataSource skos:example "Example: Italy has more than ten thousand kilometers of shoreline: see [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as source of data."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as data source"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsEvidence skos:example "Example: We found an unquestionable demonstration of our hypothesis in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as source of factual evidence for statements it contains."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as evidence"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsMetadataDocument skos:example "Example: Basic bibliographic, entity and project metadata relating to this article, recorded in a structured machine-readable form, is available as an additional file [X] accompanying this paper."@en ; 
   skos:definition "The citing entity cites the cited entity as being the container of metadata describing the citing entity."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as metadata document"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsPotentialSolution skos:example "Example: This risk could be avoided using the approach shown in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as providing or containing a possible solution to the issues being discussed."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as potential solution"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsRecommendedReading skos:example "Example: To our knowledge, [X] is the best source of exercises about UML, making it a valuable proposal for beginners."@en ; 
   skos:definition "The citing entity cites the cited entity as an item of recommended reading.  This property can be used, for example, to describe references in a lecture reading list, where the cited references are relevant to the general topic of the lecture, but might not be individually cited within the text of the lecture.  Similarly, it could be used to describe items in a 'Suggested further reading' list at the end of a book chapter."@en ; 
   skos:inScheme :CitationThesaurus ; 

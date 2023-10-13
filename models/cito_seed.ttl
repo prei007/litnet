@@ -7,52 +7,52 @@ prefix lo: <http://learn-web.com/2023/LearningOutcome/>
 prefix rm: <http://learn-web.com/2023/resmethod/>
 prefix doco: <http://purl.org/spar/doco/> 
 prefix deo: <http://purl.org/spar/deo/> 
-prefix dc: <http://purl.org/dc/terms/> 
+prefix dcterms: <http://purl.org/dc/terms/> 
 prefix fabio: <http://purl.org/spar/fabio/> 
 prefix cito: <http://purl.org/spar/cito/> 
 prefix oa: <http://www.w3.org/ns/oa#> 
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 
 :Freud1920 a litrev:ScholarlyWork; 
-    bib:creator :Freud_S ;
-    bib:title "Der Fall Anna S." ;
-    bib:created "1920" ;
-    bib:identifier "ISBN 1445-6780598" ;
+    dcterms:creator :Freud_S ;
+    dcterms:title "Der Fall Anna S." ;
+    dcterms:created "1920" ;
+    dcterms:identifier "ISBN 1445-6780598" ;
     litrev:researchApproach rm:QualitativeMethod ; 
     litrev:learningOutcome lo:KnowledgeOutcomes ;
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
 
-:Freud_S a litrev:Author ;
-    litrev:givenName "Sigmund" ;
-    litrev:familyName "Freud" . 
+:Freud_S a litrev:Author, foaf:Person ;
+   foaf:givenName "Sigmund" ;
+   foaf:familyName "Freud" . 
     
 
 :Jung1921 a litrev:ScholarlyWork ; 
-    bib:creator :Jung_CG ;
-    bib:title "Das kollektive Unbewusste" ;
-    bib:created "1921" ;
-    bib:identifier "ISBN 1445-6780515" ;
+    dcterms:creator :Jung_CG ;
+    dcterms:title "Das kollektive Unbewusste" ;
+    dcterms:created "1921" ;
+    dcterms:identifier "ISBN 1445-6780515" ;
     litrev:researchApproach rm:MixedMethods ; 
     litrev:learningOutcome lo:SystemsThinking ;
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
     
-:Jung_CG a litrev:Author ;
-    litrev:givenName "Carl-Gustav" ;
-    litrev:familyName "Jung" . 
+:Jung_CG a litrev:Author, foaf:Person ;
+    foaf:givenName "Carl-Gustav" ;
+    foaf:familyName "Jung" . 
     
 :Adler1922 a litrev:ScholarlyWork ; 
-    bib:creator :Adler_A ;
-    bib:title "Overcompensation today and tomorrow" ;
-    bib:created "1922" ;
-    bib:identifier "ISBN 1445-6780520" ;
+    dcterms:creator :Adler_A ;
+    dcterms:title "Overcompensation today and tomorrow" ;
+    dcterms:created "1922" ;
+    dcterms:identifier "ISBN 1445-6780520" ;
     :addedBy "Admin" ;
     :addedDate "02Aug2023" . 
     
-:Adler_A  a litrev:Author ;
-    litrev:givenName "Alfred" ;
-    litrev:familyName "Adler" . 
+:Adler_A  a litrev:Author, foaf:Person ;
+    foaf:givenName "Alfred" ;
+    foaf:familyName "Adler" . 
     
 :CITE-seed01 a cito:Citation ;
   cito:hasCitingEntity :Jung1921 ;

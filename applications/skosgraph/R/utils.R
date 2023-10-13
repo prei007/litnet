@@ -88,7 +88,13 @@ node_exists <- function(node) {
           limit = 1)
 }
 
-
+value_exists <- function(node, predicate) {
+  # note that both parameters need to come with prefixes 
+  query <- paste0('{ ', node, ' ', predicate, '?o }')
+  evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
+}
 
 
 # update the view with the plan table
@@ -338,8 +344,8 @@ update_repo <- function(node) {
 # query processing template
 
 fetch_one_column <- function(query) {
-#  cat("\n", "****fetch_one_column() query: ", "\n")
-#  print(query)
+# cat("\n", "****fetch_one_column() query: ", "\n")  # dev
+# print(query) #dev
   
   dfout <- evalQuery(
     rep,
@@ -432,116 +438,171 @@ find_scheme_from_predicate <- function(aspect) {
   scheme
 }
 
-
-
-fill_predicate_input_slot <- function(aspect) {
-# cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
-
-  if (NorV(aspect) == "Nouns") {
-    # If providing nouns, find the predicate name
-# cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
-    query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-      SELECT ?pred  WHERE { litrev:', aspect, 
-      ' litrev:predicate ?pred }')
-    pred <- fetch_one_column(query)
-  } else {
-    # if providing verbs, find and return the scheme verbs
-#cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
-    query <- paste0(
-      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-         SELECT ?verbs  WHERE {
-        litrev:', aspect, ' litrev:hasThesaurus ?scheme . 
-          ?verbs skos:inScheme ?scheme . } ORDER BY ?verbs' )
-    pred <- fetch_one_column(query)
-  }
-# cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
- pred
-}
-
-fill_subject_input_slot <- function(aspect, predicate) {
-#  cat("\n", "****fill_subject_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n")  
-  
-  # fetch existing nodes based on aspect domain. This can be none, so we need  to ASK first
-  # if there are any instances of the scheme existing already. Else we display an empty field. 
-  query <- paste0(
-    'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
-    'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
-cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
-  test <- evalQuery(rep,
-            query = query, returnType = "list",
-            limit = 1)
-cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
-  if (test == "true") {
-    query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/> 
-            SELECT ?ref WHERE { litrev:', 
-                    aspect, ' rdfs:domain  ?domain .',
-                    '?ref a ?domain .}')
-cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
-    preds <- fetch_one_column(query)
-  } else {
-    preds <- NULL
-  }
-cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
-  preds
-
-}
-
-# fill object slot dependent on predicate selected
-fill_object_input_slot <- function(aspect, predicate) {
-  cat("\n", "****fill_object_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n") 
-  # We need the scheme and the prefix
-  
-  query <-
-    paste0(
-      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
-      'SELECT ?scheme { litrev:',
-      aspect,
-      ' litrev:hasThesaurus ?scheme }'
+fill_input_slots <- function(session, aspect, predicate, subject) {
+  # Call the responsible input handler
+  switch(
+    aspect, 
+    "ScholarlyWork" = input_bib(session, predicate, subject), 
+    "Author" = input_author(session, predicate, subject),
+    "Citation" = input_citation(session, predicate, subject),
+    "LearningOutcome" = input_learning_outcome(session, predicate, subject)
     )
-  scheme <- fetch_one_column(query)
-  prefix <- lookup_prefix(scheme)
-  # Step 1: dependent on the predicate providing verbs or nouns
-  if (NorV(aspect) == "Nouns") {
-    # If the predicate provides VALUES, it's categories are returned
-    # (currently only as a flat list)
-    query <- paste0('SELECT ?cat {?cat skos:inScheme ',
-                    prefix, scheme, '} ORDER BY ?cat')
-    cats <- fetch_one_column(query)
-  } else {
-    # Step 2: Check if the predicate has a range, else use the range from the concept scheme
-    query <- paste0('ASK WHERE { ',
-                    prefix,
-                    predicate,
-                    ' a skos:Concept ;
-                             rdfs:range ?range } ')
-    test <- evalQuery(rep,
-                      query = query,
-                      returnType = "list",
-                      limit = 1)
-    if (test == 'true') {
-      #use predicate range
-      query <- paste0('SELECT ?range  WHERE { ',
-                      prefix,
-                      predicate,
-                      ' a skos:Concept ;
-                             rdfs:range ?range } ')
-      range <- fetch_one_column(query)
-    } else {
-      # use scheme range
-      query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
-                      'SELECT ?range  WHERE { ',
-                      prefix,
-                      scheme,
-                      ' a skos:ConceptScheme ;
-                             rdfs:range ?range } '
-      )
-      range <- fetch_one_column(query)
-    }
-    # Now we can retrieve the instances of categories
-    # Leaving this to the future. Just an indicator for the input at this stage:
-    cats <- paste(prefix, range)
-  }
 }
+
+input_bib <- function(session, predicate, subject) {
+  # handles bibliographic input 
+  cat("\n", "****input_bib() entered with predicate = ", predicate, "subject = ", subject,  "\n")  #dev
+  if (is.null(predicate)) {
+    # set the predicate according to aspect selected
+  
+  updateSelectInput(session, "predicateInput", 
+                    # choices = fill_predicate_input_slot(input$aspect),
+                    choices = ScholarlyWorkPredicates,
+                    selected  = NULL)
+  } else {
+  # subject field is list of known works
+  query <- paste0('prefix litrev: <http://www.learn-web.com/2023/litrev/>
+                  prefix lg: <http://www.learn-web.com/litgraph/>
+                  SELECT ?work WHERE {
+                 ?work a litrev:ScholarlyWork }')
+  works <- fetch_one_column(query)
+  updateSelectizeInput(session, "subjectInput", 
+                       choices = works,
+                       options = list(create = TRUE), 
+                       selected = NULL)
+
+  }
+
+}
+
+
+fill_predicate_input_slot <- function(session, aspect) {
+cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
+  # Call the responsible input handler
+  switch(
+    aspect, 
+    "ScholarlyWork" = input_bib_predicate(session), 
+    "Author" = input_author_predicate(session),
+    "Citation" = input_citation_predicate(session),
+    "LearningOutcome" = input_learning_outcome_predicate(session)
+  )
+}
+
+fill_subject_input_slot <- function(session, aspect, predicateSelection) {
+  cat("\n", "****fill_subject_input_slot - predicateSelection: :", predicateSelection, "\n")  #dev
+  # Call the responsible input handler
+  switch(
+    aspect, 
+    "ScholarlyWork" = input_bib_subject(session, predicateSelection), 
+    "Author" = input_author_subject(session, predicateSelection),
+    "Citation" = input_citation_subject(session, predicateSelection),
+    "LearningOutcome" = input_learning_outcome_subject(session, predicateSelection)
+  )
+}
+
+fill_object_input_slot <- function(session, aspect, predicateSelection, subjectSelection) {
+  cat("\n", "****fill_object_input_slot - subjectSelection: :", subjectSelection, "\n")  #dev
+  # Call the responsible input handler
+  switch(
+    aspect, 
+    "ScholarlyWork" = input_bib_object(session, predicateSelection, subjectSelection), 
+    "Author" = input_author_object(session, predicateSelection, subjectSelection),
+    "Citation" = input_citation_object(session, predicateSelection, subjectSelection),
+    "LearningOutcome" = input_learning_outcome_object(session, predicateSelection, subjectSelection)
+  )
+}
+
+input_bib_predicate <- function(session) {
+  # handles bibliographic input 
+  cat("\n", "****input_bib_predicate() entered ",  "\n")  #dev
+
+    # set the predicate according to aspect selected
+    
+    updateSelectInput(session, "predicateInput", 
+                      choices = ScholarlyWorkPredicates,
+                      selected  = NULL)
+  # } else {
+  #   # subject field is list of known works
+  #   query <- paste0('prefix litrev: <http://www.learn-web.com/2023/litrev/>
+  #                 prefix lg: <http://www.learn-web.com/litgraph/>
+  #                 SELECT ?work WHERE {
+  #                ?work a litrev:ScholarlyWork }')
+  #   works <- fetch_one_column(query)
+  #   updateSelectizeInput(session, "subjectInput", 
+  #                        choices = works,
+  #                        options = list(create = TRUE), 
+  #                        selected = NULL)
+  # }
+  
+}
+
+input_bib_subject <- function(session, predicateSelection) {
+# subject field is list of known works
+  cat("\n", "****input_bib_subject() entered ",  "\n")  #dev
+    query <- paste0('prefix litrev: <http://www.learn-web.com/2023/litrev/>
+                  prefix lg: <http://www.learn-web.com/litgraph/>
+                  SELECT ?work WHERE {
+                 ?work a litrev:ScholarlyWork }')
+    works <- fetch_one_column(query)
+    updateSelectizeInput(session, "subjectInput",
+                         choices = works,
+                         options = list(create = TRUE),
+                         selected = NULL)
+}
+
+input_bib_object <- function(session, predicateSelection, subjectSelection) {
+  cat("\n", "****input_bib_object() entered with predicate: ", 
+      predicateSelection, " subject: ", subjectSelection,  "\n")  #dev
+  
+  # The object can be a string (existing value for title, for instance, or an object)
+  # We need to first find out if there are data already  on the subject
+   if (node_exists(subjectSelection)) {
+     query <- paste0(
+    'SELECT ?p ?o  { :', 
+    subjectSelection, 
+    ' ?p ?o }')
+     # The query will return a 2column dataframe: predicate p and object o
+   #   browser()
+     dfout <- evalQuery(rep,
+                        query = query, returnType = "dataframe",
+                        cleanUp = TRUE, limit = 1000)
+       dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+       # leave the 3rd column of dfout untouched because we need the url! 
+       dfout[[1]] <- last_URI_element(dfout[[1]])
+       dfout[[2]] <- last_URI_element(dfout[[2]])
+       # remove double quotes from prefix and ns column
+       # dfout[[1]] <- gsub("\"", "", dfout[[1]], fixed = TRUE)
+       dfout[[2]] <- gsub("\"", "", dfout[[2]], fixed = TRUE)
+     work_table <<- dfout
+   }
+  # Does the predicate have a value?
+  # if (value_exists(paste0(':', subjectSelection), 
+  #                  paste0(' bib:', predicateSelection))) {
+  #   query <- paste0(
+  #     'SELECT ?o { :', 
+  #     subjectSelection, 
+  #     ' bib:', 
+  #     predicateSelection,
+  #     ' ?o }' )
+  #   objectVal <- fetch_one_column(query)
+  # }
+   }
+  
+  
+
+  
+  # query <- paste0('prefix litrev: <http://www.learn-web.com/2023/litrev/>
+  #                 prefix lg: <http://www.learn-web.com/litgraph/>
+  #                 SELECT ?work WHERE {
+  #                ?work a litrev:ScholarlyWork }')
+  # works <- fetch_one_column(query)
+  # updateSelectizeInput(session, "subjectInput",
+  #                      choices = works,
+  #                      options = list(create = TRUE),
+  #                      selected = NULL)
+
+
+
 
 
 

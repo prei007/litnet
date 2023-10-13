@@ -4,6 +4,7 @@ library(shiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
+library(readr)
 # library(NestedMenu)
 
 ui <- fluidPage(
@@ -23,7 +24,8 @@ ui <- fluidPage(
                  selectizeInput("objectInput", "Object:", multiple = FALSE, 
                                 choices = NULL, 
                                 options = list(create = TRUE)),
-                 actionButton("submitButton", "Submit")
+                 actionButton("submitButton", "Submit"),
+                 tableOutput("work")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 
@@ -83,7 +85,6 @@ server <- function(input, output, session) {
     validate(need(input$pwd, "Provide a password" ))
     # add namespaces because they are "private" to the logged in user! 
     addNameSpace(repo = rep, prefix = "", nsURI = defaultNS)
-    addNameSpace(repo = rep, prefix = "cito", nsURI = citoNS)
     addNameSpace(repo = rep, prefix = "foaf", nsURI = foafNS)
     addNameSpace(repo = rep, prefix = "oa", nsURI = oaNS)
     addNameSpace(repo = rep, prefix = "fabio", nsURI =  fabioNS)
@@ -96,12 +97,25 @@ server <- function(input, output, session) {
     showNotification("You are logged in")
     
     #  First action in interface: fetch aspects and add to menu for selection
-    aspects <- fetch_one_column('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-            SELECT ?aspect WHERE {
-            ?aspect rdfs:subClassOf litrev:ReviewAspect 
-            }')
-    # The above needs to be generalised to included rdf classes as well. 
-    # Schemes are classes and properties in the doman model rather than concept scheme definitions. 
+    # aspects <- fetch_one_column('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
+    #         SELECT ?aspect WHERE {
+    #         ?aspect rdfs:subClassOf litrev:ReviewAspect 
+     #       }')
+    
+   # Read in info about predicates
+   # access a row like so: predicates[ predicates$label == 'creator', ]
+   # and a particular cell: predicates[ predicates$label == 'creator', 'uri']
+   # This syntax will always return a tibble. To get to the value do:
+   # sel <- predicates[ predicates$label == 'creator', 'uri']; sel[[1]] will yield the value. 
+    
+    
+    
+     predicates <- read_csv("predicates.csv")
+    
+    aspects <- c('ScholarlyWork', 'Author', 'Citation', 'Claim', 'LearningOutcome', 'ResearchMethod')
+    ScholarlyWorkPredicates <<- c('dc:title', 'dc:creator', 'dc:date')
+  
+    
     add_thesaurus_namespace() 
     updateSelectInput(session, "aspect", choices = aspects)
     
@@ -112,36 +126,28 @@ server <- function(input, output, session) {
   # -------------------------------
   
   # This is the second action: Fill the predicate input field. 
-  
-# scheme_name <- reactive(input$scheme)
   observeEvent(input$aspect, {
     # update predicate field. 
     if (input$aspect != "") {
-      updateSelectInput(session, "predicateInput", 
-                        choices = fill_predicate_input_slot(input$aspect),
-                        selected  = NULL)
-    }
-    # Place a nested menu close to predicate input for hierachical options. 
-    # This is done creating the menu button dynamically (in the end). 
-    #
-    # output$statementInput <- renderUI({
-    #   tagList(
-    #     NestedMenuOutput("predicateMenu", height = "auto"))
-    # })
-    # output[["predicateMenu"]] <- renderNestedMenu({
-    #   NestedMenu("researchMethod", items = resmethods)
-    # })
+      fill_predicate_input_slot(session, input$aspect) 
+      }
   })
   
-  # When a predicate is selected, update the subjectInput: 
   observeEvent(input$predicateInput, {
-    if (input$predicateInput != "") {
-      updateSelectizeInput(session, "subjectInput", choices = fill_subject_input_slot(input$aspect, input$predicateInput),
-                           options = list(create = TRUE), selected = NULL)
-       updateSelectizeInput(session, "objectInput", choices = fill_object_input_slot(input$aspect, input$predicateInput),
-                         options = list(create = TRUE), selected = NULL)
+    if(input$predicateInput != "") {
+      fill_subject_input_slot(session, input$aspect, input$predicateInput)
     }
   })
+
+  observeEvent(input$subjectInput, {
+    if(input$subjectInput != "") {
+      work_table <<- NULL
+      fill_object_input_slot(session, input$aspect, input$predicateInput, input$subjectInput)
+      output$work <- renderTable(work_table) # work_table gets a value from the fill function 
+    }
+  })
+  
+  
   
  
   # -------------------------------

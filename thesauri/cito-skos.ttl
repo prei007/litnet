@@ -78,49 +78,57 @@ cito:citesAsRecommendedReading skos:example "Example: To our knowledge, [X] is t
   skos:prefLabel "cites as recommended reading"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsRelated skos:example "Example: An analysis similar to what we proposed here is presented in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as one that is related."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as related"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesAsSourceDocument skos:example "Example: Several sections of this work are based on our literature review of the topic published as journal article [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as being the entity from which the citing entity is derived, or about which the citing entity contains metadata."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites as source document"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:citesForInformation skos:example "Example: The grammar of Pascal was introduced in [X]."@en ; 
   skos:definition "The citing entity cites the cited entity as a source of information on the subject under discussion."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "cites for information"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:compiles skos:example "Note: This property has been imported from the CiTO4Data ontology, usage of which has been deprecated."@en ; 
   skos:definition "The citing entity is used to create or compile the cited entity."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "compiles"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept ; 
-  skos:example "Example: This book gathers interviews with academic researchers of several disciplines [X]."@en . 
+  skos:example "Example: This book gathers interviews with academic researchers of several disciplines [X]."@en .
+  
 cito:confirms skos:example "Example: Our findings are similar to those published in [X]."@en ; 
   skos:definition "The citing entity confirms facts, ideas or statements presented in the cited entity."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "confirms"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:containsAssertionFrom skos:example "Example: We think that to stand on the top of giants [X] is a valuable principle to follow for our own research."@en ; 
   skos:definition "The citing entity contains a statement of fact or a logical assertion (or a collection of such facts and/or assertions) originally present in the cited entity.   This object property is designed to be used to relate a separate abstract, summary or nanopublication to the cited entity upon which it is based."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "contains assertion from"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:corrects skos:example "Example: The result published in [X] is partially wrong, the correct result is 42."@en ; 
   skos:definition "The citing entity corrects statements, ideas or conclusions presented in the cited entity."@en ; 
   skos:inScheme :CitationThesaurus ; 
   skos:prefLabel "corrects"@en ; 
   skos:broader cito:cites ; 
   rdf:type skos:Concept . 
+  
 cito:credits skos:example "Example: Galileo was the first to observe Jupiter's satellites [X]."@en ; 
   skos:definition "The citing entity acknowledges contributions made by the cited entity."@en ; 
   skos:inScheme :CitationThesaurus ; 

@@ -88,7 +88,16 @@ node_exists <- function(node) {
           limit = 1)
 }
 
-
+value_exists <- function(node, predicate) {
+  # note that both parameters need to come with prefixes 
+  query <- paste0('ASK { ', node, ' ', predicate, ' ?o }')
+# cat("\n", "*****value_exists()  query : ", "\n") # dev
+# print(query)  #dev
+# cat("\n")    #dev
+  evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
+}
 
 
 # update the view with the plan table
@@ -338,8 +347,8 @@ update_repo <- function(node) {
 # query processing template
 
 fetch_one_column <- function(query) {
-#  cat("\n", "****fetch_one_column() query: ", "\n")
-#  print(query)
+# cat("\n", "****fetch_one_column() query: ", "\n")  # dev
+# print(query)        #dev
   
   dfout <- evalQuery(
     rep,
@@ -359,6 +368,16 @@ fetch_one_column <- function(query) {
   } else {
     alert("The database does not contain (sufficient) information .")
   }
+}
+
+#add namespaces for predicates
+add_name_spaces <- function(repo, predicates) {
+  for (i in 1:length(predicates[["label"]])) {
+    this_prefix <- predicates[["prefix"]][i] 
+    this_ns <- predicates[["uri"]][i]
+    addNameSpace(rep, this_prefix, this_ns)
+  }
+  
 }
 
 # add name spaces for thesauri 
@@ -432,116 +451,127 @@ find_scheme_from_predicate <- function(aspect) {
   scheme
 }
 
-
-
-fill_predicate_input_slot <- function(aspect) {
-# cat("\n", "****fill_predicate_input_slot - aspect: :", aspect, "\n")  #dev
-
-  if (NorV(aspect) == "Nouns") {
-    # If providing nouns, find the predicate name
-# cat("\n", "****fill_predicate_input_slot - finding predicate name", "\n")  #dev
-    query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-      SELECT ?pred  WHERE { litrev:', aspect, 
-      ' litrev:predicate ?pred }')
-    pred <- fetch_one_column(query)
-  } else {
-    # if providing verbs, find and return the scheme verbs
-#cat("\n", "****fill_predicate_input_slot - finding predicate values", "\n")  #dev
-    query <- paste0(
-      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-         SELECT ?verbs  WHERE {
-        litrev:', aspect, ' litrev:hasThesaurus ?scheme . 
-          ?verbs skos:inScheme ?scheme . } ORDER BY ?verbs' )
-    pred <- fetch_one_column(query)
-  }
-# cat("\n", "****fill_predicate_input_slot - preds: :", pred, "\n")  #dev
- pred
-}
-
-fill_subject_input_slot <- function(aspect, predicate) {
-#  cat("\n", "****fill_subject_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n")  
-  
-  # fetch existing nodes based on aspect domain. This can be none, so we need  to ASK first
-  # if there are any instances of the scheme existing already. Else we display an empty field. 
+fetch_values_from_thesaurus <- function(concept_scheme) {
   query <- paste0(
-    'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
-    'ASK WHERE { litrev:', aspect, ' rdfs:domain  ?domain . ', ' ?ref a ?domain .}')
-cat("\n", "****fill_subject_input_slot() - test query: ", query,  "\n") 
-  test <- evalQuery(rep,
-            query = query, returnType = "list",
-            limit = 1)
-cat("\n", "****fill_subject_input_slot() - test result: ", test,  "\n") 
-  if (test == "true") {
-    query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/> 
-            SELECT ?ref WHERE { litrev:', 
-                    aspect, ' rdfs:domain  ?domain .',
-                    '?ref a ?domain .}')
-cat("\n", "****fill_subject_input_slot() - query: ", query,  "\n")   
-    preds <- fetch_one_column(query)
-  } else {
-    preds <- NULL
-  }
-cat("\n", "****fill_subject_input_slot - preds: :", preds, "\n")  #dev
-  preds
-
-}
-
-# fill object slot dependent on predicate selected
-fill_object_input_slot <- function(aspect, predicate) {
-  cat("\n", "****fill_object_input_slot() - aspect: ", aspect, "predicate: ", predicate, "\n") 
-  # We need the scheme and the prefix
-  
-  query <-
-    paste0(
-      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
-      'SELECT ?scheme { litrev:',
-      aspect,
-      ' litrev:hasThesaurus ?scheme }'
+    'SELECT ?concept {?concept skos:inScheme ',
+    concept_scheme, 
+    ' } ORDER BY ?concept'
     )
-  scheme <- fetch_one_column(query)
-  prefix <- lookup_prefix(scheme)
-  # Step 1: dependent on the predicate providing verbs or nouns
-  if (NorV(aspect) == "Nouns") {
-    # If the predicate provides VALUES, it's categories are returned
-    # (currently only as a flat list)
-    query <- paste0('SELECT ?cat {?cat skos:inScheme ',
-                    prefix, scheme, '} ORDER BY ?cat')
-    cats <- fetch_one_column(query)
-  } else {
-    # Step 2: Check if the predicate has a range, else use the range from the concept scheme
-    query <- paste0('ASK WHERE { ',
-                    prefix,
-                    predicate,
-                    ' a skos:Concept ;
-                             rdfs:range ?range } ')
-    test <- evalQuery(rep,
-                      query = query,
-                      returnType = "list",
-                      limit = 1)
-    if (test == 'true') {
-      #use predicate range
-      query <- paste0('SELECT ?range  WHERE { ',
-                      prefix,
-                      predicate,
-                      ' a skos:Concept ;
-                             rdfs:range ?range } ')
-      range <- fetch_one_column(query)
-    } else {
-      # use scheme range
-      query <- paste0('PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
-                      'SELECT ?range  WHERE { ',
-                      prefix,
-                      scheme,
-                      ' a skos:ConceptScheme ;
-                             rdfs:range ?range } '
-      )
-      range <- fetch_one_column(query)
-    }
-    # Now we can retrieve the instances of categories
-    # Leaving this to the future. Just an indicator for the input at this stage:
-    cats <- paste(prefix, range)
+  fetch_one_column(query)
+}
+
+
+fill_predicate_input_slot <- function(session, aspect) {
+# cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
+  
+# We need the values for the aspect. First, select the rows for aspect:
+  itemsdf = predicates[ predicates$aspect == aspect, ]
+# This is a tibble with all columns for predicates under the aspect. 
+  # The first column is the list we need
+  items <- itemsdf$label
+  # update selection options
+  updateSelectInput(session, 
+                    "predicateInput", 
+                    choices = items)
+  
+}
+
+fill_subject_input_slot <- function(session, aspect, predicateSelection) {
+# cat("\n", "****fill_subject_input_slot - predicateSelection: ", predicateSelection, "\n")  #dev
+  # determine the domain of the selected predicate
+  domain<- predicates[ predicates$label == predicateSelection, 'domain']
+  domain <- domain[[1]] 
+  # query for nodes of type as in domain if there are any
+  query <- paste0('ASK { ?s a ', domain, ' }' )
+  test <- evalQuery(rep,
+                    query = query, returnType = "list",
+                    limit = 1)
+  if (test == "true") {
+    query <- paste0('SELECT ?s { ?s a ', domain, ' }' )
+    items <- fetch_one_column(query)
+    # add instance prefix to items
+    items <- lapply(items, function(x) paste0(instancePrefix, x))
+    # update selection options
+    updateSelectizeInput(session, 
+                      "subjectInput", 
+                      choices = items)
   }
 }
+
+fill_object_input_slot <-
+  function(session,
+           aspect,
+           predicateSelection,
+           subjectSelection) {
+    # cat("\n",
+    #     "****fill_object_input_slot - subjectSelection: ",
+    #     subjectSelection,
+    #     "\n")  #dev
+    
+    # show what's known about the subject in a table
+    if (node_exists(subjectSelection)) {
+        query <- paste0('SELECT ?o ?p { ', subjectSelection, '?o ?p }')
+        dfout <- evalQuery(rep,
+                           query = query, returnType = "dataframe",
+                           cleanUp = TRUE, limit = 50)
+        dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+        dfout[[1]] <- last_URI_element(dfout[[1]])
+        dfout[[2]] <- last_URI_element_1(dfout[[2]], ns_list) 
+        work_table <<- dfout  # note the gloval env
+    } 
+    # if an object value exists show it
+    if (value_exists(subjectSelection, predicateSelection)) {
+      query <- paste0('SELECT ?o { ',
+                      subjectSelection,
+                      ' ',
+                      predicateSelection,
+                      ' ?o }')
+      items = fetch_one_column(query)
+      # add instance prefix to items
+      prefix = predicates[predicates$label == predicateSelection, 'prefix']
+      prefix = prefix[[1]]
+      items <- lapply(items, function(x) paste0(prefix, ':', x))
+      updateSelectizeInput(session,
+                           "objectInput",
+                           choices = items)
+    } else {
+      # determine the range of the selected predicate
+      range <-
+        predicates[predicates$label == predicateSelection, 'range']
+      range <- range[[1]]
+      # if range is different from strings, look for instances of the range
+      if (range != "xsd:string" && range != "Thesaurus") {
+        query <- paste0('SELECT ?s { ?s a ', range, ' }')
+        items <- fetch_one_column(query)
+        updateSelectizeInput(session,
+                             "objectInput",
+                             choices = items)
+      } else if (range == "Thesaurus" ) {
+        # look up the concept scheme for the selected predicate
+        concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
+        concept_scheme <- concept_scheme[[1]]
+        prefix = predicates[predicates$label == predicateSelection, 'prefix']
+        prefix = prefix[[1]]
+        concept_scheme  <- paste0(prefix, ':', concept_scheme)
+        # fetch the values from the scheme and update object selection
+        items <- fetch_values_from_thesaurus(concept_scheme)
+        items <- lapply(items, function(x) paste0(prefix, ':', x))
+        updateSelectizeInput(session,
+                             "objectInput",
+                             choices = items)
+      } else {
+        updateSelectizeInput(session,
+                             "objectInput",
+                             choices = NULL)
+      }
+    }
+  }
+    
+
+
+
+
+
 
 
 

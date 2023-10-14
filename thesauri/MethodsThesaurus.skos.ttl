@@ -2,8 +2,8 @@
 # Concepts: Research methods
 #################################
 
-prefix : <http://learn-web.com/2023/resmethod/>
-prefix rm: <http://learn-web.com/2023/resmethod/>
+prefix : <http://learn-web.com/thesauri/research_methods/>
+prefix rm: <http://learn-web.com/thesauri/research_methods/>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>

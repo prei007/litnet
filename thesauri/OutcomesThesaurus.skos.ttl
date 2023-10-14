@@ -2,8 +2,8 @@
 # Concepts: Outcomes
 #################################
 
-PREFIX : <http://learn-web.com/2023/LearningOutcome/>
-PREFIX lo: <http://learn-web.com/2023/LearningOutcome/>
+PREFIX : <http://learn-web.com/thesauri/learning_outcomes/>
+PREFIX lo: <http://learn-web.com/thesauri/learning_outcomes/>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>

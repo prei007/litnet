@@ -24,21 +24,19 @@ ui <- fluidPage(
                  selectizeInput("objectInput", "Object:", multiple = FALSE, 
                                 choices = NULL, 
                                 options = list(create = TRUE)),
-                 actionButton("submitButton", "Submit"),
-                 tableOutput("work")
+                 actionButton("submitButton", "Submit")
                ),
                mainPanel(
                  tabsetPanel(type = "tabs", 
+                             tabPanel("Table", 
+                                      tableOutput("work")),
                              tabPanel("Graph", 
                                       # show user name
                                       actionButton("showMapButton",  "show map view "),
                                       p(" Network here "),
                                       visNetworkOutput("Map", width = "1000px", height = "600px")
                                       #    DTOutput('tbl')
-                             ),
-                             tabPanel("Table", 
-                                      p(" Table here"))
-                             
+                             )
                  )
                )
              )
@@ -116,7 +114,7 @@ server <- function(input, output, session) {
    # add namespaces for predicates on server
    add_name_spaces(rep, predicates) 
     
-    aspects <- c('ScholarlyWork', 'Author', 'Citation', 'Claim', 'LearningOutcome', 'ResearchMethod')
+    aspects <- c('ScholarlyWork', 'Author', 'Citation', 'Claim', 'LearningOutcome', 'ResearchApproach')
     
  # first action in interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
@@ -143,9 +141,9 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$subjectInput, {
-    # update object field. 
+    # update object field.
     if(input$subjectInput != "") {
-      work_table <<- NULL
+      # work_table <<- NULL
       fill_object_input_slot(session, input$aspect, input$predicateInput, input$subjectInput)
       output$work <- renderTable(work_table) # work_table gets a value from the fill function
     }

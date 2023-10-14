@@ -149,6 +149,9 @@ server <- function(input, output, session) {
     }
   })
   
+  #we could also think about: 
+  # observeEvent(input$objectInput) 
+  # for analysing the input as to problems. 
   
   
  
@@ -157,32 +160,49 @@ server <- function(input, output, session) {
   # -------------------------------
   
   observeEvent(input$submitButton, { 
-    subjectURL <- paste0("<", defaultNS, input$subjectInput, ">")
-    predURL <- paste0("<", modelNS, input$predicateInput, ">")
-    objectScheme <- find_scheme_from_predicate(input$aspect) # check this. 
-    objectNS <- lookup_namespace(objectScheme)
-    # This is too simple. Does not consider the range. For instance, 
-    # literals versus other. 
-    objectURL <- paste0("<", defaultNS, input$objectInput, ">")
+   subjectNS <- ns_from_input(input$subjectInput)
+   predicateNS <- ns_from_input(input$predicateInput)
+   
+   if (has_prefix(input$objectInput)) {
+     objectNS <- ns_from_input(input$objectInput)
+   } else {
+     objectNS <- ""
+   }
+   
+    subjectURL <- paste0("<", subjectNS, remove_prefix(input$subjectInput), ">")
+    predURL <- paste0("<", predicateNS, remove_prefix(input$predicateInput), ">")
+    objValue <- remove_prefix(input$objectInput)
+      if (has_prefix(input$objectInput)) {
+        objectURL <- paste0("<", objectNS, objValue, ">")
+      } else {
+        objectURL <- paste0('"',  objValue, '"')
+    }
+  
+    
+    #objectURL <- paste0("<", objectNS, remove_prefix(input$objectInput), ">")
+    
+    cat("\n", "pushing to server: ", "\n") # dev 
+    print(c(subjectURL, predURL, objectURL)) # dev 
+    
     addStatement(rep,
                  subj = subjectURL,
                  pred = predURL,
                  obj = objectURL)
-    cat("\n", "pushed to server: ", "\n") # dev 
-    print(c(subjectURL, predURL, objectURL)) # dev 
+
     # Add type info 
     # (Works like so because duplicate statements are surpressed on server)
-    addStatement(
-      rep,
-      subj = subjectURL,
-      pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
-      obj = paste0(
-        "<",
-        "http://www.learn-web.com/2023/litrev/",
-        input$aspect,
-        ">"
-      )
-    )
+    
+    # addStatement(
+    #   rep,
+    #   subj = subjectURL,
+    #   pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+    #   obj = paste0(
+    #     "<",
+    #     "http://www.learn-web.com/2023/litrev/",
+    #     input$aspect,
+    #     ">"
+    #   )
+    # )
       # Notify user and save 
       showNotification("Your input is saved.")
       click("showMapButton")

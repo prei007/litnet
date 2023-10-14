@@ -550,6 +550,7 @@ fill_object_input_slot <-
         # look up the concept scheme for the selected predicate
         concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
         concept_scheme <- concept_scheme[[1]]
+        # add prefix to the concept scheme name
         prefix = predicates[predicates$label == predicateSelection, 'prefix']
         prefix = prefix[[1]]
         concept_scheme  <- paste0(prefix, ':', concept_scheme)
@@ -568,7 +569,37 @@ fill_object_input_slot <-
   }
     
 
+ns_from_input <- function(inputValue) {
+  ns <- strsplit(inputValue, ':')
+  if (length(ns[[1]]) == 2) {
+    ns <- first(ns[[1]])
+    if (ns == "litrev") {
+      ns <- modelNS
+    } else if (ns == "litgraph") {
+      ns <- defaultNS
+    } else {
+      ns <- predicates[predicates$prefix == ns, 'uri']
+    }
+    ns
+  }
+}
 
+
+has_prefix <- function(inputValue) {
+  ns <- strsplit(inputValue, ':')
+  if (length(ns[[1]]) == 2) {
+    "true"
+  } else "false"
+}
+
+remove_prefix <- function(str1) {
+  ns <- strsplit(str1, ':')
+  if (length(ns[[1]]) == 2 ) {
+    ns <- ns[[1]]
+    ns <- ns[2]
+    ns
+  } else str1
+}
 
 
 

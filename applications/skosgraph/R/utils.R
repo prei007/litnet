@@ -82,10 +82,15 @@ last_URI_element_1 <- function(l1, ns_list) {
 # Check if a node exists on server
 # Returns "true" or "false"
 node_exists <- function(node) {
-  query <- paste0('ASK {:', node, ' ?p ?o }')
+  if (has_prefix(node)) {
+    query <- paste0('ASK {', node, ' ?p ?o }')
+  } else {
+    query <- paste0('ASK {:', node, ' ?p ?o }')
+  }
   evalQuery(rep,
-          query = query, returnType = "list",
-          limit = 1)
+            query = query,
+            returnType = "list",
+            limit = 1)
 }
 
 value_exists <- function(node, predicate) {
@@ -460,6 +465,56 @@ fetch_values_from_thesaurus <- function(concept_scheme) {
   fetch_one_column(query)
 }
 
+ns_from_input <- function(inputValue) {
+# cat("\n", "****ns_from_input:", inputValue, "\n") #dev
+  ns <- strsplit(inputValue, ':')
+  if (length(ns[[1]]) == 2) {
+    ns <- first(ns[[1]])
+    if (ns == "litrev") {
+      ns <- modelNS
+    } else if (ns == "litgraph") {
+      ns <- defaultNS
+    } else {
+      ns <- first(predicates[predicates$prefix == ns, 'uri'])
+    }
+    ns
+  }
+}
+
+
+has_prefix <- function(inputValue) {
+  ns <- strsplit(inputValue, ':')
+  if (length(ns[[1]]) == 2) {
+    "true"
+  } else "false"
+}
+
+remove_prefix <- function(str1) {
+  ns <- strsplit(str1, ':')
+  if (length(ns[[1]]) == 2 ) {
+    ns <- ns[[1]]
+    ns <- ns[2]
+    ns
+  } else str1
+}
+
+# Is the object of a statement a literal? 
+# Uses the SPARQL isLiteral() function. 
+
+
+isLiteral <- function(subject, predicate) {
+  query <- paste0('ASK {', subject, ' ', predicate, 
+                  '?o . filter isLiteral(?o) }'
+  )
+  evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
+}
+# This finds all literals in a repo: 
+#   query <- 'select distinct ?literal { 
+#   ?s ?p ?literal 
+#   filter isLiteral(?literal)
+# }'
 
 fill_predicate_input_slot <- function(session, aspect) {
 # cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
@@ -476,50 +531,44 @@ fill_predicate_input_slot <- function(session, aspect) {
   
 }
 
-fill_subject_input_slot <- function(session, aspect, predicateSelection) {
-# cat("\n", "****fill_subject_input_slot - predicateSelection: ", predicateSelection, "\n")  #dev
-  # determine the domain of the selected predicate
-  domain<- predicates[ predicates$label == predicateSelection, 'domain']
-  domain <- domain[[1]] 
-  # query for nodes of type as in domain if there are any
-  query <- paste0('ASK { ?s a ', domain, ' }' )
-  test <- evalQuery(rep,
-                    query = query, returnType = "list",
-                    limit = 1)
-  if (test == "true") {
-    query <- paste0('SELECT ?s { ?s a ', domain, ' }' )
-    items <- fetch_one_column(query)
-    # add instance prefix to items
-    items <- lapply(items, function(x) paste0(instancePrefix, x))
-    # update selection options
-    updateSelectizeInput(session, 
-                      "subjectInput", 
-                      choices = items)
+fill_subject_input_slot <-
+  function(session, aspect, predicateSelection) {
+    # cat("\n", "****fill_subject_input_slot - predicateSelection: ", predicateSelection, "\n")  #dev
+    # determine the domain of the selected predicate
+    domain <-
+      predicates[predicates$label == predicateSelection, 'domain']
+    domain <- domain[[1]]
+    # query for nodes of type as in domain if there are any
+    query <- paste0('ASK { ?s a ', domain, ' }')
+    test <- evalQuery(rep,
+                      query = query,
+                      returnType = "list",
+                      limit = 1)
+    if (test == "true") {
+      query <- paste0('SELECT ?s { ?s a ', domain, ' }')
+      items <- fetch_one_column(query)
+      # add instance prefix to items
+      items <- lapply(items, function(x)
+        paste0(instancePrefix, x))
+      # update selection options
+      updateSelectizeInput(session,
+                           "subjectInput",
+                           choices = items)
+    }
   }
-}
 
 fill_object_input_slot <-
   function(session,
            aspect,
            predicateSelection,
            subjectSelection) {
-    # cat("\n",
-    #     "****fill_object_input_slot - subjectSelection: ",
-    #     subjectSelection,
-    #     "\n")  #dev
+   # cat("\n", "****fill_object_input_slot - subjectSelection: ", subjectSelection, "\n")  #dev
     
     # show what's known about the subject in a table
     if (node_exists(subjectSelection)) {
-        query <- paste0('SELECT ?o ?p { ', subjectSelection, '?o ?p }')
-        dfout <- evalQuery(rep,
-                           query = query, returnType = "dataframe",
-                           cleanUp = TRUE, limit = 50)
-        dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
-        dfout[[1]] <- last_URI_element(dfout[[1]])
-        dfout[[2]] <- last_URI_element_1(dfout[[2]], ns_list) 
-        work_table <<- dfout  # note the gloval env
+        details_table <<- show_attributes(subjectSelection) # note the gloval env
     } 
-    # if an object value exists show it
+    # if an object value exists show it in the input field 
     if (value_exists(subjectSelection, predicateSelection)) {
       query <- paste0('SELECT ?o { ',
                       subjectSelection,
@@ -530,6 +579,15 @@ fill_object_input_slot <-
       # add instance prefix to items
       prefix = predicates[predicates$label == predicateSelection, 'prefix']
       prefix = prefix[[1]]
+      
+      # Before adding a prefix, need to look in the database to identify literals.
+      
+      # for (i in (1: length(items))) {
+      #   if (!(isLiteral(items[i]))) {
+      #     items[i] <- paste0(prefix, ':', items[i])
+      #   } else next
+      # }
+      
       items <- lapply(items, function(x) paste0(prefix, ':', x))
       updateSelectizeInput(session,
                            "objectInput",
@@ -550,6 +608,7 @@ fill_object_input_slot <-
         # look up the concept scheme for the selected predicate
         concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
         concept_scheme <- concept_scheme[[1]]
+        # add prefix to the concept scheme name
         prefix = predicates[predicates$label == predicateSelection, 'prefix']
         prefix = prefix[[1]]
         concept_scheme  <- paste0(prefix, ':', concept_scheme)
@@ -570,7 +629,22 @@ fill_object_input_slot <-
 
 
 
+show_attributes <- function(node) {
+#  cat("\n", "****show_attributes()- node: ", node, "\n")  #dev
+  if (node_exists(node)) {
+  query <- paste0('SELECT ?o ?p { ', node, '?o ?p }')
+  dfout <- evalQuery(rep,
+                     query = query, returnType = "dataframe",
+                     cleanUp = TRUE, limit = 50)
+  dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+  dfout[[1]] <- last_URI_element(dfout[[1]])
+  dfout[[2]] <- last_URI_element_1(dfout[[2]], ns_list)
+  dfout
+  }
+}
 
+
+  
 
 
 

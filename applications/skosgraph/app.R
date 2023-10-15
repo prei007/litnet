@@ -235,6 +235,7 @@ server <- function(input, output, session) {
                  # Add type info
                  # (Works like so because duplicate statements are surpressed on server)
                  # Needs to be generalized to use the appropriate name spaces. 
+                 # https://github.com/prei007/litrev/issues/10
                  
                  addStatement(
                    rep,

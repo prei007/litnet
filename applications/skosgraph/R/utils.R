@@ -581,12 +581,7 @@ fill_object_input_slot <-
       prefix = prefix[[1]]
       
       # Before adding a prefix, need to look in the database to identify literals.
-      
-      # for (i in (1: length(items))) {
-      #   if (!(isLiteral(items[i]))) {
-      #     items[i] <- paste0(prefix, ':', items[i])
-      #   } else next
-      # }
+      # https://github.com/prei007/litrev/issues/11
       
       items <- lapply(items, function(x) paste0(prefix, ':', x))
       updateSelectizeInput(session,

@@ -53,7 +53,7 @@ server <- function(input, output, session) {
   defaultPrefix <<- "litgraph:"
   instanceNS <<- "http://www.learn-web.com/litgraph/"
   instancePrefix <<- "litgraph:"
-  modelNS <<- "http://www-learnweb.com/2023/litrev/"
+  modelNS <<- "http://www.learn-web.com/2023/litrev/"
   citoNS <<- "http://purl.org/spar/cito/"
   fabioNS <<- "http://purl.org/spar/fabio/"
   dcNS <<- "http://purl.org/dc/terms/"
@@ -234,18 +234,19 @@ server <- function(input, output, session) {
                  
                  # Add type info
                  # (Works like so because duplicate statements are surpressed on server)
+                 # Needs to be generalized to use the appropriate name spaces. 
                  
-                 # addStatement(
-                 #   rep,
-                 #   subj = subjectURL,
-                 #   pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
-                 #   obj = paste0(
-                 #     "<",
-                 #     "http://www.learn-web.com/2023/litrev/",
-                 #     input$aspect,
-                 #     ">"
-                 #   )
-                 # )
+                 addStatement(
+                   rep,
+                   subj = subjectURL,
+                   pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+                   obj = paste0(
+                     "<",
+                     modelNS,
+                     input$aspect,
+                     ">"
+                   )
+                 )
                  # Notify user and save
                  showNotification("Your input is saved.")
                  click("showMapButton")

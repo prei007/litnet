@@ -1,0 +1,102 @@
+#################################
+# Concepts: Bloom's Learning CognitiveOutcome
+#################################
+
+PREFIX : <http://learn-web.com/thesauri/bloom_outcomes/>
+PREFIX bloom: <http://learn-web.com/thesauri/bloom_outcomes/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Definitions from https://en.wikipedia.org/wiki/Bloom%27s_taxonomy
+
+
+:BloomThesaurus a skos:ConceptScheme ; 
+  rdfs:label "Bloom learning outcomes" ;
+	dc:title "Bloom learning outcomes " ;
+	skos:hasTopConcept :CognitiveOutcome, :AffectiveOutcome, :PsychomotorOutcome .
+
+:CognitiveOutcome a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Cognitive learning outcome"@en . 
+	
+:AffectiveOutcome a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Affective learning outcome"@en . 
+	
+:PsychomotorOutcome a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Psychomotoric learning outcome"@en . 
+	
+### Cognitive learning outcomes 
+	
+:Knowledge a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Knowledge outcome"@en ; 
+	skos:definition "Knowledge involves recognizing or remembering facts, terms, basic concepts, or answers without necessarily understanding what they mean."@en ;
+	skos:broader :CognitiveOutcome . 
+	
+:Comprehension a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Comprehension outcome"@en ; 
+	skos:definition "Comprehension involves demonstrating an understanding of facts and ideas by organizing, summarizing, translating, generalizing, giving descriptions, and stating the main ideas."@en ;
+	skos:broader :CognitiveOutcome . 
+	
+:Application a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Application outcome"@en ; 
+	skos:definition "Comprehension involves demonstrating an understanding of facts and ideas by organizing, summarizing, translating, generalizing, giving descriptions, and stating the main ideas."@en ;
+	skos:broader :CognitiveOutcome . 
+	
+:Analysis a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Analysis outcome"@en ; 
+	skos:definition "Analysis involves examining and breaking information into component parts, determining how the parts relate to one another, identifying motives or causes, making inferences, and finding evidence to support generalizations."@en ;
+	skos:broader :CognitiveOutcome . 
+	
+:Synthesis a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Synthesis outcome"@en ; 
+	skos:definition "Synthesis involves building a structure or pattern from diverse elements; it also refers to the act of putting parts together to form a whole or bringing pieces of information together to form a new meaning."@en ;
+	skos:broader :CognitiveOutcome . 
+	
+:Evaluation a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Evaluation outcome"@en ; 
+	skos:definition "Evaluation involves presenting and defending opinions by making judgments about information, the validity of ideas, or quality of work based on a set of criteria."@en ;
+	skos:broader :CognitiveOutcome . 
+	
+### Affective learning outcomes 
+	
+:Receiving a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Receiving outcome"@en ; 
+	skos:definition "The lowest level; the student passively pays attention. Without this level, no learning can occur. Receiving is about the student's memory and recognition as well."@en ;
+	skos:broader :AffectiveOutcome . 
+
+:Responding a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Responding outcome"@en ; 
+	skos:definition "The student actively participates in the learning process, not only attends to a stimulus; the student also reacts in some way."@en ;
+	skos:broader :AffectiveOutcome . 
+	
+:Valuing a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Valuing outcome"@en ; 
+	skos:definition "The student attaches a value to an object, phenomenon, or piece of information. The student associates a value or some values to the knowledge they acquired."@en ;
+	skos:broader :AffectiveOutcome . 
+	
+:Organizing a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Organizing outcome"@en ; 
+	skos:definition "The student can put together different values, information, and ideas, and can accommodate them within their own schema; the student is comparing, relating and elaborating on what has been learned."@en ;
+	skos:broader :AffectiveOutcome . 
+	
+:Characterizing a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Characterizing outcome"@en ; 
+	skos:definition "The student at this level tries to build abstract knowledge."@en ;
+	skos:broader :AffectiveOutcome . 

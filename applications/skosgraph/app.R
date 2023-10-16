@@ -145,7 +145,10 @@ server <- function(input, output, session) {
         'Citation',
         'Claim',
         'LearningOutcome',
-        'ResearchApproach'
+        'ResearchApproach', 
+        'BloomLearningOutcome', 
+        'Pedagogy', 
+        'EducationLevel'
       )
     
     # first action in interface: show the aspect options for selection

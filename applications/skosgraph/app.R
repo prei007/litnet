@@ -31,7 +31,8 @@ ui <- fluidPage(useShinyjs(),
                       choices = NULL,
                       options = list(create = TRUE)
                     ),
-                    actionButton("submitButton", "Submit")
+                    actionButton("saveButton", "Submit (new)"),
+                    actionButton("modifyButton", "Modify")
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
@@ -193,7 +194,7 @@ server <- function(input, output, session) {
   # Push a statement
   # -------------------------------
   
-  observeEvent(input$submitButton,
+  observeEvent(input$saveButton,
                {
                  #subject and predicate are straightforwqrd:
                  subjectNS <- ns_from_input(input$subjectInput)

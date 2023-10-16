@@ -8,5 +8,8 @@ dcterms:created,ScholarlyWork,litrev:ScholarlyWork,xsd:string,,dcterms,http://pu
 dcterms:title,ScholarlyWork,litrev:ScholarlyWork,xsd:string,,dcterms,http://purl.org/dc/terms/
 litrev:researchApproach,ResearchApproach,litrev:ScholarlyWork,Thesaurus,MethodsThesaurus,rm,http://learn-web.com/thesauri/research_methods/
 litrev:learningOutcome,LearningOutcome,litrev:ScholarlyWork,Thesaurus,OutcomesThesaurus,lo,http://learn-web.com/thesauri/learning_outcomes/
+litrev:bloomOutcome,BloomLearningOutcome,litrev:ScholarlyWork,Thesaurus,BloomThesaurus,bloom,http://learn-web.com/thesauri/bloom_outcomes/
+litrev:pedagogy,Pedagogy,litrev:ScholarlyWork,Thesaurus,PedagogyThesaurus,envped,http://learn-web.com/thesauri/envedped/
+litrev:ageGroup,EducationLevel,litrev:ScholarlyWork,Thesaurus,EducationLevel,edlevel,http://learn-web.com/thesauri/educlevels/
 mp:supports,Claim,mp:Representation,mp:Representation,,mp,http://purl.org/mp/
 mp:challenges,Claim,mp:Representation,mp:Representation,,mp,http://purl.org/mp/

@@ -2,9 +2,16 @@
 # SKOS Education Levels				   #
 ########################################
 
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+PREFIX : <http://learn-web.com/thesauri/educlevels/>
+PREFIX edlevel: <http://learn-web.com/thesauri/educlevels/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+prefix fabio: <http://purl.org/spar/fabio/> 
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Definitins from eric.edu.gov
 
 :EducationLevel a skos:ConceptScheme ;
 	dc:title "Educational levels thesaurus" ;

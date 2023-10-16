@@ -138,6 +138,9 @@ server <- function(input, output, session) {
     # add namespaces for predicates on server
     add_name_spaces(rep, predicates)
     
+    # The list of aspects that will be shown in the aspects selection. 
+    # At the same time, they provide rdf:type information for resources in the subject position. 
+    
     aspects <-
       c(
         'ScholarlyWork',

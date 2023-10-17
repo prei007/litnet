@@ -593,7 +593,7 @@ fill_object_input_slot <-
         predicates[predicates$label == predicateSelection, 'range']
       range <- range[[1]]
       # if range is different from strings, look for instances of the range
-      if (range != "xsd:string" && range != "Thesaurus") {
+      if (range != "xsd:string" && range != "xsd:dateTime" && range != "Thesaurus") {
         query <- paste0('SELECT ?s { ?s a ', range, ' }')
         items <- fetch_one_column(query)
         updateSelectizeInput(session,

@@ -2,18 +2,18 @@
 
 prefix : <http://www.learn-web.com/litgraph/> 
 prefix litrev: <http://www.learn-web.com/2023/litrev/> 
-prefix bib: <http://learn-web.com/2023/bibliography/>
+prefix litgrqph: <http://www.learn-web.com/litgraph/>
+prefix bibo: <http://purl.org/ontology/bibo/>
 prefix lo: <http://learn-web.com/2023/LearningOutcome/>
 prefix rm: <http://learn-web.com/2023/resmethod/>
 prefix doco: <http://purl.org/spar/doco/> 
 prefix deo: <http://purl.org/spar/deo/> 
 prefix dcterms: <http://purl.org/dc/terms/> 
-prefix fabio: <http://purl.org/spar/fabio/> 
 prefix cito: <http://purl.org/spar/cito/> 
 prefix oa: <http://www.w3.org/ns/oa#> 
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 
-:Freud1920 a litrev:ScholarlyWork; 
+:Freud1920 a bibo:Article; 
     dcterms:creator :Freud_S ;
     dcterms:title "Der Fall Anna S." ;
     dcterms:created "1920" ;
@@ -28,7 +28,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
    foaf:familyName "Freud" . 
     
 
-:Jung1921 a litrev:ScholarlyWork ; 
+:Jung1921 a bibo:Article ; 
     dcterms:creator :Jung_CG ;
     dcterms:title "Das kollektive Unbewusste" ;
     dcterms:created "1921" ;
@@ -42,7 +42,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
     foaf:givenName "Carl-Gustav" ;
     foaf:familyName "Jung" . 
     
-:Adler1922 a litrev:ScholarlyWork ; 
+:Adler1922 a bibo:Article ; 
     dcterms:creator :Adler_A ;
     dcterms:title "Overcompensation today and tomorrow" ;
     dcterms:created "1922" ;

@@ -13,8 +13,11 @@
 @base <http://www.learn-web.com/2023/litrev/> .
 
 <http://www.learn-web.com/2023/litrev/> rdf:type owl:Ontology ;
+                                         owl:imports <http://purl.org/mp/> ;
                                          <http://purl.org/dc/elements/1.1/creator> "Peter Reimann" ;
-                                         rdfs:comment "An ontology for semantic literature review" .
+                                         rdfs:comment """An ontology for semantic literature review. 
+
+Uses extensively the micropublications ontology.""" .
 
 #################################################################
 #    Annotation properties
@@ -32,15 +35,59 @@
 dc:creator rdf:type owl:ObjectProperty .
 
 
-###  http://www.learn-web.com/2023/litrev/hasResearchMethod
-:hasResearchMethod rdf:type owl:ObjectProperty ;
-                   rdfs:domain :BibliographicResource ;
-                   rdfs:range :ResearchMethodsThesaurus .
+###  http://purl.org/mp/qualifies
+<http://purl.org/mp/qualifies> rdfs:domain <http://purl.org/mp/Sentence> .
+
+
+###  http://www.learn-web.com/2023/litrev/bloomOutcome
+:bloomOutcome rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :classifiedAs ;
+              rdfs:domain <http://purl.org/ontology/bibo/Document> ;
+              rdfs:range :Classification .
+
+
+###  http://www.learn-web.com/2023/litrev/classifiedAs
+:classifiedAs rdf:type owl:ObjectProperty ;
+              rdfs:domain <http://purl.org/mp/ArticleText> ;
+              rdfs:range :Classification ;
+              rdfs:comment "Documents can have one or more Classification." .
+
+
+###  http://www.learn-web.com/2023/litrev/educationLevel
+:educationLevel rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :classifiedAs ;
+                rdfs:domain <http://purl.org/ontology/bibo/Document> ;
+                rdfs:range :Classification .
+
+
+###  http://www.learn-web.com/2023/litrev/learningOutcome
+:learningOutcome rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :classifiedAs ;
+                 rdfs:domain <http://purl.org/ontology/bibo/Document> ;
+                 rdfs:range :Classification .
+
+
+###  http://www.learn-web.com/2023/litrev/pedagogy
+:pedagogy rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :classifiedAs ;
+          rdfs:domain <http://purl.org/ontology/bibo/Document> ;
+          rdfs:range :Classification .
+
+
+###  http://www.learn-web.com/2023/litrev/researchApproach
+:researchApproach rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :classifiedAs ;
+                  rdfs:domain <http://purl.org/ontology/bibo/Document> ;
+                  rdfs:range :Classification .
 
 
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://dublincore.org/documents/2012/06/14/dcmi-terms/bibliographicCitation
+<http://dublincore.org/documents/2012/06/14/dcmi-terms/bibliographicCitation> rdfs:domain <http://purl.org/ontology/bibo/Document> .
+
 
 ###  http://purl.org/dc/elements/1.1/created
 <http://purl.org/dc/elements/1.1/created> rdf:type owl:DatatypeProperty .
@@ -58,67 +105,61 @@ fabio:title rdf:type owl:DatatypeProperty .
 #    Classes
 #################################################################
 
-###  http://purl.org/spar/fabio/JournalArticle
-fabio:JournalArticle rdf:type owl:Class ;
-                     rdfs:subClassOf :BibliographicResource .
+###  http://purl.org/ontology/bibo/AcademicArticle
+<http://purl.org/ontology/bibo/AcademicArticle> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://purl.org/ontology/bibo/Article> .
+
+
+###  http://purl.org/ontology/bibo/Article
+<http://purl.org/ontology/bibo/Article> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://purl.org/ontology/bibo/Document> .
+
+
+###  http://purl.org/ontology/bibo/Document
+<http://purl.org/ontology/bibo/Document> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://purl.org/mp/ArticleText> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty dc:creator ;
+                                                           owl:someValuesFrom :Author
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://purl.org/dc/elements/1.1/identifier> ;
+                                                           owl:someValuesFrom xsd:string
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://purl.org/dc/elements/1.1/created> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:string
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty fabio:title ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:string
+                                                         ] ;
+                                         owl:disjointWith :Classification ;
+                                         rdfs:comment "Document is a kind of text in the senses of the bibo ontology. It can be described with biobliographic properties." .
 
 
 ###  http://www.learn-web.com/2023/litrev/Author
 :Author rdf:type owl:Class ;
-        rdfs:subClassOf :Person ,
+        rdfs:subClassOf <http://www.w3.org/ns/prov#Person> ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty dc:creator ;
                           owl:someValuesFrom :Author
                         ] .
 
 
-###  http://www.learn-web.com/2023/litrev/BibliographicResource
-:BibliographicResource rdf:type owl:Class ;
-                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                         owl:onProperty dc:creator ;
-                                         owl:someValuesFrom :Author
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty <http://purl.org/dc/elements/1.1/identifier> ;
-                                         owl:someValuesFrom xsd:string
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty <http://purl.org/dc/elements/1.1/created> ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onDataRange xsd:string
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty fabio:title ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onDataRange xsd:string
-                                       ] .
+###  http://www.learn-web.com/2023/litrev/Classification
+:Classification rdf:type owl:Class ;
+                rdfs:subClassOf <http://purl.org/mp/Representation> ;
+                rdfs:comment "Classified as falling into a category such as country, agegroup, technology" .
 
 
-###  http://www.learn-web.com/2023/litrev/Method
-:Method rdf:type owl:Class .
+#################################################################
+#    Annotations
+#################################################################
 
-
-###  http://www.learn-web.com/2023/litrev/Person
-:Person rdf:type owl:Class .
-
-
-###  http://www.learn-web.com/2023/litrev/ResearchMethod
-:ResearchMethod rdf:type owl:Class ;
-                rdfs:subClassOf :Method .
-
-
-###  http://www.learn-web.com/2023/litrev/ResearchMethodsThesaurus
-:ResearchMethodsThesaurus rdf:type owl:Class ;
-                          rdfs:subClassOf :Thesaurus .
-
-
-###  http://www.learn-web.com/2023/litrev/StatisticalMethod
-:StatisticalMethod rdf:type owl:Class ;
-                   rdfs:subClassOf :Method .
-
-
-###  http://www.learn-web.com/2023/litrev/Thesaurus
-:Thesaurus rdf:type owl:Class .
+<http://purl.org/mp/asserts> rdfs:comment "A Micropublication asserts originally a Representation." .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

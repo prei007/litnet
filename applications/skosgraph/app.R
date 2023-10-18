@@ -57,6 +57,7 @@ server <- function(input, output, session) {
   modelNS <<- "http://www.learn-web.com/2023/litrev/"
   citoNS <<- "http://purl.org/spar/cito/"
   fabioNS <<- "http://purl.org/spar/fabio/"
+  biboNS <<- "http://purl.org/ontology/bibo/"
   dcNS <<- "http://purl.org/dc/terms/"
   rdfNS <<- "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   rdsNS <<- "http://www.w3.org/2000/01/rdf-schema#"
@@ -65,7 +66,7 @@ server <- function(input, output, session) {
   skosNS <<- "http://www.w3.org/2004/02/skos/core#"
   
   # For the elements in ns_list the namespace will not be displayed in tables 
-  ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+  ns_list <<- c(defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
   
   
   # -------------------------------
@@ -116,6 +117,9 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep,
                  prefix = "litrev",
                  nsURI =  "http://www.learn-web.com/2023/litrev/")
+    addNameSpace(repo = rep,
+                 prefix = "bibo",
+                 nsURI =  biboNS)
     
     
     # Reset pwd field
@@ -266,11 +270,12 @@ server <- function(input, output, session) {
   # Show map/network
   # -------------------------------
   observeEvent(input$showMapButton, {
-    query <- 'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-    SELECT ?s ?p ?o {
-         ?s a litrev:ScholarlyWork .
+    query <- 'SELECT ?s ?p ?o {
+      #   ?s a bibo:Article .
          ?s ?p ?o .
-         FILTER (!(?p IN (:addedDate, :addedBy, rdf:type))) }'
+         FILTER (!(?p IN (rdf:type, mp:attributionAsAuthor, mp:citation , 
+                    mp:value, rdfs:label, rdf:value))) }'
+    
     graphDF <- fetch_plan_sparql(query)
     if (graphDF[1] != "query failed" & length(graphDF) > 1) {
       # render map

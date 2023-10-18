@@ -15,7 +15,7 @@ prefix bibo: <http://purl.org/ontology/bibo/>
 prefix mp: <http://purl.org/mp/> 
 prefix dcterms: <http://purl.org/dc/terms/> 
 prefix : <http://www.learn-web.com/litgraph/> 
-prefix litgrqph: <http://www.learn-web.com/litgraph/>
+prefix litgraph: <http://www.learn-web.com/litgraph/>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>  
 
 
@@ -56,7 +56,7 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
 	
 :MP6 a mp:Micropublication ;
 	rdfs:label "MP6: Siantuba et al 2021 Misconception orientation improves learning" ; 
-	mp:asserts  :C6 ;
+	mp:asserts  :C6 , :S1 , :S2 , S3 ; 
     mp:argues :C6 ; 
     mp:represents :Siantuba2023 ;
     mp:attributionAsAuthor :A_MP6 .
@@ -70,7 +70,7 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
 
 :C6 a mp:Claim; 
 	rdfs:label "C6: Inquiry geared towards misconceptions improves learning."; 
-	rdf:value "An ILS geared towards addressing misconceptions is more effective compared to an ILS that follows the traditional inquiry approach with regard to development of students’ conceptual knowledge about circular motion?"; 
+	mp:statement "An ILS geared towards addressing misconceptions is more effective compared to an ILS that follows the traditional inquiry approach with regard to development of students’ conceptual knowledge about circular motion?"; 
 	mp:supportedBy :S1,:S2,:S3,:D1; 
 	mp:qualifiedBy :Q1 , :Q2 ; 
 	mp:attributionAsAuthor :A_C6 .

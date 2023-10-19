@@ -36,7 +36,7 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
 ### Documents
 
 :Siantuba2023 a bibo:Article ; 
-    dcterms:creator :Canlas2016 ;
+    dcterms:creator :SiantubaJ ;
     dcterms:title "The impact of an online inquiry-based learning environment addressing misconceptions on students’ performance." ;
     dcterms:created "2023" ;
     dcterms:identifier "https://doi.org/10.1186/s40561-023-00236-y" ;
@@ -44,7 +44,7 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
     mp:atTime "2023-10-17T00:00:00Z" .
 
 :Canlas2016 a bibo:Article; 
-    dcterms:creator :Canlas2016 ;
+    dcterms:creator :CanlasA;
     dcterms:title "University students’ alternative conceptions on circular motion" ;
     dcterms:created "2016" ;
     dcterms:identifier "ISBN 1445-6780598" ;

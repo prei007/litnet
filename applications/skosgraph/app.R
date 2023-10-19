@@ -40,9 +40,11 @@ ui <- fluidPage(useShinyjs(),
                              tableOutput("detailsTable")),
                     tabPanel(
                       "Graph",
-                      # show user name
+                      checkboxGroupInput("linksDisplayed", "Link types to include:",
+                                         c("ScholarlyWork", "Citation", "Claim"), 
+                                         selected = "ScholarlyWork", 
+                                         inline = TRUE), 
                       actionButton("showMapButton",  "show map view "),
-                      p(" Network here "),
                       visNetworkOutput("Map", width = "1000px", height = "600px")
                     )
                   ))
@@ -269,12 +271,25 @@ server <- function(input, output, session) {
   # -------------------------------
   # Show map/network
   # -------------------------------
+  
+  # the filter on predicates should be offered in the map interface, by aspect(s)
+  # the predicates for each aspect are in the variable predicates. 
+  # case 1: one aspect
+  # general case: one or more aspects. The UI is a checkboxGroupInput. 
+  
   observeEvent(input$showMapButton, {
-    query <- 'SELECT ?s ?p ?o {
-      #   ?s a bibo:Article .
-         ?s ?p ?o .
-         FILTER (!(?p IN (rdf:type, mp:attributionAsAuthor, mp:citation , 
-                    mp:value, rdfs:label, rdf:value))) }'
+    # fetch the properties to be displayed by looking up their value in the 
+    # variable predicates based on the selection in the checkbox group. 
+    linksList <- predicates[predicates$aspect == input$linksDisplayed, 'label']
+    linksList <- linksList[[1]]
+    linksList <- paste0(linksList, collapse = ', ')
+    query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linksList, ')) }'
+    )
+    
+    # query <- 'SELECT ?s ?p ?o {
+    #      ?s ?p ?o .
+    #      FILTER (!(?p IN (rdf:type, mp:attributionAsAuthor, mp:citation , 
+    #                 mp:value, rdfs:label, rdf:value))) }'
     
     graphDF <- fetch_plan_sparql(query)
     if (graphDF[1] != "query failed" & length(graphDF) > 1) {

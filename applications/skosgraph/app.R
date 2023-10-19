@@ -95,7 +95,7 @@ ui <- fluidPage(useShinyjs(),
                   ))
                 ))
 
-### The server
+### The server code 
 
 server <- function(input, output, session) {
   
@@ -280,14 +280,27 @@ server <- function(input, output, session) {
   observeEvent(input$showMapButton, {
     # fetch the properties to be displayed by looking up their value in the 
     # variable predicates based on the selection in the checkbox group. 
-    linksList <- predicates[predicates$aspect == input$linksDisplayed, 'label']
-    linksList <- linksList[[1]]
+    
+         # linksList <- predicates[predicates$aspect == input$linksDisplayed, 'label']
+          # linksList <- linksList[[1]]
+    
     # Use the fact that paste0() is vectorised to turn the vector 
     # into a SPARQL list as different from a list data structure in R. 
     # That is to say, list() and as.list() will not do the job. 
-    linksList <- paste0(linksList, collapse = ', ')
-    query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linksList, ')) }'
-    )
+    
+          # linksList <- paste0(linksList, collapse = ', ')
+          # query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linksList, ')) }')
+    
+    # The more general version: 
+    
+    linkList <- NULL
+    for (link_type in input$linksDisplayed) {
+      linkList1 <- predicates[predicates$aspect == link_type, 'label']
+      linkList1 <- linkList1[[1]]
+      linkList <- append(linkList, linkList1)
+    }
+    linkList <- paste0(linkList, collapse = ', ')
+    query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linkList, ')) }')
 
     graphDF <- fetch_plan_sparql(query)
     if (graphDF[1] != "query failed" & length(graphDF) > 1) {

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.org/mp/" uri="mp.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.org/mp/" uri="file:/Users/Peter/Documents/misc/rdf/science/micropublications/mp.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.w3.org/2004/02/skos/core" uri="http://www.w3.org/2004/02/skos/core#"/>
     <uri id="Imports Wizard Entry" name="http://purl.org/spar/pso/2015-07-03" uri="http://purl.org/spar/deo"/>
     <uri id="Imports Wizard Entry" name="http://purl.org/spar/pso/2015-07-03" uri="deo.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1682141152114" name="http://purl.org/co/" uri="collections.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1682141152114" name="http://purl.org/ontology/bibo/" uri="bibo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1697465868655" name="http://purl.org/co/" uri="collections.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1697465868655" name="http://purl.org/ontology/bibo/" uri="bibo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1697465868655" name="http://www.semanticweb.org/dida/ontologies/2016/5/ContentOntology" uri="contentOntology.owl.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1697465868655" name="http://www.semanticweb.org/dida/ontologies/2016/5/GoalsOntology" uri="learningGoals.owl.xml"/>
     </group>
 </catalog>

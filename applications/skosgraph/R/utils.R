@@ -125,6 +125,10 @@ fetch_plan <- function() {
 
 # update the view with the graph
 fetch_plan_sparql <- function(query) {
+  cat("\n", "*****fetch_plan_sparql() query : ", "\n") # dev
+  print(query)  #dev
+  cat("\n")    #dev
+  
   dfout <- evalQuery(rep,
                      query = query, returnType = "dataframe",
                      cleanUp = TRUE, limit = 2000)
@@ -593,7 +597,7 @@ fill_object_input_slot <-
         predicates[predicates$label == predicateSelection, 'range']
       range <- range[[1]]
       # if range is different from strings, look for instances of the range
-      if (range != "xsd:string" && range != "Thesaurus") {
+      if (range != "xsd:string" && range != "xsd:dateTime" && range != "Thesaurus") {
         query <- paste0('SELECT ?s { ?s a ', range, ' }')
         items <- fetch_one_column(query)
         updateSelectizeInput(session,

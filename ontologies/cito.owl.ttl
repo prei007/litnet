@@ -1,5 +1,5 @@
 @prefix : <http://purl.org/spar/cito/> .
-@prefix cito: <http://purl.org/spar/cito/cito:> .
+@prefix cito: <http://purl.org/spar/cito/> .
 @prefix cpannotationschema: <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix discourse-relationships: <http://purl.org/swan/2.0/discourse-relationships/> .
@@ -29,81 +29,7 @@ dc:title a owl:AnnotationProperty .
     dc:creator "David Shotton"^^xsd:string,
         "Silvio Peroni"^^xsd:string ;
     dc:date "2018-02-16"^^xsd:string ;
-    dc:description """CiTO, the Citation Typing Ontology, is an ontology written in OWL 2 DL to enable characterization of the nature or type of citations, both factually and rhetorically, and to permit these descriptions to be published on the Web.  
-
-The citations characterized may be either direct and explicit (as in the reference list of a journal article), indirect (e.g. a citation to a more recent paper by the same research group on the same topic), or implicit (e.g. as in artistic quotations or parodies, or in cases of plagiarism).
-
-CiTO contains the object property cito:cites and its sub-properties, and its inverse property cito:isCitedBy, from the original Citation Typing Ontology, CiTO v1.6.  Upon the creation of version 2.0 of CiTO, a number of new sub-properties of cito:cites were added, and the inverse properties of all the sub-properties of cito:cites were created, all of which are sub-properties of cito:isCitedBy.  The ontology has also been integrated with the SWAN Discourse Relationships Ontology by making cito:cites a sub-property of http://purl.org/swan/2.0/discourse-relationships/refersTo.
-
-Restrictions of domain and range present in the previous version of CiTO were removed from the object properties when creating CiTO v 2.0, permitting its independent use in other contexts, in addition to conventional bibliographic citations.  
-
-So that they can be used independently, other entities that were previously included in CiTO v1.6 have now been made components of other SPAR ontologies: FaBiO, the FRBR-aligned Bibliographic Ontology; C4O, the Citation Counting and Context Characterization Ontology; and PSO, the Publication Status Ontology. 
-
-The addition of two new properties:cito:usesConclusionsFrom and its inverse cito:providesConclusionsFor on 09Dec2011 led to a version number increment from v2.0 to v2.1.
-
-The addition of two additional properties, cito:compiles and cito:isCompiledBy, previously in the deprecated CiTO4Data ontology, on 03 July 2012 led to a version increment from v2.1 to v2.2.
-
-Subsequent expansions include:
-
-in versions 2.3 and 2.4 the addition of the object properties cito:citesAsPotentialSolution, cito:citesAsRecommendedReading, cito:repliesTo, cito:retracts, cito:speculates on, and their inverse properties;
-
-in v2.5 the addition of cito:CitationAct, cito:hasCitationEvent, cito:hasCitedEntity and cito:hasCitingEntity;
-
-in v 2.6: 
-renaming cito:hasCitationEvent to become cito:hasCitationCharacterization;
-improving definitions of cito:CitationAct, cito:hasCitationCharacterization, cito:hasCitedEntity and cito:hasCitingEntity;
-revising the definition of cito:isCompiledBy to correct it and bring it into line with the DataCite Metadata Kernel v2.2 definition;
-changing the definition of cito:sharesAuthorsWith from 'An object property indicating that the citing entity has at least one author in common with the cited entity.' to 'An object property between two entities indicating that they have at least one author in common.' so that it can be used when one entity does not actually cite the other;
-adding the object properties cito:hasRelatedEntity, cito:sharesFundingAgencyWith and cito:sharesAuthorInstitutionWith;
-and adding the text 'An object property indicating that . . .' at the beginning of the textual definition (rdfs:comment) for each CiTO object property.
-
-in v 2.6.1:
-Removed text 'An object property indicating that . . .' added in v 2.6 at the beginning of the textual definition (rdfs:comment) for each CiTO object property, so that each definition is just a direct statement of the relationship.  
-Removed the property cito:hasRelatedEntity (in favour of using dcterms:relation).
-Renamed cito:hasReply to become cito:hasReplyFrom.
-Improved the textual definitions of cito:derides and its inverse property.
-
-in v 2.6.2:
-Improved definitions of of cito:CitationAct, cito:hasCitationCharacterization, cito:hasCitedEntity and cito:hasCitingEntity.
-
-in v 2.6.3:
-Added examples for each citation type (i.e., all the subproperties of cito:cites).
-
-in v 2.6.4:
-Added alignment with schema:citation.
-
-in v 2.7.0:
-Added new property cito:linksTo, and corrected some property URL.
-
-in v 2.7.1
-Corrected some typos in property comments.
-
-in v 2.7.2
-The name of the class cito:CitationAct has been changed to cito:Citation, and its definition has been modified. The property cito:hasCitationTimeSpan has been added.
-
-in v 2.7.3
-Added the class cito:SelfCitation, i.e. citation in which the citing and the cited entities have at least one author in common.
-
-in v 2.8
-Renamed the class cito:SelfCitation in cito:AuthorSelfCitation. Created a new class cito:SelfCitation with a more general definition (citation in which the citing and the cited entities have something significant in common with one another), which now includes five subclasses: cito:AuthorSelfCitation, cito:JournalSelfCitation, cito:FunderSelfCitation, cito:AffiliationSelfCitation, cito:AuthorNetworkSelfCitation. The latter class is also accompanied by the new data property cito:hasCoAuthorCitationLevel, which specifies the minimal distance that one of the authors of a citing entity has with regards to one of the authors of a cited entity according to their co-author network. Added the object properties cito:sharesPublicationVenueWith and its subproperty cito:sharesJournalWith. Added the data property cito:hasCitationCreationDate, and changed the domain of cito:hasCitationTimeSpan with xsd:duration.
-
-in v 2.8.1
-Renamed the property cito:hasCoAuthorCitationLevel in cito:hasCoAuthorshipCitationLevel."""^^xsd:string ;
-    dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-    dc:title "CiTO, the Citation Typing Ontology"@en ;
-    rdfs:comment """The Citation Typing Ontology (CiTO) is an ontology that enables characterization of the nature or type of citations, both factually and rhetorically.
-
-**URL:** http://purl.org/spar/cito
-
-**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)
-
-**Contributors:** [Paolo Ciccarese](https://orcid.org/0000-0002-5156-2703), [Tim Clark](https://orcid.org/0000-0003-4060-7360)
-
-**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
-
-**Website:** http://www.sparontologies.net/ontologies/cito
-
-**Cite as:** Peroni, S., Shotton, D. (2012). FaBiO and CiTO: ontologies for describing bibliographic resources and citations. In Journal of Web Semantics, 17: 33-43. https://doi.org/10.1016/j.websem.2012.08.001. Open Access at: http://speroni.web.cs.unibo.it/publications/peroni-2012-fabio-cito-ontologies.pdf"""@en ;
+    dc:description "CiTO, the Citation Typing Ontology, is an ontology written in OWL 2 DL to enable characterization of the nature or type of citations, both factually and rhetorically, and to permit these descriptions to be published on the Web. " ;
     owl:imports <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> ;
     owl:priorVersion <http://purl.org/spar/cito/2018-02-12> ;
     owl:versionIRI <http://purl.org/spar/cito/2018-02-16> ;

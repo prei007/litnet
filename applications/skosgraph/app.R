@@ -7,6 +7,50 @@ library(allegRo)
 library(readr)
 # library(NestedMenu)
 
+###  setup global vars
+
+defaultNS <<- "http://www.learn-web.com/litgraph/"
+defaultPrefix <<- "litgraph:"
+instanceNS <<- "http://www.learn-web.com/litgraph/"
+instancePrefix <<- "litgraph:"
+modelNS <<- "http://www.learn-web.com/2023/litrev/"
+citoNS <<- "http://purl.org/spar/cito/"
+fabioNS <<- "http://purl.org/spar/fabio/"
+biboNS <<- "http://purl.org/ontology/bibo/"
+dcNS <<- "http://purl.org/dc/terms/"
+rdfNS <<- "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+rdsNS <<- "http://www.w3.org/2000/01/rdf-schema#"
+foafNS <<- "http://xmlns.com/foaf/0.1/"
+oaNS <<- "http://www.w3.org/ns/oa#"
+skosNS <<- "http://www.w3.org/2004/02/skos/core#"
+
+# For the elements in ns_list the namespace will not be displayed in tables 
+ns_list <<- c(defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+
+# aspects should be read from predicates I reckon. 
+aspects <<-
+  c(
+    'ScholarlyWork',
+    'Author',
+    'Citation',
+    'Claim',
+    'LearningOutcome',
+    'ResearchApproach', 
+    'BloomLearningOutcome', 
+    'Pedagogy', 
+    'EducationLevel'
+  )
+
+# Read in info about predicates; declare in global env.
+predicates <<- read_csv("predicates.csv")
+# access a row like so: predicates[ predicates$label == 'creator', ]
+# and a particular cell: predicates[ predicates$label == 'creator', 'uri']
+# This syntax will always return a tibble. To get to the value do:
+# sel <- predicates[ predicates$label == 'creator', 'uri']; then sel[[1]] will yield the value.
+
+
+### Build the app 
+
 ui <- fluidPage(useShinyjs(),
                 titlePanel("LitGraph"),
                 sidebarLayout(
@@ -40,33 +84,20 @@ ui <- fluidPage(useShinyjs(),
                              tableOutput("detailsTable")),
                     tabPanel(
                       "Graph",
-                      # show user name
+                      checkboxGroupInput("linksDisplayed", "Link types to include:",
+                                       #  c("ScholarlyWork", "Citation", "Claim"), 
+                                         aspects, 
+                                         selected = "ScholarlyWork", 
+                                         inline = TRUE), 
                       actionButton("showMapButton",  "show map view "),
-                      p(" Network here "),
                       visNetworkOutput("Map", width = "1000px", height = "600px")
                     )
                   ))
                 ))
 
+### The server code 
 
 server <- function(input, output, session) {
-  defaultNS <<- "http://www.learn-web.com/litgraph/"
-  defaultPrefix <<- "litgraph:"
-  instanceNS <<- "http://www.learn-web.com/litgraph/"
-  instancePrefix <<- "litgraph:"
-  modelNS <<- "http://www.learn-web.com/2023/litrev/"
-  citoNS <<- "http://purl.org/spar/cito/"
-  fabioNS <<- "http://purl.org/spar/fabio/"
-  dcNS <<- "http://purl.org/dc/terms/"
-  rdfNS <<- "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  rdsNS <<- "http://www.w3.org/2000/01/rdf-schema#"
-  foafNS <<- "http://xmlns.com/foaf/0.1/"
-  oaNS <<- "http://www.w3.org/ns/oa#"
-  skosNS <<- "http://www.w3.org/2004/02/skos/core#"
-  
-  # For the elements in ns_list the namespace will not be displayed in tables 
-  ns_list <<- c(defaultNS, citoNS, fabioNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
-  
   
   # -------------------------------
   # Login and database connection
@@ -116,6 +147,9 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep,
                  prefix = "litrev",
                  nsURI =  "http://www.learn-web.com/2023/litrev/")
+    addNameSpace(repo = rep,
+                 prefix = "bibo",
+                 nsURI =  biboNS)
     
     
     # Reset pwd field
@@ -123,36 +157,13 @@ server <- function(input, output, session) {
     showNotification("You are logged in")
     
     #  First action in interface: fetch aspects and add to menu for selection
-    # aspects <- fetch_one_column('PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-    #         SELECT ?aspect WHERE {
-    #         ?aspect rdfs:subClassOf litrev:ReviewAspect
-    #       }')
-    
-    # Read in info about predicates; declare in global env.
-    predicates <<- read_csv("predicates.csv")
-    # access a row like so: predicates[ predicates$label == 'creator', ]
-    # and a particular cell: predicates[ predicates$label == 'creator', 'uri']
-    # This syntax will always return a tibble. To get to the value do:
-    # sel <- predicates[ predicates$label == 'creator', 'uri']; then sel[[1]] will yield the value.
     
     # add namespaces for predicates on server
     add_name_spaces(rep, predicates)
     
     # The list of aspects that will be shown in the aspects selection. 
     # At the same time, they provide rdf:type information for resources in the subject position. 
-    
-    aspects <-
-      c(
-        'ScholarlyWork',
-        'Author',
-        'Citation',
-        'Claim',
-        'LearningOutcome',
-        'ResearchApproach', 
-        'BloomLearningOutcome', 
-        'Pedagogy', 
-        'EducationLevel'
-      )
+  
     
     # first action in interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
@@ -265,13 +276,25 @@ server <- function(input, output, session) {
   # -------------------------------
   # Show map/network
   # -------------------------------
+  
   observeEvent(input$showMapButton, {
-    query <- 'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
-    SELECT ?s ?p ?o {
-         ?s a litrev:ScholarlyWork .
-         ?s ?p ?o .
-         FILTER (!(?p IN (:addedDate, :addedBy, rdf:type))) }'
+    # fetch the properties to be displayed by looking up their value in the 
+    # variable predicates based on the selection(s) in the checkbox group. 
+    linkList <- NULL
+    for (link_type in input$linksDisplayed) {
+      linkList1 <- predicates[predicates$aspect == link_type, 'label']
+      linkList1 <- linkList1[[1]]
+      linkList <- append(linkList, linkList1)
+    }
+    # Use the fact that paste0() is vectorised to turn the vector 
+    # into a SPARQL list as different from a list data structure in R. 
+    # That is to say, list() and as.list() will not do the job.
+    linkList <- paste0(linkList, collapse = ', ')
+    query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linkList, ')) }')
+
     graphDF <- fetch_plan_sparql(query)
+    # improve the test because it comes too late. ag_data already throws an error before
+    # we get here. 
     if (graphDF[1] != "query failed" & length(graphDF) > 1) {
       # render map
       output$Map <- renderVisNetwork(do_network(graphDF))

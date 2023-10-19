@@ -279,30 +279,22 @@ server <- function(input, output, session) {
   
   observeEvent(input$showMapButton, {
     # fetch the properties to be displayed by looking up their value in the 
-    # variable predicates based on the selection in the checkbox group. 
-    
-         # linksList <- predicates[predicates$aspect == input$linksDisplayed, 'label']
-          # linksList <- linksList[[1]]
-    
-    # Use the fact that paste0() is vectorised to turn the vector 
-    # into a SPARQL list as different from a list data structure in R. 
-    # That is to say, list() and as.list() will not do the job. 
-    
-          # linksList <- paste0(linksList, collapse = ', ')
-          # query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linksList, ')) }')
-    
-    # The more general version: 
-    
+    # variable predicates based on the selection(s) in the checkbox group. 
     linkList <- NULL
     for (link_type in input$linksDisplayed) {
       linkList1 <- predicates[predicates$aspect == link_type, 'label']
       linkList1 <- linkList1[[1]]
       linkList <- append(linkList, linkList1)
     }
+    # Use the fact that paste0() is vectorised to turn the vector 
+    # into a SPARQL list as different from a list data structure in R. 
+    # That is to say, list() and as.list() will not do the job.
     linkList <- paste0(linkList, collapse = ', ')
     query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linkList, ')) }')
 
     graphDF <- fetch_plan_sparql(query)
+    # improve the test because it comes too late. ag_data already throws an error before
+    # we get here. 
     if (graphDF[1] != "query failed" & length(graphDF) > 1) {
       # render map
       output$Map <- renderVisNetwork(do_network(graphDF))

@@ -42,7 +42,7 @@ aspects <<-
   )
 
 # Read in info about predicates; declare in global env.
-predicates <<- read_csv("predicates.csv")
+predicates <<- read_csv("predicates.csv", show_col_types = FALSE)
 # access a row like so: predicates[ predicates$label == 'creator', ]
 # and a particular cell: predicates[ predicates$label == 'creator', 'uri']
 # This syntax will always return a tibble. To get to the value do:
@@ -163,7 +163,6 @@ server <- function(input, output, session) {
     
     # The list of aspects that will be shown in the aspects selection. 
     # At the same time, they provide rdf:type information for resources in the subject position. 
-  
     
     # first action in interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
@@ -255,17 +254,17 @@ server <- function(input, output, session) {
                  # Needs to be generalized to use the appropriate name spaces. 
                  # https://github.com/prei007/litrev/issues/10
                  
-                 addStatement(
-                   rep,
-                   subj = subjectURL,
-                   pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
-                   obj = paste0(
-                     "<",
-                     modelNS,
-                     input$aspect,
-                     ">"
-                   )
-                 )
+                 # addStatement(
+                 #   rep,
+                 #   subj = subjectURL,
+                 #   pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+                 #   obj = paste0(
+                 #     "<",
+                 #     modelNS,
+                 #     input$aspect,
+                 #     ">"
+                 #   )
+                 # )
                  # Notify user and save
                  showNotification("Your input is saved.")
                  click("showMapButton")
@@ -290,17 +289,17 @@ server <- function(input, output, session) {
     # into a SPARQL list as different from a list data structure in R. 
     # That is to say, list() and as.list() will not do the job.
     linkList <- paste0(linkList, collapse = ', ')
+    
     query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linkList, ')) }')
-
     graphDF <- fetch_plan_sparql(query)
     # improve the test because it comes too late. ag_data already throws an error before
     # we get here. 
-    if (graphDF[1] != "query failed" & length(graphDF) > 1) {
+    if (graphDF[1] != "query failed" && length(graphDF) > 1) {
       # render map
       output$Map <- renderVisNetwork(do_network(graphDF))
       #  output$Map <- renderVisNetwork(do_network_2(graphDF))
     } else {
-      showNotification("The plan does not contain (sufficient) information.",
+      showNotification("The database does not contain (sufficient) information.",
                        type = "warning")
     }
   })

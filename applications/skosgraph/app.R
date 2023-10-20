@@ -285,6 +285,7 @@ server <- function(input, output, session) {
       linkList1 <- linkList1[[1]]
       linkList <- append(linkList, linkList1)
     }
+
     # Use the fact that paste0() is vectorised to turn the vector 
     # into a SPARQL list as different from a list data structure in R. 
     # That is to say, list() and as.list() will not do the job.

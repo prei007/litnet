@@ -128,7 +128,7 @@ fetch_plan_sparql <- function(query) {
   # cat("\n", "*****fetch_plan_sparql() query : ", "\n") # dev
   # print(query)  #dev
   # cat("\n")    #dev
-  
+#  browser() #dev
   dfout <- evalQuery(rep,
                      query = query, returnType = "dataframe",
                      cleanUp = TRUE, limit = 2000)

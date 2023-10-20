@@ -19,7 +19,7 @@ cito:citesAsDataSource,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/
 cito:citesAsEvidence,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:citesAsPotentialSolution,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:citesAsRecommendedReading,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
-cito:citesAsRelate,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
+cito:citesAsRelated,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:citesAsSourceDocument,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:citesForInformation,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:confirms,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
@@ -27,7 +27,6 @@ cito:corrects,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito
 cito:credits,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:critiques,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:derides,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
-cito:describes,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:disagreesWith,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:discusses,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:disputes,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
@@ -48,6 +47,7 @@ cito:obtainsBackgroundFrom,Citation,bibo:Article,bibo:Article,,cito,http://purl.
 cito:obtainsSupportFrom,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:parodies,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:plagiarizes,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
+cito:providesDescriptionOf,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:qualifies,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:refutes,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:repliesTo,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/

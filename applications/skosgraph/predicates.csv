@@ -53,7 +53,7 @@ cito:refutes,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:repliesTo,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:retracts,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:reviews,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
-cito: ridicules,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
+cito:ridicules,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:speculatesOn,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:supports,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/
 cito:updates,Citation,bibo:Article,bibo:Article,,cito,http://purl.org/spar/cito/

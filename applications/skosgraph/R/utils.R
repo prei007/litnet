@@ -206,7 +206,7 @@ do_network <- function(dfout) {
   # https://rdrr.io/cran/visNetwork/man/visEvents.html
   
   visNetwork(nodes, edges, height = "1500px", width = "1500px") %>% 
-    visNodes(shape = "box") %>%
+    visNodes(shape = "box", widthConstraint = 125) %>%
     visEdges(arrows = "to") %>%
     visInteraction(hideEdgesOnDrag = TRUE)  %>%
     visOptions(highlightNearest = FALSE, nodesIdSelection = TRUE) %>%

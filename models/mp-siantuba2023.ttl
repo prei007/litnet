@@ -12,6 +12,7 @@ prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix prov: <http://www.w3.org/ns/prov#> 
 prefix obo: <http://purl.obolibrary.org/obo#> 
 prefix bibo: <http://purl.org/ontology/bibo/>
+prefix cito: <http://purl.org/spar/cito/> 
 prefix mp: <http://purl.org/mp/> 
 prefix dcterms: <http://purl.org/dc/terms/> 
 prefix : <http://www.learn-web.com/litgraph/> 
@@ -39,17 +40,14 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
     dcterms:creator :SiantubaJ ;
     dcterms:title "The impact of an online inquiry-based learning environment addressing misconceptions on students’ performance." ;
     dcterms:created "2023" ;
-    dcterms:identifier "https://doi.org/10.1186/s40561-023-00236-y" ;
-    mp:attributionOfAgent :ReimannP ;
-    mp:atTime "2023-10-17T00:00:00Z" .
+    dcterms:identifier "https://doi.org/10.1186/s40561-023-00236-y" .
 
 :Canlas2016 a bibo:Article; 
     dcterms:creator :CanlasA;
     dcterms:title "University students’ alternative conceptions on circular motion" ;
     dcterms:created "2016" ;
     dcterms:identifier "ISBN 1445-6780598" ;
-    mp:attributionOfAgent :ReimannP ;
-    mp:atTime "2023-10-17T00:00:00Z" .
+    cito:citesAsEvidence :Ref1 , :Ref2, :Ref3 . 
 
 	
 ### MP6
@@ -85,86 +83,68 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
 :S1 a mp:Statement; 
 	rdfs:label "S1: Inquiry-based (IBL) pedagogy triggers active learning"; 
 	mp:statement "IBL is an approach used in higher education that can engage students in such an active learning process" ;
-	mp:supportedBy :Ref1; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy :Ref1 .
 
 :Ref1 a mp:Reference; 
 	rdfs:label "Ref1: Canlas 2016"; 
 	mp:citation "Canlas, I. P. (2016). University students’ alternative conceptions on circular motion. International Journal of Scientific and Technology Research, 5(3), 25–33." ; 
-	mp:supportedBy :Canlas2016 ; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy :Canlas2016 .
 	
 :S2 a mp:Statement; 
 	rdfs:label "S2: Active learning improves conceptual understanding."; 
 	mp:statement "Overall, the results of using inquiry learning for reaching conceptual understanding have been favorable."; 
-	mp:supportedBy :Ref2; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy :Ref2 .
 	
 :Ref2 a mp:Reference; 
 	rdfs:label "Ref2: Furtak et al., 2012"; 
 	mp:citation "Furtak, E. M., Seidel, T., Iverson, H., & Briggs, D. C. (2012). Experimental and quasi-experimental studies of inquiry-based science teaching. Review of Educational Research, 82(3), 300–329."; 
-	mp:supportedBy<https://doi.org/10.3102/0034654312457206> ;
-    mp:attributionAsAuthor :A_C6  .
+	mp:supportedBy <https://doi.org/10.3102/0034654312457206> .
  
 :S3 a mp:Statement; 
 	rdfs:label "S3: Cognitive conflict elication leads to conceputal learning."; 
 	mp:statement "Results showed a clear advantage in conceptual knowledge gained for the cognitive conflict condition."; 
-	mp:supportedBy :Ref3 ; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy :Ref3 .
 	
 :Ref3 a mp:Reference; 
 	rdfs:label "Ref3: Baser 2006"; 
 	mp:citation "Effects of conceptual change and traditional confirmatory simulations on pre-service teachers’ understanding of direct current circuits. Journal of Science Education and Technology, 15(5/6), 367–381."; 
-	mp:supportedBy <https://doi-org.ezproxy.library.sydney.edu.au/10.1007/s10956-006-9025-3> ; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy <https://doi-org.ezproxy.library.sydney.edu.au/10.1007/s10956-006-9025-3> .
 	
 :D1 a mp:Data ; 
 	rdfs:label "D1: Graph from Siantuba et al 2023 Figure 5"; 
 	mp:value <https://slejournal.springeropen.com/articles/10.1186/s40561-023-00236-y/figures/5>; 
-	mp:supportedBy :M1,:M2 ; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy :M1,:M2 .
 	
 :M1 a mp:Procedure; 
 	rdfs:label "M1: Quasi-experimental design in Siantuba et al 2023 "; 
 	mp:value "A quasi-experimental design was used to compare the performance of students in the control group (traditional ILS set-up [n=71]) with that of the students in the experimental group (ILS geared towards remedying misconceptions, [n=100]). " ; 
-	mp:supportedBy <https://slejournal.springeropen.com/articles/10.1186/s40561-023-00236-y#Sec2> ; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy <https://slejournal.springeropen.com/articles/10.1186/s40561-023-00236-y#Sec2> .
 	
 :M2 a mp:Material; 
 	rdfs:label "M2: CMAP test for knowledge of curricular motion"; 
-	mp:supportedBy :Ref4; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportedBy :Ref4 . 
 	
 :Ref4 a mp:Reference; 
 	rdfs:label "Ref4: Ching 1999"; 
-	mp:citation "Ching, M. C. (1999). Conceptions in circular motion among form six physics students in Kuching. University of Malaya (Malaysia)."; 
-	mp:attributionAsAuthor :A_C6 .
-
+	mp:citation "Ching, M. C. (1999). Conceptions in circular motion among form six physics students in Kuching. University of Malaya (Malaysia)." .
+	
 :Q1 a mp:SemanticQualifier ; 
-	rdfs:label "C6 Qualifier 1: Sample is university students" ; 
-	mp:attributionAsAuthor :A_C6 .
+	rdfs:label "C6 Qualifier 1: Sample is university students" . 
 	
 :Q2 a mp:SemanticQualifier ; 
-	rdfs:label "C6 Qualifier 2: Learning environment is the Go-Lab. " ; 
-	mp:attributionAsAuthor :A_C6 .
+	rdfs:label "C6 Qualifier 2: Learning environment is the Go-Lab. " . 
 	
 :D2 a mp:Data ; 
 	rdfs:label "D2: challenges C6" ; 
 	mp:value "Some data where a misconception orientation did not lead to change." ;
-	mp:challenges :C6 ; 
-	mp:attributionAsAuthor :A_C6 .
+	mp:challenges :C6 . 
 	
 :S4 a mp:Statement ; 
 	rdfs:label "S4: Undercut C6 by challenging M2" ; 
 	mp:value "CMAT is not a validated test for circular motion knowledge." ;
 	mp:challenges :M2 ; 
-	mp:supportecBy :Ref5 ;
-	mp:attributionAsAuthor :A_C6 .
+	mp:supportecBy :Ref5 . 
 	
-:Ref5 a mp:Reference; 
-	rdfs:label "Ref5: DoeJ2000"; 
-	mp:citation "A dummy citation" ; 
-	mp:attributionAsAuthor :A_C6 .
 	
 	
 

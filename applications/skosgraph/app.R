@@ -25,7 +25,7 @@ oaNS <<- "http://www.w3.org/ns/oa#"
 skosNS <<- "http://www.w3.org/2004/02/skos/core#"
 
 # For the elements in ns_list the namespace will not be displayed in tables 
-ns_list <<- c(defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+ns_list <<- c(instanceNS, defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
 
 # aspects should be read from predicates I reckon. 
 aspects <<-

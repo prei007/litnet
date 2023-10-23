@@ -2,8 +2,8 @@
 # Concepts: Outcomes
 #################################
 
-PREFIX : <http://learn-web.com/thesauri/learning_outcomes/>
-PREFIX lo: <http://learn-web.com/thesauri/learning_outcomes/>
+PREFIX : <http://www.learn-web.com/thesauri/learning_outcomes/>
+PREFIX lo: <http://www.learn-web.com/thesauri/learning_outcomes/>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>
@@ -13,7 +13,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 
-lo:OutcomesThesaurus a skos:ConceptScheme ; 
+:OutcomesThesaurus a skos:ConceptScheme ; 
 	dc:title "Learning outcomes thesaurus " ;
 	skos:note "Informed by outcome categories in Ardoin et al 2018." ; 
 	skos:hasPrefix "lo:" ;

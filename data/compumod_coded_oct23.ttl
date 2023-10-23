@@ -2,8 +2,9 @@
 # Coding computational modelling	   #
 ########################################
 
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+prefix : <http://www.learn-web.com/litgraph/> 
+prefix litgraph: <http://www.learn-web.com/litgraph/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/> 
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lrmi: <http://purl.org/dcx/lrmi-terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -12,14 +13,15 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
+PREFIX oa: <http://www.w3.org/ns/oa#> 
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 ##### The studies with coding and inline free annotations 
 
 :Alves2021 a dc:BibliographicResource ;
 	:science :ClimateChangeScience, :Pollution ; 
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :TeacherTraining ;
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :TeacherTraining ;
 	:technology :eResearch, :GIS, :DataScienceTool, :ComputerModel, :eLearning, :ScienceBasedModel, :DataBasedModel ;
 	:pedagogy :ModelSimulation ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Alves2021" ; 
@@ -32,8 +34,8 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Anderson2020 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:learningDomain "Watershed integration", "Agriculture" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Highschools ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Highschools ; 
 	:technology :Game, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation, :InquiryLearning, :ExperientialLearning ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Anderson2020" ; 
@@ -42,11 +44,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	
 :Barnett2011 a dc:BibliographicResource ;
 	:science :Ecology ; 
-	:outcome :MultiDomainOutcomes ;
-	:educationalLevel :HighSchools ;
+	:learningOutcome :MultiDomainOutcomes ;
+	:educationLevel :HighSchools ;
 	:technology :GIS, :ComputerModel , :ScienceBasedModel, :DataBasedModel ;
 	:pedagogy :ModelSimulation ; 
-	:researchMethod :PrePost , :InferentialStatistics ; 
+	:researchApproach :PrePost , :InferentialStatistics ; 
 	:effectiveness "positive" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Barnett2011" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
@@ -56,11 +58,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 		
 :Basu2015 a dc:BibliographicResource ;
 	:science :Ecology ; 
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :Grade8 ;
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :Grade8 ;
 	:technology :GIS, :ComputerModel, :DemonstrationModel ;
 	:pedagogy :ModelSimulation , MultiModelling, :Scaffolding ; 
-	:researchMethod :ClinicalInterview , :MixedMethods, :InferentialStatistics ; 
+	:researchApproach :ClinicalInterview , :MixedMethods, :InferentialStatistics ; 
 	:effectiveness "positive" ; 
 	dc:relation :HmeloSilver2014, :HmeloSilver2015 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Basu2015" ; 
@@ -70,20 +72,20 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :BenhadiMarin2020 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "biological control, crop and flies" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :HighSchools ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :HighSchools ; 
 	:technology :NetLogoModel, :ScienceBasedModel ;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime "P1H"^^xsd:duration ;
-	:researchMethod :SurveyMethod ;
+	:researchApproach :SurveyMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#BenhadiMarin2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " Employs ODD protocol. Model name is EcoPred. Interesting and serious model. No social factors. Empirical research is not developed beyond a simple questionnaire.  "] .  
 		
 :Bhattacharya2020 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ; 
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :Grade8 ;
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :Grade8 ;
 	:technology :EDGCM , :ScienceBasedModel, :DataBasedModel ;
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	dc:relation :Bush2018 ; 
@@ -94,10 +96,10 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Bielik2019 a dc:BibliographicResource ;
 	:science :Oceanography ;
 	:learningDomain "Ocean acidification" ;
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :MiddleSchools ; 
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :MiddleSchools ; 
 	:pedagogy :ExpressiveModeling ; 
-	:researchMethod :DesignExperiment, :PrePost, :InterviewMethod ; 
+	:researchApproach :DesignExperiment, :PrePost, :InterviewMethod ; 
 	:technology :SageModeller , ScienceModel; 
 	:wikiLink "https://www.ejmste.com/article/shifting-the-balance-engaging-students-in-using-a-modeling-tool-to-learn-about-ocean-acidification-5612" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "08-Aug-2022" ;
@@ -105,7 +107,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	
 :Bush2016 a dc:BibliographicResource ;
 	:science :ClimateChange ;
-	:researchMethod :LitReview ; 
+	:researchApproach :LitReview ; 
 	:technology :ClimateModel, :GIS, :eResearch, :DataScienceTool, :ScienceBasedModel, :DataBasedModel; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2016" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
@@ -113,18 +115,18 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	
 :Bush2017 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	:educationalLevel :UndergraduateStudy ;
+	:educationLevel :UndergraduateStudy ;
 	:technology :DataBasedModel, :ScienceBasedModel ;
-	:researchMethod :LitReview ; 
+	:researchApproach :LitReview ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "A review valuable as overview of teaching practices in U/G Geography education."] .
 		
 :Bush2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :UndergraduateStudy ;
-	:researchMethod :ExperimentalMethod ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :UndergraduateStudy ;
+	:researchApproach :ExperimentalMethod ; 
 	:technology :EDGCM, :DataBasedModel, :ScienceBasedModel ; 
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2018" ; 
@@ -133,8 +135,8 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	
 :Bush2019 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	:educationalLevel :UndergraduateStudy ;
-	:researchMethod :SurveyMethod ; 
+	:educationLevel :UndergraduateStudy ;
+	:researchApproach :SurveyMethod ; 
 	:technology :EDGCM, :DataBasedModel, :ScienceBasedModel ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Bush2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
@@ -143,11 +145,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	
 :Carey2017 a dc:BibliographicResource ;
 	:science :Ecology, :ClimateChangeScience ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :UndergraduateStudy, GraduateStudy ;
-	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :UndergraduateStudy, GraduateStudy ;
+	:researchApproach :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :DataScienceTool , :ComputerModel, :ScienceBasedModel, :DataBasedModel ; 
-	:researchMethod :PrePost ; 
+	:researchApproach :PrePost ; 
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Carey2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
@@ -155,13 +157,13 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 		
 :Chen2021 a dc:BibliographicResource ;
 	:science :Ecology, :ClimateChangeScience ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :MiddleSchools ;
-	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :MiddleSchools ;
+	:researchApproach :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :VirtualReality, :ConceptMapping, :DemonstrationModel ; 
 	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
 	:learningTime "P225M"^^xsd:duration ;
-	:researchMethod :QuasiExperiment, :ConceptMappingMeasure ; 
+	:researchApproach :QuasiExperiment, :ConceptMappingMeasure ; 
 	:effectiveness "moderate" ; 
 	:wikiLink "https://doi.org/10.1007/s11251-021-09543-8" ; 
 	dc:related :Kamarainen2015 ;
@@ -170,9 +172,9 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 		
 :Cuadrado2017 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :UndergraduateStudy ;
-	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :UndergraduateStudy ;
+	:researchApproach :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :RolePlay, :ComputerModel ; 
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Cuadrado2017" ; 
@@ -181,11 +183,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 		
 :Cuccurullo2013 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :PrimaryEducation ;
-	:researchMethod :PrePost, :InferentialStatistics ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :PrimaryEducation ;
+	:researchApproach :PrePost, :InferentialStatistics ; 
 	:technology :VirtualReality, :Game ;  
-	:researchMethod :PrePost ;
+	:researchApproach :PrePost ;
 	:effectiveness "moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Cuccurullo2013" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
@@ -195,12 +197,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Dede2017 a dc:BibliographicResource ;
 	:science :Ecology ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :MiddleSchools ;
-	:researchMethod :PrePost, :InferentialStatistics ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :MiddleSchools ;
+	:researchApproach :PrePost, :InferentialStatistics ; 
 	:technology :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
-	:researchMethod :PrePost , :InferentialStatistics ;
+	:researchApproach :PrePost , :InferentialStatistics ;
 	:effectiveness "moderate to strong" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dede2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
@@ -209,12 +211,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Dickes2016 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Food chains. Foreaging"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade03 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade03 ; 
 	:technology  :NetLogoModel , :VirtualReality , :DemonstrationModel ;  
 	:pedagogy :InquiryLearning , :ModelSimulation , :MultiModelling ; 
 	:learningTime "P10H"^^xsd:duration ;
-	:researchMethod :PrePost , :CaseStudyMethod ;
+	:researchApproach :PrePost , :CaseStudyMethod ;
 	:effectiveness "High" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2016" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
@@ -224,11 +226,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 # There maybe sthg wrong with the pedagogy line but I have no clue what. 
 :Dickes2019 a dc:BibliographicResource ;
 	:science :Ecology ;
-	:educationalLevel :MiddleSchools ;
-	:researchMethod :ObservationMethod ; 
+	:educationLevel :MiddleSchools ;
+	:researchApproach :ObservationMethod ; 
 	:technology  :VirtualReality , :NetLogo , :CausalMap , :DemonstrationModel ;
   :pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning ; 
-	:outcome :SystemsThinking  ; 
+	:learningOutcome :SystemsThinking  ; 
 	dc:relation :HmeloSilver2014 , :HmeloSilver2015 , :Dickes2016 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dickes2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "19-Oct-2021" ;
@@ -238,13 +240,13 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Dinsmore2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :UndergraduateStudies ;
-	:researchMethod :PrePost, :InferentialStatistics ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :UndergraduateStudies ;
+	:researchApproach :PrePost, :InferentialStatistics ; 
 	:technology :ComputerModel ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime "P30M"^^xsd:duration ;
-	:researchMethod :PrePost , :PerformanceAnalysis , :InferentialStatistics ;
+	:researchApproach :PrePost , :PerformanceAnalysis , :InferentialStatistics ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Dinsmore2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
 		anno:body " More a psychological than educational study. Focus is on metacognitive strategy. Nuanced coding for several strategies. Learning time is only 30 minutes. Advanced statistical analysis. Marginal in environmental education aspects. Marginal for review. "] .
@@ -253,11 +255,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Eckhardt2018 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Ecosystem Water" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade08 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade08 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation ; 
-	:researchMethod  :ExperimentalMethod, :InferentialStatistics ;
+	:researchApproach  :ExperimentalMethod, :InferentialStatistics ;
 	:effectiveness "Moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#
 	Eckhardt2018" ; 
@@ -267,12 +269,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Erlandson2014 a dc:BibliographicResource ;
 	:science :Hydrology;
 	:learningDomain "Water cycle" ; 
-	:outcome :KnowledgeOutcomes; 
-	:educationalLevel :HighSchools ; 
+	:learningOutcome :KnowledgeOutcomes; 
+	:educationLevel :HighSchools ; 
 	:technology :VirtualReality, :DemonstrationModel ;  
 	:pedagogy :ModelSimulation ,  :RolePlay, :InquiryLearning ; 
 	:learningTime "P2H"^^xsd:duration ;
-	:researchMethod :PrePost, :PerformanceAnalysis ;
+	:researchApproach :PrePost, :PerformanceAnalysis ;
 	:effectiveness "moderate"; 
 	dc:relation :Dede2017 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Erlandson2014" ; 
@@ -282,28 +284,28 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 			
 :HmeloSilver2014 a dc:BibliographicResource ;
 	:science :Ecology ; 
-	:outcome :SystemsThinking ;
-	:educationalLevel :MiddleSchools ;
+	:learningOutcome :SystemsThinking ;
+	:educationLevel :MiddleSchools ;
 	:technology :Hypermedia, :NetLogoModel, :CausalMapModel , :DemonstrationModel ;
 	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
-	:researchMethod :PrePost ;
+	:researchApproach :PrePost ;
 	:effectiveness "Moderate to large positive" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2014" .
 	
 :HmeloSilver2015 a dc:BibliographicResource ;
 	:science :Ecology ; 
-	:outcome :SystemsThinking ;
-	:educationalLevel :MiddleSchools ;
+	:learningOutcome :SystemsThinking ;
+	:educationLevel :MiddleSchools ;
 	:technology :Hypermedia, :NetLogoModel, :CausalMapModel , :DemonstrationModel ;
 	:pedagogy :MultiModelling, :ModelSimulation, :CollaborativeLearning ; 
-	:researchMethod :CaseStudyMethod ;
+	:researchApproach :CaseStudyMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" .
 	
 :Hovardas2011 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Balance of nature"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :HighSchools ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :HighSchools ; 
 	:technology  :StellaModel, :DemonstrationModel ;  
 	:pedagogy :MisconceptionStrategy ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hovardas2011" ; 
@@ -314,12 +316,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Jensen2014 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "predator prey systems"; 
-	:outcome :SystemsThinking; 
-	:educationalLevel :UndergraduateStudy ; 
+	:learningOutcome :SystemsThinking; 
+	:educationLevel :UndergraduateStudy ; 
 	:technology :StellaModel ;  
 	:pedagogy :ExpressiveModelling ; 
 	:learningTime "P1H"^^xsd:duration ;
-	:researchMethod :ExperimentalMethod , MixedMethods ;
+	:researchApproach :ExperimentalMethod , MixedMethods ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jensen2014" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
 		anno:body " More focussed on systems thinking than EE. The ecology content is somewhat incidental. Interesting nevertheles to the extent transfer is concerned.  From the abstract: The approach and performance of 15 systemdynamics students who are taught to explicitly model the causal structure of the systems they study were compared with the approach and performance of 22 engineering students, who generally did not receive such training. The task was to bring a computer-simulated predator and-prey ecology to equilibrium. The system dynamics students were signiﬁcantly more likely than the engineering students to correctly frame the problem.They were not much better at solving the task, however. It seemed that they had only learnt how to make models and not how to use them for reasoning. "] .
@@ -327,11 +329,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Kamarainen2015 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Pond ecology", "Forest ecology" ; 
-	:outcome :KnoweldgeOutcomes ; 
-	:educationalLevel :Grade07 ; 
+	:learningOutcome :KnoweldgeOutcomes ; 
+	:educationLevel :Grade07 ; 
 	:technology  :ComputerModel, :VirtualReality, :DemonstrationModel , :ConceptMapping ;  
 	:pedagogy :InquiryLearning  ; 
-	:researchMethod :CaseStudyMethod, :QualitativeMethod, :PerformanceAnalysis ;
+	:researchApproach :CaseStudyMethod, :QualitativeMethod, :PerformanceAnalysis ;
 	dc:relation :Dede2017 ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Kamarainen2015" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
@@ -340,12 +342,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Kukkonen2014 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse Effect"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade05 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade05 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :ModelSimulation, :Scaffolding ; 
 	:learningTime  "P5H"^^xsd:duration  ;
-	:researchMethod :PrePost  ;
+	:researchApproach :PrePost  ;
 	:effectiveness "high (qualitative)"; 
 	dc:relation :Basu2015 , HmeloSilver2014 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Kukkonen2014" ; 
@@ -355,11 +357,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 		
 :Lant2016 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ; 
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :MiddleSchools ;
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :MiddleSchools ;
 	:technology :ComputerModel , :ScienceBasedModel ;
 	:pedagogy :ModelSimulation ; 
-	:researchMethod :PrePost , :InferentialStatistics ;
+	:researchApproach :PrePost , :InferentialStatistics ;
 	:effectiveness "Moderate to large positive" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2016" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
@@ -370,9 +372,9 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Lux2020 a dc:BibliographicResource ;
 	:science :EarthSciences ;
 	:learningDomain "Human geography" ; 
-	:outcome :SystemsThinking ; 
+	:learningOutcome :SystemsThinking ; 
 	:technology  :StrategyGame ;  
-	:researchMethod :LitReview ;
+	:researchApproach :LitReview ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Lux2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
 		anno:body "A conceptual and review paper. Speaks explicitely to social environmental systems, human geography. Calls it the socio-ecological view on systems. Builds on the competence model by Mehren et al. 2018.  The review of computer games is oriented on a framework for complexity. Driving questions (p. 2): >The main questions we strive to answer are: Do digital games provide the requirements necessary for the development of geographical systems thinking and competence? How complex are their modelled systems, and how do the games diﬀer with respect to their complex game design? Are there groups of games that are more suitable for acquiring geographical system competence than others?< In Figure 1 on Page 6 the authors depict their complexity framework but I find it too syntactic. It's basically asking how many elements and relations. It's useful, but not comprehensive enough. Compared to, say ODD and ODD+, it's simplistic. But then, this is about games, not simulations. From my perspective missing is an opening of the black box that hides human cognition and decision making. It is probably fair to say that these strategy games take the human side much more into account than most educational EE simulations, but they do not simulate actual human decision making. And your typical off-the-shelve game is opaque. The game overview is very helpful though!  As so often, the idea that computer should be mind tools, not only learning tools, is forgotten. "] .
@@ -380,11 +382,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Mallavarapu2015 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :HighSchools, :UndergraduateStudy ;
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :HighSchools, :UndergraduateStudy ;
 	:technology :NetLogoModel, :ScienceBasedModel ;
 	:pedagogy :ModelSimulation ; 
-	:researchMethod :ExperimentalMethod, :InferentialStatistics ;
+	:researchApproach :ExperimentalMethod, :InferentialStatistics ;
 	:effectiveness "Moderate to large positive" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Jordan2016" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
@@ -393,12 +395,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Markauskaite2020 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Carbon cycle"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :HighSchools ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :HighSchools ; 
 	:technology  :NetLogoModel , :DemonstrationModel;  
 	:pedagogy :ModelSimulation , :CollaborativeLearning ; 
 	:learningTime "P3H"^^xsd:duration  ;
-	:researchMethod :QualitativeMethod ;
+	:researchApproach :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Markauskaite2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "28-Oct-2021" ;
 		anno:body " Mainly about model-based reasoning and learning. Definitely interesting, but No human decision making modelled. Grounded cognition as theoretical backdrop. The coding system (Table 2) is interesting because it contains descriptors for gaining knowledge from the model simulation.  See also Table 9 for common sources of mistakes. Interesting! A second coding dimensin (TAble 6) is for the relations participants see between the model and real systems. The notion of observed grounding in an activity system much larger than the simulation resonates with my sense of augmentation, and the linking between real--or modelled real--systems and the computer model. So here we can say: students will add their own interpretations and associations, and it may be better to allow them to make explicit. A quantitative analysis is provided in Kelly et al 2012, ICLS conference."] .
@@ -409,7 +411,7 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:science :ClimateChangeScience ;
 	:technology :ComputerModel ;  
 	:pedagogy :ModelSimulation ; 
-	:researchMethod :SurveyMethod, :InterviewMethod, ObservationMethod ;
+	:researchApproach :SurveyMethod, :InterviewMethod, ObservationMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#MutchJones2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "29-Oct-2021" ;
 		anno:body " Pedagogocal paper. Most authors from Concorde. Focus is on teachers. Sample of 12 teachers. Interesting results from the interviews on students challenges with the simulations and the simulation methodology. No human decision making modelled "] .
@@ -418,12 +420,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Nussbaum2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Lake management"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade07 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade07 ; 
 	:technology :ComputerModel , :ScienceBasedModel;  
 	:pedagogy :ModelSimulation ; 
 	:learningTime  "P2H"^^xsd:duration ;
-	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
+	:researchApproach :ExperimentalMethod , :InferentialStatistics ;
 	:effectiveness "High"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Nussbaum2015" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "31-Oct-2021" ;
@@ -432,12 +434,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Özcan2020 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse gas"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade06 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade06 ; 
 	:technology :ComputerModel, :DemonstrationModel ;  
 	:pedagogy  :ModelSimulation ; 
 	:learningTime "P2H"^^xsd:duration ;
-	:researchMethod :ExperimentalMethod , :InferentialStatistics ;
+	:researchApproach :ExperimentalMethod , :InferentialStatistics ;
 	:effectiveness "Moderate" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Özcan2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
@@ -445,10 +447,10 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Pallant2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
-	:educationalLevel :MiddleSchools, :HighSchools ; 
+	:educationLevel :MiddleSchools, :HighSchools ; 
 	:technology  :ComputerModel , :DemonstrationModel;  
 	:pedagogy :ModelSimulation, :Argumentation , :MultiModelling ; 
-	:researchMethod :PrePost, :InferentialStatistics ;
+	:researchApproach :PrePost, :InferentialStatistics ;
 	:effectiveness "Moderate"; 
 	dc:relation :HmeloSilver2014, :Markauskaite2017 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Pallant2015" ; 
@@ -458,12 +460,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Pande2021 a dc:BibliographicResource ;
 	:science :Ecology;
 	:learningDomain "Environmental biology"; 
-	:outcome :MultiDomainOutcomes ; 
-	:educationalLevel :UndergraduateStudy ; 
+	:learningOutcome :MultiDomainOutcomes ; 
+	:educationLevel :UndergraduateStudy ; 
 	:technology :VirtualReality ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime "P6D"^^xsd:duration ;
-	:researchMethod :ExperimentalMethod ;;
+	:researchApproach :ExperimentalMethod ;;
 	:effectiveness "Moderate" ; 
 	:approach :Approach_Immersive_VR ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Pande2021" ; 
@@ -481,25 +483,25 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Puttick2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Climate Science" ; 
-	:educationalLevel :MiddleSchools;
-	:outcome :SystemsThinking ; 
+	:educationLevel :MiddleSchools;
+	:learningOutcome :SystemsThinking ; 
 	:technology :ComputerModel, :Scratch, :Game, :DemonstrationModel ;  
 	:pedagogy  :GameDesignLearning, :InformalLearning ; 
 	:learningTime "P12H"^^xsd:duration ;
-	:researchMethod  :InterviewMethod , :QualitativeMethod, ;
+	:researchApproach  :InterviewMethod , :QualitativeMethod, ;
 	:wikiLink "https://eric.ed.gov/?q=puttick&id=EJ1182432" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "30-Jul-2022" ;
 		anno:body " Almost paradigmatic for modelling through programming and game design.  "] .
 		
 :Reilly2021 a dc:BibliographicResource ;
 	:science :Ecology, :ClimateChangeScience ;
-	:outcome :DispositionOutcomes ; 
-	:educationalLevel :MiddleSchools ;
-	:researchMethod :ExperimentalMethod, :InferentialStatistics ; 
+	:learningOutcome :DispositionOutcomes ; 
+	:educationLevel :MiddleSchools ;
+	:researchApproach :ExperimentalMethod, :InferentialStatistics ; 
 	:technology :VirtualReality, :ConceptMapping , :DemonstrationModel; 
 	:pedagogy :InquiryLearning, :CollaborativeLearning ; 
 	:duration "P650M"; 
-	:researchMethod :PrePost, :InterviewMethod ; 
+	:researchApproach :PrePost, :InterviewMethod ; 
 	:effectiveness "moderate" ; 
 	:wikiLink "https://doi.org/10.1080/00220973.2020.1712313" ; 
 	dc:related :Dede2017 ;
@@ -510,11 +512,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :RooneyVarga2020 a dc:BibliographicResource ;
 	:science :ClimateChangeImpacts ;
 	:learningDomain "Energy policy" ; 
-	:outcome :BehaviorOutcomes ; 
+	:learningOutcome :BehaviorOutcomes ; 
 	:technology :ComputerModel, :ScienceBasedModel ;  
 	:pedagogy  :RolePlay, :ModelSimulation ; 
 	:learningTime "P2H"^^xsd:duration ;
-	:researchMethod  :PrePost, :InterviewMethod ;
+	:researchApproach  :PrePost, :InterviewMethod ;
 	:effectiveness "Moderate"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#RooneyVarga2020" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
@@ -524,12 +526,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Stave2015 a dc:BibliographicResource ;
 	:science :EnvironmentalScience;
 	:learningDomain "Environmental accumulations", "carbon cycle"; 
-	:outcome :SystemsThinking ; 
-	:educationalLevel :UndergraduateStudy ; 
+	:learningOutcome :SystemsThinking ; 
+	:educationLevel :UndergraduateStudy ; 
 	:technology :SysDyn , :DemonstrationModel ;  
 	:pedagogy :ModelSimulation , :MultiModelling , :InquiryLearning ; 
 	:learningTime "P2H"^^xsd:duration ;
-	:researchMethod :PrePost , :InferentialStatistics ;
+	:researchApproach :PrePost , :InferentialStatistics ;
 	:effectiveness "High" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Stave2015" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
@@ -539,11 +541,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 	:science :EnvironmentalScience;
 	:learningDomain "Environmental migration"; 
 	:modelDesign :IndividualCognition ; 
-	:outcome :MultiDomainOutcomes ; 
-	:educationalLevel :MixedAges ; 
+	:learningOutcome :MultiDomainOutcomes ; 
+	:educationLevel :MixedAges ; 
 	:technology :ComputerModel,  :VirtualReality , :DemonstrationModel;  
 	:pedagogy :RolePlay , :ExperientialLearning ; 
-	:researchMethod :ExperimentalMethod, :SurveyMethod , :InferentialStatistics;
+	:researchApproach :ExperimentalMethod, :SurveyMethod , :InferentialStatistics;
 	:effectiveness "High"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Su2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
@@ -552,11 +554,11 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 
 :Taillandier2018 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ; 
-	:outcome :KnowledgeOutcomes ;
-	:educationalLevel :UndergraduateStudy ;
+	:learningOutcome :KnowledgeOutcomes ;
+	:educationLevel :UndergraduateStudy ;
 	:technology :ABM, :DataBasedModel ;
 	:pedagogy :ModelSimulation ; 
-	:researchMethod :SurveyMethod , :PerformanceAnalysis ;
+	:researchApproach :SurveyMethod , :PerformanceAnalysis ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Taillandier2018" ; 
     :annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not great as an research study but reasonable quality. Game programmed in a propriety ABM shell. Domain is risk management for coastal flooding, sea level rise. Looks like real or close to real data in the simulation. Audience is engineering students."] .
@@ -564,12 +566,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Tasquier2016 a dc:BibliographicResource ;
 	:science :ClimateChangeScience;
 	:learningDomain "Model epistemology"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade11 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade11 ; 
 	:technology :Simulation, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning, :MultiModelling ; 
 	:learningTime "P15H"^^xsd:duration ;
-	:researchMethod :SurveyMethod , :QualitativeMethod ;
+	:researchApproach :SurveyMethod , :QualitativeMethod ;
 	dc:relation :Markauskaite2017 ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Tasquier2016" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
@@ -579,12 +581,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Thacker2019 a dc:BibliographicResource ;
 	:science :ClimateChangeScience;
 	:learningDomain  "Greenhouse effect" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel  :UndergraduateStudy ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel  :UndergraduateStudy ; 
 	:technology :ComputerModel , :DemonstrationModel ;  
 	:pedagogy :MisconceptionStrategy , :ModelSimulation ; 
 	:learningTime "P1H"^^xsd:duration ;
-	:researchMethod :CaseStudyMethod , :InterviewMethod , :QualitativeMethod, :PrePost ;
+	:researchApproach :CaseStudyMethod , :InterviewMethod , :QualitativeMethod, :PrePost ;
 	:effectiveness "moderate to high" ; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Thacker2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
@@ -593,8 +595,8 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Thomas2019 a dc:BibliographicResource ;
 	:science :Ecology ;
 	:learningDomain "Species invasion" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel  :Grade04 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel  :Grade04 ; 
 	:technology :ComputerModel , :Scratch  ;  
 	:pedagogy :ProblemBasedLearning , :ExpressiveModelling , :Programming; 
 	:learningTime "P35D"^^xsd:duration ;
@@ -606,12 +608,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :TuckerRaymond2019 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Climate system"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Grade08 ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Grade08 ; 
 	:technology :Game ;  
 	:pedagogy  :GameDesignLearning ; 
 	:learningTime  "P3H20M"^^xsd:duration ;
-	:researchMethod :ObservationMethod , :QualitativeMethod ;
+	:researchApproach :ObservationMethod , :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#TuckerRaymond2019" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
 		anno:body "Aims at integration of computational thinking and climate science. Thus, very relevant. The study focusses on design critique, a soft element of computational thinking. Found that students critique was much on on game elements than science elements. Uses a design conjecture map! Uses Scratch for modelling. A reasonable example for computational thinking combined with EE. Analysis mainly on patterns  and types of critique.  "] .
@@ -619,12 +621,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Valkering2013 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement, :ClimateAdpatation;
 	:learningDomain "Water management"; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :Adults ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :Adults ; 
 	:technology :Game , :ComputerModel, :ScienceBasedModel ;  
 	:pedagogy :RolePlay, :ExperientialLearning ; 
 	:learningTime "P3H"^^xsd:duration ;
-	:researchMethod :QualitativeMethod ;
+	:researchApproach :QualitativeMethod ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Valkering2013" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "Focus is on societal responses to adaptation decisions. Perspective-based simulation game. There's a river water simulation integrated that is science-based. The river simulation does not contain human decision making or such. It is used to provide information back to players for the next decice & simulate cycle. The paper outlines a conceptual model for societal response based on three theories. These are interesting from our perspective because they can inform modelling of societal factors. The theories are used to describe and classify. The sample was academics, water managers, and mixed groups. The empirical part is not very strong, but a clearly relevant paper for the typical simulation use pattern in a role play game scenario  "] .
@@ -633,12 +635,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Visintainer2015 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Greenhouse effect" ; 
-	:outcome :KnowledgeOutcomes ; 
-	:educationalLevel :MiddleSchools ; 
+	:learningOutcome :KnowledgeOutcomes ; 
+	:educationLevel :MiddleSchools ; 
 	:technology :NetLogoModel, :DemonstrationModel ;  
 	:pedagogy :InquiryLearning ; 
 	:learningTime  "P7D"^^xsd:duration;
-	:researchMethod :PrePost , :ClinicalInterview, :PerformanceAnalysis, :CaseStudyMethod ;
+	:researchApproach :PrePost , :ClinicalInterview, :PerformanceAnalysis, :CaseStudyMethod ;
 	:effectiveness "Moderate"; 
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Visintainer2015" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
@@ -647,12 +649,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Waddington2018 a dc:BibliographicResource ;
 	:science :ClimateChangeScience ;
 	:learningDomain "Energy consumption"; 
-	:outcome :SystemsThinking ; 
-	:educationalLevel :Adults ; 
+	:learningOutcome :SystemsThinking ; 
+	:educationLevel :Adults ; 
 	:technology :ComputerModel , :Game ;  
 	:pedagogy :ModelSimulation , :RolePlay ; 
 	:learningTime  "P2H"^^xsd:duration;
-	:researchMethod :ExperimentalMethod , :ConceptMappingMeasure , :InterviewMethod , :MixedMethods , :InferentialStatistics ;
+	:researchApproach :ExperimentalMethod , :ConceptMappingMeasure , :InterviewMethod , :MixedMethods , :InferentialStatistics ;
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Waddington2018" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
 		anno:body " N = 33. Convience sample.  Control conditions was a different game. The simulation is used in typical role play mode, calculating the effects of decisins in play cycles. The underlying model is not science based, and no real data. Typcial pattern. Careful data analysis The game FATE OF THE WORLD seems a commercial one. Analysis of flaws on p. 187 onwards: Opaque game mechanisms, poor scaffolding of learning, complexity of underlying model.  The learning time is a guestimate "] .
@@ -660,12 +662,12 @@ PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
 :Yeung2017 a dc:BibliographicResource ;
 	:science :EnvironmentalManagement ;
 	:learningDomain "plastic waste management"; 
-	:outcome :MultiDomainOutcomes ; 
-	:educationalLevel :UndergraduateStudy ; 
+	:learningOutcome :MultiDomainOutcomes ; 
+	:educationLevel :UndergraduateStudy ; 
 	:technology :ComputerModel , :Game ;  
 	:pedagogy  :InquiryLearning , :ModelSimulation ; 
 	:learningTime "P8H"^^xsd:duration ;
-	:researchMethod  :ExperimentalMethod, :PrePost, :InferentialStatistics , :InterviewMethod, :MixedMethods ;
+	:researchApproach  :ExperimentalMethod, :PrePost, :InferentialStatistics , :InterviewMethod, :MixedMethods ;
 	:effectiveness "High" ;  
 	:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Yeung2017" ; 
 	:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;

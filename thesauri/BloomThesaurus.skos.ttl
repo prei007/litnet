@@ -2,8 +2,8 @@
 # Concepts: Bloom's Learning CognitiveOutcome
 #################################
 
-PREFIX : <http://learn-web.com/thesauri/bloom_outcomes/>
-PREFIX bloom: <http://learn-web.com/thesauri/bloom_outcomes/>
+PREFIX : <http://www.learn-web.com/thesauri/bloom_outcomes/>
+PREFIX bloom: <http://www.learn-web.com/thesauri/bloom_outcomes/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix fabio: <http://purl.org/spar/fabio/> 

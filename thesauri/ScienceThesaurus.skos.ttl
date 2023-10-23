@@ -4,8 +4,14 @@
 
 # Using Australian Bureau of Statistics ANZSRC2020
 
-PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
-PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
+prefix : <http://www.learn-web.com/thesauri/sciences/>
+prefix rm: <http://www.learn-web.com/thesauri/sciences/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 
 

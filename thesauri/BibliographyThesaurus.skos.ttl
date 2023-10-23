@@ -2,8 +2,8 @@
 # Concepts: Bibliograpic data
 #################################
 
-PREFIX : <http://learn-web.com/2023/bibliography/>
-PREFIX bib: <http://learn-web.com/2023/bibliography/>
+PREFIX : <http://www.learn-web.com/2023/bibliography/>
+PREFIX bib: <http://www.learn-web.com/2023/bibliography/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix fabio: <http://purl.org/spar/fabio/> 

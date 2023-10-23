@@ -2,16 +2,16 @@
 # Concepts: Research methods
 #################################
 
-prefix : <http://learn-web.com/thesauri/research_methods/>
-prefix rm: <http://learn-web.com/thesauri/research_methods/>
+prefix : <http://www.learn-web.com/thesauri/research_approaches/>
+prefix rm: <http://www.learn-web.com/thesauri/research_approaches/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix skos: <http://www.w3.org/2004/02/skos/core#>
 prefix dc: <http://purl.org/dc/elements/1.1/>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix ex: <http://www.example.net/>
-prefix litrev: <http://www.learn-web.com/2023/litrev/>
-prefix fabio: <http://purl.org/spar/fabio/> 
+
+
 
 
 :MethodsThesaurus a skos:ConceptScheme ; 

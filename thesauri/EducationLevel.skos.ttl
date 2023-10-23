@@ -2,8 +2,8 @@
 # SKOS Education Levels				   #
 ########################################
 
-PREFIX : <http://learn-web.com/thesauri/educlevels/>
-PREFIX edlevel: <http://learn-web.com/thesauri/educlevels/>
+PREFIX : <http://www.learn-web.com/thesauri/educlevels/>
+PREFIX edlevel: <http://www.learn-web.com/thesauri/educlevels/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 prefix litrev: <http://www.learn-web.com/2023/litrev/>
 prefix fabio: <http://purl.org/spar/fabio/> 

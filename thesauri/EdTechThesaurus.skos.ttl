@@ -2,9 +2,13 @@
 # Concepts: Educational technologies
 #################################
 
-PREFIX : <http://www.learn-web.com/thesauri/technologies/>
-PREFIX tech:<http://www.learn-web.com/thesauri/technologies/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+prefix dc: <http://purl.org/dc/elements/1.1/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rm: <http://www.learn-web.com/thesauri/research_approaches/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/>
+prefix : <http://www.learn-web.com/thesauri/technologies/>
 
 :TechnologyThesaurus a skos:ConceptScheme ; 
 	dc:title "Eductional technology thesaurus " . 
@@ -83,16 +87,16 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:inScheme :TechnologyThesaurus ;
 	skos:prefLabel "NetLogo" ;
 	skos:definition "A model written in the programming language NetLogo."@en ;
-	skos:scopeNote "Not to be confused with the NetLogo simulation shell itself."
+	skos:scopeNote "Not to be confused with the NetLogo simulation shell itself." ;
 	skos:broader :ABM . 
 	
 :SysDyn a skos:Concept ;
-	skos:inScheme :TechnologyThesaurus;
+	skos:inScheme :TechnologyThesaurus ;
 	skos:prefLabel "System Dynamics Model"@en ;
 	skos:broader :ComputerModel . 
 	
 :CausalMapModel a skos:Concept ;
-	skos:inScheme :TechnologyThesaurus;
+	skos:inScheme :TechnologyThesaurus ;
 	skos:prefLabel "Causal Map Model"@en ;
 	skos:related :SysDyn, :FeedbackLoopModel ;
 	skos:broader :ComputerModel . 
@@ -150,8 +154,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	skos:inScheme :TechnologyThesaurus ; 
 	skos:prefLabel "Data-based model"@en ;
 	skos:scopeNote "Models that demonstrating an effect of process in an idealized form." ;
-	skos:example "Schellings model; many predator-prey models. "
-	skos:related :ScienceBasedModel .
+	skos:example "Schellings model; many predator-prey models. " .
 
 
 ### Immersive 

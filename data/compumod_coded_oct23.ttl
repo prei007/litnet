@@ -56,7 +56,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
 		anno:body "a curriculum paper describing the alignments of a strategy game with human players. social factors not modelled.  Not fully topical because not on EE directly. Interesting still because of the learning standards mapping.  "] .
 	
-:Barnett2011 a dc:BibliographicResource ;
+:Barnett2011 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 
 	litrev:learningOutcome lo:MultiDomainOutcomes ;
 	litrev:educationLevel edlevel:HighSchools ;
@@ -70,7 +70,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		
 		
 		
-:Basu2015 a dc:BibliographicResource ;
+:Basu2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ;
 	litrev:educationLevel edlevel:Grade8 ;
@@ -83,7 +83,7 @@ prefix : <http://www.learn-web.com/litgraph/>
     litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "23-Oct-2021" ;
 		anno:body "The main concern of this paper is about the forms of scaffolds requiered for learners in their interaction with ABMs. Three types of scaffolds are deemed necessary: for sense-making, process management, and reflection articulation processes. This is an important paper also from the persepctive of peer tutoring and scaffolding. The main strategy for providing scaffolds is through Multiple External Representations. These are dynamic simulation of agents (species), graphs of the total population over time, textual resources, and causal maps. See HmeloSilver. There's a lot of attention spent on a fading strategy. The leaerning domain is a desert ecosystem model built in NetLogo. 20 8th graders. The data analysis is very nuanced. No modelling of human decision making"] .
 		
-:BenhadiMarin2020 a dc:BibliographicResource ;
+:BenhadiMarin2020 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "biological control, crop and flies" ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -96,7 +96,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " Employs ODD protocol. Model name is EcoPred. Interesting and serious model. No social factors. Empirical research is not developed beyond a simple questionnaire.  "] .  
 		
-:Bhattacharya2020 a dc:BibliographicResource ;
+:Bhattacharya2020 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ;
 	litrev:educationLevel edlevel:Grade8 ;
@@ -107,7 +107,7 @@ prefix : <http://www.learn-web.com/litgraph/>
     litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "24-Oct-2021" ;
 		anno:body "This is a curriculum paper, not an empirical study: a 4-week curriculum module on using EDBCM (here called EzGCM) to develop understanding of core climate-science concepts. Adds numerous pedagogical elements such as formative assessments, investigation tasks, and out-of-model activities. Close in spirit to the model augmentation concept, but more out-of-model oriented. Serious curriculum work."] .
 
-:Bielik2019 a dc:BibliographicResource ;
+:Bielik2019 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Oceanography ;
 	litrev:learningDomain "Ocean acidification" ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ;
@@ -119,7 +119,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "08-Aug-2022" ;
 		anno:body "58 students in two  classes. Interview with 10 students.  Mainly interest measures, with some increase in interest. Also some analysis of questions asked by students. "] .
 	
-:Bush2016 a dc:BibliographicResource ;
+:Bush2016 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChange ;
 	litrev:researchApproach :LitReview ; 
 	litrev:technology tech:ClimateModel, tech:Gis, tech:eResearch, tech:DataScienceTool, tech:ScienceBasedModel, tech:DataBasedModel; 
@@ -136,7 +136,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "A review valuable as overview of teaching practices in U/G Geography education."] .
 		
-:Bush2018 a dc:BibliographicResource ;
+:Bush2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:UndergraduateStudy ;
@@ -147,7 +147,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "16-Oct-2021" ;
 		anno:body "Fully relevant for our research question. Performs a comparison of students learning with EDGCm versus students learning from simpler tools, also available on the web.  Quant and qual data. Needs to be read carefully. A main finding pertains to similarity of student practice to authentic science practices."] .
 	
-:Bush2019 a dc:BibliographicResource ;
+:Bush2019 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:educationLevel edlevel:UndergraduateStudy ;
 	litrev:researchApproach rm:SurveyMethod ; 
@@ -157,7 +157,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "A teacher survey.  Sampled from people who asked for an license of EDGCM and asked for their experience. No theory, purely descriptive. Useful, but not as an example to understand learning from/with models"] .
 	
 	
-:Carey2017 a dc:BibliographicResource ;
+:Carey2017 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology, sci:ClimateChangeScience ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:UndergraduateStudy, edlevel:GraduateStudy ;
@@ -169,7 +169,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
 		anno:body "Uses an R package for modelling lakes. Compares undergraduate against graduate student performance in a pre-post measurement. That comparison is somewhat adhoc, but the study overall is rigorous. Makes interesting arguments for the teaching of the scientific method, and understanding of modelling, in addition to domain learning. Also traces participants understanding of modelling. No human decision making or social aspects."] .
 		
-:Chen2021 a dc:BibliographicResource ;
+:Chen2021 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology, sci:ClimateChangeScience ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:MiddleSchools ;
@@ -184,7 +184,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "09-Aug-2022" ;
 		anno:body "Uses ecoMUVE as the learning environment  From the abstract: Sixty-nine 11th grade students worked in small groups to explain a fish die-off phenomenon in a virtual ecosystem and collaboratively constructed an integrative cognitive map to facilitate thinking during the task. The map comprised a concept map (representing conceptual thinking about relevant subject knowledge) and a reasoning map (representing the reasoning process). Regression analyses showed that the quality of the student-constructed maps, particularly the reasoning maps, was a significant predictor of inquiry task performance assessed based on students’ written explanations of the phenomenon. Although the quality of the concept maps was not a significant predictor of inquiry task performance, it did predict the quality of the reasoning maps. Student thinking reflected in concept mapping and that reflected in reasoning mapping play different roles in inquiry learning."] .
 		
-:Cuadrado2017 a dc:BibliographicResource ;
+:Cuadrado2017 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalManagement ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:UndergraduateStudy ;
@@ -195,7 +195,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "17-Oct-2021" ;
 		anno:body "uses a game/simulation called Irrigania, a resource management game (very simple, equation based, not data based). Experimental study comparing cooperation versus competition strategy. Does reflect on human decision making, but that one is not simulated. Is an example for the cases where human decision making are considered, and are the research topic. But shows the case that the DM is not part of the computer simulation. "] .
 		
-:Cuccurullo2013 a dc:BibliographicResource ;
+:Cuccurullo2013 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalManagement ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:PrimaryEducation ;
@@ -209,7 +209,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		
 		
 
-:Dede2017 a dc:BibliographicResource ;
+:Dede2017 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:MiddleSchools ;
@@ -222,7 +222,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "25-Oct-2021" ;
 		anno:body "Immersive EcoXPT application. Not a scientific simulation at the environmental . Numerous in-simulation tools for scientific inquiry. Amazingly complete, including laboratory simulations. Elements of multi-modelling.  "] .
 
-:Dickes2016 a dc:BibliographicResource ;
+:Dickes2016 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "Food chains. Foreaging"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -238,7 +238,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		
 
 # There maybe sthg wrong with the pedagogy line but I have no clue what. 
-:Dickes2019 a dc:BibliographicResource ;
+:Dickes2019 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:educationLevel edlevel:MiddleSchools ;
 	litrev:researchApproach rm:ObservationMethod ; 
@@ -252,7 +252,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 
 # :Dickes2019 litrev:pedagogy envped:ModelSimulation, envped:MultiModelling, envped:InquiryLearning . 
 
-:Dinsmore2018 a dc:BibliographicResource ;
+:Dinsmore2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
 	litrev:educationLevel edlevel:UndergraduateStudies ;
@@ -266,7 +266,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body " More a psychological than educational study. Focus is on metacognitive strategy. Nuanced coding for several strategies. Learning time is only 30 minutes. Advanced statistical analysis. Marginal in environmental education aspects. Marginal for review. "] .
 			
 		
-:Eckhardt2018 a dc:BibliographicResource ;
+:Eckhardt2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "Ecosystem Water" ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -296,7 +296,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body " Says its a socialecological simulation called Cloverdale. Simulates a town hall plus a water system. Not sure about the scientific basis. Human decision making and social mechanisms are not modeled, but are what the user enacts as the decision maker. So, its not a social ecological simulation in the strong sense of both components being modelled. Pedagogical logic similar to Chris Dede : a combination of immersion, inquiry and simulation. Pretty extensive analysis of learning and learning results. Needs to be mentioned in the analysis as one of the few cases that does have the social dimension.  "] .
 		
 			
-:HmeloSilver2014 a dc:BibliographicResource ;
+:HmeloSilver2014 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 
 	litrev:learningOutcome lo:SystemsThinking ;
 	litrev:educationLevel edlevel:MiddleSchools ;
@@ -306,7 +306,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:effectiveness "Moderate to large positive" ; 
 	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2014" .
 	
-:HmeloSilver2015 a dc:BibliographicResource ;
+:HmeloSilver2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 
 	litrev:learningOutcome lo:SystemsThinking ;
 	litrev:educationLevel edlevel:MiddleSchools ;
@@ -315,7 +315,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:researchApproach rm:CaseStudyMethod ;
 	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#HmeloSilver2015" .
 	
-:Hovardas2011 a dc:BibliographicResource ;
+:Hovardas2011 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "Balance of nature"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -327,7 +327,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "Is critical about the Balance of Nature metaphor, which seems to be important in biology and ecology education. A thoughtful mainly conceptual paper. The simulation aspect is purely conceptual, but inspired by a real system, a vulture population in a Greek national park. No empirical part. Human decision making is not included in the simulation "] .
 	
 		
-:Jensen2014 a dc:BibliographicResource ;
+:Jensen2014 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "predator prey systems"; 
 	litrev:learningOutcome lo:SystemsThinking; 
@@ -340,7 +340,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
 		anno:body " More focussed on systems thinking than EE. The ecology content is somewhat incidental. Interesting nevertheles to the extent transfer is concerned.  From the abstract: The approach and performance of 15 systemdynamics students who are taught to explicitly model the causal structure of the systems they study were compared with the approach and performance of 22 engineering students, who generally did not receive such training. The task was to bring a computer-simulated predator and-prey ecology to equilibrium. The system dynamics students were signiﬁcantly more likely than the engineering students to correctly frame the problem.They were not much better at solving the task, however. It seemed that they had only learnt how to make models and not how to use them for reasoning. "] .
 	
-:Kamarainen2015 a dc:BibliographicResource ;
+:Kamarainen2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "Pond ecology", "Forest ecology" ; 
 	litrev:learningOutcome lo:KnoweldgeOutcomes ; 
@@ -353,7 +353,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
 		anno:body "Dede group at Harvard. EcoMUVE combines VR with a pond simulation. The modelling itself is not so much in focus here --other stand students' concept mapping--as is developing hypothesis what should go into the model. But somewhat naïvely, this is seen mainly as a problem of getting hypotheses inductively  from observations in the VR. Not sure how scientific the pond model is. Longer introduction on model reasoning that seems interesting. Dont see the concept maps analysed though. No human factors modelled. "] .
 		
-:Kukkonen2014 a dc:BibliographicResource ;
+:Kukkonen2014 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Greenhouse Effect"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -369,7 +369,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "Like Basu et al (2015), focus on scaffolding. Also similar to Hmelo-Silver in the use of (n this case hand-drawn) concept maps. One of the PhET simulations is used. 21 Participants. Main measure is analysis of participants drawings produced based on the simulation. Integrated into classroom teaching, 5 units.  No human decision making "] .		
 		
 		
-:Lant2016 a dc:BibliographicResource ;
+:Lant2016 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ;
 	litrev:educationLevel edlevel:MiddleSchools ;
@@ -383,7 +383,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		
 		
 		
-:Lux2020 a dc:BibliographicResource ;
+:Lux2020 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EarthSciences ;
 	litrev:learningDomain "Human geography" ; 
 	litrev:learningOutcome lo:SystemsThinking ; 
@@ -394,7 +394,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "A conceptual and review paper. Speaks explicitely to social environmental systems, human geography. Calls it the socio-ecological view on systems. Builds on the competence model by Mehren et al. 2018.  The review of computer games is oriented on a framework for complexity. Driving questions (p. 2): >The main questions we strive to answer are: Do digital games provide the requirements necessary for the development of geographical systems thinking and competence? How complex are their modelled systems, and how do the games diﬀer with respect to their complex game design? Are there groups of games that are more suitable for acquiring geographical system competence than others?< In Figure 1 on Page 6 the authors depict their complexity framework but I find it too syntactic. It's basically asking how many elements and relations. It's useful, but not comprehensive enough. Compared to, say ODD and ODD+, it's simplistic. But then, this is about games, not simulations. From my perspective missing is an opening of the black box that hides human cognition and decision making. It is probably fair to say that these strategy games take the human side much more into account than most educational EE simulations, but they do not simulate actual human decision making. And your typical off-the-shelve game is opaque. The game overview is very helpful though!  As so often, the idea that computer should be mind tools, not only learning tools, is forgotten. "] .
 
 
-:Mallavarapu2015 a dc:BibliographicResource ;
+:Mallavarapu2015 a dc:BibliographicResource,  bibo:Article ;
 	litrev:science sci:EnvironmentalManagement ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ;
 	litrev:educationLevel edlevel:HighSchools, edlevel:UndergraduateStudy ;
@@ -406,7 +406,7 @@ prefix : <http://www.learn-web.com/litgraph/>
     litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "20-Oct-2021" ;
 		anno:body "Serious and relevant study. "] .
 		
-:Markauskaite2020 a dc:BibliographicResource ;
+:Markauskaite2020 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Carbon cycle"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -421,7 +421,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		
 	
 		
-:MutchJones2018 a dc:BibliographicResource ;
+:MutchJones2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:technology tech:ComputerModel ;  
 	litrev:pedagogy envped:ModelSimulation ; 
@@ -431,7 +431,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body " Pedagogocal paper. Most authors from Concorde. Focus is on teachers. Sample of 12 teachers. Interesting results from the interviews on students challenges with the simulations and the simulation methodology. No human decision making modelled "] .
 		
 
-:Nussbaum2015 a dc:BibliographicResource ;
+:Nussbaum2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Lake management"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -445,7 +445,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "31-Oct-2021" ;
 		anno:body "Serious study. 119 participants.  "] . 
 		
-:Özcan2020 a dc:BibliographicResource ;
+:Özcan2020 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Greenhouse gas"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -459,7 +459,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body " N = 45. Straightforward experiment with the Greenhouse Effect PhET simulation. No human decision making modelled. "] .
 
-:Pallant2015 a dc:BibliographicResource ;
+:Pallant2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:educationLevel edlevel:MiddleSchools, edlevel:HighSchools ; 
 	litrev:technology  tech:ComputerModel , tech:DemonstrationModel;  
@@ -471,7 +471,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "Concord team. N = 512. Focus is on argumentation patterns based on model simulation. No human decision making modelled. "] .
 		
-:Pande2021 a dc:BibliographicResource ;
+:Pande2021 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology;
 	litrev:learningDomain "Environmental biology"; 
 	litrev:learningOutcome lo:MultiDomainOutcomes ; 
@@ -487,14 +487,14 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body " Delayed post test after 2 months, in addition to immediate testing. N = 28. VR simulation fo field and lab gear. Multiple measurement dimensions, but not the deepest of analysis.  "] .
 		
 
-:Parker2014 a dc:BibliographicResource ;
+:Parker2014 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:technology tech:ComputerModel ; 
 	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Parker2014" ; 
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not a empirical paper but a methdological essay on the role of simulation. Important to get the science of modelling right. "] .
 		
-:Puttick2018 a dc:BibliographicResource ;
+:Puttick2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Climate Science" ; 
 	litrev:educationLevel edlevel:MiddleSchools;
@@ -507,7 +507,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "30-Jul-2022" ;
 		anno:body " Almost paradigmatic for modelling through programming and game design.  "] .
 		
-:Reilly2021 a dc:BibliographicResource ;
+:Reilly2021 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology, sci:ClimateChangeScience ;
 	litrev:learningOutcome lo:DispositionOutcomes ; 
 	litrev:educationLevel edlevel:MiddleSchools ;
@@ -523,7 +523,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "Uses ecoXPT as the learning environment.  From the abstract: This paper presents a mixed-methods study of identity exploration in 7th grade science students using a three-week immersive virtual world-based curriculum. Data sources include interviews and prepost assessments which are compared to see how one can best assess science identity exploration. Students had statistically significant gains in scientific self-efficacy, and interviews showed an increasing awareness of what it means to be a scientist and how inquiry and argumentation skills can be used across different disciplines."] .
 
 		
-:RooneyVarga2020 a dc:BibliographicResource ;
+:RooneyVarga2020 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeImpacts ;
 	litrev:learningDomain "Energy policy" ; 
 	litrev:learningOutcome lo:BehaviorOutcomes ; 
@@ -537,7 +537,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body " Social action oriented. Serious role play component.  "] .
 		
 		
-:Stave2015 a dc:BibliographicResource ;
+:Stave2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalScience;
 	litrev:learningDomain "Environmental accumulations", "carbon cycle"; 
 	litrev:learningOutcome lo:SystemsThinking ; 
@@ -551,7 +551,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
 		anno:body " It's noteworthy how few studies are on system dynamics simulations. This is one. N = 126. Two content-independent Vensim simulations, each with a typical pattern. Not sure why they call it that as the second simulation is definitely on the carbon cycle. "] .
 		
-:Su2018 a dc:BibliographicResource ;
+:Su2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalScience;
 	litrev:learningDomain "Environmental migration"; 
 	litrev:modelDesign litrev:IndividualCognition ; 
@@ -566,7 +566,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body " Kind of a simcity simulation. Uses Migration Theory, which seems a variant of segration theories. Not a scientific model behind the simulation. Partial modelling of human decision making by calculating a happiness value. But also not data or seriously social science based. Reviews Ajzen theory of planned action.  This study wants too much. N = 156. Uses SEM for data analysis. The results are not really intereting because the actual decision making is not analysed. "] .
 		
 
-:Taillandier2018 a dc:BibliographicResource ;
+:Taillandier2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalManagement ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ;
 	litrev:educationLevel edlevel:UndergraduateStudy ;
@@ -577,7 +577,7 @@ prefix : <http://www.learn-web.com/litgraph/>
     litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "Not great as an research study but reasonable quality. Game programmed in a propriety ABM shell. Domain is risk management for coastal flooding, sea level rise. Looks like real or close to real data in the simulation. Audience is engineering students."] .
 		
-:Tasquier2016 a dc:BibliographicResource ;
+:Tasquier2016 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience;
 	litrev:learningDomain "Model epistemology"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -592,7 +592,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "Very relevant to our topic. N = 28. After schools science lab. 5 sessions. Model-based thinking more in the science ed sense than computational modelling. Mixed methods analysis, mainly qualitative. Informative!   "] .
 
 
-:Thacker2019 a dc:BibliographicResource ;
+:Thacker2019 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience;
 	litrev:learningDomain  "Greenhouse effect" ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -606,7 +606,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
 		anno:body " N = 20. Has a focus on visual-perceptual processing to overcome misconcepions about greenhouse effect. no human decision making. Simulation from the concord consortium. The interviews were partially embedded in the learning phase. Summative analysis plus case studies. A science ed focus.  "] .	
 		
-:Thomas2019 a dc:BibliographicResource ;
+:Thomas2019 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ;
 	litrev:learningDomain "Species invasion" ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -619,7 +619,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "A curriculum document  describing a learning unit. Aims for integration of computer science and coding with science education. A good example for a modern curriculum. No modelling of social factors"] .
 		
 		
-:TuckerRaymond2019 a dc:BibliographicResource ;
+:TuckerRaymond2019 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Climate system"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -632,7 +632,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "04-Nov-2021" ;
 		anno:body "Aims at integration of computational thinking and climate science. Thus, very relevant. The study focusses on design critique, a soft element of computational thinking. Found that students critique was much on on game elements than science elements. Uses a design conjecture map! Uses Scratch for modelling. A reasonable example for computational thinking combined with EE. Analysis mainly on patterns  and types of critique.  "] .
 		
-:Valkering2013 a dc:BibliographicResource ;
+:Valkering2013 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalManagement, sci:ClimateAdpatation;
 	litrev:learningDomain "Water management"; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -646,7 +646,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 		anno:body "Focus is on societal responses to adaptation decisions. Perspective-based simulation game. There's a river water simulation integrated that is science-based. The river simulation does not contain human decision making or such. It is used to provide information back to players for the next decice & simulate cycle. The paper outlines a conceptual model for societal response based on three theories. These are interesting from our perspective because they can inform modelling of societal factors. The theories are used to describe and classify. The sample was academics, water managers, and mixed groups. The empirical part is not very strong, but a clearly relevant paper for the typical simulation use pattern in a role play game scenario  "] .
 		
 		
-:Visintainer2015 a dc:BibliographicResource ;
+:Visintainer2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Greenhouse effect" ; 
 	litrev:learningOutcome lo:KnowledgeOutcomes ; 
@@ -660,7 +660,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
 		anno:body "Asks if understanding the mechansisms of greenhouse effect relates to the understanding of the relation between every day energy use and global warming. Careful and extended qualitative analysis on knoweldge level. N=186 "] .
 		
-:Waddington2018 a dc:BibliographicResource ;
+:Waddington2018 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience ;
 	litrev:learningDomain "Energy consumption"; 
 	litrev:learningOutcome lo:SystemsThinking ; 
@@ -673,7 +673,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "05-Nov-2021" ;
 		anno:body " N = 33. Convience sample.  Control conditions was a different game. The simulation is used in typical role play mode, calculating the effects of decisins in play cycles. The underlying model is not science based, and no real data. Typcial pattern. Careful data analysis The game FATE OF THE WORLD seems a commercial one. Analysis of flaws on p. 187 onwards: Opaque game mechanisms, poor scaffolding of learning, complexity of underlying model.  The learning time is a guestimate "] .
 	
-:Yeung2017 a dc:BibliographicResource ;
+:Yeung2017 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:EnvironmentalManagement ;
 	litrev:learningDomain "plastic waste management"; 
 	litrev:learningOutcome lo:MultiDomainOutcomes ; 

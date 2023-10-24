@@ -35,10 +35,12 @@ aspects <<-
     'Citation',
     'Claim',
     'LearningOutcome',
-    'ResearchApproach', 
     'BloomLearningOutcome', 
     'Pedagogy', 
-    'EducationLevel'
+    'EducationLevel', 
+    'Science', 
+    'Technology', 
+    'ResearchApproach'
   )
 
 # Read in info about predicates; declare in global env.
@@ -47,6 +49,11 @@ predicates <<- read_csv("predicates.csv", show_col_types = FALSE)
 # and a particular cell: predicates[ predicates$label == 'creator', 'uri']
 # This syntax will always return a tibble. To get to the value do:
 # sel <- predicates[ predicates$label == 'creator', 'uri']; then sel[[1]] will yield the value.
+
+# Append the predicate URIs to ns_list. 
+
+ns_list <- unique(append(ns_list, predicates$uri))
+
 
 
 ### Build the app 
@@ -112,11 +119,13 @@ server <- function(input, output, session) {
       service(url, input$userName, input$pwd, testConnection = FALSE),
       envir = globalenv()
     )
-    assign("cat", catalog(service, "perei"), envir = globalenv())
+  #  assign("cat", catalog(service, "perei"), envir = globalenv())
+    assign("cat", catalog(service, "coolfutures"), envir = globalenv())
     assign("userList", paste0("User", 1:10), envir = globalenv())
     
     if (userName %in% c("perei", "yucui")) {
-      assign("rep", repository(cat, "skosgraph"), envir = globalenv())
+    #  assign("rep", repository(cat, "skosgraph"), envir = globalenv())
+      assign("rep", repository(cat, "compumod2"), envir = globalenv())
     }  else if (exists('userName') & userName %in% userList) {
       assign("rep", repository(cat, "skosgraph"), envir = globalenv())
     } else {

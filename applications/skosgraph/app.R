@@ -52,9 +52,7 @@ predicates <<- read_csv("predicates.csv", show_col_types = FALSE)
 
 # Append the predicate URIs to ns_list. 
 
-ns_list <- unique(append(ns_list, predicates$uri))
-
-
+ns_list <<- unique(append(ns_list, predicates$uri))
 
 ### Build the app 
 
@@ -276,7 +274,7 @@ server <- function(input, output, session) {
                  # )
                  # Notify user and save
                  showNotification("Your input is saved.")
-                 click("showMapButton")
+             #    click("showMapButton")
                })
   
   

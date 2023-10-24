@@ -41,38 +41,38 @@ last_URI_element <- function(l1) {
 
 # version for object column. 
 last_URI_element_1 <- function(l1, ns_list) {
-   l2 <- list() 
+  l2 <- list()
   for (i in 1:length(l1)) {
     for (this_name in ns_list) {
       # pick apart the URL if it includes a namespace
       if (grepl(this_name, l1[i])) {
         splitList <- strsplit(l1[i], "/+")
-        # after splitting, some rows in splitList will be a list. 
+        # after splitting, some rows in splitList will be a list.
         # We want the last element of that list to become the sole row element
         splitList <- splitList[[1]]
         lastpos <- length(splitList)
         l2[i] <- splitList[lastpos]
         break
-      } 
-      # else leave the URL as is. 
+      }
+      # else leave the URL as is.
       l2[i] <- l1[i]
     }
   }
-   unlist(l2, recursive = FALSE)
-    # same for fragments (#)
-    l3 <- list()
-    for (i in 1:length(l2)) {
-      for (this_name in ns_list) {
-        # pick apart the URL if it includes a namespace
-        if (grepl(this_name, l2[i])) {
-          splitList <- strsplit(l2[i], "#+")
-          splitList <- splitList[[1]]
-          lastpos <- length(splitList)
-          l3[i] <- splitList[lastpos]
-          break
-        } 
-        l3[i] <- l2[i]
+  unlist(l2, recursive = FALSE)
+  # same for fragments (#)
+  l3 <- list()
+  for (i in 1:length(l2)) {
+    for (this_name in ns_list) {
+      # pick apart the URL if it includes a namespace
+      if (grepl(this_name, l2[i])) {
+        splitList <- strsplit(l2[i], "#+")
+        splitList <- splitList[[1]]
+        lastpos <- length(splitList)
+        l3[i] <- splitList[lastpos]
+        break
       }
+      l3[i] <- l2[i]
+    }
   }
   unlist(l3, recursive = FALSE)
 }

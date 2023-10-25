@@ -80,8 +80,8 @@ ui <- fluidPage(useShinyjs(),
                       choices = NULL,
                       options = list(create = TRUE)
                     ),
-                    actionButton("saveButton", "Submit (new)"),
-                    actionButton("modifyButton", "Modify")
+                    actionButton("saveButton", "Save"),
+                    actionButton("deleteButton", "Delete")
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
@@ -272,11 +272,38 @@ server <- function(input, output, session) {
                  #     ">"
                  #   )
                  # )
-                 # Notify user and save
+                 
+                 # Notify user and update table
                  showNotification("Your input is saved.")
+                 # update table display
+                 details_table <<- show_attributes(input$subjectInput) # note the top level env
+                 output$detailsTable <- renderTable(details_table)
              #    click("showMapButton")
                })
   
+  # -------------------------------
+  # Delete a statement
+  # -------------------------------
+  
+  observeEvent(input$deleteButton, {
+    
+    subjNS = ns_from_input(input$subjectInput)
+    predNS = ns_from_input(input$predicateInput)
+    objNS = ns_from_input(input$objectInput)
+    subj = paste0('<', subjNS, remove_prefix(input$subjectInput), '>')
+    pred  = paste0('<', predNS, remove_prefix(input$predicateInput), '>')
+    obj = paste0('<', objNS, remove_prefix(input$objectInput), '>')
+    
+    cat("\n", "Deleting from database: ", "\n", subj, "\n", pred, "\n", obj, "\n" ) #dev
+    deleteStatements(rep, subj = subj, pred = pred, obj = obj)
+    # update table display
+    details_table <<- show_attributes(input$subjectInput) # note the top level env
+    output$detailsTable <- renderTable(details_table)
+    # Notify user and offer undo
+    showNotification("The statement has been deleted from the database. 
+                     To undo, click 'Save'. To save a modified version, enter new value(s) and save.")
+    
+  })
   
   
   # -------------------------------

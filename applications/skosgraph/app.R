@@ -86,7 +86,8 @@ ui <- fluidPage(useShinyjs(),
                   mainPanel(tabsetPanel(
                     type = "tabs",
                     tabPanel("Tables",
-                             tableOutput("detailsTable")),
+                             tableOutput("detailsTable"),
+                             tableOutput("propertiesList")),
                     tabPanel(
                       "Graph",
                       checkboxGroupInput("linksDisplayed", "Link types to include:",
@@ -200,6 +201,7 @@ server <- function(input, output, session) {
     if (input$subjectInput != "") {
       details_table <<- NULL
       fill_object_input_slot(session,
+                             output, 
                              input$aspect,
                              input$predicateInput,
                              input$subjectInput)
@@ -282,7 +284,7 @@ server <- function(input, output, session) {
                })
   
   # -------------------------------
-  # Delete a statement
+  # Delete/modify a statement
   # -------------------------------
   
   observeEvent(input$deleteButton, {

@@ -33,7 +33,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 
 :Alves2021 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:ClimateChangeScience, sci:Pollution ; 
-	litrev:learningOutcome lo:lo:KnowledgeOutcomes ;
+	litrev:learningOutcome lo:KnowledgeOutcomes ;
 	litrev:educationLevel edlevel:TeacherTraining ;
 	litrev:technology tech:eResearch, tech:Gis, tech:DataScienceTool, 
 		tech:ComputerModel, tech:eLearning, tech:ScienceBasedModel, tech:DataBasedModel ;
@@ -67,8 +67,6 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Barnett2011" ; 
     litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
 		anno:body "A in the research part lightweight study on a summer program uses bioaucustic and tree data together with GIS mapping and a small-scale tree growth simulation. Measures changes to science self-efficacy, science interest, ecological mindset, career planning and career knowledge; scales applied pre and post the program. No modellling of human decision making. "] .
-		
-		
 		
 :Basu2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 

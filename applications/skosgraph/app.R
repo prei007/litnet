@@ -81,12 +81,15 @@ ui <- fluidPage(useShinyjs(),
                       options = list(create = TRUE)
                     ),
                     actionButton("saveButton", "Save"),
-                    actionButton("deleteButton", "Delete")
+                    actionButton("deleteButton", "Delete"), 
+                    verbatimTextOutput("propertiesList")
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
-                    tabPanel("Tables",
+                    tabPanel("Details",
                              tableOutput("detailsTable")),
+                    tabPanel("Descriptors",
+                             tableOutput("descriptorsTable")),
                     tabPanel(
                       "Graph",
                       checkboxGroupInput("linksDisplayed", "Link types to include:",
@@ -168,10 +171,13 @@ server <- function(input, output, session) {
     # add namespaces for predicates on server
     add_name_spaces(rep, predicates)
     
-    # The list of aspects that will be shown in the aspects selection. 
-    # At the same time, they provide rdf:type information for resources in the subject position. 
+    # display the available predicates by aspect in the Descriptors tab
     
-    # first action in interface: show the aspect options for selection
+    output$descriptorsTable <- renderTable(predicates[, c("label", "aspect")])
+    
+    current_subject <<- NULL # variable for tracking the subject field value
+    
+    # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
     
   })
@@ -199,7 +205,9 @@ server <- function(input, output, session) {
     # update object field.
     if (input$subjectInput != "") {
       details_table <<- NULL
+      current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
       fill_object_input_slot(session,
+                             output, 
                              input$aspect,
                              input$predicateInput,
                              input$subjectInput)
@@ -219,6 +227,13 @@ server <- function(input, output, session) {
   
   observeEvent(input$saveButton,
                {
+                 # Test that all fields have a value
+                 
+                 if (input$subjectInput == "" | input$predicateInput == "" | input$objectInput == "") {
+                   alert("Error when saving: Input field(s) can't be empty.")
+                   return("")
+                 }
+                 
                  #subject and predicate are straightforwqrd:
                  subjectNS <- ns_from_input(input$subjectInput)
                  predicateNS <- ns_from_input(input$predicateInput)
@@ -282,7 +297,7 @@ server <- function(input, output, session) {
                })
   
   # -------------------------------
-  # Delete a statement
+  # Delete/modify a statement
   # -------------------------------
   
   observeEvent(input$deleteButton, {

@@ -520,6 +520,8 @@ isLiteral <- function(subject, predicate) {
 #   filter isLiteral(?literal)
 # }'
 
+
+
 fill_predicate_input_slot <- function(session, aspect) {
 # cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
   
@@ -557,12 +559,17 @@ fill_subject_input_slot <-
       # update selection options
       updateSelectizeInput(session,
                            "subjectInput",
-                           choices = items)
+                           choices = items, 
+                           selected = current_subject)  # testing
     }
   }
 
+# This function can be made less in need for parameters 
+# if the input object was passed to the function. 
+# Then input$<x> would work. 
 fill_object_input_slot <-
   function(session,
+           output, 
            aspect,
            predicateSelection,
            subjectSelection) {
@@ -584,26 +591,29 @@ fill_object_input_slot <-
       prefix = predicates[predicates$label == predicateSelection, 'prefix']
       prefix = prefix[[1]]
       
-      # Before adding a prefix, need to look in the database to identify literals.
+      # todo: Before adding a prefix, need to look in the database to identify literals.
       # https://github.com/prei007/litrev/issues/11
       
       items <- lapply(items, function(x) paste0(prefix, ':', x))
       updateSelectizeInput(session,
                            "objectInput",
                            choices = items)
+      # output$propertiesList <- renderTable(range)
     } else {
       # determine the range of the selected predicate
-      range <-
+      prange <-
         predicates[predicates$label == predicateSelection, 'range']
-      range <- range[[1]]
-      # if range is different from strings, look for instances of the range
-      if (range != "xsd:string" && range != "xsd:dateTime" && range != "Thesaurus") {
-        query <- paste0('SELECT ?s { ?s a ', range, ' }')
+      prange <- prange[[1]]
+      # if range is different from some things, look for instances of the range
+        if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration",
+                           "Thesaurus"))) {
+        query <- paste0('SELECT ?s { ?s a ', prange, ' }')
         items <- fetch_one_column(query)
         updateSelectizeInput(session,
                              "objectInput",
                              choices = items)
-      } else if (range == "Thesaurus" ) {
+        output$propertiesList <- renderPrint({print(items)})
+      } else if (prange == "Thesaurus" ) {
         # look up the concept scheme for the selected predicate
         concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
         concept_scheme <- concept_scheme[[1]]
@@ -617,6 +627,7 @@ fill_object_input_slot <-
         updateSelectizeInput(session,
                              "objectInput",
                              choices = items)
+        output$propertiesList <- renderPrint({print(items)})
       } else {
         updateSelectizeInput(session,
                              "objectInput",

@@ -81,13 +81,15 @@ ui <- fluidPage(useShinyjs(),
                       options = list(create = TRUE)
                     ),
                     actionButton("saveButton", "Save"),
-                    actionButton("deleteButton", "Delete")
+                    actionButton("deleteButton", "Delete"), 
+                    verbatimTextOutput("propertiesList")
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
-                    tabPanel("Tables",
-                             tableOutput("detailsTable"),
-                             tableOutput("propertiesList")),
+                    tabPanel("Details",
+                             tableOutput("detailsTable")),
+                    tabPanel("Descriptors",
+                             tableOutput("descriptorsTable")),
                     tabPanel(
                       "Graph",
                       checkboxGroupInput("linksDisplayed", "Link types to include:",
@@ -169,10 +171,11 @@ server <- function(input, output, session) {
     # add namespaces for predicates on server
     add_name_spaces(rep, predicates)
     
-    # The list of aspects that will be shown in the aspects selection. 
-    # At the same time, they provide rdf:type information for resources in the subject position. 
+    # display the available predicates by aspect in the Descriptors tab
     
-    # first action in interface: show the aspect options for selection
+    output$descriptorsTable <- renderTable(predicates[, c("label", "aspect")])
+    
+    # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
     
   })
@@ -221,6 +224,13 @@ server <- function(input, output, session) {
   
   observeEvent(input$saveButton,
                {
+                 # Test that all fields have a value
+                 
+                 if (input$subjectInput == "" | input$predicateInput == "" | input$objectInput == "") {
+                   alert("Error when saving: Input field(s) can't be empty.")
+                   return("")
+                 }
+                 
                  #subject and predicate are straightforwqrd:
                  subjectNS <- ns_from_input(input$subjectInput)
                  predicateNS <- ns_from_input(input$predicateInput)

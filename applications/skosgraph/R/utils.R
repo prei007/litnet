@@ -520,6 +520,8 @@ isLiteral <- function(subject, predicate) {
 #   filter isLiteral(?literal)
 # }'
 
+
+
 fill_predicate_input_slot <- function(session, aspect) {
 # cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
   
@@ -609,7 +611,7 @@ fill_object_input_slot <-
         updateSelectizeInput(session,
                              "objectInput",
                              choices = items)
-        output$propertiesList <- renderTable(prange)
+        output$propertiesList <- renderPrint({print(items)})
       } else if (prange == "Thesaurus" ) {
         # look up the concept scheme for the selected predicate
         concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
@@ -624,7 +626,7 @@ fill_object_input_slot <-
         updateSelectizeInput(session,
                              "objectInput",
                              choices = items)
-        output$propertiesList <- renderTable(prange)
+        output$propertiesList <- renderPrint({print(items)})
       } else {
         updateSelectizeInput(session,
                              "objectInput",

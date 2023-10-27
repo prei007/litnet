@@ -559,7 +559,8 @@ fill_subject_input_slot <-
       # update selection options
       updateSelectizeInput(session,
                            "subjectInput",
-                           choices = items)
+                           choices = items, 
+                           selected = current_subject)  # testing
     }
   }
 

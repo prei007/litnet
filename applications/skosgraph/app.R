@@ -175,6 +175,8 @@ server <- function(input, output, session) {
     
     output$descriptorsTable <- renderTable(predicates[, c("label", "aspect")])
     
+    current_subject <<- NULL # variable for tracking the subject field value
+    
     # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
     
@@ -203,6 +205,7 @@ server <- function(input, output, session) {
     # update object field.
     if (input$subjectInput != "") {
       details_table <<- NULL
+      current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
       fill_object_input_slot(session,
                              output, 
                              input$aspect,

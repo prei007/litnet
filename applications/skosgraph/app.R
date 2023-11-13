@@ -334,6 +334,9 @@ server <- function(input, output, session) {
       linkList1 <- linkList1[[1]]
       linkList <- append(linkList, linkList1)
     }
+    
+    # The list should be extended with information about the semantic
+    # relations, to be shown either always or on demand (a tick box)
 
     # Use the fact that paste0() is vectorised to turn the vector 
     # into a SPARQL list as different from a list data structure in R. 
@@ -342,8 +345,6 @@ server <- function(input, output, session) {
     
     query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linkList, ')) }')
     graphDF <- fetch_plan_sparql(query)
-    # improve the test because it comes too late. ag_data already throws an error before
-    # we get here. 
     if (graphDF[1] != "query failed" && length(graphDF) > 1) {
       # render map
       output$Map <- renderVisNetwork(do_network(graphDF))

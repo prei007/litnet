@@ -145,6 +145,17 @@ prefix litrev: <http://www.learn-web.com/2023/litrev/>
 	mp:challenges :M2 ; 
 	mp:supportecBy :Ref5 . 
 	
+### MP7
 	
+:MP7 a mp:Micropublication ;
+	rdfs:label "MP7: A dummy mp to get variation" ; 
+	mp:asserts  :C7 ;
+    mp:argues :C7 ; 
+    mp:represents :Canlas2016 .
+    
+:C7 a mp:Claim; 
+	rdfs:label "C7: A placeholder claim."; 
+	mp:statement "I am a placeholder" . 
+
 	
 

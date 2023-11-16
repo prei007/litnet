@@ -1,0 +1,229 @@
+@prefix ns0: <http://purl.org/vocab/resourcelist/schema#> .
+@prefix ns1: <http://www.zotero.org/namespaces/export#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<http://zotero.org/users/local/JzXCrmjR/items/IEHMBHVD>
+  a <http://www.zotero.org/namespaces/export#UserItem> ;
+  ns0:resource <info:doi/10.1109/TSMCA.2012.2199304> ;
+  ns1:repository "IEEE Xplore" .
+
+<info:doi/10.1109/TSMCA.2012.2199304>
+  a bibo:AcademicArticle ;
+  bibo:pages "1425-1439" ;
+  ns1:extra "Conference Name: IEEE Transactions on Systems, Man, and Cybernetics - Part A: Systems and Humans" ;
+  bibo:doi "10.1109/TSMCA.2012.2199304" ;
+  dc:abstract "Team working is becoming increasingly important in modern organizations due to its beneficial outcomes. A team's performance levels are determined by complex interactions between the attributes of its individual members, the communication and dynamics between members, the working environment, and the team's work tasks. As organizations evolve, so too does the nature of team working. During the past two decades, product development in engineering organizations has increasingly been undertaken by multidisciplinary integrated product teams. Such increasing complexity means that the nature of research methods for studying teams must also evolve. Accordingly, this paper proposes an agent-based modeling approach for simulating team working within an engineering environment, informed by research conducted in two engineering organizations. The model includes a number of variables at an individual level (competency, motivation, availability, response rate), team level (communication, shared mental models, trust), and task level (difficulty, workflow), which jointly determine team performance (quality, time to complete the task, time spent working on the task). In addition to describing the model's development, the paper also reports the results of various simulation runs that were conducted in response to realistic team working scenarios, together with its validation. Finally, the paper discusses the model's practical applications as a tool for facilitating organizational decision making with respect to optimizing team working." ;
+  dc:title "The Development of an Agent-Based Modeling Framework for Simulating Engineering Team Work" ;
+  dc:creator _:genid1, _:genid3, _:genid4, _:genid5 ;
+  bibo:authorList [
+    a rdf:Seq ;
+    rdf:_1 _:genid1 ;
+    rdf:_2 _:genid3 ;
+    rdf:_3 _:genid4 ;
+    rdf:_4 _:genid5
+  ] ;
+  dc:isPartOf [
+    a bibo:Issue ;
+    bibo:volume "42" ;
+    bibo:issue "6" ;
+    dc:date "2012-11" ;
+    dc:isPartOf [
+      a bibo:Journal ;
+      dc:title "IEEE Transactions on Systems, Man, and Cybernetics - Part A: Systems and Humans" ;
+      bibo:issn "1558-2426"
+    ]
+  ] .
+
+<http://zotero.org/users/local/JzXCrmjR/items/JQU6ULNS>
+  a ns1:UserItem ;
+  ns0:resource <https://onlinelibrary.wiley.com/doi/abs/10.1002/pra2.204> ;
+  dc:rights "Author(s) retain copyright, but ASIS&T receives an exclusive publication license" ;
+  ns1:accessDate "2023-09-15 15:56:14" ;
+  ns1:repository "Wiley Online Library" .
+
+<https://onlinelibrary.wiley.com/doi/abs/10.1002/pra2.204>
+  a bibo:AcademicArticle ;
+  bibo:uri "https://onlinelibrary.wiley.com/doi/abs/10.1002/pra2.204" ;
+  bibo:pages "855-857" ;
+  ns1:extra "_eprint: https://asistdl.onlinelibrary.wiley.com/doi/pdf/10.1002/pra2.204" ;
+  bibo:doi "10.1002/pra2.204" ;
+  dc:language "en" ;
+  dc:abstract "The research provides (1) an account of the construction of a new Scientific Argument Ontology (SAO), (2) a statistical analysis of 40 articles from both fields of Library and Information Science and Biomedical Research, and (3) a summary of important differences between the article structures common to each respective field of study and characteristics of their contents as revealed by applying SAO to conduct qualitative analysis. Ontology coverage ratios as well as the ratios of different classes and evidence types were calculated in the analysis. The results show a comprehensive coverage of SAO, while also indicate that the ontological construction of scientific arguments should fully consider the characteristics of their disciplines and fields in order to better facilitate extraction, discovery and retrieval." ;
+  dc:title "Argument ontology for describing scientific articles: A statistical study based on articles from two research areas" ;
+  bibo:shortTitle "Argument ontology for describing scientific articles" ;
+  dc:creator _:genid8, _:genid10, _:genid11, _:genid12 ;
+  bibo:authorList [
+    a rdf:Seq ;
+    rdf:_1 _:genid8 ;
+    rdf:_2 _:genid10 ;
+    rdf:_3 _:genid11 ;
+    rdf:_4 _:genid12
+  ] ;
+  dc:isPartOf [
+    a bibo:Issue ;
+    bibo:volume "56" ;
+    bibo:issue "1" ;
+    dc:date "2019" ;
+    dc:isPartOf [
+      a bibo:Journal ;
+      dc:title "Proceedings of the Association for Information Science and Technology" ;
+      bibo:issn "2373-9231"
+    ]
+  ] .
+
+<http://zotero.org/users/local/JzXCrmjR/items/KHDZISCU>
+  a ns1:UserItem ;
+  ns0:resource <https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.24590> ;
+  dc:rights "© 2021 Association for Information Science and Technology." ;
+  ns1:accessDate "2023-09-15 15:58:12" ;
+  ns1:repository "Wiley Online Library" .
+
+<https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.24590>
+  a bibo:AcademicArticle ;
+  bibo:uri "https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.24590" ;
+  bibo:pages "863-878" ;
+  ns1:extra "_eprint: https://asistdl.onlinelibrary.wiley.com/doi/pdf/10.1002/asi.24590" ;
+  bibo:doi "10.1002/asi.24590" ;
+  dc:language "en" ;
+  dc:abstract "Scientific papers are essential manifestations of evolving scientific knowledge, and arguments are an important avenue to communicate research results. This study aims to understand how the argumentation process is represented in scientific papers, which is important for knowledge representation, discovery, and retrieval. First, based on fundamental argument theory and scientific discourse ontologies, a coding schema, including 17 categories was constructed. Thereafter, annotation experiments were conducted with 40 scientific articles randomly selected from two different research areas (library and information science and biomedical sciences). Statistical analysis and the sequential pattern mining method were then employed; the ratio of different argumentation units and evidence types were calculated, the argumentation semantics of figures and tables analyzed, and the argumentation structures extracted. A correlation analysis between argumentation and rhetorical structures was also performed to further reveal how argumentation was represented within scientific discourses. The results indicated a difference in the proportion of the argumentation units in the two types of scientific papers, as well as a similar linear construction with differences in the specific argument structures of each knowledge domain and a clear correlation between argumentation and rhetorical structure." ;
+  dc:title "The representation of argumentation in scientific papers: A comparative analysis of two research areas" ;
+  bibo:shortTitle "The representation of argumentation in scientific papers" ;
+  dc:creator _:genid15, _:genid17, _:genid18, _:genid19 ;
+  bibo:authorList [
+    a rdf:Seq ;
+    rdf:_1 _:genid15 ;
+    rdf:_2 _:genid17 ;
+    rdf:_3 _:genid18 ;
+    rdf:_4 _:genid19
+  ] ;
+  dc:isPartOf [
+    a bibo:Issue ;
+    bibo:volume "73" ;
+    bibo:issue "6" ;
+    dc:date "2022" ;
+    dc:isPartOf [
+      a bibo:Journal ;
+      dc:title "Journal of the Association for Information Science and Technology" ;
+      bibo:issn "2330-1643"
+    ]
+  ] .
+
+<http://zotero.org/users/local/JzXCrmjR/items/2MCBTHWS>
+  a ns1:UserItem ;
+  ns0:resource <https://onlinelibrary.wiley.com/doi/abs/10.1002/pra2.205> ;
+  dc:rights "Author(s) retain copyright, but ASIS&T receives an exclusive publication license" ;
+  ns1:accessDate "2023-09-15 15:58:37" ;
+  ns1:repository "Wiley Online Library" .
+
+<https://onlinelibrary.wiley.com/doi/abs/10.1002/pra2.205>
+  a bibo:AcademicArticle ;
+  bibo:uri "https://onlinelibrary.wiley.com/doi/abs/10.1002/pra2.205" ;
+  bibo:pages "757-759" ;
+  ns1:extra "_eprint: https://asistdl.onlinelibrary.wiley.com/doi/pdf/10.1002/pra2.205" ;
+  bibo:doi "10.1002/pra2.205" ;
+  dc:language "en" ;
+  dc:abstract "Argumentation structure within the content of scientific paper is the fundamental for proving scientific findings. Constructing the argumentation graph is an effective way to realize the visualization of argumentation structure and help users quickly understand the logical of papers. This study presents the method for constructing argumentation graph of scientific papers, includes an ontology for describing the scientific papers' argumentation structure, a process for deep semantic annotation and a mapping protocols for transforming the annotation results into graph structure by using Neo4J. The method was applied to construct an argumentation graph and the argumentation process retrieval was also realized. The result suggest that the argumentation graph could be benefit for the argumentation visualization and strategic reading of scientific papers." ;
+  dc:title "Linking the thoughts within scientific papers: Construction and visualization of argumentation graph" ;
+  bibo:shortTitle "Linking the thoughts within scientific papers" ;
+  dc:creator _:genid22, _:genid24, _:genid25, _:genid26 ;
+  bibo:authorList [
+    a rdf:Seq ;
+    rdf:_1 _:genid22 ;
+    rdf:_2 _:genid24 ;
+    rdf:_3 _:genid25 ;
+    rdf:_4 _:genid26
+  ] ;
+  dc:isPartOf [
+    a bibo:Issue ;
+    bibo:volume "56" ;
+    bibo:issue "1" ;
+    dc:date "2019" ;
+    dc:isPartOf [
+      a bibo:Journal ;
+      dc:title "Proceedings of the Association for Information Science and Technology" ;
+      bibo:issn "2373-9231"
+    ]
+  ] .
+
+_:genid1
+  a foaf:Person ;
+  foaf:givenName "Richard M." ;
+  foaf:surname "Crowder" .
+
+_:genid3
+  a foaf:Person ;
+  foaf:givenName "Mark A." ;
+  foaf:surname "Robinson" .
+
+_:genid4
+  a foaf:Person ;
+  foaf:givenName "Helen P. N." ;
+  foaf:surname "Hughes" .
+
+_:genid5
+  a foaf:Person ;
+  foaf:givenName "Yee-Wai" ;
+  foaf:surname "Sim" .
+
+_:genid8
+  a foaf:Person ;
+  foaf:givenName "Huimin" ;
+  foaf:surname "Zhou" .
+
+_:genid10
+  a foaf:Person ;
+  foaf:givenName "Ningyuan" ;
+  foaf:surname "Song" .
+
+_:genid11
+  a foaf:Person ;
+  foaf:givenName "Hanghang" ;
+  foaf:surname "Cheng" .
+
+_:genid12
+  a foaf:Person ;
+  foaf:givenName "Xiaoguang" ;
+  foaf:surname "Wang" .
+
+_:genid15
+  a foaf:Person ;
+  foaf:givenName "Xiaoguang" ;
+  foaf:surname "Wang" .
+
+_:genid17
+  a foaf:Person ;
+  foaf:givenName "Ningyuan" ;
+  foaf:surname "Song" .
+
+_:genid18
+  a foaf:Person ;
+  foaf:givenName "Huimin" ;
+  foaf:surname "Zhou" .
+
+_:genid19
+  a foaf:Person ;
+  foaf:givenName "Hanghang" ;
+  foaf:surname "Cheng" .
+
+_:genid22
+  a foaf:Person ;
+  foaf:givenName "Huimin" ;
+  foaf:surname "Zhou" .
+
+_:genid24
+  a foaf:Person ;
+  foaf:givenName "Ningyuan" ;
+  foaf:surname "Song" .
+
+_:genid25
+  a foaf:Person ;
+  foaf:givenName "Wanli" ;
+  foaf:surname "Chang" .
+
+_:genid26
+  a foaf:Person ;
+  foaf:givenName "Xiaoguang" ;
+  foaf:surname "Wang" .

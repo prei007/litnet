@@ -334,6 +334,9 @@ server <- function(input, output, session) {
       linkList1 <- linkList1[[1]]
       linkList <- append(linkList, linkList1)
     }
+    
+    # The list should be extended with information about the semantic
+    # relations, to be shown either always or on demand (a tick box)
 
     # Use the fact that paste0() is vectorised to turn the vector 
     # into a SPARQL list as different from a list data structure in R. 
@@ -342,7 +345,8 @@ server <- function(input, output, session) {
     
     query <- paste0('SELECT ?subject ?predicate ?object { ?subject ?predicate ?object . FILTER (?predicate IN (', linkList, ')) }')
     graphDF <- fetch_plan_sparql(query)
-    # Add SKOS information where available
+
+    # Add SKOS information if available
     query <- paste0('CONSTRUCT {?o1 skos:broader ?o2} WHERE {
                       ?s ?p ?o1 . ?o1 skos:broader ?o2. 
                       FILTER (?p IN (', linkList, ')) }')
@@ -363,7 +367,7 @@ server <- function(input, output, session) {
     } 
     
     # Render the graph
-   
+
     if (graphDF[1] != "query failed" && length(graphDF) > 1) {
       # render map
       output$Map <- renderVisNetwork(do_network(graphDF))

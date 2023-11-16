@@ -340,13 +340,13 @@ server <- function(input, output, session) {
     # That is to say, list() and as.list() will not do the job.
     linkList <- paste0(linkList, collapse = ', ')
     
-    query <- paste0('SELECT ?s ?p ?o { ?s ?p ?o . FILTER (?p IN (', linkList, ')) }')
+    query <- paste0('SELECT ?subject ?predicate ?object { ?subject ?predicate ?object . FILTER (?predicate IN (', linkList, ')) }')
     graphDF <- fetch_plan_sparql(query)
     # Add SKOS information where available
     query <- paste0('CONSTRUCT {?o1 skos:broader ?o2} WHERE {
                       ?s ?p ?o1 . ?o1 skos:broader ?o2. 
                       FILTER (?p IN (', linkList, ')) }')
-    browser()
+ 
     dfout <- evalQuery(rep,
                        query = query, returnType = "dataframe",
                        cleanUp = TRUE)
@@ -357,7 +357,9 @@ server <- function(input, output, session) {
       skosDF$subject <- last_URI_element(dfout[[1]])
       skosDF$predicate <- last_URI_element(dfout[[2]])
       skosDF$object <-  last_URI_element(dfout[[3]])
-      graphDF <- rbind(graphDF, skosDF)
+      graphDF$subject <- c(graphDF$subject, skosDF$subject)
+      graphDF$predicate <- c(graphDF$predicate, skosDF$predicate)
+      graphDF$object <- c(graphDF$object, skosDF$object)
     } 
     
     # Render the graph

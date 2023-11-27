@@ -342,11 +342,15 @@ server <- function(input, output, session) {
     # into a SPARQL list as different from a list data structure in R. 
     # That is to say, list() and as.list() will not do the job.
     linkList <- paste0(linkList, collapse = ', ')
-    
+    # We need to select subject, predicate and object (these names) because
+    # later we want to append additonal information and for that need the 
+    # same column names
     query <- paste0('SELECT ?subject ?predicate ?object { ?subject ?predicate ?object . FILTER (?predicate IN (', linkList, ')) }')
     graphDF <- fetch_plan_sparql(query)
 
     # Add SKOS information if available
+    # Note that construct queries automatically return colums with names
+    # subject, predicate, and object. 
     query <- paste0('CONSTRUCT {?o1 skos:broader ?o2} WHERE {
                       ?s ?p ?o1 . ?o1 skos:broader ?o2. 
                       FILTER (?p IN (', linkList, ')) }')

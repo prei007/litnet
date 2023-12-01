@@ -189,6 +189,7 @@ server <- function(input, output, session) {
   # -------------------------------
   
   # This is the second action: Fill the predicate input field.
+  
   observeEvent(input$aspect, {
     # update predicate field.
     if (input$aspect != "") {
@@ -196,14 +197,22 @@ server <- function(input, output, session) {
     }
   })
   
+ # predInput <- reactive(fill_predicate_input_slot(session, input$aspect))
+  
   observeEvent(input$predicateInput, {
     # update subject field field.
     if (input$predicateInput != "") {
       fill_subject_input_slot(session, input$aspect, input$predicateInput)
-    }
+      # Update theh object field as well
+      if (input$subjectInput != "") {fill_object_input_slot(session,
+                             output, 
+                             input$aspect,
+                             input$predicateInput,
+                             input$subjectInput) 
+    }}
   })
   
-  
+
   
   observeEvent(input$subjectInput, {
     # update object field.

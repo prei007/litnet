@@ -159,6 +159,9 @@ server <- function(input, output, session) {
     addNameSpace(repo = rep,
                  prefix = "bibo",
                  nsURI =  biboNS)
+    addNameSpace(repo = rep,
+                 prefix = "prov",
+                 nsURI =  provNS)
     
     
     # Reset pwd field

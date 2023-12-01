@@ -612,7 +612,7 @@ fill_object_input_slot <-
         updateSelectizeInput(session,
                              "objectInput",
                              choices = items)
-        output$propertiesList <- renderPrint({print(items)})
+  #     output$propertiesList <- renderPrint({print(items)})
       } else if (prange == "Thesaurus" ) {
         # look up the concept scheme for the selected predicate
         concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
@@ -627,7 +627,7 @@ fill_object_input_slot <-
         updateSelectizeInput(session,
                              "objectInput",
                              choices = items)
-        output$propertiesList <- renderPrint({print(items)})
+  #      output$propertiesList <- renderPrint({print(items)})
       } else {
         updateSelectizeInput(session,
                              "objectInput",

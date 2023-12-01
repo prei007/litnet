@@ -82,7 +82,7 @@ ui <- fluidPage(useShinyjs(),
                     ),
                     actionButton("saveButton", "Save"),
                     actionButton("deleteButton", "Delete"), 
-                    verbatimTextOutput("propertiesList")
+  #                  verbatimTextOutput("propertiesList")
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
@@ -200,6 +200,8 @@ server <- function(input, output, session) {
       fill_subject_input_slot(session, input$aspect, input$predicateInput)
     }
   })
+  
+  
   
   observeEvent(input$subjectInput, {
     # update object field.

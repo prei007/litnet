@@ -23,9 +23,11 @@ rdsNS <<- "http://www.w3.org/2000/01/rdf-schema#"
 foafNS <<- "http://xmlns.com/foaf/0.1/"
 oaNS <<- "http://www.w3.org/ns/oa#"
 skosNS <<- "http://www.w3.org/2004/02/skos/core#"
+provNS <<- "http://www.w3.org/ns/prov#"
 
 # For the elements in ns_list the namespace will not be displayed in tables 
-ns_list <<- c(instanceNS, defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, rdsNS, foafNS, oaNS, skosNS)
+ns_list <<- c(instanceNS, defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, 
+              rdsNS, foafNS, oaNS, skosNS, provNS)
 
 # aspects should be read from predicates I reckon. 
 aspects <<-
@@ -73,12 +75,9 @@ ui <- fluidPage(useShinyjs(),
                       choices = NULL,
                       options = list(create = TRUE)
                     ),
-                    selectizeInput(
+                    textAreaInput(
                       "objectInput",
-                      "Object:",
-                      multiple = FALSE,
-                      choices = NULL,
-                      options = list(create = TRUE)
+                      "Object:"
                     ),
                     actionButton("saveButton", "Save"),
                     actionButton("deleteButton", "Delete"), 

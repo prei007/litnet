@@ -595,9 +595,9 @@ fill_object_input_slot <-
       # https://github.com/prei007/litrev/issues/11
       
       items <- lapply(items, function(x) paste0(prefix, ':', x))
-      updateSelectizeInput(session,
+      updateTextAreaInput(session,
                            "objectInput",
-                           choices = items)
+                           value = paste(items))
       # output$propertiesList <- renderTable(range)
     } else {
       # determine the range of the selected predicate
@@ -609,9 +609,9 @@ fill_object_input_slot <-
                            "Thesaurus"))) {
         query <- paste0('SELECT ?s { ?s a ', prange, ' }')
         items <- fetch_one_column(query)
-        updateSelectizeInput(session,
+        updateTextAreaInput(session,
                              "objectInput",
-                             choices = items)
+                             value = paste(items))
   #     output$propertiesList <- renderPrint({print(items)})
       } else if (prange == "Thesaurus" ) {
         # look up the concept scheme for the selected predicate
@@ -624,14 +624,14 @@ fill_object_input_slot <-
         # fetch the values from the scheme and update object selection
         items <- fetch_values_from_thesaurus(concept_scheme)
         items <- lapply(items, function(x) paste0(prefix, ':', x))
-        updateSelectizeInput(session,
+        updateTextAreaInput(session,
                              "objectInput",
-                             choices = items)
+                             value = paste(items))
   #      output$propertiesList <- renderPrint({print(items)})
       } else {
-        updateSelectizeInput(session,
+        updateTextAreaInput(session,
                              "objectInput",
-                             choices = NULL)
+                             value = "")
       }
     }
   }

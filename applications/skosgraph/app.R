@@ -96,7 +96,7 @@ ui <- fluidPage(useShinyjs(),
                                          aspects, 
                                          selected = "ScholarlyWork", 
                                          inline = TRUE), 
-                      actionButton("showMapButton",  "show map view "),
+                      actionButton("showMapButton",  "show/update map"),
                       visNetworkOutput("Map", width = "1000px", height = "600px")
                     )
                   ))

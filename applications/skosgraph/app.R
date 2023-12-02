@@ -24,12 +24,20 @@ foafNS <<- "http://xmlns.com/foaf/0.1/"
 oaNS <<- "http://www.w3.org/ns/oa#"
 skosNS <<- "http://www.w3.org/2004/02/skos/core#"
 provNS <<- "http://www.w3.org/ns/prov#"
+mpNS <<- "http://purl.org/mp/"
 
 # For the elements in ns_list the namespace will not be displayed in tables 
-ns_list <<- c(instanceNS, defaultNS, citoNS, fabioNS, biboNS, dcNS, rdfNS, 
-              rdsNS, foafNS, oaNS, skosNS, provNS)
+ns_list <- c(defaultNS, instanceNS, foafNS, oaNS, fabioNS,
+              citoNS,  biboNS, dcNS, rdfNS, rdsNS,
+              skosNS, provNS, mpNS)
 
-# aspects should be read from predicates I reckon. 
+prefix_list <- c("", "litgraph:", "foaf:", "oa:", "fabio:", 
+                "cito:", "bibo:", "dcterms:", "rdf:", "rdfs:", 
+                "skos:", "prov:", "mp:")
+
+namespaceDF <<- data.frame(prefix = prefix_list, nspace = ns_list)
+
+# to be fixed: aspects should be read from predicates I reckon. 
 aspects <<-
   c(
     'ScholarlyWork',
@@ -131,38 +139,16 @@ server <- function(input, output, session) {
     } else {
       # still needed: a  way to destroy globalenv vars
       alert("Error: repository could not be allocated. Please log in again.")
-      validate("Missing or wrong username.")
     }
-    validate(need(input$pwd, "Provide a password"))
-    # add namespaces because they are "private" to the logged in user!
-    addNameSpace(repo = rep,
-                 prefix = "",
-                 nsURI = defaultNS)
-    addNameSpace(repo = rep,
-                 prefix = "litgraph",
-                 nsURI = defaultNS)
-    addNameSpace(repo = rep,
-                 prefix = "foaf",
-                 nsURI = foafNS)
-    addNameSpace(repo = rep,
-                 prefix = "oa",
-                 nsURI = oaNS)
-    addNameSpace(repo = rep,
-                 prefix = "fabio",
-                 nsURI =  fabioNS)
-    addNameSpace(repo = rep,
-                 prefix = "skos",
-                 nsURI =  skosNS)
-    addNameSpace(repo = rep,
-                 prefix = "litrev",
-                 nsURI =  "http://www.learn-web.com/2023/litrev/")
-    addNameSpace(repo = rep,
-                 prefix = "bibo",
-                 nsURI =  biboNS)
-    addNameSpace(repo = rep,
-                 prefix = "prov",
-                 nsURI =  provNS)
     
+    # add namespaces because they are "private" to the logged in user!
+    
+    for (i in 1:length(namespaceDF$prefix)) {
+      addNameSpace(repo = rep, 
+                   prefix = namespaceDF$prefix[i],
+                   nsURI = namespaceDF$nspace[i]
+      )
+    }
     
     # Reset pwd field
     updateTextInput(session, "pwd", value = NA)
@@ -284,22 +270,30 @@ server <- function(input, output, session) {
                               pred = predURL,
                               obj = objectURL)
                  
-                 # Add type info
-                 # (Works like so because duplicate statements are surpressed on server)
-                 # Needs to be generalized to use the appropriate name spaces. 
-                 # https://github.com/prei007/litrev/issues/10
+                 # Add rdf type info
+                 # Note that this works only if duplicates are surpressed on server. 
+                 # Else one would have to test if this type already declared for subject. 
+                 # The rdf type corresponds to the domain of the predicate. 
+       
+                 domain <- predicates[predicates$label == input$predicateInput, 'domain']
+                 domain <- domain[[1]]
+                 prefix_str <- paste0(get_prefix(domain), ':')
+                 dns <- namespaceDF[namespaceDF$prefix == prefix_str, 'nspace']
+                 dns <- dns[[1]]
+                 domain <- remove_prefix(domain)
+                 objectURL <- paste0("<", dns, domain,  ">")
+                 predURL <- "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"
                  
-                 # addStatement(
-                 #   rep,
-                 #   subj = subjectURL,
-                 #   pred = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
-                 #   obj = paste0(
-                 #     "<",
-                 #     modelNS,
-                 #     input$aspect,
-                 #     ">"
-                 #   )
-                 # )
+                 cat("\n", "pushing to server: ", "\n") # dev
+                 print(c(subjectURL, predURL, objectURL)) # dev
+                 
+                 addStatement(
+                   rep,
+                   subj = subjectURL,
+                   pred = predURL,
+                   obj = objectURL
+                   )
+ 
                  
                  # Notify user and update table
                  showNotification("Your input is saved.")
@@ -320,7 +314,12 @@ server <- function(input, output, session) {
     objNS = ns_from_input(input$objectInput)
     subj = paste0('<', subjNS, remove_prefix(input$subjectInput), '>')
     pred  = paste0('<', predNS, remove_prefix(input$predicateInput), '>')
+    # test for literal value  
+    if (has_prefix(input$objectInput)) {
     obj = paste0('<', objNS, remove_prefix(input$objectInput), '>')
+    } else {
+      obj = paste0('"',  input$objectInput, '"')
+    }
     
     cat("\n", "Deleting from database: ", "\n", subj, "\n", pred, "\n", obj, "\n" ) #dev
     deleteStatements(rep, subj = subj, pred = pred, obj = obj)

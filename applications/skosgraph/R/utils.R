@@ -502,6 +502,15 @@ remove_prefix <- function(str1) {
   } else str1
 }
 
+get_prefix <- function(str1) {
+  ns <- strsplit(str1, ':')
+  if (length(ns[[1]]) == 2 ) {
+    ns <- ns[[1]]
+    ns <- ns[1]
+    ns
+  } else str1
+}
+
 # Is the object of a statement a literal? 
 # Uses the SPARQL isLiteral() function. 
 

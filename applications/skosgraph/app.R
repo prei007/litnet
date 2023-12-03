@@ -1,10 +1,12 @@
 #
 # skos-based interface
 library(shiny)
+library(dqshiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
 library(readr)
+
 # library(NestedMenu)
 
 ###  setup global vars
@@ -83,13 +85,14 @@ ui <- fluidPage(useShinyjs(),
                       choices = NULL,
                       options = list(create = TRUE)
                     ),
-                    textAreaInput(
+                    autocomplete_input(
                       "objectInput",
-                      "Object:"
+                      "Object:",
+                      options = "", 
+                      create = TRUE
                     ),
                     actionButton("saveButton", "Save"),
                     actionButton("deleteButton", "Delete"), 
-  #                  verbatimTextOutput("propertiesList")
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
@@ -154,10 +157,22 @@ server <- function(input, output, session) {
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
-    #  First action in interface: fetch aspects and add to menu for selection
-    
-    # add namespaces for predicates on server
+    # add namespaces for skos predicates on server
     add_name_spaces(rep, predicates)
+    
+    # Get all skos concepts into a list
+    query <- '
+            SELECT ?concept {
+            ?scheme a skos:ConceptScheme . 
+            ?concept skos:inScheme ?scheme.}
+            ORDER BY ?concept
+         '
+     concept_list <- fetch_one_column(query)
+    # and update the object input field with this list
+    update_autocomplete_input(session,
+                              "objectInput",
+                              options = concept_list, 
+                              create = TRUE)
     
     # display the available predicates by aspect in the Descriptors tab
     

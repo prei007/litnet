@@ -363,8 +363,7 @@ fetch_one_column <- function(query) {
     rep,
     query = query,
     returnType = "dataframe",
-    cleanUp = TRUE,
-    limit = 100
+    cleanUp = TRUE
   )
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
@@ -604,7 +603,7 @@ fill_object_input_slot <-
       # https://github.com/prei007/litrev/issues/11
       
       items <- lapply(items, function(x) paste0(prefix, ':', x))
-      updateTextAreaInput(session,
+      update_autocomplete_input(session,
                            "objectInput",
                            value = paste(items))
       # output$propertiesList <- renderTable(range)
@@ -618,7 +617,7 @@ fill_object_input_slot <-
                            "Thesaurus"))) {
         query <- paste0('SELECT ?s { ?s a ', prange, ' }')
         items <- fetch_one_column(query)
-        updateTextAreaInput(session,
+        update_autocomplete_input(session,
                              "objectInput",
                              value = paste(items))
   #     output$propertiesList <- renderPrint({print(items)})
@@ -633,12 +632,12 @@ fill_object_input_slot <-
         # fetch the values from the scheme and update object selection
         items <- fetch_values_from_thesaurus(concept_scheme)
         items <- lapply(items, function(x) paste0(prefix, ':', x))
-        updateTextAreaInput(session,
+        update_autocomplete_input(session,
                              "objectInput",
                              value = paste(items))
   #      output$propertiesList <- renderPrint({print(items)})
       } else {
-        updateTextAreaInput(session,
+        update_autocomplete_input(session,
                              "objectInput",
                              value = "")
       }

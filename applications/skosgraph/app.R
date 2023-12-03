@@ -160,20 +160,30 @@ server <- function(input, output, session) {
     # add namespaces for skos predicates on server
     add_name_spaces(rep, predicates)
     
-    # Get all skos concepts into a list
+    # Get all skos concepts into a global env list
     query <- '
             SELECT ?concept {
             ?scheme a skos:ConceptScheme . 
             ?concept skos:inScheme ?scheme.}
             ORDER BY ?concept '
-    
-      
-     concept_list <<- fetch_one_column(query)
+    concept_list <<- fetch_one_column(query)
     # and update the object input field with this list
     update_autocomplete_input(session,
                               "objectInput",
                               options = concept_list, 
                               create = TRUE)
+    # The prefix for these can be inferred from the aspect slot. 
+    # But it's better to fetch concept and scheme and combine the two 
+    # for constructing the object field value. 
+    # We have to change the object field function a bit to be in line with the 
+    # new way of composing values. 
+    # also need a larger box for displaying multiple values. 
+    
+    
+    # It would also be good to have the authors and works available, for selection in the 
+    # object field. Since they change dynamically, different from categories, we need to 
+    # update these cached values on save. 
+  
     
     # display the available predicates by aspect in the Descriptors tab
     

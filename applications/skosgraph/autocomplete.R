@@ -1,9 +1,12 @@
 library(shiny)
 library(dqshiny)
-# create 100k random words
+# create 1k random words
 # opts <- sapply(1:1000, function(i) paste0(sample(letters, 7), collapse=""))
 
 opts <- c("lo:object1", "lo:object2", "env:option1", "dummy")
+
+# a meaningful example for the structure() function, which attaches attributes to data:
+# structure(opts, names = c("a", "b", "c", "d"))
 
 shinyApp(
   ui = fluidPage(
@@ -11,7 +14,8 @@ shinyApp(
       column(3,
              autocomplete_input("auto1", "Unnamed:", opts, max_options = 10, create = TRUE),
              autocomplete_input("auto2", "Named:", max_options = 10,
-                                structure(opts, names = opts[order(opts)]))
+                               # structure(opts, names = opts[order(opts)]))
+                               structure(opts, names = c("a", "b", "c", "d")))
              # feel free to test this with select... and may get yourself a coffee
              # , selectInput("sel", "Select:", opts)
       ), column(3,

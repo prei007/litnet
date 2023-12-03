@@ -363,7 +363,8 @@ fetch_one_column <- function(query) {
     rep,
     query = query,
     returnType = "dataframe",
-    cleanUp = TRUE
+    cleanUp = TRUE,
+    limit = 100
   )
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
@@ -605,7 +606,9 @@ fill_object_input_slot <-
       items <- lapply(items, function(x) paste0(prefix, ':', x))
       update_autocomplete_input(session,
                            "objectInput",
-                           value = paste(items))
+                           options = concept_list, 
+                           value = paste(items), 
+                           create = TRUE)
       # output$propertiesList <- renderTable(range)
     } else {
       # determine the range of the selected predicate
@@ -619,7 +622,9 @@ fill_object_input_slot <-
         items <- fetch_one_column(query)
         update_autocomplete_input(session,
                              "objectInput",
-                             value = paste(items))
+                             options = concept_list,
+                             value = paste(items),
+                             create = TRUE)
   #     output$propertiesList <- renderPrint({print(items)})
       } else if (prange == "Thesaurus" ) {
         # look up the concept scheme for the selected predicate
@@ -633,13 +638,17 @@ fill_object_input_slot <-
         items <- fetch_values_from_thesaurus(concept_scheme)
         items <- lapply(items, function(x) paste0(prefix, ':', x))
         update_autocomplete_input(session,
-                             "objectInput",
-                             value = paste(items))
+                                  "objectInput",
+                                  options = concept_list,
+                                  value = paste(items),
+                                  create = TRUE)
   #      output$propertiesList <- renderPrint({print(items)})
       } else {
         update_autocomplete_input(session,
-                             "objectInput",
-                             value = "")
+                                  "objectInput",
+                                  options = concept_list,
+                                  value = "",
+                                  create = TRUE)
       }
     }
   }

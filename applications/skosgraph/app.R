@@ -165,9 +165,10 @@ server <- function(input, output, session) {
             SELECT ?concept {
             ?scheme a skos:ConceptScheme . 
             ?concept skos:inScheme ?scheme.}
-            ORDER BY ?concept
-         '
-     concept_list <- fetch_one_column(query)
+            ORDER BY ?concept '
+    
+      
+     concept_list <<- fetch_one_column(query)
     # and update the object input field with this list
     update_autocomplete_input(session,
                               "objectInput",

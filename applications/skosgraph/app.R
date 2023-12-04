@@ -1,10 +1,12 @@
 #
 # skos-based interface
 library(shiny)
+library(dqshiny)
 library(shinyjs)
 library(visNetwork)
 library(allegRo)
 library(readr)
+
 # library(NestedMenu)
 
 ###  setup global vars
@@ -83,13 +85,20 @@ ui <- fluidPage(useShinyjs(),
                       choices = NULL,
                       options = list(create = TRUE)
                     ),
-                    textAreaInput(
+                    autocomplete_input(
                       "objectInput",
-                      "Object:"
+                      "Object:",
+                      options = "", 
+                      create = TRUE
                     ),
                     actionButton("saveButton", "Save"),
                     actionButton("deleteButton", "Delete"), 
-  #                  verbatimTextOutput("propertiesList")
+                    textAreaInput(
+                      'objectDetails', 
+                      'Object details:', 
+                      height = '200px', 
+                      placeholder = "No details available."
+                    )
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
@@ -154,16 +163,39 @@ server <- function(input, output, session) {
     updateTextInput(session, "pwd", value = NA)
     showNotification("You are logged in")
     
-    #  First action in interface: fetch aspects and add to menu for selection
-    
-    # add namespaces for predicates on server
+    # add namespaces for skos predicates on server
     add_name_spaces(rep, predicates)
+    
+    # Get all skos concepts into a global env list
+    query <- '
+            SELECT ?concept {
+            ?scheme a skos:ConceptScheme . 
+            ?concept skos:inScheme ?scheme.}
+            ORDER BY ?concept '
+    concept_list <<- fetch_one_column(query)
+    # and update the object input field with this list
+    update_autocomplete_input(session,
+                              "objectInput",
+                              options = concept_list, 
+                              create = TRUE)
+    # The prefix for these can be inferred from the aspect slot. 
+    # But it's better to fetch concept and scheme and combine the two 
+    # for constructing the object field value. 
+    # We have to change the object field function a bit to be in line with the 
+    # new way of composing values. 
+    # also need a larger box for displaying multiple values. 
+    
+    
+    # It would also be good to have the authors and works available, for selection in the 
+    # object field. Since they change dynamically, different from categories, we need to 
+    # update these cached values on save. 
+  
     
     # display the available predicates by aspect in the Descriptors tab
     
     output$descriptorsTable <- renderTable(predicates[, c("label", "aspect")])
     
-    current_subject <<- NULL # variable for tracking the subject field value
+  #   current_subject <<- NULL # variable for tracking the subject field value
     
     # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
@@ -191,10 +223,12 @@ server <- function(input, output, session) {
       fill_subject_input_slot(session, input$aspect, input$predicateInput)
       # Update theh object field as well
       if (input$subjectInput != "") {fill_object_input_slot(session,
-                             output, 
-                             input$aspect,
-                             input$predicateInput,
-                             input$subjectInput) 
+                             input, 
+                             output
+    #                         input$aspect,
+     #                        input$predicateInput,
+     #                        input$subjectInput
+                             ) 
     }}
   })
   
@@ -206,10 +240,12 @@ server <- function(input, output, session) {
       details_table <<- NULL
       current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
       fill_object_input_slot(session,
-                             output, 
-                             input$aspect,
-                             input$predicateInput,
-                             input$subjectInput)
+                             input, 
+                             output 
+    #                         input$aspect,
+    #                        input$predicateInput,
+    #                        input$subjectInput
+                             )
       output$detailsTable <- renderTable(details_table) # details_table gets a value from the fill function
     }
   })

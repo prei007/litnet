@@ -573,88 +573,91 @@ fill_subject_input_slot <-
     }
   }
 
-# This function can be made less in need for parameters 
-# if the input object was passed to the function. 
-# Then input$<x> would work. 
+
 fill_object_input_slot <-
   function(session,
-           output, 
-           aspect,
-           predicateSelection,
-           subjectSelection) {
-   # cat("\n", "****fill_object_input_slot - subjectSelection: ", subjectSelection, "\n")  #dev
-    
+           input,
+           output) {
     # show what's known about the subject in a table
-    if (node_exists(subjectSelection)) {
-        details_table <<- show_attributes(subjectSelection) # note the gloval env
-    } 
-    # if an object value exists show it in the input field 
-    if (value_exists(subjectSelection, predicateSelection)) {
+    if (node_exists(input$subjectInput)) {
+      details_table <<-
+        show_attributes(input$subjectInput) # note the gloval env
+    }
+    
+    # if an object value exists show it in the details field
+    if (value_exists(input$subjectInput, input$predicateInput)) {
       query <- paste0('SELECT ?o { ',
-                      subjectSelection,
+                      input$subjectInput,
                       ' ',
-                      predicateSelection,
+                      input$predicateInput,
                       ' ?o }')
       items = fetch_one_column(query)
       # add instance prefix to items
-      prefix = predicates[predicates$label == predicateSelection, 'prefix']
+      prefix = predicates[predicates$label == input$predicateInput, 'prefix']
       prefix = prefix[[1]]
       
       # todo: Before adding a prefix, need to look in the database to identify literals.
       # https://github.com/prei007/litrev/issues/11
       
-      items <- lapply(items, function(x) paste0(prefix, ':', x))
-      update_autocomplete_input(session,
-                           "objectInput",
-                           options = concept_list, 
-                           value = paste(items), 
-                           create = TRUE)
-      # output$propertiesList <- renderTable(range)
+      items <- lapply(items, function(x)
+        paste0(prefix, ':', x))
+      
+      updateTextAreaInput(session, 
+        "objectDetails", 
+        value = paste(items))
+      
+      update_autocomplete_input(
+        session,
+        "objectInput",
+        options = concept_list,
+        # value = paste(items),
+        create = TRUE
+      )
     } else {
-      # determine the range of the selected predicate
+      # no value existing; determine the range of the selected predicate
       prange <-
-        predicates[predicates$label == predicateSelection, 'range']
+        predicates[predicates$label == input$predicateInput, 'range']
       prange <- prange[[1]]
       # if range is different from some things, look for instances of the range
-        if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration",
-                           "Thesaurus"))) {
+      if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration",
+                          "Thesaurus"))) {
         query <- paste0('SELECT ?s { ?s a ', prange, ' }')
         items <- fetch_one_column(query)
-        update_autocomplete_input(session,
-                             "objectInput",
-                             options = concept_list,
-                             value = paste(items),
-                             create = TRUE)
-  #     output$propertiesList <- renderPrint({print(items)})
-      } else if (prange == "Thesaurus" ) {
-        # look up the concept scheme for the selected predicate
-        concept_scheme <- predicates[predicates$label == predicateSelection, 'skos']
+      # and display them 
+        updateTextAreaInput(
+          session,
+          "objectDetails",
+          value = paste('Possible values: ', items)
+        )
+      } else if (prange == "Thesaurus") {
+        # look up the SKOS concept scheme for the selected predicate
+        concept_scheme <-
+          predicates[predicates$label == input$predicateInput, 'skos']
         concept_scheme <- concept_scheme[[1]]
         # add prefix to the concept scheme name
-        prefix = predicates[predicates$label == predicateSelection, 'prefix']
+        prefix = predicates[predicates$label == input$predicateInput, 'prefix']
         prefix = prefix[[1]]
         concept_scheme  <- paste0(prefix, ':', concept_scheme)
-        # fetch the values from the scheme and update object selection
+        # fetch the values from the scheme and update objectFDetails
         items <- fetch_values_from_thesaurus(concept_scheme)
-        items <- lapply(items, function(x) paste0(prefix, ':', x))
-        update_autocomplete_input(session,
-                                  "objectInput",
-                                  options = concept_list,
-                                  value = paste(items),
-                                  create = TRUE)
-  #      output$propertiesList <- renderPrint({print(items)})
+        items <- lapply(items, function(x)
+          paste0(prefix, ':', x))
+        updateTextAreaInput(
+          session,
+          "objectDetails",
+          value = c('Possible values: ', items)
+        )
       } else {
-        update_autocomplete_input(session,
-                                  "objectInput",
-                                  options = concept_list,
-                                  value = "",
-                                  create = TRUE)
+        updateTextAreaInput(
+          session,
+          "objectDetails",
+          value = "",
+          placeholder = "No details available."
+        )
       }
     }
   }
     
-
-
 
 show_attributes <- function(node) {
 #  cat("\n", "****show_attributes()- node: ", node, "\n")  #dev

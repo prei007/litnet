@@ -93,6 +93,12 @@ ui <- fluidPage(useShinyjs(),
                     ),
                     actionButton("saveButton", "Save"),
                     actionButton("deleteButton", "Delete"), 
+                    textAreaInput(
+                      'objectDetails', 
+                      'Object details:', 
+                      height = '200px', 
+                      placeholder = "No details available."
+                    )
                   ),
                   mainPanel(tabsetPanel(
                     type = "tabs",
@@ -189,7 +195,7 @@ server <- function(input, output, session) {
     
     output$descriptorsTable <- renderTable(predicates[, c("label", "aspect")])
     
-    current_subject <<- NULL # variable for tracking the subject field value
+  #   current_subject <<- NULL # variable for tracking the subject field value
     
     # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
@@ -217,10 +223,12 @@ server <- function(input, output, session) {
       fill_subject_input_slot(session, input$aspect, input$predicateInput)
       # Update theh object field as well
       if (input$subjectInput != "") {fill_object_input_slot(session,
-                             output, 
-                             input$aspect,
-                             input$predicateInput,
-                             input$subjectInput) 
+                             input, 
+                             output
+    #                         input$aspect,
+     #                        input$predicateInput,
+     #                        input$subjectInput
+                             ) 
     }}
   })
   
@@ -232,10 +240,12 @@ server <- function(input, output, session) {
       details_table <<- NULL
       current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
       fill_object_input_slot(session,
-                             output, 
-                             input$aspect,
-                             input$predicateInput,
-                             input$subjectInput)
+                             input, 
+                             output 
+    #                         input$aspect,
+    #                        input$predicateInput,
+    #                        input$subjectInput
+                             )
       output$detailsTable <- renderTable(details_table) # details_table gets a value from the fill function
     }
   })

@@ -63,11 +63,9 @@ predicates <<- read_csv("predicates.csv", show_col_types = FALSE)
 # sel <- predicates[ predicates$label == 'creator', 'uri']; then sel[[1]] will yield the value.
 
 # Append the predicate URIs to ns_list. 
-
 ns_list <<- unique(append(ns_list, predicates$uri))
 
-### Build the app 
-
+### Build the app ###
 ui <- fluidPage(useShinyjs(),
                 titlePanel("LitGraph"),
                 sidebarLayout(
@@ -136,12 +134,12 @@ server <- function(input, output, session) {
       service(url, input$userName, input$pwd, testConnection = FALSE),
       envir = globalenv()
     )
-  #  assign("cat", catalog(service, "perei"), envir = globalenv())
+    #  assign("cat", catalog(service, "perei"), envir = globalenv())
     assign("cat", catalog(service, "coolfutures"), envir = globalenv())
     assign("userList", paste0("User", 1:10), envir = globalenv())
     
     if (userName %in% c("perei", "yucui")) {
-    #  assign("rep", repository(cat, "skosgraph"), envir = globalenv())
+      #  assign("rep", repository(cat, "skosgraph"), envir = globalenv())
       assign("rep", repository(cat, "compumod2"), envir = globalenv())
     }  else if (exists('userName') & userName %in% userList) {
       assign("rep", repository(cat, "skosgraph"), envir = globalenv())
@@ -153,9 +151,10 @@ server <- function(input, output, session) {
     # add namespaces because they are "private" to the logged in user!
     
     for (i in 1:length(namespaceDF$prefix)) {
-      addNameSpace(repo = rep, 
-                   prefix = namespaceDF$prefix[i],
-                   nsURI = namespaceDF$nspace[i]
+      addNameSpace(
+        repo = rep,
+        prefix = namespaceDF$prefix[i],
+        nsURI = namespaceDF$nspace[i]
       )
     }
     
@@ -169,33 +168,24 @@ server <- function(input, output, session) {
     # Get all skos concepts into a global env list
     query <- '
             SELECT ?concept {
-            ?scheme a skos:ConceptScheme . 
+            ?scheme a skos:ConceptScheme .
             ?concept skos:inScheme ?scheme.}
             ORDER BY ?concept '
     concept_list <<- fetch_one_column(query)
     # and update the object input field with this list
     update_autocomplete_input(session,
                               "objectInput",
-                              options = concept_list, 
+                              options = concept_list,
                               create = TRUE)
-    # The prefix for these can be inferred from the aspect slot. 
-    # But it's better to fetch concept and scheme and combine the two 
-    # for constructing the object field value. 
-    # We have to change the object field function a bit to be in line with the 
-    # new way of composing values. 
-    # also need a larger box for displaying multiple values. 
     
+    # It would also be good to have the authors and works available, for selection in the
+    # object field. Since they change dynamically, different from categories, we need to
+    # update these cached values on save.
     
-    # It would also be good to have the authors and works available, for selection in the 
-    # object field. Since they change dynamically, different from categories, we need to 
-    # update these cached values on save. 
-  
     
     # display the available predicates by aspect in the Descriptors tab
-    
-    output$descriptorsTable <- renderTable(predicates[, c("label", "aspect")])
-    
-  #   current_subject <<- NULL # variable for tracking the subject field value
+    output$descriptorsTable <-
+      renderTable(predicates[, c("label", "aspect")])
     
     # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
@@ -215,8 +205,6 @@ server <- function(input, output, session) {
     }
   })
   
- # predInput <- reactive(fill_predicate_input_slot(session, input$aspect))
-  
   observeEvent(input$predicateInput, {
     # update subject field field.
     if (input$predicateInput != "") {
@@ -225,9 +213,6 @@ server <- function(input, output, session) {
       if (input$subjectInput != "") {fill_object_input_slot(session,
                              input, 
                              output
-    #                         input$aspect,
-     #                        input$predicateInput,
-     #                        input$subjectInput
                              ) 
     }}
   })
@@ -242,19 +227,14 @@ server <- function(input, output, session) {
       fill_object_input_slot(session,
                              input, 
                              output 
-    #                         input$aspect,
-    #                        input$predicateInput,
-    #                        input$subjectInput
                              )
       output$detailsTable <- renderTable(details_table) # details_table gets a value from the fill function
     }
   })
   
-  #we could also think about:
+  # we could also think about:
   # observeEvent(input$objectInput)
   # for analysing the input as to problems.
-  
-  
   
   # -------------------------------
   # Push a statement
@@ -263,8 +243,8 @@ server <- function(input, output, session) {
   observeEvent(input$saveButton,
                {
                  # Test that all fields have a value
-                 
-                 if (input$subjectInput == "" | input$predicateInput == "" | input$objectInput == "") {
+                 if (input$subjectInput == "" |
+                     input$predicateInput == "" | input$objectInput == "") {
                    alert("Error when saving: Input field(s) can't be empty.")
                    return("")
                  }
@@ -307,36 +287,38 @@ server <- function(input, output, session) {
                               obj = objectURL)
                  
                  # Add rdf type info
-                 # Note that this works only if duplicates are surpressed on server. 
-                 # Else one would have to test if this type already declared for subject. 
-                 # The rdf type corresponds to the domain of the predicate. 
-       
-                 domain <- predicates[predicates$label == input$predicateInput, 'domain']
+                 # Note that this works only if duplicates are surpressed on server.
+                 # Else one would have to test if this type already declared for subject.
+                 # The rdf type corresponds to the domain of the predicate.
+                 
+                 domain <-
+                   predicates[predicates$label == input$predicateInput, 'domain']
                  domain <- domain[[1]]
                  prefix_str <- paste0(get_prefix(domain), ':')
-                 dns <- namespaceDF[namespaceDF$prefix == prefix_str, 'nspace']
+                 dns <-
+                   namespaceDF[namespaceDF$prefix == prefix_str, 'nspace']
                  dns <- dns[[1]]
                  domain <- remove_prefix(domain)
                  objectURL <- paste0("<", dns, domain,  ">")
-                 predURL <- "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"
+                 predURL <-
+                   "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"
                  
                  cat("\n", "pushing to server: ", "\n") # dev
                  print(c(subjectURL, predURL, objectURL)) # dev
                  
-                 addStatement(
-                   rep,
-                   subj = subjectURL,
-                   pred = predURL,
-                   obj = objectURL
-                   )
- 
+                 addStatement(rep,
+                              subj = subjectURL,
+                              pred = predURL,
+                              obj = objectURL)
+                 
                  
                  # Notify user and update table
                  showNotification("Your input is saved.")
                  # update table display
-                 details_table <<- show_attributes(input$subjectInput) # note the top level env
+                 details_table <<-
+                   show_attributes(input$subjectInput) # note the top level env
                  output$detailsTable <- renderTable(details_table)
-             #    click("showMapButton")
+                 #    click("showMapButton")
                })
   
   # -------------------------------

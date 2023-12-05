@@ -27,15 +27,16 @@ oaNS <<- "http://www.w3.org/ns/oa#"
 skosNS <<- "http://www.w3.org/2004/02/skos/core#"
 provNS <<- "http://www.w3.org/ns/prov#"
 mpNS <<- "http://purl.org/mp/"
+theoNS <<- "http://www.learn-web.com/ontologies/2023/bcio_extended/"
 
-# For the elements in ns_list the namespace will not be displayed in tables 
+# The next two lists must be kept in sync because they go into a dataframe. 
 ns_list <- c(defaultNS, instanceNS, foafNS, oaNS, fabioNS,
               citoNS,  biboNS, dcNS, rdfNS, rdsNS,
-              skosNS, provNS, mpNS)
+              skosNS, provNS, mpNS, theoNS)
 
 prefix_list <- c("", "litgraph:", "foaf:", "oa:", "fabio:", 
                 "cito:", "bibo:", "dcterms:", "rdf:", "rdfs:", 
-                "skos:", "prov:", "mp:")
+                "skos:", "prov:", "mp:", "theo")
 
 namespaceDF <<- data.frame(prefix = prefix_list, nspace = ns_list)
 
@@ -52,7 +53,8 @@ aspects <<-
     'EducationLevel', 
     'Science', 
     'Technology', 
-    'ResearchApproach'
+    'ResearchApproach', 
+    'Theory'
   )
 
 # Read in info about predicates; declare in global env.

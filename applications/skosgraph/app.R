@@ -290,6 +290,9 @@ server <- function(input, output, session) {
                  # Note that this works only if duplicates are surpressed on server.
                  # Else one would have to test if this type already declared for subject.
                  # The rdf type corresponds to the domain of the predicate.
+                 
+                 # Needs to be extended to cover the case that both subject and object
+                 # are new instances of a property type. 
      
                  domain <-
                    predicates[predicates$label == input$predicateInput, 'domain']

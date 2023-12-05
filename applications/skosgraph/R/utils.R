@@ -547,11 +547,11 @@ fill_predicate_input_slot <- function(session, aspect) {
 }
 
 fill_subject_input_slot <-
-  function(session, aspect, predicateSelection) {
+  function(session, input) {
     # cat("\n", "****fill_subject_input_slot - predicateSelection: ", predicateSelection, "\n")  #dev
     # determine the domain of the selected predicate
     domain <-
-      predicates[predicates$label == predicateSelection, 'domain']
+      predicates[predicates$label == input$predicateInput, 'domain']
     domain <- domain[[1]]
     # query for nodes of type as in domain if there are any
     query <- paste0('ASK { ?s a ', domain, ' }')
@@ -569,7 +569,7 @@ fill_subject_input_slot <-
       updateSelectizeInput(session,
                            "subjectInput",
                            choices = items, 
-                           selected = current_subject)  # testing
+                           selected = input$subjectInput)  # testing
     }
   }
 

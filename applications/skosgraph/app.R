@@ -208,7 +208,7 @@ server <- function(input, output, session) {
   observeEvent(input$predicateInput, {
     # update subject field field.
     if (input$predicateInput != "") {
-      fill_subject_input_slot(session, input$aspect, input$predicateInput)
+      fill_subject_input_slot(session, input)
       # Update theh object field as well
       if (input$subjectInput != "") {fill_object_input_slot(session,
                              input, 
@@ -223,7 +223,7 @@ server <- function(input, output, session) {
     # update object field.
     if (input$subjectInput != "") {
       details_table <<- NULL
-      current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
+  #    current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
       fill_object_input_slot(session,
                              input, 
                              output 

@@ -95,3 +95,14 @@ mp:supports,Claim,mp:Representation,mp:Representation,,mp,http://purl.org/mp/
 mp:supportedBy,Claim,mp:Representation,mp:Representation,,mp,http://purl.org/mp/
 mp:supportedByData,Claim,mp:Representation,mp:Data,,mp,http://purl.org/mp/
 mp:supportedByMethod,Claim,mp:Representation,mp:Method,,mp,http://purl.org/mp/
+theo:isInfluencedBy,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:isInfluencedNegativelyBy,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:isInfluencedPositivelyBy,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:maybeInfluencedBy,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:correlatesWith,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:valueOf,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:typeOf,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:partOf,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:hasAttribute,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:hasStart,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/
+theo:hasEnd,Theory,theo:Construct,theo:Construct,,theo,http://www.learn-web.com/ontologies/2023/bcio_extended/

@@ -99,6 +99,7 @@ value_exists <- function(node, predicate) {
 # cat("\n", "*****value_exists()  query : ", "\n") # dev
 # print(query)  #dev
 # cat("\n")    #dev
+
   evalQuery(rep,
             query = query, returnType = "list",
             limit = 1)
@@ -569,7 +570,8 @@ cat("\n", "****fill_subject_input_slot - predicateInput: ", input$predicateInput
       updateSelectizeInput(session,
                            "subjectInput",
                            choices = items, 
-                           selected = input$subjectInput)  # testing
+                           selected = input$subjectInput
+                           )  
     }
   }
 
@@ -578,6 +580,8 @@ fill_object_input_slot <-
   function(session,
            input,
            output) {
+    cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
+    
     # show what's known about the subject in a table
     if (node_exists(input$subjectInput)) {
       details_table <<-
@@ -618,9 +622,14 @@ fill_object_input_slot <-
       prange <-
         predicates[predicates$label == input$predicateInput, 'range']
       prange <- prange[[1]]
-      # if range is different from some things, look for instances of the range
+      # if range is different from some things, look for instances of the range. 
+      # But what if there arent' any? Let's check that: 
+      query <- paste0('ASK { ?s a ', prange, ' }')
+      thisTest <- evalQuery(rep,
+                query = query, returnType = "list",
+                limit = 1)
       if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration",
-                          "Thesaurus"))) {
+                          "Thesaurus")) && thisTest == "true") {
         query <- paste0('SELECT ?s { ?s a ', prange, ' }')
         items <- fetch_one_column(query)
       # and display them 
@@ -628,7 +637,7 @@ fill_object_input_slot <-
           session,
           "objectDetails",
           value = paste('Possible values: ', items)
-        )
+          )
       } else if (prange == "Thesaurus") {
         # look up the SKOS concept scheme for the selected predicate
         concept_scheme <-

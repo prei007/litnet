@@ -36,7 +36,7 @@ ns_list <- c(defaultNS, instanceNS, foafNS, oaNS, fabioNS,
 
 prefix_list <- c("", "litgraph:", "foaf:", "oa:", "fabio:", 
                 "cito:", "bibo:", "dcterms:", "rdf:", "rdfs:", 
-                "skos:", "prov:", "mp:", "theo")
+                "skos:", "prov:", "mp:", "theo:")
 
 namespaceDF <<- data.frame(prefix = prefix_list, nspace = ns_list)
 
@@ -219,8 +219,6 @@ server <- function(input, output, session) {
     }}
   })
   
-
-  
   observeEvent(input$subjectInput, {
     # update object field.
     if (input$subjectInput != "") {
@@ -293,6 +291,9 @@ server <- function(input, output, session) {
                  # Else one would have to test if this type already declared for subject.
                  # The rdf type corresponds to the domain of the predicate.
                  
+                 # Needs to be extended to cover the case that both subject and object
+                 # are new instances of a property type. 
+     
                  domain <-
                    predicates[predicates$label == input$predicateInput, 'domain']
                  domain <- domain[[1]]

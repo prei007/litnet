@@ -290,9 +290,6 @@ server <- function(input, output, session) {
                  # Note that this works only if duplicates are surpressed on server.
                  # Else one would have to test if this type already declared for subject.
                  # The rdf type corresponds to the domain of the predicate.
-                 
-                 # Needs to be extended to cover the case that both subject and object
-                 # are new instances of a property type. 
      
                  domain <-
                    predicates[predicates$label == input$predicateInput, 'domain']
@@ -314,6 +311,28 @@ server <- function(input, output, session) {
                               pred = predURL,
                               obj = objectURL)
                  
+                 # Now add type info for the case that the object is not a literal
+                 if (has_prefix(input$objectInput)) {
+                   subjectURL <- paste0("<", objectNS, objValue, ">")
+                   range <-
+                     predicates[predicates$label == input$predicateInput, 'range']
+                   range <- range[[1]]
+                   prefix_str <- paste0(get_prefix(range), ':')
+                   dns <-
+                     namespaceDF[namespaceDF$prefix == prefix_str, 'nspace']
+                   dns <- dns[[1]]
+                   domain <- remove_prefix(range)
+                   objectURL <- paste0("<", dns, range,  ">")
+                   
+                   cat("\n", "pushing to server: ", "\n") # dev
+                   print(c(subjectURL, predURL, objectURL)) # dev
+                   
+                   addStatement(rep,
+                                subj = subjectURL,
+                                pred = predURL,
+                                obj = objectURL)
+                   
+                 }
                  
                  # Notify user and update table
                  showNotification("Your input is saved.")

@@ -538,7 +538,7 @@ isLiteral <- function(subject, predicate) {
 
 
 fill_predicate_input_slot <- function(session, aspect) {
-cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
+# cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
   
 # We need the values for the aspect. First, select the rows for aspect:
   itemsdf = predicates[ predicates$aspect == aspect, ]
@@ -554,7 +554,7 @@ cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
 
 fill_subject_input_slot <-
   function(session, input) {
-cat("\n", "****fill_subject_input_slot - predicateInput: ", input$predicateInput, "\n")  #dev
+# cat("\n", "****fill_subject_input_slot - predicateInput: ", input$predicateInput, "\n")  #dev
     # determine the domain of the selected predicate
     domain <-
       predicates[predicates$label == input$predicateInput, 'domain']
@@ -585,7 +585,7 @@ fill_object_input_slot <-
   function(session,
            input,
            output) {
-    cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
+ #   cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
     
     # show what's known about the subject in a table
     if (node_exists(input$subjectInput)) {

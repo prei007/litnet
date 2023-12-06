@@ -357,16 +357,21 @@ update_repo <- function(node) {
 # query processing template
 
 fetch_one_column <- function(query) {
-# cat("\n", "****fetch_one_column() query: ", "\n")  # dev
-# print(query)        #dev
-  
+cat("\n", "****fetch_one_column() query: ", "\n")  # dev
+print(query)        #dev
+
   dfout <- evalQuery(
     rep,
     query = query,
-    returnType = "dataframe",
+#    returnType = "dataframe",
+    returnType = "list", # testing
     cleanUp = TRUE,
-    limit = 100
+    limit = 1000
   )
+  
+  cat("\n", "****fetch_one_column() dfout: ", "\n")  # dev
+  print(dfout)        #dev
+  
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
     #    print(dfout) #dev

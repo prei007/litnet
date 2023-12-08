@@ -357,7 +357,7 @@ update_repo <- function(node) {
 # query processing template
 
 fetch_one_column <- function(query) {
-#c at("\n", "****fetch_one_column() query: ", "\n")  # dev
+# cat("\n", "****fetch_one_column() query: ", "\n")  # dev
 # print(query)        #dev
 
   dfout <- evalQuery(
@@ -368,8 +368,9 @@ fetch_one_column <- function(query) {
     limit = 1000
   )
   
-#  cat("\n", "****fetch_one_column() dfout: ", "\n")  # dev
-#  print(dfout)        #dev
+# cat("\n", "****fetch_one_column() dfout: ", "\n")  # dev
+# print(dfout)        #dev
+# print(" ")  #dev 
   
   if (dfout[1] != "query failed" & length(dfout) > 1) {
     dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
@@ -386,12 +387,11 @@ fetch_one_column <- function(query) {
 
 #add namespaces for predicates
 add_name_spaces <- function(repo, predicates) {
-  for (i in 1:length(predicates[["label"]])) {
-    this_prefix <- predicates[["prefix"]][i] 
-    this_ns <- predicates[["uri"]][i]
-    addNameSpace(rep, this_prefix, this_ns)
+  prefixList <- unique(predicates$prefix)
+  nsList <- unique(predicates$uri)
+  for (i in 1:length(prefixList)) {
+    addNameSpace(rep, prefixList[i], nsList[i])
   }
-  
 }
 
 # add name spaces for thesauri 
@@ -584,8 +584,9 @@ fill_object_input_slot <-
   function(session,
            input,
            output) {
- #   cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
+  cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
     
+  browser()
     # show what's known about the subject in a table
     if (node_exists(input$subjectInput)) {
       details_table <<-
@@ -632,8 +633,9 @@ fill_object_input_slot <-
       thisTest <- evalQuery(rep,
                 query = query, returnType = "list",
                 limit = 1)
-      if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration",
-                          "Thesaurus")) && thisTest == "true") {
+      if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration")) 
+          # note that I removed Thesaurus from this list. 
+          && thisTest == "true") {
         query <- paste0('SELECT ?s { ?s a ', prange, ' }')
         items <- fetch_one_column(query)
       # and display them 
@@ -673,12 +675,12 @@ fill_object_input_slot <-
     
 
 show_attributes <- function(node) {
-#  cat("\n", "****show_attributes()- node: ", node, "\n")  #dev
+cat("\n", "****show_attributes()- node: ", node, "\n")  #dev
   if (node_exists(node)) {
   query <- paste0('SELECT ?o ?p { ', node, '?o ?p }')
   dfout <- evalQuery(rep,
                      query = query, returnType = "dataframe",
-                     cleanUp = TRUE, limit = 50)
+                     cleanUp = TRUE, limit = 1000)
   dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
   dfout[[1]] <- last_URI_element(dfout[[1]])
   dfout[[2]] <- last_URI_element_1(dfout[[2]], ns_list)

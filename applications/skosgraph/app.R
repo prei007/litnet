@@ -200,10 +200,12 @@ server <- function(input, output, session) {
   
   # This is the second action: Fill the predicate input field.
   
+  currentAspect <<- "" # used for tracking changes in aspect
+  
   observeEvent(input$aspect, {
     # update predicate field.
     if (input$aspect != "") {
-      fill_predicate_input_slot(session, input$aspect)
+      fill_predicate_input_slot(session, input)
     }
   })
   

@@ -594,8 +594,8 @@ fill_object_input_slot <-
   function(session,
            input,
            output) {
-#  cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
-  
+    #  cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
+    
     # show what's known about the subject in a table
     if (node_exists(input$subjectInput)) {
       details_table <<-
@@ -620,40 +620,21 @@ fill_object_input_slot <-
       items <- lapply(items, function(x)
         paste0(prefix, ':', x))
       
-      updateTextAreaInput(session, 
-        "objectDetails", 
-        value = paste(items))
+      updateTextAreaInput(session,
+                          "objectDetails",
+                          value = paste(items))
       
-      update_autocomplete_input(
-        session,
-        "objectInput",
-        options = concept_list,
-        # value = paste(items),
-        create = TRUE
-      )
+      update_autocomplete_input(session,
+                                "objectInput",
+                                options = concept_list,
+                                # value = paste(items),
+                                create = TRUE)
     } else {
       # no value existing; determine the range of the selected predicate
-      # Debugging: The thesaurus problem is somewhere below from here. 
       prange <-
         predicates[predicates$label == input$predicateInput, 'range']
       prange <- prange[[1]]
-      # if range is different from some things, look for instances of the range. 
-      # But what if there arent' any? Let's check that: 
-      query <- paste0('ASK { ?s a ', prange, ' }')
-      thisTest <- evalQuery(rep,
-                query = query, returnType = "list",
-                limit = 1)
-      if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration", "Thesaurus")) 
-          && thisTest == "true") {
-        query <- paste0('SELECT ?s { ?s a ', prange, ' }')
-        items <- fetch_one_column(query)
-      # and display them 
-        updateTextAreaInput(
-          session,
-          "objectDetails",
-          value = paste('Possible values: ', items)
-          )
-      } else if (prange == "Thesaurus") {
+      if (prange == "Thesaurus") {
         # look up the SKOS concept scheme for the selected predicate
         concept_scheme <-
           predicates[predicates$label == input$predicateInput, 'skos']
@@ -666,18 +647,30 @@ fill_object_input_slot <-
         items <- fetch_values_from_thesaurus(concept_scheme)
         items <- lapply(items, function(x)
           paste0(prefix, ':', x))
-        updateTextAreaInput(
-          session,
-          "objectDetails",
-          value = c('Possible values: ', items)
-        )
+        updateTextAreaInput(session,
+                            "objectDetails",
+                            value = c('Possible values: ', items))
+      } else if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration"))) {
+        # if range is different from some things, look for instances of the range.
+        # But what if there arent' any? Let's check that:
+        query <- paste0('ASK { ?s a ', prange, ' }')
+        thisTest <- evalQuery(rep,
+                              query = query,
+                              returnType = "list",
+                              limit = 1)
+        if (thisTest == "true") {
+          query <- paste0('SELECT ?s { ?s a ', prange, ' }')
+          items <- fetch_one_column(query)
+          # and display them
+          updateTextAreaInput(session,
+                              "objectDetails",
+                              value = paste('Possible values: ', items))
+        }
       } else {
-        updateTextAreaInput(
-          session,
-          "objectDetails",
-          value = "",
-          placeholder = "No details available."
-        )
+        updateTextAreaInput(session,
+                            "objectDetails",
+                            value = "",
+                            placeholder = "No details available.")
       }
     }
   }

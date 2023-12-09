@@ -319,21 +319,22 @@ server <- function(input, output, session) {
                    range <-
                      predicates[predicates$label == input$predicateInput, 'range']
                    range <- range[[1]]
-                   prefix_str <- paste0(get_prefix(range), ':')
-                   dns <-
-                     namespaceDF[namespaceDF$prefix == prefix_str, 'nspace']
-                   dns <- dns[[1]]
-                   domain <- remove_prefix(range)
-                   objectURL <- paste0("<", dns, range,  ">")
-                   
-                   cat("\n", "pushing to server: ", "\n") # dev
-                   print(c(subjectURL, predURL, objectURL)) # dev
-                   
-                   addStatement(rep,
-                                subj = subjectURL,
-                                pred = predURL,
-                                obj = objectURL)
-                   
+                   if (range != "Thesaurus") {
+                     prefix_str <- paste0(get_prefix(range), ':')
+                     dns <-
+                       namespaceDF[namespaceDF$prefix == prefix_str, 'nspace']
+                     dns <- dns[[1]]
+                     domain <- remove_prefix(range)
+                     objectURL <- paste0("<", dns, range,  ">")
+                     
+                     cat("\n", "pushing to server: ", "\n") # dev
+                     print(c(subjectURL, predURL, objectURL)) # dev
+                     
+                     addStatement(rep,
+                                  subj = subjectURL,
+                                  pred = predURL,
+                                  obj = objectURL)
+                   }
                  }
                  
                  # Notify user and update table

@@ -1,7 +1,7 @@
 library(NestedMenu)
 library(shiny)
 
-resmethods <- list(
+resmethods <<- list(
   quantitative = list(
     name = "Quantitative",
     items = list(
@@ -9,7 +9,8 @@ resmethods <- list(
         name = "Survey",
         items = list(
           s1 = list(name = "S1"),
-          s2 = list(name = "S2")
+          s2 = list(name = "S2"),
+          'meth:Survey' = list(name = "Survey")
         )
       ),
       experiment = list(

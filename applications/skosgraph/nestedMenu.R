@@ -1,7 +1,9 @@
-library(NestedMenu)
-library(shiny)
 
-resmethods <- list(
+library(shiny)
+library(NestedMenu)
+
+
+resmethods <<- list(
   quantitative = list(
     name = "Quantitative",
     items = list(
@@ -52,7 +54,7 @@ server <- function(input, output, session){
   
   output[["menu"]] <- renderNestedMenu({
     NestedMenu(
-      "researchmethod", items = resmethods
+      "TechMenu", items = TechMenu
     )
   })
   

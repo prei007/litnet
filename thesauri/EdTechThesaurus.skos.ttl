@@ -222,13 +222,13 @@ prefix : <http://www.learn-web.com/thesauri/technologies/>
 :PodCast a skos:Concept ; 
 	skos:inScheme :TechnologyThesaurus ;
 	skos:prefLabel "Podcast"@en ; 
-	skos:broader :Multimedia, :SocialMedia . 
+	skos:broader :MultiMedia, :SocialMedia . 
 	
 :VideoCast a skos:Concept ; 
 	skos:inScheme :TechnologyThesaurus ;
 	skos:prefLabel "Video cast"@en ; 
 	skos:altLabel "vlog"@en ; 
-	skos:broader :Multimedia, :SocialMedia . 
+	skos:broader :MultiMedia, :SocialMedia . 
 
 
 ### Mobile phones and padlets

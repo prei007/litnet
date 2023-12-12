@@ -1,7 +1,4 @@
-
-library(shiny)
-library(NestedMenu)
-
+# Data for nested menu display
 
 resmethods <<- list(
   quantitative = list(
@@ -42,26 +39,3 @@ resmethods <<- list(
     )
   )
 )
-
-ui <- fluidPage(
-  br(),
-  NestedMenuOutput("menu", height = "auto"),
-  br(),
-  verbatimTextOutput("clicked")
-)
-
-server <- function(input, output, session){
-  
-  output[["menu"]] <- renderNestedMenu({
-    NestedMenu(
-      "TestMenu", items = resmethods
-    )
-  })
-  
-  output[["clicked"]] <- renderPrint({
-    input[["menu"]]
-  })
-  
-}
-# Run the application 
-shinyApp(ui = ui, server = server)

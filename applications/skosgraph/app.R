@@ -6,6 +6,7 @@ library(shinyjs)
 library(visNetwork)
 library(allegRo)
 library(readr)
+library(NestedMenu)
 
 # library(NestedMenu)
 
@@ -85,6 +86,7 @@ ui <- fluidPage(useShinyjs(),
                       choices = NULL,
                       options = list(create = TRUE)
                     ),
+                    NestedMenuOutput("CategoriesMenu", height = "auto"), 
                     autocomplete_input(
                       "objectInput",
                       "Object:",
@@ -189,6 +191,12 @@ server <- function(input, output, session) {
     output$descriptorsTable <-
       renderTable(predicates[, c("label", "aspect")])
     
+    # display the menu button for SKOS categories for the object field
+    output$CategoriesMenu <- renderNestedMenu({
+      NestedMenu(
+        "SKOSCategories", items = resmethods)
+    })
+    
     # first action in input interface: show the aspect options for selection
     updateSelectInput(session, "aspect", choices = aspects)
     
@@ -231,6 +239,13 @@ server <- function(input, output, session) {
                              output 
                              )
       output$detailsTable <- renderTable(details_table) # details_table gets a value from the fill function
+    }
+  })
+  
+  # render the value of the SKOSCategories selection in the object input field
+  observeEvent(input$CategoriesMenu, {
+    if (input$CategoriesMenu != "") {
+      update_autocomplete_input(session, "objectInput", value = input$CategoriesMenu)
     }
   })
   
@@ -448,7 +463,8 @@ server <- function(input, output, session) {
   #   render_network_edge(input$current_edge_id$edge)
   # })
   
-}
+  }
+
 
 # Run the application
 shinyApp(ui = ui, server = server)

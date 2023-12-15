@@ -251,8 +251,10 @@ server <- function(input, output, session) {
                    return("")
                  }
                  
-                 #subject and predicate are straightforwqrd:
+                 #subject and predicate are straightforward:
+      #           check_prefix(input$subjectInput)
                  subjectNS <- ns_from_input(input$subjectInput)
+      #           check_prefix(input$predicateInput)
                  predicateNS <- ns_from_input(input$predicateInput)
                  subjectURL <-
                    paste0("<", subjectNS, remove_prefix(input$subjectInput), ">")
@@ -264,6 +266,7 @@ server <- function(input, output, session) {
                  
                  # Object statements need to be computed in multiple steps
                  # Case zero, if there's a prefix, is it known one? If not, stop.
+               #  check_prefix(input$objectInput)
                  if (has_prefix(input$objectInput)) {
                    if (prefix_correct(get_prefix(input$objectInput)) == "FALSE") {
                      alert("Error when saving: prefix mispelled.")

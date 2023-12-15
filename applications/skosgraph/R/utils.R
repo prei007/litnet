@@ -525,6 +525,17 @@ prefix_correct <- function(thisPrefix) {
   } else "TRUE"
 }
 
+# check prefixes are correct
+# This does not work because the value returned is to the calling context
+check_prefix <- function(field) {
+  if (has_prefix(field)) {
+    if (prefix_correct(get_prefix(field)) == "FALSE") {
+      alert("Error when saving: prefix mispelled.")
+      return("")
+    }
+  }
+}
+
 # Is the object of a statement a literal? 
 # Uses the SPARQL isLiteral() function. 
 

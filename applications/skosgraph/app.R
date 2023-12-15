@@ -263,13 +263,20 @@ server <- function(input, output, session) {
                           ">")
                  
                  # Object statements need to be computed in multiple steps
-                 # first, there may be no prefix because it's a string input.
-                 
+                 # Case zero, if there's a prefix, is it known one? If not, stop.
                  if (has_prefix(input$objectInput)) {
-                   objectNS <- ns_from_input(input$objectInput)
-                 } else {
-                   objectNS <- ""
+                   if (prefix_correct(get_prefix(input$objectInput)) == "FALSE") {
+                     alert("Error when saving: prefix mispelled.")
+                     return("")
+                   }
                  }
+                 
+                 # first, there may be no prefix because it's a string input.
+                 if (has_prefix(input$objectInput)) {
+                     objectNS <- ns_from_input(input$objectInput)
+                   } else {
+                     objectNS <- ""
+                   }
                  
                  # Second, literals needed to formatted differently from objects.
                  # We use the existence of a prefix to decide it it's an object or literal value.

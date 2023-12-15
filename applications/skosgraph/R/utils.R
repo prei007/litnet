@@ -516,6 +516,15 @@ get_prefix <- function(str1) {
   } else str1
 }
 
+#Is prefix amongst those in variable predicates? 
+prefix_correct <- function(thisPrefix) {
+ lookup <- predicates[predicates$prefix == thisPrefix, 'prefix']
+ thisPrefix <- paste0(thisPrefix, ':')
+  if ((length(lookup[[1]]) == 0) && !(thisPrefix %in% namespaceDF$prefix)) {
+    return("FALSE")
+  } else "TRUE"
+}
+
 # Is the object of a statement a literal? 
 # Uses the SPARQL isLiteral() function. 
 

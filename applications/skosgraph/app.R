@@ -224,13 +224,21 @@ server <- function(input, output, session) {
   observeEvent(input$subjectInput, {
     # update object field.
     if (input$subjectInput != "") {
-      details_table <<- NULL
-  #    current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
-      fill_object_input_slot(session,
-                             input, 
-                             output 
-                             )
-      output$detailsTable <- renderTable(details_table) # details_table gets a value from the fill function
+      # test that prefix is amongst the known ones
+      if (has_prefix(input$subjectInput)) {
+        if (prefix_correct(get_prefix(input$subjectInput)) == "FALSE") {
+          alert("Error on save: prefix misspelled?")
+          return("")
+        }
+        
+        details_table <<- NULL
+        #    current_subject <<- input$subjectInput  # This variable is used to track the subject in input field updates
+        fill_object_input_slot(session,
+                               input,
+                               output)
+        output$detailsTable <-
+          renderTable(details_table) # details_table gets a value from the fill function
+      }
     }
   })
   
@@ -247,14 +255,21 @@ server <- function(input, output, session) {
                  # Test that all fields have a value
                  if (input$subjectInput == "" |
                      input$predicateInput == "" | input$objectInput == "") {
-                   alert("Error when saving: Input field(s) can't be empty.")
+                   alert("Error on save: Input field(s) can't be empty.")
                    return("")
                  }
                  
                  #subject and predicate are straightforward:
-      #           check_prefix(input$subjectInput)
+                 # First test that the prefix is kosher: 
+                   if (has_prefix(input$subjectInput)) {
+                         if (prefix_correct(get_prefix(input$subjectInput)) == "FALSE") {
+                           alert("Error on save: prefix misspelled?")
+                           return("")
+                         }
+                   }
+                 
                  subjectNS <- ns_from_input(input$subjectInput)
-      #           check_prefix(input$predicateInput)
+      
                  predicateNS <- ns_from_input(input$predicateInput)
                  subjectURL <-
                    paste0("<", subjectNS, remove_prefix(input$subjectInput), ">")
@@ -269,7 +284,7 @@ server <- function(input, output, session) {
                #  check_prefix(input$objectInput)
                  if (has_prefix(input$objectInput)) {
                    if (prefix_correct(get_prefix(input$objectInput)) == "FALSE") {
-                     alert("Error when saving: prefix mispelled.")
+                     alert("Error when saving: prefix misspelled?")
                      return("")
                    }
                  }

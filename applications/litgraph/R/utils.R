@@ -38,99 +38,71 @@ last_URI_element <- function(l1) {
   
 }
 
+
 # version for object column. 
 last_URI_element_1 <- function(l1, ns_list) {
-   l2 <- list() 
+  l2 <- list()
   for (i in 1:length(l1)) {
     for (this_name in ns_list) {
       # pick apart the URL if it includes a namespace
       if (grepl(this_name, l1[i])) {
         splitList <- strsplit(l1[i], "/+")
-        # after splitting, some rows in splitList will be a list. 
+        # after splitting, some rows in splitList will be a list.
         # We want the last element of that list to become the sole row element
         splitList <- splitList[[1]]
         lastpos <- length(splitList)
         l2[i] <- splitList[lastpos]
         break
-      } 
-      # else leave the URL as is. 
+      }
+      # else leave the URL as is.
       l2[i] <- l1[i]
     }
   }
-   unlist(l2, recursive = FALSE)
-    # same for fragments (#)
-    l3 <- list()
-    for (i in 1:length(l2)) {
-      for (this_name in ns_list) {
-        # pick apart the URL if it includes a namespace
-        if (grepl(this_name, l2[i])) {
-          splitList <- strsplit(l2[i], "#+")
-          splitList <- splitList[[1]]
-          lastpos <- length(splitList)
-          l3[i] <- splitList[lastpos]
-          break
-        } 
-        l3[i] <- l2[i]
+  unlist(l2, recursive = FALSE)
+  # same for fragments (#)
+  l3 <- list()
+  for (i in 1:length(l2)) {
+    for (this_name in ns_list) {
+      # pick apart the URL if it includes a namespace
+      if (grepl(this_name, l2[i])) {
+        splitList <- strsplit(l2[i], "#+")
+        splitList <- splitList[[1]]
+        lastpos <- length(splitList)
+        l3[i] <- splitList[lastpos]
+        break
       }
+      l3[i] <- l2[i]
+    }
   }
   unlist(l3, recursive = FALSE)
 }
 
-# set all input fields to empty
-# Called when the user switches a tab.  
-reset_all_input <- function() {
-  textFields <- c("questionID", "questionResponseTo", "questionFollowsAfter", "questionImage",
-                  "questionVideo", "answerID", "answerQuestionID", "alertMsg", "activityID", 
-                  "activityResponseTo", "activityFollowsAfter", "activityImage", "activityVideo",
-                  "actionID", "actionActivityID", "actionAlertMsg", "patternID", "cmapSubject",
-                  "cmapObject", "cmapPredicate", "patternAlertMsg")
-  textAreaFields <- c("questionText", "answerText", "lowGuidanceMsg", 
-                      "highGuidanceMsg", "correctionMsg", "activityDescription", 
-                      "actionDescription", "actionLowGuidanceMsg", "actionHighGuidanceMsg", 
-                      "actionCorrectionMsg", "patternLowGuidanceMsg", "patternHighGuidanceMsg",
-                      "patternCorrectionMsg")
-  
-  for (i in textFields) {
-  updateTextInput(session = getDefaultReactiveDomain(), inputId = i, value = NA)
-  }
-  
-  for (j in textAreaFields) {
-    updateTextAreaInput(session = getDefaultReactiveDomain(), inputId = j, value = NA)
-  }
-}
+
 
 # Check if a node exists on server
 # Returns "true" or "false"
 node_exists <- function(node) {
-  query <- paste0('ASK {:', node, ' ?p ?o }')
+  if (has_prefix(node)) {
+    query <- paste0('ASK {', node, ' ?p ?o }')
+  } else {
+    query <- paste0('ASK {:', node, ' ?p ?o }')
+  }
   evalQuery(rep,
-          query = query, returnType = "list",
-          limit = 1)
+            query = query,
+            returnType = "list",
+            limit = 1)
 }
 
-# setup graph if it does not exist already
-# needs to handle the case that there are no  named graphs in repo initially. 
-provide_tutor_graph <- function(user){
-  # fetch current graphs 
-  query <- 'select distinct ?g { graph ?g { ?s ?p ?o } }'
-  dfout <- evalQuery(rep,
-                        query = query, returnType = "list",
-                        cleanUp = TRUE, limit = 100)
-  if (dfout[1] != "query failed" & length(dfout) > 1) {
-    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
-    dfout[[1]] <- last_URI_element(dfout[[1]])
-    # more here based on existing grpahs
-    # check if user has a graph already
-    if (user %in% as.list(dfout[[1]])) {
-      # do nothing 
-    } else {
-      # create seed graph for user
-    }
-  } else {
-    # create seed graph for user 
-  }
-    
-  
+value_exists <- function(node, predicate) {
+  # note that both parameters need to come with prefixes 
+  query <- paste0('ASK { ', node, ' ', predicate, ' ?o }')
+# cat("\n", "*****value_exists()  query : ", "\n") # dev
+# print(query)  #dev
+# cat("\n")    #dev
+
+  evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
 }
 
 
@@ -154,6 +126,10 @@ fetch_plan <- function() {
 
 # update the view with the graph
 fetch_plan_sparql <- function(query) {
+  # cat("\n", "*****fetch_plan_sparql() query : ", "\n") # dev
+  # print(query)  #dev
+  # cat("\n")    #dev
+
   dfout <- evalQuery(rep,
                      query = query, returnType = "dataframe",
                      cleanUp = TRUE, limit = 2000)
@@ -231,7 +207,7 @@ do_network <- function(dfout) {
   # https://rdrr.io/cran/visNetwork/man/visEvents.html
   
   visNetwork(nodes, edges, height = "1500px", width = "1500px") %>% 
-    visNodes(shape = "box") %>%
+    visNodes(shape = "box", widthConstraint = 125) %>%
     visEdges(arrows = "to") %>%
     visInteraction(hideEdgesOnDrag = TRUE)  %>%
     visOptions(highlightNearest = FALSE, nodesIdSelection = TRUE) %>%
@@ -352,49 +328,6 @@ render_network_edge <- function(edge) {
   }
 }
 
-fillPublicationTemplate <-function(node, node_df) {
-  # ID corresponds to node
-  updateTextInput(inputId = "pubID", value = node) 
-  # df has two columns: predicates (fields) and objects (field values)
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "title") {
-      updateTextAreaInput(inputId = "pubTitle", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "creator") {
-      updateTextInput(inputId = "pubAuthor", value = fvalues[i])
-    } else if (fields[i] == "created") {
-      updateTextInput(inputId = "pubYear", value = gsub('"', '', fvalues[i]))
-    } else if (fields[i] == "identifier") {
-      updateTextInput(inputId = "pubIdentifier", value = gsub('"', '', fvalues[i]))
-    } else {
-      next
-    }
-  }
-}
-
-fillCitationTemplate <- function(node, node_df) {
-  # ID corresponds to node
-  updateTextInput(inputId = "citationID", value = as.character(node)) 
-  # df has two columns: predicates (fields) and objects (field values)
-  fields <- node_df[[1]]
-  fvalues <- node_df[[2]]
-  for (i in 1:length(fields)) {
-    if (fields[i] == "hasCitingEntity") {
-      updateTextInput(inputId = "citingEntity", value = fvalues[i])
-    } else if (fields[i] == "hasCitationCharacterization") {
-      updateTextInput(inputId = "citoType", value = fvalues[i])
-    } else if (fields[i] == "hasCitedEntity") {
-      updateTextInput(inputId = "citedEntity", value = fvalues[i])
-    } else {
-      next
-    }
-  }
-  
-}
-
-
-
 update_repo <- function(node) {
   # delete node's statements in the repo:
   planID <- paste0('<', defaultNS, node, '>') 
@@ -420,7 +353,357 @@ update_repo <- function(node) {
     validate("No information on this selection in database.")
   }
 }
+
+# query processing template
+
+fetch_one_column <- function(query) {
+# cat("\n", "****fetch_one_column() query: ", "\n")  # dev
+# print(query)        #dev
+
+  dfout <- evalQuery(
+    rep,
+    query = query,
+    returnType = "list", 
+    cleanUp = TRUE,
+    limit = 1000
+  )
   
+# cat("\n", "****fetch_one_column() dfout: ", "\n")  # dev
+# print(dfout)        #dev
+# print(" ")  #dev 
+  
+  if (dfout[1] != "query failed" & length(dfout) > 1) {
+    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+    #    print(dfout) #dev
+    #  as.character(last_URI_element(dfout[[1]]))
+    this_val <- last_URI_element(dfout[[1]])
+    # remove the double quote 
+    gsub("\"", "", this_val, fixed = TRUE)
+ 
+  } else {
+    alert("The database does not contain (sufficient) information .")
+  }
+}
+
+#add namespaces for predicates
+add_name_spaces <- function(repo, predicates) {
+  prefixList <- unique(predicates$prefix)
+  nsList <- unique(predicates$uri)
+  for (i in 1:length(prefixList)) {
+    addNameSpace(rep, prefixList[i], nsList[i])
+  }
+}
+
+# add name spaces for thesauri 
+add_thesaurus_namespace <- function() {
+  query <- 'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> 
+    SELECT ?scheme ?prefix ?ns WHERE {
+      ?scheme a skos:ConceptScheme ; 
+      skos:hasPrefix ?prefix ;
+      skos:hasNameSpace ?ns . 
+    }'
+  # The query will return a 3-column dataframe: name, prefix, ns
+  dfout <- evalQuery(rep,
+                     query = query, returnType = "dataframe",
+                     cleanUp = TRUE, limit = 50)
+  if (dfout[1] != "query failed" & length(dfout) > 1) {
+    dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+    # leave the 3rd column of dfout untouched because we need the url! 
+    dfout[[1]] <- last_URI_element(dfout[[1]])
+    dfout[[2]] <- last_URI_element(dfout[[2]])
+    # remove double quotes from prefix and ns column
+    dfout[[2]] <- gsub("\"", "", dfout[[2]], fixed = TRUE)
+    dfout[[3]] <- gsub("\"", "", dfout[[3]], fixed = TRUE)
+  } else {
+    showNotification("The plan does not contain (sufficient) information about this element.", 
+                     type = "error")
+  }
+# cat("\n", "****add_thesaurus_namespace() dfout:", "/n")  #dev
+#  print(dfout) # dev
+ assign("thesauri_df", dfout, envir = globalenv()) # keep this information in glob env
+  
+  # add namespaces to server
+  for (i in 1:length(dfout[["scheme"]])) {
+   this_prefix <- sub(":", "", dfout[["prefix"]][i]) #remove the colon
+   this_ns <- dfout[["ns"]][i]
+   addNameSpace(rep, this_prefix, this_ns)
+  }
+}
+
+lookup_prefix <- function(scheme) {
+  this_index <- which(sapply(thesauri_df[["scheme"]], function(x) scheme %in% x))
+  thesauri_df[["prefix"]][[this_index]]
+}
+
+lookup_namespace <- function(scheme) {
+  this_index <- which(sapply(thesauri_df[["scheme"]], function(x) scheme %in% x))
+  thesauri_df[["ns"]][[this_index]]
+}
+
+# is the aspect providing nouns (for object slots) or verbs (for predicate slots)?
+# returns "Nouns" or "Verbs" 
+NorV <- function(aspect) {
+  query <- paste0(
+    'PREFIX litrev: <http://www.learn-web.com/2023/litrev/>
+         SELECT ?type  WHERE { litrev:', 
+    aspect, 
+    ' litrev:provides ?type . }'
+  )
+  fetch_one_column(query)
+}
+
+
+find_scheme_from_predicate <- function(aspect) {
+  query <-
+    paste0(
+      'PREFIX litrev: <http://www.learn-web.com/2023/litrev/> ',
+      'SELECT ?scheme { litrev:',
+      aspect,
+      ' litrev:hasThesaurus ?scheme }'
+    )
+  scheme <- fetch_one_column(query)
+  scheme
+}
+
+fetch_values_from_thesaurus <- function(concept_scheme) {
+  query <- paste0(
+    'SELECT ?concept {?concept skos:inScheme ',
+    concept_scheme, 
+    ' } ORDER BY ?concept'
+    )
+  fetch_one_column(query)
+}
+
+ns_from_input <- function(inputValue) {
+# cat("\n", "****ns_from_input:", inputValue, "\n") #dev
+  ns <- strsplit(inputValue, ':')
+  if (length(ns[[1]]) == 2) {
+    ns <- first(ns[[1]])
+    if (ns == "litrev") {
+      ns <- modelNS
+    } else if (ns == "litgraph") {
+      ns <- defaultNS
+    } else {
+      ns <- first(predicates[predicates$prefix == ns, 'uri'])
+    }
+    ns
+  }
+}
+
+
+has_prefix <- function(inputValue) {
+  ns <- strsplit(inputValue, ':')
+  if (length(ns[[1]]) == 2) {
+    "true"
+  } else "false"
+}
+
+remove_prefix <- function(str1) {
+  ns <- strsplit(str1, ':')
+  if (length(ns[[1]]) == 2 ) {
+    ns <- ns[[1]]
+    ns <- ns[2]
+    ns
+  } else str1
+}
+
+get_prefix <- function(str1) {
+  ns <- strsplit(str1, ':')
+  if (length(ns[[1]]) == 2 ) {
+    ns <- ns[[1]]
+    ns <- ns[1]
+    ns
+  } else str1
+}
+
+#Is prefix amongst those in variable predicates? 
+prefix_correct <- function(thisPrefix) {
+ lookup <- predicates[predicates$prefix == thisPrefix, 'prefix']
+ thisPrefix <- paste0(thisPrefix, ':')
+  if ((length(lookup[[1]]) == 0) && !(thisPrefix %in% namespaceDF$prefix)) {
+    return("FALSE")
+  } else "TRUE"
+}
+
+
+# Is the object of a statement a literal? 
+# Uses the SPARQL isLiteral() function. 
+
+
+isLiteral <- function(subject, predicate) {
+  query <- paste0('ASK {', subject, ' ', predicate, 
+                  '?o . filter isLiteral(?o) }'
+  )
+  evalQuery(rep,
+            query = query, returnType = "list",
+            limit = 1)
+}
+# This finds all literals in a repo: 
+#   query <- 'select distinct ?literal { 
+#   ?s ?p ?literal 
+#   filter isLiteral(?literal)
+# }'
+
+
+
+fill_predicate_input_slot <- function(session, input) {
+# cat("\n", "****fill_predicate_input_slot - aspect: ", aspect, "\n")  #dev
+  
+  # if there's a switch in aspect, clear subjectInput
+  if (input$aspect != currentAspect) {
+    updateSelectizeInput(session,
+                         "subjectInput",
+                         selected = ""
+    ) 
+  }
+  # update the globalEnv tracking variable and continue
+  currentAspect <<- input$aspect
+  
+# We need the values for the aspect. First, select the rows for aspect:
+  itemsdf = predicates[ predicates$aspect == input$aspect, ]
+# This is a tibble with all columns for predicates under the aspect. 
+  # The first column is the list we need
+  items <- itemsdf$label
+  # update selection options
+  updateSelectInput(session, 
+                    "predicateInput", 
+                    choices = items)
+  
+}
+
+fill_subject_input_slot <-
+  function(session, input) {
+# cat("\n", "****fill_subject_input_slot - predicateInput: ", input$predicateInput, "\n")  #dev
+    # determine the domain of the selected predicate
+    domain <-
+      predicates[predicates$label == input$predicateInput, 'domain']
+    domain <- domain[[1]]
+    # query for nodes of type as in domain if there are any
+    query <- paste0('ASK { ?s a ', domain, ' }')
+    test <- evalQuery(rep,
+                      query = query,
+                      returnType = "list",
+                      limit = 1)
+    if (test == "true") {
+      query <- paste0('SELECT ?s { ?s a ', domain, ' }')
+      items <- fetch_one_column(query)
+      # add instance prefix to items
+      items <- lapply(items, function(x)
+        paste0(instancePrefix, x))
+      # update selection options
+      updateSelectizeInput(session,
+                           "subjectInput",
+                           choices = items, 
+                           selected = input$subjectInput
+                           )  
+    }
+  }
+
+
+fill_object_input_slot <-
+  function(session,
+           input,
+           output) {
+    #  cat("\n", "****fill_object_input_slot - subjectInput: ", input$subjectInput, "\n")  #dev
+    
+    # show what's known about the subject in a table
+    if (node_exists(input$subjectInput)) {
+      details_table <<-
+        show_attributes(input$subjectInput) # note the gloval env
+    }
+    
+    # if an object value exists show it in the details field
+    if (value_exists(input$subjectInput, input$predicateInput)) {
+      query <- paste0('SELECT ?o { ',
+                      input$subjectInput,
+                      ' ',
+                      input$predicateInput,
+                      ' ?o }')
+      items = fetch_one_column(query)
+      # add instance prefix to items
+      prefix = predicates[predicates$label == input$predicateInput, 'prefix']
+      prefix = prefix[[1]]
+      
+      # todo: Before adding a prefix, need to look in the database to identify literals.
+      # https://github.com/prei007/litrev/issues/11
+      
+      items <- lapply(items, function(x)
+        paste0(prefix, ':', x))
+      
+      updateTextAreaInput(session,
+                          "objectDetails",
+                          value = paste(items))
+      
+      update_autocomplete_input(session,
+                                "objectInput",
+                                options = concept_list,
+                                # value = paste(items),
+                                create = TRUE)
+    } else {
+      # no value existing; determine the range of the selected predicate
+      prange <-
+        predicates[predicates$label == input$predicateInput, 'range']
+      prange <- prange[[1]]
+      if (prange == "Thesaurus") {
+        # look up the SKOS concept scheme for the selected predicate
+        concept_scheme <-
+          predicates[predicates$label == input$predicateInput, 'skos']
+        concept_scheme <- concept_scheme[[1]]
+        # add prefix to the concept scheme name
+        prefix = predicates[predicates$label == input$predicateInput, 'prefix']
+        prefix = prefix[[1]]
+        concept_scheme  <- paste0(prefix, ':', concept_scheme)
+        # fetch the values from the scheme and update objectFDetails
+        items <- fetch_values_from_thesaurus(concept_scheme)
+        items <- lapply(items, function(x)
+          paste0(prefix, ':', x))
+        updateTextAreaInput(session,
+                            "objectDetails",
+                            value = c('Possible values: ', items))
+      } else if (!(prange %in% c("xsd:string", "xsd:dateTime", "xsd:duration"))) {
+        # if range is different from some things, look for instances of the range.
+        # But what if there arent' any? Let's check that:
+        query <- paste0('ASK { ?s a ', prange, ' }')
+        thisTest <- evalQuery(rep,
+                              query = query,
+                              returnType = "list",
+                              limit = 1)
+        if (thisTest == "true") {
+          query <- paste0('SELECT ?s { ?s a ', prange, ' }')
+          items <- fetch_one_column(query)
+          # and display them
+          updateTextAreaInput(session,
+                              "objectDetails",
+                              value = paste('Possible values: ', items))
+        }
+      } else {
+        updateTextAreaInput(session,
+                            "objectDetails",
+                            value = "",
+                            placeholder = "No details available.")
+      }
+    }
+  }
+    
+
+show_attributes <- function(node) {
+# cat("\n", "****show_attributes()- node: ", node, "\n")  #dev
+  if (node_exists(node)) {
+  query <- paste0('SELECT ?o ?p { ', node, '?o ?p }')
+  dfout <- evalQuery(rep,
+                     query = query, returnType = "dataframe",
+                     cleanUp = TRUE, limit = 1000)
+  dfout <- stripOffNS(as.data.frame(dfout[["return"]]))
+  dfout[[1]] <- last_URI_element(dfout[[1]])
+  dfout[[2]] <- last_URI_element_1(dfout[[2]], ns_list)
+  dfout
+  }
+}
+
+
+  
+
+
 
 
 

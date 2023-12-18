@@ -9,7 +9,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fabio: <http://purl.org/spar/fabio/> .
-@prefix litref: <http://www-learnweb.com/2023/litrev/> .
+@prefix litrev: <http://www-learnweb.com/2023/litrev/> .
 @base <http://www.learn-web.com/2023/litrev/> .
 
 <http://www.learn-web.com/2023/litrev/> rdf:type owl:Ontology ;

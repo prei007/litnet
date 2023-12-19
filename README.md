@@ -1,4 +1,4 @@
-# LitGraph - supporting the 'living review'
+# LitGraph - the 'living' review as Knowledge Graph
 
 LitGraph is a method for literature review method that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). For this, there is a Shiny application with a point and click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities, in addition to facilitating the entry of RDF data.
 
@@ -45,28 +45,83 @@ The first three taxonomies are independent of the reviewed domain and can be re-
 ## Files
 The files are organised into four folders:
 
-**applications:** R and Shiny code, see Section 'The Shiny app' below
+**application:** R and Shiny code, see Section 'The Shiny app' below
 
-**models:** 
+**models:** This folder contains optionally the input and output of coding as static files. It is up to the user if model files exist outside of the database content. For cases where the database (and app) are not used, this would be the place to store manually coded information. 
 
-**ontologies:** 
+**ontologies:** Contains the OWL or RDFS ontologies used in the method and the app. This is optional information, and it is also optional to load the ontologies into the database or not. The former is recommended for any reasoning task to be performed on the database and for making ontological information available to the users of the database. 
 
-**thesauri:** 
+### Thesauri
+
+This is the folder for storing SKOS thesauri. To use a thesaurus in the app, the following needs to be specified in the respective file. 
+
+The thesauri can be used for coding by creating models that are stored in files. They play also an important role wheh using the app. The app uses information from an thesaurus file to offer suggestions in to the app user as to (a) which coding schemes are available and (b) what the concepts in each scheme are. If the concept definitions include `skos:broader` relations, these will be used for displaying the concepts for selection in the app. The app also uses labels, definitions etc., if available. 
+
+Using Bloom's Taxonomy in the file `BloomThesaurus.skos.ttl` as the example, the following information must be provided:
+
+1. Namespace and prefixes: 
+
+```
+PREFIX : <http://www.learn-web.com/thesauri/bloom_outcomes/>  
+PREFIX bloom: <http://www.learn-web.com/thesauri/bloom_outcomes/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+```
+These must correspond to the `prefix` and `uri` columns in the file `predicates.csv` (and the variable `predicates` once the csv file is loaded into the app). The file `predicates.csv` is located in the folder `application` because the application reads in this file when initialising. (see below, "Preparing the app", for more information about `predicates.csv`.)
+
+2. A single `skos:ConceptScheme`, the name of which needs to correspond with the one in the column `skos` in the file `predictes.csv`. For instance, in the Bloom taxonomy we find this definition: 
+
+```
+:BloomThesaurus a skos:ConceptScheme ; 
+  rdfs:label "Bloom learning outcomes" ;
+	dc:title "Bloom learning outcomes " ;
+	skos:hasTopConcept :CognitiveOutcome, :AffectiveOutcome, :PsychomotorOutcome .
+```
+Only the first line is required, the other properties are optional. 
+
+3. Each concept in the thesaurus should be member of the ConceptScheme. For instance:
+
+```
+:CognitiveOutcome a skos:Concept ; 
+	skos:inScheme :BloomThesaurus ; 
+	skos:prefLabel "Cognitive learning outcome"@en . 
+```
+
 
 ## Database
-Use of the database is optional. It is required if one wants to use the app as the app functions a client to the database. 
+Use of the database is optional. It is required if one wants to use the app as the app functions a client to the database. For most users, it will be a black box, with only an administrator being concerned with it. 
 
 ### Initializing the DB
-
 The database needs to contain at least one coding scheme. Typically, one would also import the bibliographic data before using the method or the app because it is tedious to enter such data by hand. But this is not required to get started. 
 
-
-
+A user with r/w rights on the database uploads skos files and whatver bibliographic information is available in RDF format into the database. This step is not covered here as it usually done by the database administrator. 
 
 
 ## The Shiny app
 
 ### Preparing the app
+The app gets information about the predicates to offer to the user in form of a table `predicates` and in form of files with SKOS concept schemes (see above, "Thesauri"). 
+
+#### Information in the file predicates.csv
+Each predicate that the app is supposed to use needs to have a row in the spreadsheet. The attributes (columns) for each predicate are:
+
+* label: the predicate name, including the prefix. For instance, `foaf:name`, `cito:cites`. 
+* aspect: The aspect bundles predicates into logical groups. For instance, `Author`, `Citation`. 
+* domain: The predicates domain (the kinds of resources it applies to), in prefix notation. (Note: Only one domain per predicate)
+* range: The kind of values the predicate can take. For instance `xsd:string` for literals, `bibo:Article` for scholarly works. A special case is where the value range should come from a SKOS thesaurus. In that case, range = `Thesaurus`. (Note: Only one range per predicate). 
+* skos: If the range has value `Thesaurus`, then provide here the name of the skos:ConceptScheme that delivers the values for the predicate; keep empty otherwise. 
+* prefix: The prefix for the predicate's namespace
+* uri: The URI for the predicate's namespace. 
+
+Note that prefix and URI have to correspond to the predicate label, and the prefixes and URIs for SKOS thesauri need to correspond with the information in the file with the thesaurus definitions. See "Thesauri" above. 
+
+
+#### Information in the app itself
+In the app, information about predicates needs to be provided in the first lines of the code of `app.R` in the folder `application`. 
+
+See https://github.com/prei007/litrev/issues/47 for reducing the need to do this manually. 
 
 
 ### Using the app 
+
+provide a video
+

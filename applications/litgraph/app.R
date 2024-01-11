@@ -139,7 +139,7 @@ server <- function(input, output, session) {
     assign("cat", catalog(service, "coolfutures"), envir = globalenv())
     assign("userList", paste0("User", 1:10), envir = globalenv())
     
-    if (userName %in% c("perei", "yucui")) {
+    if (userName %in% c("perei", "sjgknight")) {
       #  assign("rep", repository(cat, "skosgraph"), envir = globalenv())
       assign("rep", repository(cat, "compumod2"), envir = globalenv())
     }  else if (exists('userName') & userName %in% userList) {

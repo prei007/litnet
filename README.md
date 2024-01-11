@@ -24,6 +24,7 @@ Re-used ontologies:
 - [skos](http://www.w3.org/2004/02/skos/core#) for controlled vocabularies (thematic codes) and nomenclature
 - [prov](http://www.w3.org/ns/prov#) for provenance
 - [mp](http://purl.org/mp/) for micropublications (claims)
+- [theo](https://www.nature.com/articles/s41562-019-0561-2) for theoretical statements 
 
 Method- and application specific: 
 

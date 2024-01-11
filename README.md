@@ -23,7 +23,7 @@ Re-used ontologies:
 - [foaf](http://xmlns.com/foaf/0.1/) for people and organisations
 - [skos](http://www.w3.org/2004/02/skos/core#) for controlled vocabularies (thematic codes) and nomenclature
 - [prov](http://www.w3.org/ns/prov#) for provenance
-- [mp](http://purl.org/mp/) for micropublications (claims)
+- [mp](https://doi.org/10.1186/2041-1480-5-28) for micropublications (claims)
 - [theo](https://www.nature.com/articles/s41562-019-0561-2) for theoretical statements 
 
 Method- and application specific: 

@@ -1,16 +1,16 @@
 # LitGraph - the 'living' review as Knowledge Graph
 
-LitGraph is a method for literature review that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). For this, there is a Shiny application with a point and click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities, in addition to facilitating the entry of RDF data.
+LitGraph is a method for literature review that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). There is a Shiny application with a point and click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities in addition to facilitating the entry of RDF data.
 
 ## Purpose
 
-The main use case is the preparation of an analytic literature review or research synthesis (used synchronously). The review takes the form of attaching codes to publications (or parts of publications, i.e., micropublications) and creates relations between (parts of) publications. An example for a code is the age group of the human participants in a learning research study. An example for a relation between two studies is that S1 cites S2. Another example for a relational annotation is that S1 contains a claim C.
+The main use case is preparing an analytic literature review or research synthesis (used synchronously). The review takes the form of attaching codes to publications (or parts of publications, i.e., micropublications) and creates relations between (parts of) publications. An example for a code is the age group of the human participants in a learning research study. An example for a relation between two studies is that S1 cites S2. Another example for a relational annotation is that S1 contains a claim C.
 
-Reviewers can enter codes and relations by editing files and/or by using the Shiny app. A particular feature of the app is that it can import any coding scheme that is written in the SKOS notation with very little manual adjustments needed.
+Reviewers can enter codes and relations by editing files and/or by using the Shiny app. A particular feature of the app is that it can import any coding scheme that is written in the SKOS notation with very few manual adjustments needed.
 
-The main purpose of the Shiny app is to facilitate entry of RDF data. It offers values for codes in dropdown boxes and fills in namespaces needed for fully formatted RDF automatically. This makes it comparatively easy to create--or contribute to--a Knowledge Graph that contains the bibliographic data and the thematic codes and relations for the tables and graphs that appear in published literature reviews.
+The main purpose of the Shiny app is to facilitate the entry of RDF data. It automatically offers values for codes in dropdown boxes and fills in namespaces needed for fully formatted RDF. This makes it comparatively easy to create--or contribute to--a Knowledge Graph that contains the bibliographic data and the thematic codes and relations for the tables and graphs that appear in published literature reviews.
 
-As an example, the app is set up with bibliographic data and SKOS concept schemes from a review on computational models and simulations in environmental education. A few of the domain-specific concept schemes are general in nature: those for education levels, areas of research codes, and Bloom's Taxonomy. 
+For example, the app is set up with bibliographic data and SKOS concept schemes from a review on computational models and simulations in environmental education. Some domain-specific concept schemes are general in nature: those for education levels, areas of research codes, and Bloom's Taxonomy. 
 
 ## RDF data representation
 
@@ -31,7 +31,7 @@ Method- and application specific:
 -  [litrev](http://www-learnweb.com/2023/litrev/) for application-specific predicates
 
 ### SKOS concept schemes: 
-The SKOS Simple Knowledge Organization System is a [W3C standard](https://www.w3.org/2004/02/skos/) for the description of thesauri and taxonomies. It is used here for describing the vocabulary for coding research works along various dimenions. Each concept scheme has it's own namespace: 
+The SKOS Simple Knowledge Organization System is a [W3C standard](https://www.w3.org/2004/02/skos/) for the description of thesauri and taxonomies. It is used here to describe the vocabulary for coding research works along various dimensions. Each concept scheme has its own namespace: 
 
 - [sci](http://www.learn-web.com/thesauri/sciences/) for science domains 
 - [bloom](http://www.learn-web.com/thesauri/bloom_outcomes/) Bloom's Taxonomy of learning outcomes
@@ -48,15 +48,15 @@ The files are organised into four folders:
 
 **application:** R and Shiny code, see Section 'The Shiny app' below
 
-**models:** This folder contains optionally the input and output of coding as static files. It is up to the user if model files exist outside of the database content. For cases where the database (and app) are not used, this would be the place to store manually coded information. 
+**models:** This folder contains optionally the input and output of coding as static files. It is up to the user if model files exist outside of the database content. This would be the place to store manually coded information for cases where the database (and app) are not used. 
 
-**ontologies:** Contains the OWL or RDFS ontologies used in the method and the app. This is optional information, and it is also optional to load the ontologies into the database or not. The former is recommended for any reasoning task to be performed on the database and for making ontological information available to the users of the database. 
+**ontologies:** Contains the OWL or RDFS ontologies used in the method and the app. This is optional information, and it is also optional to load the ontologies into the database or not. The former is recommended for any reasoning task to be performed on the database and for making ontological information available to the database users. 
 
 ### Thesauri
 
-This is the folder for storing SKOS thesauri. To use a thesaurus in the app, the following needs to be specified in the respective file. 
+This is the folder for storing SKOS thesauri. To use a thesaurus in the app, the following needs to be specified in the respective files. 
 
-The thesauri can be used for coding by creating models that are stored in files. They play also an important role wheh using the app. The app uses information from an thesaurus file to offer suggestions in to the app user as to (a) which coding schemes are available and (b) what the concepts in each scheme are. If the concept definitions include `skos:broader` relations, these will be used for displaying the concepts for selection in the app. The app also uses labels, definitions etc., if available. 
+The thesauri can be used for coding by creating models that are stored in files. They also play an important role when using the app. The app uses information from a thesaurus file to offer suggestions to the app user as to (a) which coding schemes are available and (b) what the concepts in each scheme are. If the concept definitions include `skos:broader` relations, these will be used to display the concepts for selection in the app. The app also uses labels, definitions etc., if available. 
 
 Using Bloom's Taxonomy in the file `BloomThesaurus.skos.ttl` as the example, the following information must be provided:
 

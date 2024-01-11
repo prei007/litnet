@@ -38,7 +38,7 @@ The SKOS Simple Knowledge Organization System is a [W3C standard](https://www.w3
 - [edlevel](http://www.learn-web.com/thesauri/educlevels/) for education level (e.g., highschool)
 - [lo](http://www.learn-web.com/thesauri/learning_outcomes/) for learning outcomes specific to environmental education 
 - [rm](http://www.learn-web.com/thesauri/research_methods/) for research methods
-- [envped](<http://www.learn-web.com/thesauri/envedped/) for pedagogies
+- [envped](http://www.learn-web.com/thesauri/envedped/) for pedagogies
 - [tech](http://www.learn-web.com/thesauri/technologies/>) for technologies
 
 The first three taxonomies are independent of the reviewed domain and can be re-used for other reviews. If a coding nomenclature is described in SKOS it can easily be added to the app.  

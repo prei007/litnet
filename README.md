@@ -33,13 +33,13 @@ Method- and application specific:
 ### SKOS concept schemes: 
 The SKOS Simple Knowledge Organization System is a [W3C standard](https://www.w3.org/2004/02/skos/) for the description of thesauri and taxonomies. It is used here to describe the vocabulary for coding research works along various dimensions. Each concept scheme has its own namespace: 
 
-- [sci](http://www.learn-web.com/thesauri/sciences/) for science domains 
-- [bloom](http://www.learn-web.com/thesauri/bloom_outcomes/) Bloom's Taxonomy of learning outcomes
-- [edlevel](http://www.learn-web.com/thesauri/educlevels/) for education level (e.g., highschool)
-- [lo](http://www.learn-web.com/thesauri/learning_outcomes/) for learning outcomes specific to environmental education 
-- [rm](http://www.learn-web.com/thesauri/research_methods/) for research methods
-- [envped](http://www.learn-web.com/thesauri/envedped/) for pedagogies
-- [tech](http://www.learn-web.com/thesauri/technologies/>) for technologies
+- [sci](https://github.com/prei007/litrev/blob/main/thesauri/ScienceThesaurus.skos.ttl) for science domains 
+- [bloom](https://github.com/prei007/litrev/blob/main/thesauri/BloomThesaurus.skos.ttl) Bloom's Taxonomy of learning outcomes
+- [edlevel](https://github.com/prei007/litrev/blob/main/thesauri/EducationLevel.skos.ttl) for education level (e.g., highschool)
+- [lo](https://github.com/prei007/litrev/blob/main/thesauri/OutcomesThesaurus.skos.ttl) for learning outcomes specific to environmental education 
+- [rm](https://github.com/prei007/litrev/blob/main/thesauri/MethodsThesaurus.skos.ttl) for research methods
+- [envped](https://github.com/prei007/litrev/blob/main/thesauri/PedagogyThesaurus.skos.ttl) for pedagogies
+- [tech](https://github.com/prei007/litrev/blob/main/thesauri/EdTechThesaurus.skos.ttl) for technologies
 
 The first three taxonomies are independent of the reviewed domain and can be re-used for other reviews. If a coding nomenclature is described in SKOS it can easily be added to the app.  
 

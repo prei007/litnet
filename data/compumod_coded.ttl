@@ -2,6 +2,9 @@
 # Coding computational modelling	   #
 ########################################
 
+# This coding is wrong! the categories like Pollution need to be in the respective respective 
+# skos namespace, not in edtech: 
+
 PREFIX : <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX edtech: <http://coolfutures.net/rdf/2021/edtech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -10,9 +13,11 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 PREFIX arg: <http://www.coolfutures.net/rdf/Design_Conjectures/toulminarg#>
+PREFIX oa: <http://www.w3.org/ns/oa#> 
 
 ##### The studies with coding and inline free annotations 
 

@@ -1,0 +1,482 @@
+########################################
+# Compumod references in Dublin Core   #
+########################################
+
+prefix : <http://www.learn-web.com/litgraph/> 
+prefix litgraph: <http://www.learn-web.com/litgraph/>
+prefix litrev: <http://www.learn-web.com/2023/litrev/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+:HmeloSilver2015
+  dc:title "Using Representational Tools to Learn about Complex Systems: A Tale of Two Classrooms" ;
+  dc:type "journalArticle" ;
+  dc:creator "Hmelo-Silver, Cindy E.", "Liu, Lei", "Gray, Steven", "Jordan, Rebecca" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1002/tea.21187" ;
+  :wikiLink "\"https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hmelo-Silver2015\"" .
+
+:HmeloSilver2014
+  dc:title "Technology-Supported Inquiry forLearning about Aquatic Ecosystems" ;
+  dc:type "journalArticle" ;
+  dc:creator "Hmelo-Silver, Cindy E.", "Eberbach, Catherine", "Jordan, Rebecca" ;
+  dc:date "2014" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.12973/eurasia.2014.1170a" ;
+  :webLink "\"https://www.ejmste.com/article/technology-supported-inquiry-forlearning-about-aquatic-ecosystems-4329\">" ;
+  :wikiLink "\"https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Hmelo-Silver2014\"" .
+
+:Lant2016
+  dc:title "Environmental Systems Simulations for Carbon, Energy, Nitrogen, Water, and Watersheds: Design Principles and Pilot Testing" ;
+  dc:type "journalArticle" ;
+  dc:creator "Lant, Christopher", "Pérez-Lapeña, Blanca", "Xiong, Weidong", "Kraft, Steven", "Kowalchuk, Rhonda", "Blair, Michael" ;
+  dc:date "2016" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.5408/14-004.1" ;
+  :webLink "\"https://eric.ed.gov/?q=environmental+education+computer+simulation&pr=on&id=EJ1101684\"" .
+
+:Özcan2020
+  dc:title "The Effect of PhET Simulation-Based Instruction on 6th Grade Students' Achievement Regarding the Concept of Greenhouse Gas" ;
+  dc:type "journalArticle" ;
+  dc:creator "Özcan, Hasan", "Çetin, Gülcan", "Kostur, H. Ilker" ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN EISSN-2077-2327" .
+
+:Pande2021
+  dc:title "Long-Term Effectiveness of Immersive VR Simulations in Undergraduate Science Learning: Lessons from a Media-Comparison Study" ;
+  dc:type "journalArticle" ;
+  dc:creator "Pande, Prajakt", "Thit, Amalie", "Sørensen, Anja Elaine", "Mojsoska, Biljana", "Moeller, Morten E.", "Jepsen, Per Meyer" ;
+  dc:date "2021" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-2156-7069" .
+
+:Erlandson2014
+  dc:title "Improving Learners' Ability to Recognize Emergence with Embedded Assessment in a Virtual Watershed" ;
+  dc:type "journalArticle" ;
+  dc:creator "Erlandson, Benjamin E." ;
+  dc:date "2014" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-2211-1662" .
+
+:MutchJones2018
+  dc:title "Teaching with Interactive Computer-Based Simulation Models: Instructional Dilemmas and Opportunities in the High-Adventure Science Project" ;
+  dc:type "journalArticle" ;
+  dc:creator "Mutch-Jones, Karen", "Gasca, Santiago", "Pallant, Amy", "Lee, Hee-Sun" ;
+  dc:date "2018" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-0036-6803" .
+
+:Basu2015
+  dc:title "A Scaffolding Framework to Support Learning of Emergent Phenomena Using Multi-Agent-Based Simulation Environments" ;
+  dc:type "journalArticle" ;
+  dc:creator "Basu, Satabdi", "Sengupta, Pratim", "Biswas, Gautam" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-0157-244X" .
+
+:Carey2017
+  dc:title "Simulation Modeling of Lakes in Undergraduate and Graduate Classrooms Increases Comprehension of Climate Change Concepts and Experience with Computational Tools" ;
+  dc:type "journalArticle" ;
+  dc:creator "Carey, Cayelan C.", "Gougis, Rebekka Darner" ;
+  dc:date "2017" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-1059-0145", "DOI 10.1007/s10956-016-9644-2" .
+
+:Cuadrado2017
+  dc:title "The Interactive Effect of Pro-Environmental Disciplinary Concentration under Cooperation versus Competition Contexts" ;
+  dc:type "journalArticle" ;
+  dc:creator "Cuadrado, Esther", "Tabernero, Carmen", "García, Rocío", "Luque, Bárbara" ;
+  dc:date "2017" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-1350-4622" .
+
+:Dede2017
+  dc:title "EcoXPT: Designing for Deeper Learning through Experimentation in an Immersive Virtual Ecosystem" ;
+  dc:type "journalArticle" ;
+  dc:creator "Dede, Chris", "Grotzer, Tina A.", "Kamarainen, Amy", "Metcalf, Shari" ;
+  dc:date "2017" ;
+  dc:identifier "ISSN EISSN-1436-4522" .
+
+:Cuccurullo2013
+  dc:title "A 3D Serious City Building Game on Waste Disposal" ;
+  dc:type "journalArticle" ;
+  dc:creator "Cuccurullo, Stefania", "Francese, Rita", "Passero, Ignazio", "Tortora, Genoveffa" ;
+  dc:date "2013" ;
+  dc:identifier "ISSN ISSN-1539-3100" .
+
+:Visintainer2015
+  dc:title "Sixth-Grade Students' Progress in Understanding the Mechanisms of Global Climate Change" ;
+  dc:type "journalArticle" ;
+  dc:creator "Visintainer, Tammie", "Linn, Marcia" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN ISSN-1059-0145" .
+
+:Yeung2017
+  dc:title "Comparing Pedagogies for Plastic Waste Management at University Level" ;
+  dc:type "journalArticle" ;
+  dc:creator "Yeung, Siu-Kit", "So, Wing-Mui Winnie", "Cheng, Nga-Yee Irene", "Cheung, Tsz-Yan", "Chow, Cheuk-Fai" ;
+  dc:date "2017" ;
+  dc:identifier "ISSN ISSN-1467-6370" .
+
+:Mallavarapu2015
+  dc:title "Developing Computational Methods to Measure and Track Learners' Spatial Reasoning in an Open-Ended Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Mallavarapu, Aditi", "Lyons, Leilah", "Shelley, Tia", "Minor, Emily", "Slattery, Brian", "Zellner, Moria" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN EISSN-2157-2100" .
+
+:Alves2021
+  dc:title "Scientific, societal and pedagogical approaches to tackle the impact of climate change on marine pollution" ;
+  dc:type "journalArticle" ;
+  dc:creator "Alves, T.M.", "Kokinou, E.", "Ekström, M.", "Nikolaidis, A.", "Georgiou, G.C.", "Miliou, A." ;
+  dc:date "2021" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1038/s41598-021-82421-y" .
+
+:Su2018
+  dc:title "Exploring sustainability environment educational design and learning effect evaluation through migration theory: An example of environment educational serious games" ;
+  dc:type "journalArticle" ;
+  dc:creator "Su, C.-H." ;
+  dc:date "2018" ;
+  dc:identifier "DOI 10.3390/su10103363" .
+
+:Hovardas2011
+  dc:title "Towards a Critical Re-Appraisal of Ecology Education: Scheduling an Educational Intervention to Revisit the 'Balance of Nature' Metaphor" ;
+  dc:type "journalArticle" ;
+  dc:creator "Hovardas, T.", "Korfiatis, K." ;
+  dc:date "2011" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1007/s11191-010-9325-0" .
+
+:Barnett2011
+  dc:title "Urban environmental education: Leveraging technology and ecology to engage students in studying the environment" ;
+  dc:type "journalArticle" ;
+  dc:creator "Barnett, M.", "Vaughn, M.H.", "Strauss, E.", "Cotter, L." ;
+  dc:date "2011" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/10382046.2011.588501" .
+
+:Dickes2019
+  dc:title "Scaffolding ecosystems science practice by blending immersive environments and computational modeling" ;
+  dc:type "journalArticle" ;
+  dc:creator "Dickes, Amanda C.", "Kamarainen, Amy", "Metcalf, Shari J.", "Gün‐Yildiz, Semiha", "Brennan, Karen", "Grotzer, Tina", "Dede, Chris" ;
+  dc:date "2019" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1111/bjet.12806" .
+
+:Bush2019
+  dc:title "Teaching Anthropogenic Global Climate Change (AGCC) Using Climate Models" ;
+  dc:type "journalArticle" ;
+  dc:creator "Bush, Drew", "Sieber, Renee", "Chandler, Mark A.", "Sohl, Linda E." ;
+  dc:date "2019" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/03098265.2019.1661370" .
+
+:Bhattacharya2020
+  dc:title "Using Climate Models to Learn About Global Climate Change: Investigating the Phenomenon of Increasing Surface Air Temperatures Using a Global Climate Modeling Approach" ;
+  dc:type "journalArticle" ;
+  dc:creator "Bhattacharya, Devarati", "Steward, Kimberly Carroll", "Chandler, Mark", "Forbes, Cory" ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN 0036-8555" .
+
+:Thacker2019
+  dc:title "Visualizing the Greenhouse Effect: Restructuring Mental Models of Climate Change through a Guided Online Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Thacker, Ian", "Sinatra, Gale M." ;
+  dc:date "2019" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN 2227-7102" .
+
+:Bush2016
+  dc:title "The Teaching of Anthropogenic Climate Change and Earth Science via Technology-Enabled Inquiry Education" ;
+  dc:type "journalArticle" ;
+  dc:creator "Bush, Drew", "Sieber, Renee", "Seiler, Gale", "Chandler, Mark" ;
+  dc:date "2016" ;
+  dc:identifier "ISSN 1089-9995", "DOI 10.5408/15-127" ;
+  :webLink "\"https://eric.ed.gov/?q=climate+computer+model&id=EJ1111541\"" .
+
+:Pallant2015
+  dc:title "Constructing Scientific Arguments Using Evidence from Dynamic Computational Climate Models" ;
+  dc:type "journalArticle" ;
+  dc:creator "Pallant, Amy", "Lee, Hee-Sun" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1007/s10956-014-9499-3" .
+
+:Bush2018
+  dc:title "Examining Educational Climate Change Technology: How Group Inquiry Work with Realistic Scientific Technology Alters Classroom Learning" ;
+  dc:type "journalArticle" ;
+  dc:creator "Bush, Drew", "Sieber, Renee", "Seiler, Gale", "Chandler, Mark" ;
+  dc:date "2018" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1007/s10956-017-9714-0" .
+
+:Bush2017
+  dc:title "University-Level Teaching of Anthropogenic Global Climate Change (AGCC) via Student Inquiry" ;
+  dc:type "journalArticle" ;
+  dc:creator "Bush, Drew", "Sieber, Renee", "Seiler, Gale", "Chandler, Mark" ;
+  dc:date "2017" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/03057267.2017.1319632" .
+
+:TuckerRaymond2019
+  dc:title "\"I Broke Your Game!\": Critique among Middle Schoolers Designing Computer Games about Climate Change" ;
+  dc:type "journalArticle" ;
+  dc:creator "Tucker-Raymond, Eli", "Puttick, Gillian", "Cassidy, Michael", "Harteveld, Casper", "Troiano, Giovanni M." ;
+  dc:date "2019" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1186/s40594-019-0194-z" .
+
+:Tasquier2016
+  dc:title "Exploring Students' Epistemological Knowledge of Models and Modelling in Science: Results from a Teaching/Learning Experience on Climate Change" ;
+  dc:type "journalArticle" ;
+  dc:creator "Tasquier, Giulia", "Levrini, Olivia", "Dillon, Justin" ;
+  dc:date "2016" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/09500693.2016.1148828" .
+
+:Waddington2018
+  dc:title "Grim FATE: Learning About Systems Thinking in an In-Depth Climate Change Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Waddington, David I.", "Fennewald, Thomas" ;
+  dc:date "2018" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1177/1046878117753498" .
+
+:Parker2014
+  dc:title "Simulation and Understanding in the Study of Weather and Climate" ;
+  dc:type "journalArticle" ;
+  dc:creator "Parker, Wendy S." ;
+  dc:date "2014" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1162/POSC_a_00137" .
+
+:RooneyVarga2020
+  dc:title "The Climate Action Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Rooney-Varga, Juliette N.", "Kapmeier, Florian", "Sterman, John D.", "Jones, Andrew P.", "Putko, Michele", "Rath, Kenneth" ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1177/1046878119890643" .
+
+:Dinsmore2018
+  dc:title "The Relation between Cognitive and Metacognitive Strategic Processing during a Science Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Dinsmore, Daniel L.", "Zoellner, Brian P." ;
+  dc:date "2018" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1111/bjep.12177" .
+
+:Nussbaum2015
+  dc:title "Losing the Lake: Simulations to Promote Gains in Student Knowledge and Interest about Climate Change" ;
+  dc:type "journalArticle" ;
+  dc:creator "Nussbaum, E. Michael", "Owens, Marissa C.", "Sinatra, Gale M.", "Rehmat, Abeera P.", "Cordova, Jacqueline R.", "Ahmad, Sajjad", "Harris, Fred C.", "Dascalu, Sergiu M." ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN EISSN-1306 3065" .
+
+:Kukkonen2014
+  dc:title "The Effects of Scaffolded Simulation-Based Inquiry Learning on Fifth-Graders' Representations of the Greenhouse Effect" ;
+  dc:type "journalArticle" ;
+  dc:creator "Kukkonen, Jari Ensio", "Kärkkäinen, Sirpa", "Dillon, Patrick", "Keinonen, Tuula" ;
+  dc:date "2014" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/09500693.2013.782452" .
+
+:Lux2020
+  dc:title "Playing with Complex Systems? The Potential to Gain Geographical System Competence through Digital Gaming" ;
+  dc:type "journalArticle" ;
+  dc:creator "Lux, Joelle-Denise", "Budke, Alexandra" ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN 2227-7102" .
+
+:Valkering2013
+  dc:title "A Perspective-Based Simulation Game to Explore Future Pathways of a Water-Society System Under Climate Change" ;
+  dc:type "journalArticle" ;
+  dc:creator "Valkering, Pieter", "van der Brugge, Rutger", "Offermans, Astrid", "Haasnoot, Marjolijn", "Vreugdenhil, Heleen" ;
+  dc:date "2013" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1177/1046878112441693" .
+
+:Stave2015
+  dc:title "Improving Learners’ Understanding of Environmental Accumulations through Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Stave, Krystyna A.", "Beck, Abby", "Galvan, Chris" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1177/1046878114531764" .
+
+:Taillandier2018
+  dc:title "Games Ready to Use: A Serious Game for Teaching Natural Risk Management" ;
+  dc:type "journalArticle" ;
+  dc:creator "Taillandier, Franck", "Adam, Carole" ;
+  dc:date "2018" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1177/1046878118770217" .
+
+:Dickes2016
+  dc:title "Development of Mechanistic Reasoning and Multilevel Explanations of Ecology in Third Grade Using Agent-Based Models" ;
+  dc:type "journalArticle" ;
+  dc:creator "Dickes, Amanda Catherine", "Sengupta, Pratim", "Farris, Amy Voss", "Basu, Satabdi" ;
+  dc:date "2016" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN 1098-237X", "DOI 10.1002/sce.21217" .
+
+:BenhadiMarin2020
+  dc:title "EcoPred: An Educational Individual Based Model to Explain Biological Control, a Case Study within an Arable Land" ;
+  dc:type "journalArticle" ;
+  dc:creator "Benhadi-Marín, Jacinto", "Pereira, José Alberto", "Sousa, José Paulo", "Santos, Sónia A. P." ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/00219266.2019.1569086" .
+
+:Jensen2014
+  dc:title "Does Teaching Students How to Explicitly Model the Causal Structure of Systems Improve Their Understanding of These Systems?" ;
+  dc:type "journalArticle" ;
+  dc:creator "Jensen, Eva" ;
+  dc:date "2014" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1080/03043797.2014.881320" .
+
+:Anderson2020
+  dc:title "Alignment of a Digital Watershed and Land Use Game to National Education Standards" ;
+  dc:type "journalArticle" ;
+  dc:creator "Anderson, Katelyn", "Grudens-Schuck, Nancy", "Valek, Robert", "Schulte, Lisa A.", "Smalley, Scott W." ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1002/nse2.20005" .
+
+:Kamarainen2015
+  dc:title "Exploring Ecosystems from the Inside: How Immersive Multi-user Virtual Environments Can Support Development of Epistemologically Grounded Modeling Practices in Ecosystem Science Instruction" ;
+  dc:type "journalArticle" ;
+  dc:creator "Kamarainen, Amy M.", "Metcalf, Shari", "Grotzer, Tina", "Dede, Chris" ;
+  dc:date "2015" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1007/s10956-014-9531-7" .
+
+:Eckhardt2018
+  dc:title "Instructional Support for Intuitive Knowledge Acquisition When Learning with an Ecological Computer Simulation" ;
+  dc:type "journalArticle" ;
+  dc:creator "Eckhardt, Marc", "Urhahne, Detlef", "Harms, Ute" ;
+  dc:date "2018" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN 2227-7102" .
+
+:Thomas2019
+  dc:title "Simulating a Non-Native Invasion" ;
+  dc:type "journalArticle" ;
+  dc:creator "Thomas, Debra Kelly", "Milenkovic, Lisa", "Marousky, Annamargareth" ;
+  dc:date "2019" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "ISSN 0036-8148" .
+
+:Markauskaite2020
+  dc:title "Model-Based Knowing: How Do Students Ground Their Understanding about Climate Systems in Agent-Based Computer Models?" ;
+  dc:type "journalArticle" ;
+  dc:creator "Markauskaite, Lina", "Kelly, Nick", "Jacobson, Michael J." ;
+  dc:date "2020" ;
+  :dateAdded "2021-11-20" ;
+  dc:identifier "DOI 10.1007/s11165-017-9680-9" .
+
+:Puttick2018
+  dc:title "Building Systems from Scratch: an Exploratory Study of Students Learning About Climate Change" ;
+  dc:type "journalArticle" ;
+  dc:creator "Puttick, Gillian", "Tucker-Raymond, Eli" ;
+  dc:date "2018" ;
+  :dateAdded "2022-07-30" ;
+  dc:identifier "DOI 10.1007/s10956-017-9725-x" .
+
+:Bielik2018
+  dc:title """Shifting the Balance: Engaging Students in Using a Modeling Tool
+to Learn about Ocean Acidification""" ;
+  dc:type "journalArticle" ;
+  dc:creator "Bielik, Tom", "Damelin, Dan", "Krajcik, Joseph S." ;
+  dc:date "2019" ;
+  :dateAdded "2022-08-08" ;
+  dc:identifier "10.29333/ejmste/99512" .
+
+:Chen2021
+  dc:title "Analyzing student thinking reflected in self‑constructed cognitive maps and its influence on inquiry task performance" ;
+  dc:type "journalArticle" ;
+  dc:creator "Chen, Juanjuan", "Wang, Minhong", "Dede, Chris", "Grotzer, Tina A." ;
+  dc:date "2021" ;
+  :dateAdded "2022-08-09" ;
+  dc:identifier "10.1007/s11251-021-09543-8" .
+
+:Reilly2021
+  dc:title "Assessing Science Identity Exploration in Immersive Virtual Environments: A Mixed Methods Approach" ;
+  dc:type "journalArticle" ;
+  dc:creator "Reilly, Joseph M.", "McGivney, Eileen", "Dede, Chris", "Grotzer, Tina A." ;
+  dc:date "2021" ;
+  :dateAdded "2022-08-09" ;
+  dc:identifier "10.1080/00220973.2020.1712313" .
+  
+### Not coded yet 
+  
+:Wang2013
+  dc:title "Effects of a Two-Tier Test Strategy on Students’ Digital Game-Based Learning Performances and Flow Experience in Environmental Education" ;
+  dc:type "journalArticle" ;
+  dc:creator "Wang, X.-M.", "Wang, S.-M.", "Wang, J.-N.", "Hwang, G.-J.", "Xu, S." ;
+  dc:date "2023" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1177/07356331221095162" .
+
+:Schulze2015 
+  dc:title "Design, implementation and test of a serious online game for exploring complex relationships of sustainable land management and human well-being" ;
+  dc:type "journalArticle" ;
+  dc:creator "Schulze, J.", "Martin, R.", "Finger, A.", "Henzen, C.", "Lindner, M.", "Pietzsch, K.", "Werntze, A.", "Zander, U.", "Seppelt, R." ;
+  dc:date "2015" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1016/j.envsoft.2014.11.029" .
+
+:Eriksson2020 
+  dc:title "Systems Thinking Exercises in Computing Education: Broadening the Scope of ICT and Sustainability" ;
+  dc:type "conferencePaper" ;
+  dc:creator "Eriksson, E.", "Rivera, M.B.", "Hedin, B.", "Pargman, D.", "Hasselqvist, H." ;
+  dc:date "2020" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1145/3401335.3401670" .
+
+:White2023 
+  dc:title "The Design, Development and Pilot Study of a Marine Ecological Simulation for Education of Environmental Changes on Marine Life" ;
+  dc:type "conferencePaper" ;
+  dc:creator "White, D.", "Stone, R.", "Cracknell, D." ;
+  dc:date "2023" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1007/978-3-031-44751-8_31" .
+
+:Prilenska2020 
+  dc:title "Serious game for modelling neighbourhood energy supply scenarios" ;
+  dc:type "conferencePaper" ;
+  dc:creator "Prilenska, V." ;
+  dc:date "2020" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1088/1755-1315/410/1/012091" .
+
+:Kumar2018
+  dc:title "Alleviating misconceptions about Earth's climate: evidence of behavioral learning in stock-and-flow simulations" ;
+  dc:type "journalArticle" ;
+  dc:creator "Kumar, M.", "Dutt, V." ;
+  dc:date "2018" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1002/sdr.1612" .
+
+:Qudrat2018
+  dc:title "How to improve learners’ (mis) understanding of CO2 accumulations through the use of human-facilitated interactive learning environments?" ;
+  dc:type "journalArticle" ;
+  dc:creator "Qudrat-Ullah, H.", "Kayal, A." ;
+  dc:date "2018" ;
+  :dateAdded "2024-01-18" ;
+  dc:identifier "DOI 10.1016/j.jclepro.2018.02.244" .

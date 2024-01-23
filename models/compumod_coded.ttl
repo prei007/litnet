@@ -685,8 +685,26 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "02-Nov-2021" ;
 		anno:body "city simulation, not science based. N = 60. Teacher students. Good data analysis, simulation is not great. No human decision making modelled.  "] .
 		
+### Additions Jan 2024
 
+:Qudrat2018 a dc:BibliographicResource, bibo:Article ;
+	:dateAdded "2024-01-23" ; 
+	litrev:science sci:EnvironmentalManagement ;
+	litrev:learningOutcome lo:SystemsThinking ;
+	litrev:educationLevel edlevel:GraduateStudy ; 
+	litrev:technology tech:SysDyn;  
+	litrev:pedagogy envped:ModelSimulation ; 
+	litrev:researchApproach  rm:ExperimentalMethod, rm:PrePost, rm:InferentialStatistics  ;
+	litrev:learningTime "P2H"^^xsd:duration ;
+	litrev:annotation :Anno_Qudrat2018_1 . 
+		
 
+:Anno_Qudrat2018_1 a oa:Annotation ; 
+	dc:creator "Peter Reimann" ; 
+	dc:date "2024-01-23" ; 
+	oa:motivatedBy oa:classifying ; 
+	oa:bodyValue "The study focusses on system dynamics-based interactive learning environments (SDILEs). The key hypothesis is that subjects trained with a human-facilitated SDILE will better understand the dynamics of environmental accumulations than those trained with a standalone, automated SDILE. (p. 190). The theory is that good decision making depends on the understanding of complex systems, and the  understanding of stocks and flows in particular. SD simulations are effective for developing that understanding, but human-facilitated SD simulations are even more effective. " ; 
+	oa:hasTarget :Qudrat2018 . 
 		
 		
 		

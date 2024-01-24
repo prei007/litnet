@@ -15,7 +15,7 @@ prefix : <http://www.learn-web.com/thesauri/technologies/>
 
 ### Games, models, simulations
 
-:GamesAndSimulations a skos:Concept; 
+:GamesAndSimulations a skos:Concept ; 
 	skos:inScheme :TechnologyThesaurus ;
 	skos:prefLabel "Games and simulations"@en ; 
 	skos:related :ComputerModel. 

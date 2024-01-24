@@ -16,6 +16,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#
 	dc:title "Social environmental systems " ;
 	skos:hasTopConcept :IndividualCognition, :ModelDesign .
 	
+:ModelOfNature a skos:Concept ; 
+	skos:inScheme :SESThesaurus ;
+	skos:prefLabel "Model of natural processes"@en . 
+	
+:ModelOfSociety a skos:Concept ; 
+  skos:inScheme :SESThesaurus ;
+	skos:prefLabel "Model of social processes"@en . 
+	
 :IndividualCognition a skos:Concept ; 
 	skos:inScheme :SESThesaurus ; 
 	skos:prefLabel "Individual cognition"@en .

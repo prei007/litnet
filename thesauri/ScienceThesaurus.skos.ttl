@@ -62,6 +62,11 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 	skos:prefLabel "Environmental management" ; 
 	skos:broader :EnvironmentalScience ; 
 	skos:inScheme :ScienceThesaurus .
+	
+:LandManagement a skos:Concept ; 
+  skos:prefLabel "Land management" ; 
+	skos:broader :EnvironmentalManagement ; 
+	skos:inScheme :ScienceThesaurus .
 
 :Pollution a skos:Concept ; 
 	skos:prefLabel "Pollution and contamination" ; 

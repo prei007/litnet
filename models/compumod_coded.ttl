@@ -693,6 +693,7 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:learningOutcome lo:SystemsThinking ;
 	litrev:educationLevel edlevel:GraduateStudy ; 
 	litrev:technology tech:SysDyn;  
+	litrev:modeling ses:ModelOfNature ; 
 	litrev:pedagogy envped:ModelSimulation ; 
 	litrev:researchApproach  rm:ExperimentalMethod, rm:PrePost, rm:InferentialStatistics  ;
 	litrev:learningTime "P2H"^^xsd:duration ;
@@ -703,11 +704,31 @@ prefix : <http://www.learn-web.com/litgraph/>
 	dc:creator "Peter Reimann" ; 
 	dc:date "2024-01-23" ; 
 	oa:motivatedBy oa:classifying ; 
-	oa:bodyValue "The study focusses on system dynamics-based interactive learning environments (SDILEs). The key hypothesis is that subjects trained with a human-facilitated SDILE will better understand the dynamics of environmental accumulations than those trained with a standalone, automated SDILE. (p. 190). The theory is that good decision making depends on the understanding of complex systems, and the  understanding of stocks and flows in particular. SD simulations are effective for developing that understanding, but human-facilitated SD simulations are even more effective. " ; 
+	oa:bodyValue "The study focusses on system dynamics-based interactive learning environments (SDILEs). The key hypothesis is that subjects trained with a human-facilitated SDILE will better understand the dynamics of environmental accumulations than those trained with a standalone, automated SDILE. (p. 190). The intervention theory is that good decision making depends on the understanding of complex systems, and the  understanding of stocks and flows in particular. SD simulations are effective for developing that understanding, but human-facilitated SD simulations are even more effective. Sometimes, this is done by debriefing after a modelling session, but this is an expensive format.  > To overcome such a challenge, we propose the incor- poration of human-facilitation into the design of SDILEs based training workshops, focused on the elaboration of the accumulation principle: that the state of a stock (level) can only be controlled through its flows (rates) or only the net flow (i.e. (outflows-inflows)) can cause an increase (or decrease) into a stock, as an alternate, innovative and cost-effective solution. (p.189) < . The hypothesis are tested experimentally and are confirmed by the data." ; 
 	oa:hasTarget :Qudrat2018 . 
 		
 		
-		
+:Schulze2015 a dc:BibliographicResource, bibo:Article ;
+	:dateAdded "2024-01-25" ; 
+	litrev:science sci:LandManagement ;
+	litrev:learningOutcome lo:SystemsThinking, lo:DispositionOutcomes ;
+	litrev:educationLevel edlevel:MixedAges ; 
+	litrev:technology tech:SysDyn , tech:Game, tech:DemonstrationModel ;  
+	litrev:pedagogy envped:ModelSimulation ; 
+	litrev:modeling ses:ModelOfNature, ModelOfSociety ; 
+	litrev:researchApproach  rm:SurveyMethod  ;
+	litrev:annotation :Anno_Schulze2015_1 . 
+	
+:Anno_Schulze2015_1 a oa:Annotation ; 
+	dc:creator "Peter Reimann" ; 
+	dc:date "2024-01-25" ; 
+	oa:motivatedBy oa:classifying ; 
+	oa:bodyValue "This game is based on a simulation model of land use. < the core function of the underlying model of the game LandYOUs is to provide an aggregated system dynamics model with a reduced number of state variables, which get input from a spatially explicit map representing land use.  (p. 59). > The pedagogical theory is that games are learner-centred. The main theory tested is that game-based learning would increase intrinsic motivation. The (survey) data provide some support for this, but that could be contested because of the weak design (post-intervention online survey on a heterogeneous group of first users)." ; 
+	oa:hasTarget :Schulze2015 . 
+	
+
+	
+
 		
 		
 		

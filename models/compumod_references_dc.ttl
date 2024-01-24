@@ -423,16 +423,14 @@ to Learn about Ocean Acidification""" ;
   :dateAdded "2022-08-09" ;
   dc:identifier "10.1080/00220973.2020.1712313" .
   
-### Not coded yet 
-  
-:Wang2013
-  dc:title "Effects of a Two-Tier Test Strategy on Students’ Digital Game-Based Learning Performances and Flow Experience in Environmental Education" ;
+:Qudrat2018
+  dc:title "How to improve learners’ (mis) understanding of CO2 accumulations through the use of human-facilitated interactive learning environments?" ;
   dc:type "journalArticle" ;
-  dc:creator "Wang, X.-M.", "Wang, S.-M.", "Wang, J.-N.", "Hwang, G.-J.", "Xu, S." ;
-  dc:date "2023" ;
+  dc:creator "Qudrat-Ullah, H.", "Kayal, A." ;
+  dc:date "2018" ;
   :dateAdded "2024-01-18" ;
-  dc:identifier "DOI 10.1177/07356331221095162" .
-
+  dc:identifier "DOI 10.1016/j.jclepro.2018.02.244" .
+  
 :Schulze2015 
   dc:title "Design, implementation and test of a serious online game for exploring complex relationships of sustainable land management and human well-being" ;
   dc:type "journalArticle" ;
@@ -440,6 +438,9 @@ to Learn about Ocean Acidification""" ;
   dc:date "2015" ;
   :dateAdded "2024-01-18" ;
   dc:identifier "DOI 10.1016/j.envsoft.2014.11.029" .
+  
+### Not coded yet 
+  
 
 :Eriksson2020 
   dc:title "Systems Thinking Exercises in Computing Education: Broadening the Scope of ICT and Sustainability" ;
@@ -473,10 +474,3 @@ to Learn about Ocean Acidification""" ;
   :dateAdded "2024-01-18" ;
   dc:identifier "DOI 10.1002/sdr.1612" .
 
-:Qudrat2018
-  dc:title "How to improve learners’ (mis) understanding of CO2 accumulations through the use of human-facilitated interactive learning environments?" ;
-  dc:type "journalArticle" ;
-  dc:creator "Qudrat-Ullah, H.", "Kayal, A." ;
-  dc:date "2018" ;
-  :dateAdded "2024-01-18" ;
-  dc:identifier "DOI 10.1016/j.jclepro.2018.02.244" .

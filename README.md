@@ -4,13 +4,28 @@ LitGraph is a method for literature review that builds on RDF and SKOS, and on s
 
 ## Purpose
 
-The main use case is preparing an analytic literature review or research synthesis (used synchronously). The review takes the form of attaching codes to publications (or parts of publications, i.e., micropublications) and creates relations between (parts of) publications. An example for a code is the age group of the human participants in a learning research study. An example for a relation between two studies is that S1 cites S2. Another example for a relational annotation is that S1 contains a claim C.
+The main use case is preparing an analytic literature review or research synthesis (used synonymously). The review takes the form of attaching codes to publications (or parts of publications, i.e., micropublications) and creates relations between (parts of) publications. An example for a code is the age group of the human participants in a learning research study. An example for a relation between two studies is that S1 cites S2. Another example for a relational annotation is that S1 contains a claim C.
 
 Reviewers can enter codes and relations by editing files and/or by using the Shiny app. A particular feature of the app is that it can import any coding scheme that is written in the SKOS notation with very few manual adjustments needed.
 
 The main purpose of the Shiny app is to facilitate the entry of RDF data. It automatically offers values for codes in dropdown boxes and fills in namespaces needed for fully formatted RDF. This makes it comparatively easy to create--or contribute to--a Knowledge Graph that contains the bibliographic data and the thematic codes and relations for the tables and graphs that appear in published literature reviews.
 
 For example, the app is set up with bibliographic data and SKOS concept schemes from a review on computational models and simulations in environmental education. Some domain-specific concept schemes are general in nature: those for education levels, areas of research codes, and Bloom's Taxonomy. 
+
+## Main steps
+
+The main steps (the ones specific to this method in bold) for the researcher are:
+
+1. Formulate research questions.
+2. Conduct literature searches.
+3. Filter studies according to criteria.
+3. **Save bibliographic data in the RDF format.**
+4. **Select/Develop controlled vocabularies for one-tuple relations p(x) and express them in SKOS.**
+5. **Select/Develop controlled vocabularies for two-tuple relations p(x,y).**
+6. **Code the studies employing the controlled vocabularies. Either by authoring a text document and/or by using the litGraph app.** 
+7. **Visualise relations using the app.**
+8. Create frequency tables and graphs either with spreadsheet or statistics programs **or by running queries on the database that sits behind the app**. 
+9. Write the review/synthesis paper and **make accessible the coding information as linked data via the database (as a SPARQL endpoint) and/or by 'publishing' the app.**. 
 
 ## RDF data representation
 

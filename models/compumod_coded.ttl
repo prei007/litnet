@@ -73,7 +73,7 @@ litrev:annotation [ a oa:Annotation; oa:motivatedBy :classifying; oa:target :And
 		oa:bodyValue "A in the research part lightweight study on a summer program uses bioaucustic and tree data together with GIS mapping and a small-scale tree growth simulation. Measures changes to science self-efficacy, science interest, ecological mindset, career planning and career knowledge; scales applied pre and post the program. No modellling of human decision making. "] ;
 		litrev:annotation [ a oa:Annotation; oa:motivatedBy :classifying; oa:target :Barnett2011 ; 
 	  dc:creator :PeterReimann ; dc:created "31-Jan-2024" ;
-		oa:bodyValue "(1) New technologies make professional practices – previously only available after years of training – accessible to novices. Refers to Shafer (2004) theory of pedagogical practice. (2) Participatory learning environments (Barab et al. 2000) reflect the collaborative nature of scientific work. (3) Visualisation techniques build on an extend the power of place-based education. " ] .
+		oa:bodyValue "(1) New technologies make professional practices – previously only available after years of training – accessible to novices. Refers to Shafer (2004) theory of pedagogical practice. (2) Participatory learning environments (Barab et al. 2000) reflect the collaborative nature of scientific work. (3) Visualisation techniques build on an extend the power of place-based education. (4) Place-based STEM learning increases students' self-efficacy ." ] .
 		
 :Basu2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 

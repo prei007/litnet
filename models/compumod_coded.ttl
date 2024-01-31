@@ -38,10 +38,9 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:technology tech:eResearch, tech:Gis, tech:DataScienceTool, 
 		tech:ComputerModel, tech:eLearning, tech:ScienceBasedModel, tech:DataBasedModel ;
 	litrev:pedagogy envped:ModelSimulation ; 
-	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Alves2021" ; 
-    litrev:annotation [ rdf:Type litrev:annotation ; oa:hasTarget :Alves2021; 
-    	oa:hasBody [ a oa:TextualBody; 
-		rdf:value "This paper is a combination of scientific research and learning design. Based on real science, real models and real data a set of instructional resources for teacher PD are introduced. The learning materials comprise tutorials, case studies and a small simulation game. There is no empirical research on the learning materials, nor other forms of evaluation." ] ; 
+	  litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Alves2021" ;
+  litrev:annotation [ a oa:Annotation ; oa:hasTarget :Alves2021; oa:motivatedBy :commenting ; 
+    	oa:bodyValue  "This paper is a combination of scientific research and learning design. Based on real science, real models and real data a set of instructional resources for teacher PD are introduced. The learning materials comprise tutorials, case studies and a small simulation game. There is no empirical research on the learning materials, nor other forms of evaluation."  ; 
 		dc:creator "Peter Reimann" ; 
 		dc:created "2021-11-12T12:00:00Z" ] . 
 		
@@ -53,8 +52,12 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:technology tech:Game, tech:DemonstrationModel ;  
 	litrev:pedagogy envped:ModelSimulation, envped:InquiryLearning, envped:ExperientialLearning ; 
 	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Anderson2020" ; 
-	litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
-		anno:body "a curriculum paper describing the alignments of a strategy game with human players. social factors not modelled.  Not fully topical because not on EE directly. Interesting still because of the learning standards mapping.  "] .
+	litrev:annotation [ a oa:Annotation; oa:motivatedBy :commenting; oa:target :Anderson2020 ; 
+	  dc:creator :PeterReimann ; dc:created "12-Nov-2021" ;
+		oa:bodyValue "a curriculum paper describing the alignments of a strategy game with human players. social factors not modelled.  Not fully topical because not on EE directly. Interesting still because of the learning standards mapping.  "] ;
+litrev:annotation [ a oa:Annotation; oa:motivatedBy :classifying; oa:target :Anderson2020 ; 
+	  dc:creator :PeterReimann ; dc:created "31-Jan-2024" ;
+		oa:bodyValue "(1) More complex games requiring more time and effort lead to better learning. (2) Game mechanics increase motivation." ] .
 	
 :Barnett2011 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 
@@ -65,8 +68,12 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:researchApproach rm:PrePost , rm:InferentialStatistics ; 
 	litrev:effectiveness "positive" ; 
 	litrev:wikiLink "https://coolfutures.net/wiki/index.php?title=Computational_Modelling_in_Environmental_Education/References#Barnett2011" ; 
-    litrev:annotation [ rdf:Type anno:Comment ; dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
-		anno:body "A in the research part lightweight study on a summer program uses bioaucustic and tree data together with GIS mapping and a small-scale tree growth simulation. Measures changes to science self-efficacy, science interest, ecological mindset, career planning and career knowledge; scales applied pre and post the program. No modellling of human decision making. "] .
+  litrev:annotation [ a oa:Annotation ; oa:hasTarget :Barnett2011 ; oa:motivatedBy :commenting ;
+    dc:creator :PeterReimann ; dc:created "22-Oct-2021" ;
+		oa:bodyValue "A in the research part lightweight study on a summer program uses bioaucustic and tree data together with GIS mapping and a small-scale tree growth simulation. Measures changes to science self-efficacy, science interest, ecological mindset, career planning and career knowledge; scales applied pre and post the program. No modellling of human decision making. "] ;
+		litrev:annotation [ a oa:Annotation; oa:motivatedBy :classifying; oa:target :Barnett2011 ; 
+	  dc:creator :PeterReimann ; dc:created "31-Jan-2024" ;
+		oa:bodyValue "(1) New technologies make professional practices – previously only available after years of training – accessible to novices. Refers to Shafer (2004) theory of pedagogical practice. (2) Participatory learning environments (Barab et al. 2000) reflect the collaborative nature of scientific work. (3) Visualisation techniques build on an extend the power of place-based education. " ] .
 		
 :Basu2015 a dc:BibliographicResource, bibo:Article ;
 	litrev:science sci:Ecology ; 
@@ -697,15 +704,12 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:pedagogy envped:ModelSimulation ; 
 	litrev:researchApproach  rm:ExperimentalMethod, rm:PrePost, rm:InferentialStatistics  ;
 	litrev:learningTime "P2H"^^xsd:duration ;
-	litrev:annotation :Anno_Qudrat2018_1 . 
-		
-
-:Anno_Qudrat2018_1 a oa:Annotation ; 
-	dc:creator "Peter Reimann" ; 
-	dc:date "2024-01-23" ; 
-	oa:motivatedBy oa:classifying ; 
-	oa:bodyValue "The study focusses on system dynamics-based interactive learning environments (SDILEs). The key hypothesis is that subjects trained with a human-facilitated SDILE will better understand the dynamics of environmental accumulations than those trained with a standalone, automated SDILE. (p. 190). The intervention theory is that good decision making depends on the understanding of complex systems, and the  understanding of stocks and flows in particular. SD simulations are effective for developing that understanding, but human-facilitated SD simulations are even more effective. Sometimes, this is done by debriefing after a modelling session, but this is an expensive format.  > To overcome such a challenge, we propose the incor- poration of human-facilitation into the design of SDILEs based training workshops, focused on the elaboration of the accumulation principle: that the state of a stock (level) can only be controlled through its flows (rates) or only the net flow (i.e. (outflows-inflows)) can cause an increase (or decrease) into a stock, as an alternate, innovative and cost-effective solution. (p.189) < . The hypothesis are tested experimentally and are confirmed by the data." ; 
-	oa:hasTarget :Qudrat2018 . 
+	litrev:annotation [ a oa:Annotation ; 
+  	dc:creator "Peter Reimann" ; 
+  	dc:date "2024-01-23" ; 
+  	oa:motivatedBy oa:classifying ; 
+  	oa:bodyValue "The study focusses on system dynamics-based interactive learning environments (SDILEs). The key hypothesis is that subjects trained with a human-facilitated SDILE will better understand the dynamics of environmental accumulations than those trained with a standalone, automated SDILE. (p. 190). The intervention theory is that good decision making depends on the understanding of complex systems, and the  understanding of stocks and flows in particular. SD simulations are effective for developing that understanding, but human-facilitated SD simulations are even more effective. Sometimes, this is done by debriefing after a modelling session, but this is an expensive format.  > To overcome such a challenge, we propose the incorporation of human-facilitation into the design of SDILEs based training workshops, focused on the elaboration of the accumulation principle: that the state of a stock (level) can only be controlled through its flows (rates) or only the net flow (i.e. (outflows-inflows)) can cause an increase (or decrease) into a stock, as an alternate, innovative and cost-effective solution. (p.189) < . The hypothesis are tested experimentally and are confirmed by the data." ; 
+  	oa:hasTarget :Qudrat2018 . ]
 		
 		
 :Schulze2015 a dc:BibliographicResource, bibo:Article ;
@@ -717,23 +721,40 @@ prefix : <http://www.learn-web.com/litgraph/>
 	litrev:pedagogy envped:ModelSimulation ; 
 	litrev:modeling ses:ModelOfNature, ModelOfSociety ; 
 	litrev:researchApproach  rm:SurveyMethod  ;
-	litrev:annotation :Anno_Schulze2015_1 . 
+	litrev:annotation [ a oa:Annotation ; 
+  	dc:creator "Peter Reimann" ; 
+  	dc:date "2024-01-25" ; 
+  	oa:motivatedBy oa:classifying ; 
+  	oa:bodyValue "This game is based on a simulation model of land use. < the core function of the underlying model of the game LandYOUs is to provide an aggregated system dynamics model with a reduced number of state variables, which get input from a spatially explicit map representing land use.  (p. 59). > The pedagogical theory is that games are learner-centred. The main theory tested is that game-based learning would increase intrinsic motivation. The (survey) data provide some support for this, but that could be contested because of the weak design (post-intervention online survey on a heterogeneous group of first users)." ; 
+  	oa:hasTarget :Schulze2015 . ]
 	
-:Anno_Schulze2015_1 a oa:Annotation ; 
+
+:Kumar2018 a dc:BibliographicResource, bibo:Article ;
+	:dateAdded "2024-01-29" ; 
+	litrev:science sci:ClimateScience ;
+	litrev:learningOutcome lo:SystemsThinking, lo:Misconceptions ;
+	litrev:educationLevel edlevel:GraduateStudy ; 
+	litrev:technology tech:SysDyn , tech:DemonstrationModel ;  
+	litrev:pedagogy envped:ModelSimulation ; 
+	litrev:modeling ses:ModelOfNature ; 
+	litrev:researchApproach  rm:ExperimentalMethod  ;
+	litrev:learningTime "P90M"^^xsd:duration ;
+	litrev:annotation :Anno_Kumar_2018_1 , :Anno_Kumar_2018_2 . 
+		
+		
+:Anno_Kumar2018_1 a oa:Annotation ; 
 	dc:creator "Peter Reimann" ; 
-	dc:date "2024-01-25" ; 
+	dc:date "2024-01-29" ; 
 	oa:motivatedBy oa:classifying ; 
-	oa:bodyValue "This game is based on a simulation model of land use. < the core function of the underlying model of the game LandYOUs is to provide an aggregated system dynamics model with a reduced number of state variables, which get input from a spatially explicit map representing land use.  (p. 59). > The pedagogical theory is that games are learner-centred. The main theory tested is that game-based learning would increase intrinsic motivation. The (survey) data provide some support for this, but that could be contested because of the weak design (post-intervention online survey on a heterogeneous group of first users)." ; 
-	oa:hasTarget :Schulze2015 . 
+	oa:bodyValue "The use of stock-and-flow simulation tools is anticipated to alleviate reliance on correlation heuristics and violation of mass balance, thereby enhancing understanding of cause-and-effect relationships within the climate system.  Additionally, simulations enable participants to receive repeated feedback about their decisions and the system's responses, empowering them to test new hypotheses and comprehend the relationships between stocks and flows. Furthermore, the use of simulation tools is expected to facilitate the transfer of knowledge to different tasks, thereby improving learning and performance in climate-related activities. The simulation experience in one domain serves as an analogical source for reasoning about another domain, such as climate issues. The interventions is grounded in cognitive psychology (p.504): <for example, simulation tools may allow users to set specific goals iteratively (Yang et al., 2016); these tools may permit users to experience gradual increases in a problem’s complexity (...) and they may provide analogies and alternative representations to improve learning > (p. 504)." ; 
+	oa:hasTarget :Kumar2018 . 
 	
-
-	
-
-		
-		
-		
-		
-		
+:Anno_Kumar2018_2 a oa:Annotation ; 
+	dc:creator "Peter Reimann" ; 
+	dc:date "2024-01-29" ; 
+	oa:motivatedBy oa:classifying ; 
+	oa:bodyValue "The findings support the hypotheses proposed in the study. The results indicate that participants in the DCCS conditions exhibited a significantly lower reliance on the correlation heuristic compared to those in the CS conditions, supporting the hypothesis that engagement with stock-and-flow simulation tools would reduce reliance on the correlation heuristic in subsequent tasks. Additionally, the study found a significantly smaller proportion of participants violating mass balance in the CS task of the DCCS-CS (Inc) condition compared to the CS (Inc) condition, aligning with the hypothesis that DCCS training would reduce the violation of mass balance in subsequent tasks. These findings provide empirical support for the effectiveness of stock-and-flow simulation tools in facilitating learning and reducing climate misconceptions, as hypothesized in the study." ; 
+	oa:hasTarget :Kumar2018 . 
 		
 		
 		

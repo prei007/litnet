@@ -439,32 +439,6 @@ to Learn about Ocean Acidification""" ;
   :dateAdded "2024-01-18" ;
   dc:identifier "DOI 10.1016/j.envsoft.2014.11.029" .
   
-### Not coded yet 
-  
-
-:Eriksson2020 
-  dc:title "Systems Thinking Exercises in Computing Education: Broadening the Scope of ICT and Sustainability" ;
-  dc:type "conferencePaper" ;
-  dc:creator "Eriksson, E.", "Rivera, M.B.", "Hedin, B.", "Pargman, D.", "Hasselqvist, H." ;
-  dc:date "2020" ;
-  :dateAdded "2024-01-18" ;
-  dc:identifier "DOI 10.1145/3401335.3401670" .
-
-:White2023 
-  dc:title "The Design, Development and Pilot Study of a Marine Ecological Simulation for Education of Environmental Changes on Marine Life" ;
-  dc:type "conferencePaper" ;
-  dc:creator "White, D.", "Stone, R.", "Cracknell, D." ;
-  dc:date "2023" ;
-  :dateAdded "2024-01-18" ;
-  dc:identifier "DOI 10.1007/978-3-031-44751-8_31" .
-
-:Prilenska2020 
-  dc:title "Serious game for modelling neighbourhood energy supply scenarios" ;
-  dc:type "conferencePaper" ;
-  dc:creator "Prilenska, V." ;
-  dc:date "2020" ;
-  :dateAdded "2024-01-18" ;
-  dc:identifier "DOI 10.1088/1755-1315/410/1/012091" .
 
 :Kumar2018
   dc:title "Alleviating misconceptions about Earth's climate: evidence of behavioral learning in stock-and-flow simulations" ;

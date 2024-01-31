@@ -15,9 +15,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX anno: <http://www.coolfutures.net/rdf/2021/bibannotation#>
 PREFIX oa: <http://www.w3.org/ns/oa#> 
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
 # Domain name spaces
 prefix litgraph: <http://www.learn-web.com/litgraph/>
 prefix litrev: <http://www.learn-web.com/2023/litrev/> 
+
 # Thesauri 
 PREFIX sci: <http://www.learn-web.com/thesauri/sciences/>
 PREFIX rm: <http://www.learn-web.com/thesauri/research_methods/>

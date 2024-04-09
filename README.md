@@ -1,12 +1,12 @@
 # LitNet - the 'living' review as Knowledge Graph
 
-LitNet is a method for literature review that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). There is a Shiny application with a point and click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities in addition to facilitating the entry of RDF data.
+LitNet is a method for literature review that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). The core is a R Shiny application with a point-and-click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities and facilitates the entry of RDF data.
 
 ## Purpose
 
-The main use case is preparing an analytic literature review or research synthesis (used synonymously). The review takes the form of attaching codes to publications (or parts of publications, i.e., micropublications) and creates relations between (parts of) publications. An example for a code is the age group of the human participants in a learning research study. An example for a relation between two studies is that S1 cites S2. Another example for a relational annotation is that S1 contains a claim C.
+The main use case is preparing an analytic literature review or research synthesis (used synonymously). The review attaches codes to publications (or parts of publications, i.e., micropublications) and creates relations between (parts of) publications. An example for a code is the age group of the human participants in a learning research study. An example for a relation between two studies is that S1 cites S2. Another example for a relational annotation is that S1 contains a claim C.
 
-Reviewers can enter codes and relations by editing files and/or by using the Shiny app. A particular feature of the app is that it can import any coding scheme that is written in the SKOS notation with very few manual adjustments needed.
+Reviewers can enter codes and relations by editing files and/or using the Shiny app. The app's particular feature is that it can import any coding scheme written in SKOS notation with very few manual adjustments needed.
 
 The main purpose of the Shiny app is to facilitate the entry of RDF data. It automatically offers values for codes in dropdown boxes and fills in namespaces needed for fully formatted RDF. This makes it comparatively easy to create--or contribute to--a Knowledge Graph that contains the bibliographic data and the thematic codes and relations for the tables and graphs that appear in published literature reviews.
 

@@ -6,7 +6,7 @@ library(shinyjs)
 library(visNetwork)
 library(allegRo)
 library(readr)
-library(NestedMenu)
+# library(NestedMenu)
 
 ###  setup global vars
 

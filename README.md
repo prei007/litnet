@@ -1,6 +1,6 @@
-# LitGraph - the 'living' review as Knowledge Graph
+# LitNet - the 'living' review as Knowledge Graph
 
-LitGraph is a method for literature review that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). There is a Shiny application with a point and click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities in addition to facilitating the entry of RDF data.
+LitNet is a method for literature review that builds on RDF and SKOS, and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). There is a Shiny application with a point and click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities in addition to facilitating the entry of RDF data.
 
 ## Purpose
 

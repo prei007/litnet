@@ -126,7 +126,7 @@ The app gets information about the predicates to offer to the user in form of a 
 
 #### Information in the file predicates.csv
 
-Each predicate that the app is supposed to use needs to have a row in the spreadsheet. The attributes (columns) for each predicate are:
+Each predicate needs to have a row in the spreadsheet. The attributes (columns) for each predicate are:
 
 -   label: the predicate name, including the prefix. For instance, `foaf:name`, `cito:cites`.
 -   aspect: The aspect bundles predicates into logical groups. For instance, `Author`, `Citation`.

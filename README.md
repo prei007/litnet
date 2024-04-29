@@ -1,6 +1,18 @@
 # LitNet - the 'living' review as Knowledge Graph
 
-LitNet is a method for literature review that is inspired by the idea of the [living evidence synthesis](https://www.statnews.com/2023/03/27/strengthen-science-by-funding-living-evidence-synthesis/): Keeping the bibliographic materials up-to-date even after the literature review is (being) published. To this end, instead of keeping the references and codes in a propriety format, they get stored in a (web) database. LitNet builds on RDF and SKOS--semantic web standards--and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). The core is a R Shiny application with a point-and-click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities and facilitates data entry. In effect, LitNet expresses bibliographic and coding information as a [Knowledge Graph](http://www.google.com).
+LitNet is a method for literature review that is inspired by the idea of the [living evidence synthesis](https://www.statnews.com/2023/03/27/strengthen-science-by-funding-living-evidence-synthesis/): Keeping the bibliographic materials up-to-date even after the literature review is (being) published. To this end, bibliographic references and all the data needed to create tables and graphics for a research synthesis are kept separate from the text. For printing or publishing the review, the text and the data get combined on demand, using the [quarto](https://quarto.org/) publishing system. Thus, the document reflects any changes (updates) in the data.
+
+The second main concept is the *semantic literature review*: LitNet builds on RDF and SKOS--semantic web standards--and on software: AllegroGraph, R, and Shiny. It supports the coding step in a literature review: identifying the properties of and the relations between studies (papers). In effect, LitNet expresses bibliographic and coding information as a [Knowledge Graph](http://www.google.com).
+
+In terms of tool support, LitNet can be used in three modes:
+
+1.  'low-tech mode': All data (bibliographic references, code books) are kept in local files and get combined with text into a up-to-date document.
+2.  'medium-tech mode': The data are kept in a (local or web) database and get combined with text into a up-to-date document. This makes it easier to collaborate for keeping the data up–to-date.
+3.  'high-tech mode': The data are kept on a web server and the access to the report is interactive. In other words, the report (more specifically, the report data) takes the form of a web application. This makes it easier to dynamically adopt to information user needs and preferences.
+
+For both (1) and (2), the report can be automatically generated in different formats: Word document, PDF, HTML (including a static website), thanks to quarto.
+
+The core of (3) is a R Shiny application with a point-and-click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities and facilitates data entry.
 
 In a typical use scenario, an administrator would set up the database and represent the coding book in SKOS; the researcher would then use the web app for data entry and coding. Bibliographic data can be imported in bulk as long as it is encoded in formats such as BibTeX or RIS.
 

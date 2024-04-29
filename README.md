@@ -14,9 +14,11 @@ For both (1) and (2), the report can be automatically generated in different for
 
 The core of (3) is a R Shiny application with a point-and-click interface to enter study descriptions and codes. The app provides some basic visualisation capabilities and facilitates data entry.
 
-In a typical use scenario, an administrator would set up the database and represent the coding book in SKOS; the researcher would then use the web app for data entry and coding. Bibliographic data can be imported in bulk as long as it is encoded in formats such as BibTeX or RIS.
-
 ![LitNet interface](LitGraph.jpg)
+
+Because LitNet is built around common web standards and mainly with open-source tools, there is little risk of lock-in. Even the (commercial) database server[^readme-1] can be run for free on a local computer.
+
+[^readme-1]: I am using [AllegroGraph](https://allegrograph.com/) that is free for up to 5 Million statements. But any graph server could be used, including the open source ones such as Virtuoso and Apache Fuseki.
 
 ## Purpose
 
@@ -29,6 +31,8 @@ The main purpose of the Shiny app is to facilitate the entry of RDF data. It aut
 As an example, the app is set up with bibliographic data and SKOS concept schemes from a review on computational models and simulations in environmental education. Some domain-specific concept schemes are general in nature: those for education levels, areas of research codes, and Bloom's Taxonomy.
 
 ## Main steps
+
+In a typical use scenario, an administrator would set up the database and represent the coding book in SKOS; the researcher would then use the web app for data entry and coding. Bibliographic data can be imported in bulk as long as it is encoded in formats such as BibTeX or RIS.
 
 The main steps (the ones specific to this method in bold) for the researcher are:
 

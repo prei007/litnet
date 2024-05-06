@@ -4,7 +4,7 @@ LitNet is a method for literature review that is inspired by the idea of the [li
 
 The second main concept is the *semantic literature review*: LitNet builds on RDF and SKOS--semantic web standards--and uses a RDF database. Semantic methods allow to express more complex relations than attribute-value pairs and can do so more easily than using relational databases. In effect, LitNet expresses bibliographic and coded information as a [Knowledge Graph](https://en.wikipedia.org/wiki/Knowledge_graph).
 
-LitNet is a good fit with theory-oriented approaches to literature review and research synthesis, in particular the [Realist Review](https://en.wikipedia.org/wiki/Realist_Evaluation). For instance, in LitNet [theories of behavior change](https://www.humanbehaviourchange.org/bcio) can be modeled and set in relation to (parts of) published studies. In the near future, LitNet will also include the modeling of provenance via the [provo ontology](<https://www.w3.org/TR/prov-o/>). This is important for increasing the transparency of qualitative review methods.
+LitNet is a good fit with theory-oriented approaches to literature review and research synthesis, in particular the [Realist Review](https://en.wikipedia.org/wiki/Realist_Evaluation). For instance, in LitNet [theories of behavior change](https://www.humanbehaviourchange.org/bcio) can be modeled and set in relation to (parts of) published studies. In the near future, LitNet will also include the modeling of provenance via the [provo ontology](https://www.w3.org/TR/prov-o/). This is important for increasing the transparency of qualitative review methods.
 
 In terms of tool support, LitNet can be used in three modes:
 

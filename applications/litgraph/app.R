@@ -108,7 +108,6 @@ ui <- fluidPage(useShinyjs(),
                     tabPanel(
                       "Graph",
                       checkboxGroupInput("linksDisplayed", "Link types to include:",
-                                       #  c("ScholarlyWork", "Citation", "Claim"), 
                                          aspects, 
                                          selected = "ScholarlyWork", 
                                          inline = TRUE), 
@@ -135,12 +134,10 @@ server <- function(input, output, session) {
       service(url, input$userName, input$pwd, testConnection = FALSE),
       envir = globalenv()
     )
-    #  assign("cat", catalog(service, "perei"), envir = globalenv())
     assign("cat", catalog(service, "coolfutures"), envir = globalenv())
     assign("userList", paste0("User", 1:10), envir = globalenv())
     
     if (userName %in% c("perei")) {
-      #  assign("rep", repository(cat, "skosgraph"), envir = globalenv())
       assign("rep", repository(cat, "compumod2"), envir = globalenv())
     }  else if (exists('userName') & userName %in% userList) {
       assign("rep", repository(cat, "skosgraph"), envir = globalenv())
@@ -178,11 +175,6 @@ server <- function(input, output, session) {
                               "objectInput",
                               options = concept_list,
                               create = TRUE)
-    
-    # It would also be good to have the authors and works available, for selection in the
-    # object field. Since they change dynamically, different from categories, we need to
-    # update these cached values on save.
-    
     
     # display the available predicates by aspect in the Descriptors tab
     output$descriptorsTable <-
@@ -240,10 +232,6 @@ server <- function(input, output, session) {
       }
     }
   })
-  
-  # we could also think about:
-  # observeEvent(input$objectInput)
-  # for analysing the input as to problems.
   
   # -------------------------------
   # Push a statement

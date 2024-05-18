@@ -2,7 +2,7 @@ label,aspect,domain,range,skos,prefix,uri
 foaf:name,Author,foaf:Person,xsd:string,,foaf,http://xmlns.com/foaf/0.1/
 foaf:familyName,Author,foaf:Person,xsd:string,,foaf,http://xmlns.com/foaf/0.1/
 foaf:givenName,Author,foaf:Person,xsd:string,,foaf,http://xmlns.com/foaf/0.1/
-dcterms:creator,ScholarlyWork,bibo:Article,foaf:Person,,dcterms,http://purl.org/dc/terms/
+dcterms:creator,ScholarlyWork,bibo:Article,xsd:string,,dcterms,http://purl.org/dc/terms/
 dcterms:date,ScholarlyWork,bibo:Article,xsd:string,,dcterms,http://purl.org/dc/terms/
 dcterms:created,ScholarlyWork,bibo:Article,xsd:string,,dcterms,http://purl.org/dc/terms/
 dcterms:title,ScholarlyWork,bibo:Article,xsd:string,,dcterms,http://purl.org/dc/terms/

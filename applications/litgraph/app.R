@@ -127,7 +127,8 @@ server <- function(input, output, session) {
   observeEvent(input$loginButton, {
     # Configure AG connection
     # Using assign() from base R to make variables known outside this reactive context.
-    assign("url", "http://learn-web.com/", envir = globalenv())
+    
+    assign("url", "http://learngraph.net:10035/", envir = globalenv())
     assign("userName", input$userName, envir = globalenv())
     assign(
       "service",
@@ -138,7 +139,7 @@ server <- function(input, output, session) {
     assign("userList", paste0("User", 1:10), envir = globalenv())
     
     if (userName %in% c("perei")) {
-      assign("rep", repository(cat, "compumod2"), envir = globalenv())
+      assign("rep", repository(cat, "compumod"), envir = globalenv())
     }  else if (exists('userName') & userName %in% userList) {
       assign("rep", repository(cat, "skosgraph"), envir = globalenv())
     } else {
@@ -147,6 +148,7 @@ server <- function(input, output, session) {
     }
     
     # add namespaces because they are "private" to the logged in user!
+    
     
     for (i in 1:length(namespaceDF$prefix)) {
       addNameSpace(

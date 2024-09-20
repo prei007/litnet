@@ -127,7 +127,8 @@ server <- function(input, output, session) {
   observeEvent(input$loginButton, {
     # Configure AG connection
     # Using assign() from base R to make variables known outside this reactive context.
-    assign("url", "http://learn-graph.net/", envir = globalenv())
+    
+    assign("url", "http://learngraph.net:10035/", envir = globalenv())
     assign("userName", input$userName, envir = globalenv())
     assign(
       "service",
@@ -147,6 +148,7 @@ server <- function(input, output, session) {
     }
     
     # add namespaces because they are "private" to the logged in user!
+    
     
     for (i in 1:length(namespaceDF$prefix)) {
       addNameSpace(

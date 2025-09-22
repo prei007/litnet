@@ -128,7 +128,7 @@ server <- function(input, output, session) {
     # Configure AG connection
     # Using assign() from base R to make variables known outside this reactive context.
     
-    assign("url", "http://learngraph.net:10035/", envir = globalenv())
+    assign("url", "http://85.214.151.241:10035/", envir = globalenv())
     assign("userName", input$userName, envir = globalenv())
     assign(
       "service",

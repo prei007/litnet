@@ -66,6 +66,7 @@ predicates <<- read_csv("predicates.csv", show_col_types = FALSE)
 # Append the predicate URIs to ns_list. 
 ns_list <<- unique(append(ns_list, predicates$uri))
 
+
 ### Build the app ###
 ui <- fluidPage(useShinyjs(),
                 titlePanel("LitGraph"),
@@ -140,6 +141,9 @@ server <- function(input, output, session) {
     
     if (userName %in% c("perei")) {
       assign("rep", repository(cat, "compumod"), envir = globalenv())
+      print("Debug: reached line 142")
+      flush.console()
+      
     }  else if (exists('userName') & userName %in% userList) {
       assign("rep", repository(cat, "skosgraph"), envir = globalenv())
     } else {
